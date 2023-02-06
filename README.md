@@ -14,3 +14,11 @@ En variant på shooter map (space invaders) detaljer tbd
 
 ## Credits
 Tileset tbd
+
+## Konsept A2 
+- Spillfigur kan styres.. 
+- Todimensjonal verden:
+    - ... 
+- Spilleren kan samle poeng ved å.. 
+- Utfordringen i spillet er å.. 
+- Det vil være mulig å oppnå "Power-ups" som gir spilleren  
