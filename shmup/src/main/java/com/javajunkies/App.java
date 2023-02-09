@@ -1,38 +1,39 @@
 package com.javajunkies;
+import java.awt.Dimension;
+
 import javax.swing.*;
+
+import com.javajunkies.controller.InputController;
+import com.javajunkies.controller.KeyListenerInputController;
+import com.javajunkies.controller.TestInputController;
+import com.javajunkies.model.GameModel;
+import com.javajunkies.view.GameView;
 /**
  * Hello world!
  *
  */
 public class App 
 {
-  /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
-    private static void createAndShowGUI() {
-        //Create and set up the window.
-        JFrame frame = new JFrame("HelloWorldSwing");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 
-        //Add the ubiquitous "Hello World" label.
-        JLabel label = new JLabel("Hello World");
-        frame.getContentPane().add(label);
- 
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
-    }
-
+    public static final String WINDOW_TITLE = "JavaJunkies Shmup";
+    public static final int WIDTH = 500;
+    public static final int HEIGHT = 500;
     public static void main( String[] args )
     {
-      //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
+        GameView gameView = new GameView();
+        InputController inputController = new TestInputController();
+        GameModel gameModel = new GameModel(inputController, gameView);
+
+        // gameView.addKeyListener(inputController);
+
+        JFrame frame = new JFrame(WINDOW_TITLE);
+        frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setContentPane(gameView);
+
+        frame.pack();
+        frame.setVisible(true);
+
+        gameView.setDoubleBuffered(false);
+        gameView.requestFocus();
     }
 }
