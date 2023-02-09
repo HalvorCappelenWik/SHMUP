@@ -1,4 +1,4 @@
-## Roller A1
+## A1 - Roller 
 ##### Teamlead: Mats
 Teamlead skal ha overordnet kontroll over vårt prosjekt. Vi ønsker en teamlead som har tidligere erfaring fra utvikling av større prosjekter og erfaring med utvikling av programmer sammen med andre. Vi setter Mats som teamlead. Han har tidligere jobbet på faktiske prosjekter ute hos kunde og er en naturlig teamlead for oss. 
 ##### Møtereansvarlig: Halvor
@@ -13,7 +13,7 @@ Vi kommer til å vektlegge å lage gode tester slik at vi sørger for at produkt
 Vi ønsker at alle skal være med å bidra med mest mulig av utviklingen av spillet. Derfor vil alle, ved siden av sin spesifikke rolle, være utvikler. 
 
 
-## Konsept A2 
+##  A2 - Konsept
 - Spillfiguren kan styres med datamus, touch pad eller piltaster. 
 - Todimensjonal verden:
     - Rullegardin-verden 
@@ -30,8 +30,27 @@ Vi ønsker at alle skal være med å bidra med mest mulig av utviklingen av spil
 Inspirasjon er hentet fra: [https://en.wikipedia.org/wiki/Space_Invaders](Space Invaders). 
 Konseptbeskrivelsen er foreløpig og kommer til å bli oppdatert kontinuerlig. 
 
-## Prosjektmetodikk A3
-- Scrum? 
-- Sprint? 
+##  A3 - Prosjektmetodikk
+Etter diskusjoner har vi kommet fram til at vi ønsker å følge .... prosjektmetodikk. 
 
+Tilpasninger som trengs for å fungere og optimalisere metodikk i studentprosjekt:
+
+Viktige aspekter ved prosessen:
+
+Hvordan vi ønsker og organisere oss under prosjektet:
+
+##  A3 - Oversikt over forventet produkt
+#### Overordnet mål for applikasjonen
+#### Kravspesifikasjon MVP 
+#### Brukerhistorier
+
+## A5 - Oppsummering 
+#### Prosjekt-retrospektiv
+Hva er vi fornøyd med på oblig1?
+
+Hva fungerte bra/dårlig?
+
+Hva skal vi ta med videre til oblig2? 
+
+Hva skal vi gjøre annerledes? 
 
