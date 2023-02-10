@@ -20,10 +20,10 @@ public class App
     public static void main( String[] args )
     {
         GameView gameView = new GameView();
-        InputController inputController = new TestInputController();
+        KeyListenerInputController inputController = new KeyListenerInputController();
         GameModel gameModel = new GameModel(inputController, gameView);
 
-        // gameView.addKeyListener(inputController);
+        gameView.addKeyListener(inputController);
 
         JFrame frame = new JFrame(WINDOW_TITLE);
         frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
