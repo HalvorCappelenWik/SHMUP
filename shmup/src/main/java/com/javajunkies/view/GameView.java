@@ -1,18 +1,11 @@
 package com.javajunkies.view;
-
-import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import com.javajunkies.App;
 import com.javajunkies.model.GameModel;
 import com.javajunkies.model.GameObject;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
 import java.util.List;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
 
 public class GameView extends JPanel{
     private GameModel _model;
