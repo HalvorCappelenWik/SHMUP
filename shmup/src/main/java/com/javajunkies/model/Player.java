@@ -1,24 +1,18 @@
 package com.javajunkies.model;
 
-import com.javajunkies.controller.InputController;
 
 public class Player extends GameObject {
-    
-    private final InputController _input;
 
-    public Player(int positionX, int positionY, InputController input) {
-        super(positionX, positionY);
-        _input = input;
+
+    public Player(int positionX, int positionY, int height, int width) {
+        super(positionX, positionY, height, width);
     }
 
-    @Override
-    public void start() {
 
-    }
-
-    @Override 
-    public void update() {
-        int speed = 10;
-        positionX += _input.getDirectionX() * speed;
-    }
+	@Override
+	public void move(int x, int y) {
+		this.setPositionX(this.getPositionX() + x);
+		this.setPositionY(this.getPositionY() + y);
+		
+	}
 }

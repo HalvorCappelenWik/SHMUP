@@ -22,7 +22,7 @@ public class GameView extends JPanel implements Viewable {
         // super.paintComponent(canvas);
         if (gameObjects.size() > 0){
             for (GameObject obj : gameObjects) {
-                canvas.fillRect(obj.positionX, obj.positionY, 100, 100);
+                canvas.fillRect(obj.getPositionX(), obj.getPositionY(), obj.getWidth(), obj.getHeigtht());
             }
         }
     }

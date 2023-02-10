@@ -22,14 +22,16 @@ public class GameModel extends TimerTask  {
         _timer = new Timer();
         _timer.scheduleAtFixedRate(this, 0, 1000 / 30);
 
-        _gameObjects.add(new Player(100, 100, _input));
+        _gameObjects.add(new Player(100,100,100,100));
     }
 
     @Override
     public void run() {
         // Spill logikk
-        for (GameObject gameObject : _gameObjects)
-            gameObject.update();
+        for (GameObject gameObject : _gameObjects) {
+        	//System.out.println(_input.getDirectionX() + _input.getDirectionY());
+            gameObject.move(_input.getDirectionX(), _input.getDirectionY());
+        }
 
         // Tegne
         _view.render(_gameObjects);

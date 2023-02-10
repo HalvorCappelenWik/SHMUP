@@ -19,6 +19,7 @@ public class KeyListenerInputController implements KeyListener, InputController{
 
     @Override
     public void keyPressed(KeyEvent evt) {
+    	System.out.println(inputX + ", " + inputY);
         handleKey(evt.getKeyCode(), 1);
     }
 

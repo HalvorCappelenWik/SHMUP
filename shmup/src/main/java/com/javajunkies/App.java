@@ -20,7 +20,7 @@ public class App
     public static void main( String[] args )
     {
         GameView gameView = new GameView();
-        InputController inputController = new TestInputController();
+        InputController inputController = new KeyListenerInputController();
         GameModel gameModel = new GameModel(inputController, gameView);
 
         // gameView.addKeyListener(inputController);
