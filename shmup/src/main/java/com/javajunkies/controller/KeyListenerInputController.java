@@ -22,7 +22,7 @@ public class KeyListenerInputController extends TimerTask implements KeyListener
         this._model = model;
         this._view = view;
         _timer = new Timer();
-        _timer.scheduleAtFixedRate(this, 0, 1000 / 30);
+        _timer.scheduleAtFixedRate(this, 0, 1000 / 60);
     }
 
     @Override

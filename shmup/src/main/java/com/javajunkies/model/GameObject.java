@@ -1,5 +1,6 @@
 package com.javajunkies.model;
 
+import java.awt.Color;
 
 public abstract class GameObject {
     
@@ -7,12 +8,14 @@ public abstract class GameObject {
     private int positionY;
     private int width;
     private int heigtht;
+    private Color color;
 
-    public GameObject(int positionX, int positionY, int height, int width) {
+    public GameObject(int positionX, int positionY, int height, int width, Color color) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.heigtht = height;
         this.width = width;
+        this.color = color;
     }
 
 
@@ -56,6 +59,14 @@ public abstract class GameObject {
 
 	public void setHeigtht(int heigtht) {
 		this.heigtht = heigtht;
+	}
+	
+	public Color getColor() {
+		return this.color;
+	}
+	
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
 }

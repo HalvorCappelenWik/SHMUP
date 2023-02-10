@@ -1,11 +1,11 @@
 package com.javajunkies.view;
+import java.awt.Graphics;
+import java.util.List;
+
 import javax.swing.JPanel;
 
 import com.javajunkies.model.GameModel;
 import com.javajunkies.model.GameObject;
-
-import java.awt.Graphics;
-import java.util.List;
 
 public class GameView extends JPanel{
     private GameModel _model;
@@ -20,6 +20,7 @@ public class GameView extends JPanel{
         List<GameObject> gameObjects = _model.getGameObjects();
         if (gameObjects.size() > 0){
             for (GameObject obj : gameObjects) {
+            	canvas.setColor(obj.getColor());
                 canvas.fillRect(obj.getPositionX(), obj.getPositionY(), obj.getWidth(), obj.getHeigtht());
             }
         }
