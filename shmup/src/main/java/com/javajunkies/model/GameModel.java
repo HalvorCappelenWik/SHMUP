@@ -1,39 +1,38 @@
 package com.javajunkies.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
-import com.javajunkies.controller.InputController;
-import com.javajunkies.view.Viewable;
+public class GameModel {
 
-public class GameModel extends TimerTask  {
-    private final InputController _input;
-    private final Viewable _view;
     private final List<GameObject> _gameObjects;
-    private final Timer _timer;
+    private final GameObject _player;
+    private final int WIDTH;
+    private final int HEIGHT;
 
-    public GameModel(InputController input, Viewable view) {
-        _input = input;
-        _view = view;
+    public GameModel(int WIDTH, int HEIGHT) {
+        this.WIDTH = WIDTH;
+        this.HEIGHT = HEIGHT;
         _gameObjects = new ArrayList<>();
-        _timer = new Timer();
-        _timer.scheduleAtFixedRate(this, 0, 1000 / 30);
 
-        _gameObjects.add(new Player(100,100,100,100));
+        _player = new Player(WIDTH/2, HEIGHT/2,100,100);
     }
 
-    @Override
-    public void run() {
-        // Spill logikk
-        for (GameObject gameObject : _gameObjects) {
-        	//System.out.println(_input.getDirectionX() + _input.getDirectionY());
-            gameObject.move(_input.getDirectionX(), _input.getDirectionY());
+    public void movePlayer(int x, int y){
+        // Check if in bounds
+        if (_player.getPositionX() + x >= 0 && _player.getPositionX() + x + _player.getWidth() <= WIDTH){
+            _player.setPositionX(_player.getPositionX() + x);
         }
+        if (_player.getPositionY() + y >= 0 && _player.getPositionY() + y + _player.getHeigtht() <= HEIGHT){
+            _player.setPositionY(_player.getPositionY() + y);
+        }
+    }
 
-        // Tegne
-        _view.render(_gameObjects);
+    public List<GameObject> getGameObjects(){
+        return this._gameObjects;
+    }
+
+    public GameObject getPlayer(){
+        return this._player;
     }
 }
