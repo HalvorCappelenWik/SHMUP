@@ -12,8 +12,10 @@ import com.javajunkies.model.GameObject;
 
 public class KeyListenerInputController extends TimerTask implements KeyListener{
 
-    private int inputX = 0;
-    private int inputY = 0;
+    private boolean leftPressed = false;
+    private boolean upPressed = false;
+    private boolean downPressed = false;
+    private boolean rightPressed = false;
     private GameModel _model;
     private final Timer _timer;
     private final JPanel _view;
@@ -27,13 +29,43 @@ public class KeyListenerInputController extends TimerTask implements KeyListener
 
     @Override
     public void keyPressed(KeyEvent evt) {
-        handleKey(evt.getKeyCode(), 1);
+        int keyCode = evt.getKeyCode();
+        switch (keyCode)
+        {
+            case KeyEvent.VK_LEFT:
+                leftPressed = true;
+                break;
+            case KeyEvent.VK_RIGHT:
+                rightPressed = true;
+                break;
+            case KeyEvent.VK_UP:
+                upPressed = true;
+                break;
+            case KeyEvent.VK_DOWN:
+                downPressed = true;
+                break;
+        }
     }
 
 
     @Override
     public void keyReleased(KeyEvent evt) {
-        handleKey(evt.getKeyCode(), -1);
+    	int keyCode = evt.getKeyCode();
+        switch (keyCode)
+        {
+            case KeyEvent.VK_LEFT:
+                leftPressed = false;
+                break;
+            case KeyEvent.VK_RIGHT:
+                rightPressed = false;
+                break;
+            case KeyEvent.VK_UP:
+                upPressed = false;
+                break;
+            case KeyEvent.VK_DOWN:
+                downPressed = false;
+                break;
+        }
     }
 
     @Override
@@ -41,38 +73,20 @@ public class KeyListenerInputController extends TimerTask implements KeyListener
         // Ignored
     }
 
-    private void handleKey(int keyCode, int multiplier)
-    {
-        switch (keyCode)
-        {
-            case KeyEvent.VK_LEFT:
-                inputX -= multiplier;
-                break;
-            case KeyEvent.VK_RIGHT:
-                inputX += multiplier;
-                break;
-            case KeyEvent.VK_UP:
-                inputY -= multiplier;
-                break;
-            case KeyEvent.VK_DOWN:
-                inputY += multiplier;
-                break;
-        }
-
-        inputX = clamp11(inputX);
-        inputY = clamp11(inputY);
-    }
     
-    private static int clamp11(int value) {
-        if (value > 1) return 1;
-        if (value < -1) return -1;
-        return value;
+    private void moveIfPressed()
+    {
+        if (leftPressed)  _model.movePlayer(-1, 0);
+        if (upPressed)    _model.movePlayer(0, -1);
+        if (downPressed)  _model.movePlayer(0, 1);
+        if (rightPressed) _model.movePlayer(1, 0);
+        
     }
+
 
     @Override
     public void run() {
-        // Move player in the model
-        _model.movePlayer(inputX, inputY);
+    	moveIfPressed();
         List<GameObject> objects = _model.getGameObjects();
         objects.add(_model.getPlayer());
         _view.repaint();
