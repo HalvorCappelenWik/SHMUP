@@ -1,6 +1,6 @@
 package com.javajunkies.view;
 import java.awt.Graphics;
-import java.util.List;
+import java.awt.Color;
 
 import javax.swing.JPanel;
 
@@ -17,17 +17,28 @@ public class GameView extends JPanel{
     @Override
     public void paint(Graphics canvas) {
         super.paint(canvas);
-        List<GameObject> gameObjects = _model.getGameObjects();
-        if (gameObjects.size() > 0){
-            for (GameObject obj : gameObjects) {
-            	canvas.setColor(obj.getColor());
-                canvas.fillRect(
-                    (int) obj.getPosition().getX(), 
-                    (int) obj.getPosition().getY(), 
-                    (int) obj.getSize().getX(), 
-                    (int) obj.getSize().getY());
-            }
+        for (GameObject gameObject : _model.getGameObjects())
+            paint(canvas, gameObject);
+    }
+
+    private void paint(Graphics canvas, GameObject gameObject) {
+        if (gameObject.getSprite() == "player") {
+            paintHitBox(canvas, gameObject, Color.green);
+
+        } else if (gameObject.getSprite() == "enemy") {
+            paintHitBox(canvas, gameObject, Color.red);
+            
+        } else {
+            paintHitBox(canvas, gameObject, getForeground());
         }
     }
 
+    private void paintHitBox(Graphics canvas, GameObject gameObject, Color color) {
+        canvas.setColor(color);
+        canvas.fillRect(
+            (int) gameObject.getPosition().getX(), 
+            (int) gameObject.getPosition().getY(), 
+            (int) gameObject.getSize().getX(), 
+            (int) gameObject.getSize().getY());
+    }
 }

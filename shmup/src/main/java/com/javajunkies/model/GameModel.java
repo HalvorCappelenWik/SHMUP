@@ -1,6 +1,5 @@
 package com.javajunkies.model;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class GameModel {
         this.WIDTH = WIDTH;
         this.HEIGHT = HEIGHT;
 
-        _player = new Player(new Vector2(WIDTH/2, HEIGHT/2), new Vector2(10, 10) ,100, Color.GREEN);
+        _player = new Player(new Vector2(WIDTH/2, HEIGHT/2), new Vector2(10, 10) ,100);
         addGameObject(_player);
         spawnEnemies(5, 1);
     }
@@ -38,7 +37,7 @@ public class GameModel {
 
         if (position.getX() < 0) position.setX(0);
         if (position.getX() + size.getX() > WIDTH) position.setX(WIDTH - size.getX());
-        
+
         if (position.getY() < HEIGHT/2) position.setY(HEIGHT/2);
         if (position.getY() + size.getY() > HEIGHT) position.setY(HEIGHT - size.getY());
 
@@ -61,7 +60,7 @@ public class GameModel {
     		for (int col = 0; col < columns; col++) {
     			int x = col * (enemyWidth + spacing) + spacing;
     			int y = row * (enemyWidth + spacing) + spacing;
-    			addGameObject(new Enemy(x,y,enemyWidth, enemyWidth, Color.red));
+    			addGameObject(new Enemy(x,y,enemyWidth, enemyWidth));
     		}
     	}
     }

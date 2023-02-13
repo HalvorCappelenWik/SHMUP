@@ -8,12 +8,12 @@ public abstract class GameObject {
     
 	private Vector2 _position;
 	private Vector2 _size;
-    private Color _color;
+    private String _sprite;
 
-    public GameObject(Vector2 position, Vector2 size, Color color) {
+    public GameObject(Vector2 position, Vector2 size, String sprite) {
         this._position = position.clone();
 		this._size = size.clone();
-        this._color = color;
+        this._sprite = sprite;
     }
 
 	public abstract void update(float deltaTime);
@@ -38,11 +38,11 @@ public abstract class GameObject {
 		_position.add(delta);
 	}
 
-	public Color getColor() {
-		return _color;
+	public String getSprite() {
+		return _sprite;
 	}
 	
-	public void setColor(Color color) {
-		_color = color;
+	public void setSprite(String sprite) {
+		_sprite = sprite;
 	}
 }
