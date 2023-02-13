@@ -3,7 +3,7 @@ package com.javajunkies.model;
 import com.javajunkies.Vector2;
 
 public class Player extends GameObject {
-	private Vector2 _input = new Vector2(0, 0);
+	private Vector2 _input = Vector2.zero();
 	private int _speed;
 
     public Player(Vector2 position, Vector2 size, int speed) {

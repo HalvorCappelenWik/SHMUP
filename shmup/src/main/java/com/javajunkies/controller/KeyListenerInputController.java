@@ -15,7 +15,7 @@ public class KeyListenerInputController extends TimerTask implements KeyListener
     private boolean upPressed = false;
     private boolean downPressed = false;
     private boolean rightPressed = false;
-    private GameModel _model;
+    private final GameModel _model;
     private final Timer _timer;
     private final JPanel _view;
 
@@ -28,43 +28,12 @@ public class KeyListenerInputController extends TimerTask implements KeyListener
 
     @Override
     public void keyPressed(KeyEvent evt) {
-        int keyCode = evt.getKeyCode();
-        switch (keyCode)
-        {
-            case KeyEvent.VK_LEFT:
-                leftPressed = true;
-                break;
-            case KeyEvent.VK_RIGHT:
-                rightPressed = true;
-                break;
-            case KeyEvent.VK_UP:
-                upPressed = true;
-                break;
-            case KeyEvent.VK_DOWN:
-                downPressed = true;
-                break;
-        }
+        handleKeyEvent(evt, true);
     }
-
 
     @Override
     public void keyReleased(KeyEvent evt) {
-    	int keyCode = evt.getKeyCode();
-        switch (keyCode)
-        {
-            case KeyEvent.VK_LEFT:
-                leftPressed = false;
-                break;
-            case KeyEvent.VK_RIGHT:
-                rightPressed = false;
-                break;
-            case KeyEvent.VK_UP:
-                upPressed = false;
-                break;
-            case KeyEvent.VK_DOWN:
-                downPressed = false;
-                break;
-        }
+        handleKeyEvent(evt, false);
     }
 
     @Override
@@ -72,14 +41,33 @@ public class KeyListenerInputController extends TimerTask implements KeyListener
         // Ignored
     }
 
+    private void handleKeyEvent(KeyEvent evt, boolean isPressed) {
+        int keyCode = evt.getKeyCode();
+        switch (keyCode)
+        {
+            case KeyEvent.VK_LEFT:
+                leftPressed = isPressed;
+                break;
+            case KeyEvent.VK_RIGHT:
+                rightPressed = isPressed;
+                break;
+            case KeyEvent.VK_UP:
+                upPressed = isPressed;
+                break;
+            case KeyEvent.VK_DOWN:
+                downPressed = isPressed;
+                break;
+        }
+    }
     
     private Vector2 getMoveInput()
     {
-        if (leftPressed)  return new Vector2(-1, 0);
-        if (upPressed)    return new Vector2(0, -1);
-        if (downPressed)  return new Vector2(0, 1);
-        if (rightPressed) return new Vector2(1, 0);
-        return new Vector2(0, 0);
+        Vector2 input = Vector2.zero();
+        if (leftPressed)  input.add(Vector2.left());
+        if (upPressed)    input.add(Vector2.up());
+        if (downPressed)  input.add(Vector2.down());
+        if (rightPressed) input.add(Vector2.right());
+        return input;
     }
 
 

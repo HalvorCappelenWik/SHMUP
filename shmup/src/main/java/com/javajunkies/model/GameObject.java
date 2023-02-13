@@ -1,7 +1,5 @@
 package com.javajunkies.model;
 
-import java.awt.Color;
-
 import com.javajunkies.Vector2;
 
 public abstract class GameObject {
