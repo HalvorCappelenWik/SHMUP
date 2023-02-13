@@ -17,6 +17,7 @@ public class GameModel {
         _gameObjects = initEnemies(5,1);
 
         _player = new Player(WIDTH/2, HEIGHT/2,10,10,100, Color.GREEN);
+        _gameObjects.add(_player);
     }
 
     public void movePlayer(int x, int y){
@@ -30,7 +31,7 @@ public class GameModel {
     }
 
     public List<GameObject> getGameObjects(){
-        return this._gameObjects;
+        return new ArrayList<>(this._gameObjects);
     }
 
     public GameObject getPlayer(){

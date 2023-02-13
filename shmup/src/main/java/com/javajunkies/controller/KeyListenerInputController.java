@@ -87,8 +87,6 @@ public class KeyListenerInputController extends TimerTask implements KeyListener
     @Override
     public void run() {
     	moveIfPressed();
-        List<GameObject> objects = _model.getGameObjects();
-        objects.add(_model.getPlayer());
         _view.repaint();
     }
 }
