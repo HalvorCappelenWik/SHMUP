@@ -25,7 +25,7 @@ public class GameModel {
         if (_player.getPositionX() + x >= 0 && _player.getPositionX() + x + _player.getWidth() <= WIDTH){
             _player.setPositionX(_player.getPositionX() + x);
         }
-        if (_player.getPositionY() + y >= 0 && _player.getPositionY() + y + _player.getHeigtht() <= HEIGHT){
+        if (_player.getPositionY() + y >= HEIGHT/2 && _player.getPositionY() + y + _player.getHeigtht() <= HEIGHT){
             _player.setPositionY(_player.getPositionY() + y);
         }
     }
