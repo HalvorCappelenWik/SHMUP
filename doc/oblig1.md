@@ -5,7 +5,7 @@
 
 <b> Brukeropplevelse/UX: Ljubo .</b> Vi ønsker å gi brukeren av spillet en best mulig opplevelse, derfor ønsker vi at en har overordnet ansvar for dette. Ansvar for å gi tilbakemelding på hvordan spiller fungerer i praksis. 
 
-<b> Designansvarlig: Philip. </b> I vårt produkt ønsker vi å også vektlegge design. Derfor ønsker vi en ansvarlig for dette. Vi setter Philip som ansvarlig for dette. Philip har tidligere tatt i bruk forskjellige grafikk biblotek i java og har mest erfaring på dette feltet. 
+<b> Designansvarlig: Philip. </b> I vårt produkt ønsker vi å også vektlegge design. Derfor ønsker vi en ansvarlig for dette. Vi setter Philip som ansvarlig for dette. Philip har tidligere arbeidet med andre spillmotorer. Samt kunnskap om spilldesign, utviklingssyklusen til spill og vanlige fallgruver og byggesteiner bak spillutvikling.
 
 <b> Testansvarlig: Herman </b> Vi kommer til å vektlegge å lage gode tester slik at vi sørger for at produktet vi leverer er så optimalt som mulig. Derfor ønsker vi å ha en som har overordnet ansvar for tester. Herman skal følge opp bugs og passe på at disse blir fikset. 
 
