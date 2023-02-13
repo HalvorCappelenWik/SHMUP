@@ -34,17 +34,15 @@ Etter diskusjoner har vi kommet fram til at vi ønsker å følge scrum prosjektm
 Noen tilpasnigner vi ønsker å gjøre er blant annet å ha endel parprogrammering. Ettersom nivået på kompetanse er ulikt innad i gruppen,  vil vi ved dette sørge for at alle får deltatt like mye og har like god kontroll på applikasjonen. Vi vil prioritere å møtes fysisk så mye som mulig. 
 
 ##### GIT issue board kolonner:
-- Backlog 
-- Todo/Selected: Max 5 each sprint
-- In progess 
-- Done 
+- Open 
+- Closed
 
 ##### Viktige aspekter ved prosessen:
 - Møter: Vi har satt et fast ukentlig tidspunkt hvor vi har møter (mandager kl. 12.00). Utover dette vil vi sette opp ekstra møter dersom nødvendig. 
 - Kommunikasjon: Vi har opprettet en discord kanal hvor all kommunikasjon vil foregå. 
 - Arbeidsfordeling: Vi vil spilte hver sprint inn i chunks, hvor hver av oss får en chunk som en skal jobbe med gjennom sprinten. Vi ønsker at alle skal ha vært innom alle aspekter ved utviklingen av spillet. Foruten om dette vil vi fordele arbeid etter interesser og etter roller. 
-- Oppfølging av arbeid: Vi kommer til å benytte oss av GitLab issue board for å ha en oversikt over hva som er gjort, hva som må gjøres og hva som er ønskelig å få gjort. Vi kommer også til å prøve å implementere en fast feedback mekanisme  som vi benytter oss av kontinuerlig gjennom prosjeket. Code-reviews og standups ved slutten av hver sprint er ønskelig. 
-- Deling av oppgaver og kode: GIT og issue board.
+- Oppfølging av arbeid: Vi kommer til å benytte oss av GitLab issues for å ha en oversikt over hva som er gjort, hva som må gjøres og hva som er ønskelig å få gjort. Vi kommer også til å prøve å implementere en fast feedback mekanisme  som vi benytter oss av kontinuerlig gjennom prosjeket. Code-reviews og standups ved slutten av hver sprint er ønskelig. 
+- Deling av oppgaver og kode: GIT og Git issues.
 
 ##### Tekniske praksiser 
 Fra pensumboken Agile Technical Practices Distilled har vi følgende hovedprinsipper som vi vil forsøke å følge:
@@ -102,7 +100,7 @@ Acceptance criteria:
 Task to perfrom:
 - Implementer metoder som tar input fra tastetrykk. 
 - Sørg for korrekt "størrelse" på bevegelse per tastetrykk. 
--  Vis bevegelse på skjerm 
+- Vis bevegelse på skjerm 
 
 
 ## A5 - Oppsummering 
