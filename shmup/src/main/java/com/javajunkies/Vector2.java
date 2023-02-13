@@ -1,27 +1,27 @@
 package com.javajunkies;
 
 public class Vector2 {
-	private float x;
-	private float y;
+	private double x;
+	private double y;
 	
-	public Vector2(float x, float y) {
+	public Vector2(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
 
-	public float getX() {
+	public double getX() {
 		return x;
 	}
 
-	public void setX(float x) {
+	public void setX(double x) {
 		this.x = x;
 	}
 
-	public float getY() {
+	public double getY() {
 		return y;
 	}
 
-	public void setY(float y) {
+	public void setY(double y) {
 		this.y = y;
 	}
 	
@@ -30,7 +30,7 @@ public class Vector2 {
 		return "[" + this.x + "," + this.y + "]";
 	}
 	
-	public float length() {
+	public double length() {
 		return (float) Math.sqrt(this.sqrLength());
 	}
 	
@@ -44,17 +44,17 @@ public class Vector2 {
 		this.y -= vector.getY();
 	}
 	
-	public void multiply(float scalar) {
+	public void multiply(double scalar) {
 		this.x *= scalar;
 		this.y *= scalar;
 	}
 	
-	public static float multiply(Vector2 a, Vector2 b) {
+	public static double multiply(Vector2 a, Vector2 b) {
 		return (a.getX() * b.getX()) + (a.getY() * b.getY());
 	}
 	
 	public void normalize() {
-		float length = this.length();
+		double length = this.length();
 		if (length == 0.0f) return;
 		this.x /= length;
 		this.y /= length;
@@ -64,8 +64,8 @@ public class Vector2 {
 		return new Vector2(this.x, this.y);
 	}
 	
-	public float angle() {
-		return (float) Math.atan(this.y / this.x);
+	public double angle() {
+		return Math.atan(this.y / this.x);
 	}
 	
 	public boolean isNormal(Vector2 vector) {
@@ -76,24 +76,24 @@ public class Vector2 {
 		return (this.x/vector.getX())*vector.getY() == this.y;
 	}
 	
-	public void rotate(float angle) {
-		float newX = (float) (Math.cos(angle)*this.x-Math.sin(angle)*this.y);
-        float newY = (float) (Math.sin(angle)*this.x+Math.cos(angle)*this.y);
+	public void rotate(double angle) {
+		double newX = Math.cos(angle)*this.x-Math.sin(angle)*this.y;
+		double newY = Math.sin(angle)*this.x+Math.cos(angle)*this.y;
         this.x = newX;
         this.y = newY;
 	}
 	
 	public Vector2 normal() {
-		float oldX = this.x;
-        float oldY = this.y;
-        this.rotate((float) (0.5 * Math.PI));
+		double oldX = this.x;
+		double oldY = this.y;
+        this.rotate(0.5 * Math.PI);
         Vector2 newVector = new Vector2(this.x,this.y);
         this.x = oldX;
         this.y = oldY;
         return newVector;
 	}
 	
-	public float sqrLength() {
+	public double sqrLength() {
 		return this.x * this.x + this.y + this.y;
 	}
 }
