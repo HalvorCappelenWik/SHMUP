@@ -51,6 +51,7 @@ cache:
 build:
   stage: build
   script:
+    - cd schmup/
     - 'mvn $MAVEN_CLI_OPTS compile'
   artifacts:
     paths:
@@ -60,6 +61,7 @@ build:
 test:
   stage: test
   script:
+    - cd schmup/
     - 'mvn $MAVEN_CLI_OPTS test'
     - 'if [ -f target/site/jacoco/index.html ]; then sed -E -e "s;^.*Total[^%]*>([0-9]+%)<.*$;Total Coverage: \\1\\n;g" target/site/jacoco/index.html; fi'
   artifacts:
@@ -76,6 +78,7 @@ test:
 package:
   stage: package
   script:
+    - cd schmup/
     - 'mvn $MAVEN_CLI_OPTS verify'
   artifacts:
     paths:
@@ -89,6 +92,7 @@ package:
 deploy:
   stage: deploy
   script:
+    - cd schmup/
     - if [ ! -f ci_settings.xml ];
         then echo "CI settings missing\! If deploying to GitLab Maven Repository, please see https://docs.gitlab.com/ee/user/packages/maven_repository/index.html#create-maven-packages-with-gitlab-cicd for instructions.";
       else
@@ -104,6 +108,7 @@ deploy:
 check updates:
   stage: test
   script:
+    - cd schmup/
     - mvn versions:display-plugin-updates versions:display-property-updates versions:display-dependency-updates -D allowMajorUpdates=false
 
 
