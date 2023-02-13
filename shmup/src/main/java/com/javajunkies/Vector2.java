@@ -90,5 +90,8 @@ public class Vector2 {
         this.y = oldY;
         return newVector;
 	}
-
+	
+	public float sqrLength() {
+		return (float) (Math.sqrt(this.length()));
+	}
 }
