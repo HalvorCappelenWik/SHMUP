@@ -1,12 +1,18 @@
 package com.javajunkies;
 
+/**
+ * A 2D vector.
+ */
 public class Vector2 {
-	private double x;
-	private double y;
+	private double _x;
+	private double _y;
 	
+	/**
+	 * Creates a new 2D vector.
+	 */
 	public Vector2(double x, double y) {
-		this.x = x;
-		this.y = y;
+		_x = x;
+		_y = y;
 	}
 
 	public static Vector2 zero() { return new Vector2(0, 0); }
@@ -15,91 +21,133 @@ public class Vector2 {
 	public static Vector2 left() { return new Vector2(-1, 0); }
 	public static Vector2 right() { return new Vector2(1, 0); }
 
+	/**
+	 * Gets the X component of the vector.
+	 */
 	public double getX() {
-		return x;
+		return _x;
 	}
 
+	/**
+	 * Sets the X component of the vector.
+	 */
 	public void setX(double x) {
-		this.x = x;
+		_x = x;
 	}
 
+	/**
+	 * Gets the Y component of the vector.
+	 */
 	public double getY() {
-		return y;
+		return _y;
 	}
 
+	/**
+	 * Sets the Y component of the vector.
+	 */
 	public void setY(double y) {
-		this.y = y;
+		_y = y;
+	}
+	
+	/**
+	 * Gets the pythagorean length of the vector.
+	 */
+	public double length() {
+		return Math.sqrt(this.sqrLength());
+	}
+	
+	/**
+	 * Adds the given vector to this vector component-wise.
+	 */
+	public void add(Vector2 vector) {
+		_x += vector.getX();
+		_y += vector.getY();
+	}
+	
+	/**
+	 * Subtracts the given vector from this vector component-wise.
+	 * @param vector
+	 */
+	public void subtract(Vector2 vector) {
+		_x -= vector.getX();
+		_y -= vector.getY();
+	}
+	
+	/**
+	 * Multiplies each component of this vector with the given scalar.
+	 */
+	public void multiply(double scalar) {
+		_x *= scalar;
+		_y *= scalar;
+	}
+	
+	/**
+	 * Computes the dot-product of two vectors.
+	 */
+	public static double dot(Vector2 a, Vector2 b) {
+		return (a.getX() * b.getX()) + (a.getY() * b.getY());
+	}
+	
+	/**
+	 * Stretches the length of this vector to 1.0.
+	 */
+	public void normalize() {
+		double length = length();
+		if (length == 0.0f) return;
+		_x /= length;
+		_y /= length;
+	}
+	
+	/**
+	 * Creates a new vector equal to this.
+	 */
+	public Vector2 clone() {
+		return new Vector2(_x, _y);
+	}
+	
+	/**
+	 * Computes the angle of this vector.
+	 */
+	public double angle() {
+		return Math.atan(_y / _x);
+	}
+	
+	public boolean isNormal(Vector2 vector) {
+		return Vector2.dot(this,vector) == 0;
+	}
+	
+	public boolean isParalell(Vector2 vector) {
+		return (_x/vector.getX())*vector.getY() == _y;
+	}
+	
+	public void rotate(double angle) {
+		double newX = Math.cos(angle)*_x-Math.sin(angle)*_y;
+		double newY = Math.sin(angle)*_x+Math.cos(angle)*_y;
+        _x = newX;
+        _y = newY;
+	}
+	
+	public Vector2 normal() {
+		Vector2 normal = clone();
+		normal.rotate(0.5 * Math.PI);
+        return normal;
+	}
+	
+	public double sqrLength() {
+		return _x * _x + _y * _y;
 	}
 	
 	@Override
 	public String toString() {
-		return "[" + this.x + "," + this.y + "]";
+		return "[" + _x + "," + _y + "]";
 	}
-	
-	public double length() {
-		return (float) Math.sqrt(this.sqrLength());
-	}
-	
-	public void add(Vector2 vector) {
-		this.x += vector.getX();
-		this.y += vector.getY();
-	}
-	
-	public void subtract(Vector2 vector) {
-		this.x -= vector.getX();
-		this.y -= vector.getY();
-	}
-	
-	public void multiply(double scalar) {
-		this.x *= scalar;
-		this.y *= scalar;
-	}
-	
-	public static double multiply(Vector2 a, Vector2 b) {
-		return (a.getX() * b.getX()) + (a.getY() * b.getY());
-	}
-	
-	public void normalize() {
-		double length = this.length();
-		if (length == 0.0f) return;
-		this.x /= length;
-		this.y /= length;
-	}
-	
-	public Vector2 clone() {
-		return new Vector2(this.x, this.y);
-	}
-	
-	public double angle() {
-		return Math.atan(this.y / this.x);
-	}
-	
-	public boolean isNormal(Vector2 vector) {
-		return Vector2.multiply(this,vector) == 0;
-	}
-	
-	public boolean isParalell(Vector2 vector) {
-		return (this.x/vector.getX())*vector.getY() == this.y;
-	}
-	
-	public void rotate(double angle) {
-		double newX = Math.cos(angle)*this.x-Math.sin(angle)*this.y;
-		double newY = Math.sin(angle)*this.x+Math.cos(angle)*this.y;
-        this.x = newX;
-        this.y = newY;
-	}
-	
-	public Vector2 normal() {
-		double oldX = this.x;
-		double oldY = this.y;
-        this.rotate(0.5 * Math.PI);
-        Vector2 newVector = new Vector2(this.x,this.y);
-        this.x = oldX;
-        this.y = oldY;
-        return newVector;
-	}
-	
-	public double sqrLength() {
-		return this.x * this.x + this.y * this.y;
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) return true;
+		if (!(obj instanceof Vector2)) return false;
+		Vector2 vector = (Vector2)obj;
+		return Double.compare(_x, vector._x) == 0 && 
+			   Double.compare(_y, vector._y) == 0;
 	}
 }

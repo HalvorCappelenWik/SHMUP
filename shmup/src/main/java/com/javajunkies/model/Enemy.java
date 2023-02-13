@@ -2,6 +2,9 @@ package com.javajunkies.model;
 
 import com.javajunkies.Vector2;
 
+/**
+ * A simple enemy moving from side to side.
+ */
 public class Enemy extends GameObject{
 
 	private final int _startX;

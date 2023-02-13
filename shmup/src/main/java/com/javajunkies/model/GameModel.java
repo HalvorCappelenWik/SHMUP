@@ -5,6 +5,9 @@ import java.util.List;
 
 import com.javajunkies.Vector2;
 
+/**
+ * Manages the state of the game.
+ */
 public class GameModel {
 
     private final List<GameObject> _gameObjects = new ArrayList<>();
@@ -12,15 +15,26 @@ public class GameModel {
     private final int WIDTH;
     private final int HEIGHT;
 
+    /**
+     * Creates a new game model.
+     * 
+     * @param WIDTH Width of the screen.
+     * @param HEIGHT Height of the screen.
+     */
     public GameModel(int WIDTH, int HEIGHT) {
         this.WIDTH = WIDTH;
         this.HEIGHT = HEIGHT;
 
         _player = new Player(new Vector2(WIDTH/2, HEIGHT/2), new Vector2(10, 10) ,100);
-        addGameObject(_player);
+        spawn(_player);
         spawnEnemies(5, 1);
     }
 
+    /**
+     * Compute game state for next frame.
+     * @param deltaTime Time in seconds since last frame.
+     * @param input Current user movement input.
+     */
     public void update(float deltaTime, Vector2 input) {
         _player.setInput(input);
 
@@ -33,7 +47,7 @@ public class GameModel {
     private void containPlayer()
     {
         Vector2 position = _player.getPosition();
-        Vector2 size = _player.getSize();
+        Vector2 size = _player.getHitBox();
 
         if (position.getX() < 0) position.setX(0);
         if (position.getX() + size.getX() > WIDTH) position.setX(WIDTH - size.getX());
@@ -44,11 +58,17 @@ public class GameModel {
         _player.setPosition(position);
     }
 
+    /**
+     * Gets a list of all current GameObjects.
+     */
     public List<GameObject> getGameObjects(){
         return new ArrayList<>(this._gameObjects);
     }
 
-    public void addGameObject(GameObject gameObject) {
+    /**
+     * Spawns the given GameObject.
+     */
+    public void spawn(GameObject gameObject) {
         _gameObjects.add(gameObject);
     }
 
@@ -60,7 +80,7 @@ public class GameModel {
     		for (int col = 0; col < columns; col++) {
     			int x = col * (enemyWidth + spacing) + spacing;
     			int y = row * (enemyWidth + spacing) + spacing;
-    			addGameObject(new Enemy(x,y,enemyWidth, enemyWidth));
+    			spawn(new Enemy(x,y,enemyWidth, enemyWidth));
     		}
     	}
     }

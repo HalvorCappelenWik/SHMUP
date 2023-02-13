@@ -8,7 +8,7 @@ import com.javajunkies.model.GameModel;
 import com.javajunkies.model.GameObject;
 
 public class GameView extends JPanel{
-    private GameModel _model;
+    private final GameModel _model;
 
     public GameView(GameModel model){
         this._model = model;
@@ -27,7 +27,7 @@ public class GameView extends JPanel{
 
         } else if (gameObject.getSprite() == "enemy") {
             paintHitBox(canvas, gameObject, Color.red);
-            
+
         } else {
             paintHitBox(canvas, gameObject, getForeground());
         }
@@ -38,7 +38,7 @@ public class GameView extends JPanel{
         canvas.fillRect(
             (int) gameObject.getPosition().getX(), 
             (int) gameObject.getPosition().getY(), 
-            (int) gameObject.getSize().getX(), 
-            (int) gameObject.getSize().getY());
+            (int) gameObject.getHitBox().getX(), 
+            (int) gameObject.getHitBox().getY());
     }
 }

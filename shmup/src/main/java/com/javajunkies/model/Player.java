@@ -2,6 +2,9 @@ package com.javajunkies.model;
 
 import com.javajunkies.Vector2;
 
+/**
+ * The GameObject controlled by the player.
+ */
 public class Player extends GameObject {
 	private Vector2 _input = Vector2.zero();
 	private int _speed;
