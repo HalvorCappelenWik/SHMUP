@@ -17,6 +17,7 @@ public class App
     public static final int HEIGHT = 500;
     public static void main( String[] args )
     {
+
         GameModel model = new GameModel(WIDTH, HEIGHT);
         GameView view = new GameView(model);
         KeyListenerInputController controller = new KeyListenerInputController(model, view);
