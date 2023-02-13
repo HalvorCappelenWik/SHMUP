@@ -31,7 +31,7 @@ public class Vector2 {
 	}
 	
 	public float length() {
-		return (float) Math.sqrt(Math.pow(this.x,2) + Math.pow(this.y,2));
+		return (float) Math.sqrt(this.sqrLength());
 	}
 	
 	public void add(Vector2 vector) {
@@ -54,8 +54,10 @@ public class Vector2 {
 	}
 	
 	public void normalize() {
-		this.x /= this.length();
-		this.y /= this.length();
+		float length = this.length();
+		if (length == 0.0f) return;
+		this.x /= length;
+		this.y /= length;
 	}
 	
 	public Vector2 clone() {
@@ -92,6 +94,6 @@ public class Vector2 {
 	}
 	
 	public float sqrLength() {
-		return (float) (Math.sqrt(this.length()));
+		return this.x * this.x + this.y + this.y;
 	}
 }

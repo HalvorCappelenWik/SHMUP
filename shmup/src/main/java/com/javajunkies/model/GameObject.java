@@ -2,71 +2,47 @@ package com.javajunkies.model;
 
 import java.awt.Color;
 
+import com.javajunkies.Vector2;
+
 public abstract class GameObject {
     
-    private int positionX;
-    private int positionY;
-    private int width;
-    private int heigtht;
-    private Color color;
+	private Vector2 _position;
+	private Vector2 _size;
+    private Color _color;
 
-    public GameObject(int positionX, int positionY, int height, int width, Color color) {
-        this.positionX = positionX;
-        this.positionY = positionY;
-        this.heigtht = height;
-        this.width = width;
-        this.color = color;
+    public GameObject(Vector2 position, Vector2 size, Color color) {
+        this._position = position.clone();
+		this._size = size.clone();
+        this._color = color;
     }
 
+	public abstract void update(float deltaTime);
 
-    public abstract void move(int deltaX, int deltaY);
-
-
-	public int getPositionX() {
-		return positionX;
+	public Vector2 getPosition() {
+		return _position;
 	}
 
-
-	public void setPositionX(int positionX) {
-		this.positionX = positionX;
+	public void setPosition(Vector2 position) {
+		_position = position.clone();
 	}
 
-
-	public int getPositionY() {
-		return positionY;
+	public Vector2 getSize() {
+		return _size;
 	}
 
-
-	public void setPositionY(int positionY) {
-		this.positionY = positionY;
+	public void setSize(Vector2 size) {
+		_size = size.clone();
 	}
 
-
-	public int getWidth() {
-		return width;
+	public void move(Vector2 delta) {
+		_position.add(delta);
 	}
 
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-
-	public int getHeigtht() {
-		return heigtht;
-	}
-
-
-	public void setHeigtht(int heigtht) {
-		this.heigtht = heigtht;
-	}
-	
 	public Color getColor() {
-		return this.color;
+		return _color;
 	}
 	
 	public void setColor(Color color) {
-		this.color = color;
+		_color = color;
 	}
-
 }

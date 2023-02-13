@@ -1,14 +1,13 @@
 package com.javajunkies.controller;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JPanel;
 
+import com.javajunkies.Vector2;
 import com.javajunkies.model.GameModel;
-import com.javajunkies.model.GameObject;
 
 public class KeyListenerInputController extends TimerTask implements KeyListener{
 
@@ -74,19 +73,19 @@ public class KeyListenerInputController extends TimerTask implements KeyListener
     }
 
     
-    private void moveIfPressed()
+    private Vector2 getMoveInput()
     {
-        if (leftPressed)  _model.movePlayer(-1, 0);
-        if (upPressed)    _model.movePlayer(0, -1);
-        if (downPressed)  _model.movePlayer(0, 1);
-        if (rightPressed) _model.movePlayer(1, 0);
-        
+        if (leftPressed)  return new Vector2(-1, 0);
+        if (upPressed)    return new Vector2(0, -1);
+        if (downPressed)  return new Vector2(0, 1);
+        if (rightPressed) return new Vector2(1, 0);
+        return new Vector2(0, 0);
     }
 
 
     @Override
     public void run() {
-    	moveIfPressed();
+        _model.update(1.0f / 60, getMoveInput());
         _view.repaint();
     }
 }

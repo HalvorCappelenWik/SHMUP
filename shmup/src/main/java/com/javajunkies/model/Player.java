@@ -2,19 +2,26 @@ package com.javajunkies.model;
 
 import java.awt.Color;
 
-public class Player extends GameObject {
-	private int speed;
+import com.javajunkies.Vector2;
 
-    public Player(int positionX, int positionY, int height, int width, int speed, Color color) {
-        super(positionX, positionY, height, width, color);
-        this.speed = speed;
+public class Player extends GameObject {
+	private Vector2 _input = new Vector2(0, 0);
+	private int _speed;
+
+    public Player(Vector2 position, Vector2 size, int speed, Color color) {
+        super(position, size, color);
+        this._speed = speed;
     }
 
-
 	@Override
-	public void move(int x, int y) {
-		this.setPositionX(this.getPositionX() + (x * speed));
-		this.setPositionY(this.getPositionY() + (y * speed));
-		
+	public void update(float deltaTime) {
+		Vector2 delta = _input.clone();
+		delta.normalize();
+		delta.multiply(deltaTime * _speed);
+		move(delta);
+	}
+
+	public void setInput(Vector2 input) {
+		_input = input;
 	}
 }

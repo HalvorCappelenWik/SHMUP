@@ -21,7 +21,11 @@ public class GameView extends JPanel{
         if (gameObjects.size() > 0){
             for (GameObject obj : gameObjects) {
             	canvas.setColor(obj.getColor());
-                canvas.fillRect(obj.getPositionX(), obj.getPositionY(), obj.getWidth(), obj.getHeigtht());
+                canvas.fillRect(
+                    (int) obj.getPosition().getX(), 
+                    (int) obj.getPosition().getY(), 
+                    (int) obj.getSize().getX(), 
+                    (int) obj.getSize().getY());
             }
         }
     }
