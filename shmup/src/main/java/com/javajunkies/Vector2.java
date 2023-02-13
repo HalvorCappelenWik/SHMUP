@@ -30,6 +30,10 @@ public class Vector2 {
 		return "[" + this.x + "," + this.y + "]";
 	}
 	
+	public boolean equals(Vector2 vector) {
+		return this.x == vector.getX() && this.y == vector.getY();
+	}
+	
 	public double length() {
 		return Math.sqrt(Math.pow(this.x,2) + Math.pow(this.y,2));
 	}
@@ -44,7 +48,7 @@ public class Vector2 {
 		this.y -= vector.getY();
 	}
 	
-	public void multiply(float scalar) {
+	public void multiply(double scalar) {
 		this.x *= scalar;
 		this.y *= scalar;
 	}
@@ -54,8 +58,10 @@ public class Vector2 {
 	}
 	
 	public void normalize() {
-		this.x /= this.length();
-		this.y /= this.length();
+		Double newX = (double) ((double) this.x) / ((double) this.length());
+		Double newY = (double) ((double) this.y) / ((double) this.length());
+		this.x = newX;
+		this.y = newY;
 	}
 	
 	public Vector2 clone() {
