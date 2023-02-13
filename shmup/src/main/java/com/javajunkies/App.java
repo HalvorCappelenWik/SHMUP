@@ -27,6 +27,7 @@ public class App
         JFrame frame = new JFrame(WINDOW_TITLE);
         frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
         frame.setContentPane(view);
 
         frame.pack();
