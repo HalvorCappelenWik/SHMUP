@@ -73,7 +73,7 @@ public class KeyListenerInputController extends TimerTask implements KeyListener
 
     @Override
     public void run() {
-        _model.update(1.0f / 60, getMoveInput());
+        _model.update(1.0d / 60, getMoveInput());
         _view.repaint();
     }
 }

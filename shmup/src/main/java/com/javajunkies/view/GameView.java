@@ -4,20 +4,20 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 
-import com.javajunkies.model.GameModel;
 import com.javajunkies.model.GameObject;
+import com.javajunkies.model.GameScene;
 
 public class GameView extends JPanel{
-    private final GameModel _model;
+    private final GameScene _scene;
 
-    public GameView(GameModel model){
-        this._model = model;
+    public GameView(GameScene scene){
+        this._scene = scene;
     }
 
     @Override
     public void paint(Graphics canvas) {
         super.paint(canvas);
-        for (GameObject gameObject : _model.getGameObjects())
+        for (GameObject gameObject : _scene.getGameObjects())
             paint(canvas, gameObject);
     }
 
@@ -28,6 +28,8 @@ public class GameView extends JPanel{
         } else if (gameObject.getSprite() == "enemy") {
             paintHitBox(canvas, gameObject, Color.red);
 
+        } else if (gameObject.getSprite() == "bullet") {
+            paintHitBox(canvas, gameObject, Color.orange);
         } else {
             paintHitBox(canvas, gameObject, getForeground());
         }

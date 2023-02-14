@@ -10,9 +10,10 @@ public abstract class GameObject {
 	private Vector2 _position;
 	private Vector2 _hitBox;
     private String _sprite;
+	private GameScene _scene;
 
 	/**
-	 * Creates a new un-spawned GameObject.
+	 * Creates a new un-spawned {@link GameObject}.
 	 * 
 	 * @param position Initial position of object.
 	 * @param hitBox Initial hit-box of object.
@@ -29,7 +30,7 @@ public abstract class GameObject {
 	 * 
 	 * @param deltaTime Time in seconds elapsed since the previous frame.
 	 */
-	public abstract void update(float deltaTime);
+	public abstract void update(double deltaTime);
 
 	/**
 	 * Gets the current position of this object.
@@ -78,5 +79,24 @@ public abstract class GameObject {
 	 */
 	public void setSprite(String sprite) {
 		_sprite = sprite;
+	}
+
+	/**
+	 * Sets the scene containing this object.
+	 * @param scene GameScene. Can be {@code null}.
+	 */
+	public void setScene(GameScene scene) {
+		_scene = scene;
+		if (scene != null)
+		{
+			_scene.spawn(this);
+		}
+	}
+
+	/**
+	 * Gets the scene containing this object.
+	 */
+	public GameScene getScene() {
+		return _scene;
 	}
 }

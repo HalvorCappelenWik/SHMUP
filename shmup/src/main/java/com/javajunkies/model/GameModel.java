@@ -8,7 +8,7 @@ import com.javajunkies.Vector2;
 /**
  * Manages the state of the game.
  */
-public class GameModel {
+public class GameModel implements GameScene {
 
     private final List<GameObject> _gameObjects = new ArrayList<>();
     private final Player _player;
@@ -25,7 +25,7 @@ public class GameModel {
         this.WIDTH = WIDTH;
         this.HEIGHT = HEIGHT;
 
-        _player = new Player(new Vector2(WIDTH/2, HEIGHT/2), new Vector2(10, 10) ,100);
+        _player = new Player(new Vector2(WIDTH/2, HEIGHT/2));
         spawn(_player);
         spawnEnemies(5, 1);
     }
@@ -35,10 +35,10 @@ public class GameModel {
      * @param deltaTime Time in seconds since last frame.
      * @param input Current user movement input.
      */
-    public void update(float deltaTime, Vector2 input) {
+    public void update(double deltaTime, Vector2 input) {
         _player.setInput(input);
 
-        for (GameObject gameObject : _gameObjects)
+        for (GameObject gameObject : new ArrayList<>(_gameObjects))
             gameObject.update(deltaTime);
 
         containPlayer();
@@ -58,18 +58,22 @@ public class GameModel {
         _player.setPosition(position);
     }
 
-    /**
-     * Gets a list of all current GameObjects.
-     */
-    public List<GameObject> getGameObjects(){
+    @Override
+    public Iterable<GameObject> getGameObjects(){
         return new ArrayList<>(this._gameObjects);
     }
 
-    /**
-     * Spawns the given GameObject.
-     */
+    @Override
     public void spawn(GameObject gameObject) {
+        if (_gameObjects.contains(gameObject)) return;
         _gameObjects.add(gameObject);
+        gameObject.setScene(this);
+    }
+
+    @Override
+    public void destroy(GameObject gameObject) {
+        _gameObjects.remove(gameObject);
+        gameObject.setScene(null);
     }
 
     private void spawnEnemies(int columns, int rows){

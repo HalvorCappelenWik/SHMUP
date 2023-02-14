@@ -19,7 +19,7 @@ public class Enemy extends GameObject{
 	}
 
 	@Override
-	public void update(float deltaTime) {
+	public void update(double deltaTime) {
 		Vector2 delta = new Vector2(_direction, 0);
 		delta.multiply(deltaTime * _speed);
 		move(delta);
