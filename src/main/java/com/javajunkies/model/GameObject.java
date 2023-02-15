@@ -42,6 +42,7 @@ public abstract class GameObject {
 
 	/**
 	 * Sets the current position of this object.
+	 * @param position
 	 */
 	public void setPosition(Vector2 position) {
 		_position = position.clone();
@@ -49,6 +50,7 @@ public abstract class GameObject {
 
 	/**
 	 * Gets the width and height of this objects hit-box. x is width, y is height.
+	 * @return Vector2 with width and height
 	 */
 	public Vector2 getHitBox() {
 		return _hitBox;
@@ -56,6 +58,7 @@ public abstract class GameObject {
 
 	/**
 	 * Sets the width and height of this objects hit-box. x is width, y is height.
+	 * @param size
 	 */
 	public void setHitBox(Vector2 size) {
 		_hitBox = size.clone();
@@ -70,13 +73,15 @@ public abstract class GameObject {
 
 	/**
 	 * Gets the name of the sprite used by this object.
+	 * @return name
 	 */
 	public String getSprite() {
 		return _sprite;
 	}
-	
+
 	/**
 	 * Sets the name of the sprite used by this object.
+	 * @param sprite
 	 */
 	public void setSprite(String sprite) {
 		_sprite = sprite;
@@ -96,11 +101,17 @@ public abstract class GameObject {
 
 	/**
 	 * Gets the scene containing this object.
+	 * @return the Gamescene
 	 */
 	public GameScene getScene() {
 		return _scene;
 	}
 
+	/**
+	 * Checks if the current object collides with the given object based on position and hitbox
+	 * @param object  the object to check with
+	 * @return true if they collide, false otherwise
+	 */
 	public boolean hasCollidedWith(GameObject object){
 		Vector2 l1 = this.getPosition();
 		Vector2 r1 = new Vector2(l1.getX() + this._hitBox.getX(), l1.getY() + this._hitBox.getY());
