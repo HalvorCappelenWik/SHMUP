@@ -118,7 +118,7 @@ public abstract class GameObject {
 		}
 
 		// If one rectangle is above other
-		if (r1.getY() > l2.getY() || r2.getY() > l1.getY()) {
+		if (r1.getY() < l2.getY() || r2.getY() > l1.getY()) {
 			return false;
 		}
 
