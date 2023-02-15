@@ -42,6 +42,7 @@ public class GameModel implements GameScene {
             gameObject.update(deltaTime);
 
         containPlayer();
+        testMethod();
     }
 
     private void containPlayer()
@@ -88,4 +89,36 @@ public class GameModel implements GameScene {
     		}
     	}
     }
+
+    private ArrayList<GameObject> getBullets() {
+        ArrayList<GameObject> bullets = new ArrayList<>();
+        for (GameObject gameObject : _gameObjects) {
+            if (gameObject.getSprite().equals("bullet")) {
+                bullets.add(gameObject);
+            }
+        }
+        return bullets;
+    }
+
+    private ArrayList<GameObject> getEnemies() {
+        ArrayList<GameObject> enemies = new ArrayList<>();
+        for (GameObject gameObject : _gameObjects) {
+            if (gameObject.getSprite().equals("bullet")) {
+                enemies.add(gameObject);
+            }
+        }
+        return enemies;
+    }
+
+    private void testMethod() {
+        for (GameObject bullet : getBullets()) {
+            for (GameObject enemy : getEnemies()) {
+                if (bullet.hasCollidedWith(enemy)) {
+                    destroy(bullet);
+                    destroy(enemy);
+                }
+            }
+        }
+    }
+
 }

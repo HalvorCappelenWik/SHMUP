@@ -100,7 +100,7 @@ public abstract class GameObject {
 		return _scene;
 	}
 
-	public boolean collides(GameObject object){
+	public boolean hasCollidedWith(GameObject object){
 		Vector2 l1 = this.getPosition();
 		Vector2 r1 = new Vector2(l1.getX() + this._hitBox.getX(), l1.getY() + this._hitBox.getY());
 
