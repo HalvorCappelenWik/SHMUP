@@ -111,28 +111,50 @@ public class Vector2 {
 	public double angle() {
 		return Math.atan(_y / _x);
 	}
-	
+
+	/**
+	 * 
+	 * @param vector
+	 * @return
+	 */
 	public boolean isNormal(Vector2 vector) {
 		return Vector2.dot(this,vector) == 0;
 	}
-	
+
+	/**
+	 * Checks if the vector is parallel to the current vector
+	 * @param vector
+	 * @return
+	 */
 	public boolean isParalell(Vector2 vector) {
 		return (_x/vector.getX())*vector.getY() == _y;
 	}
-	
+
+	/**
+	 * Rotates the vector n degrees where n = angle
+	 * @param angle
+	 */
 	public void rotate(double angle) {
 		double newX = Math.cos(angle)*_x-Math.sin(angle)*_y;
 		double newY = Math.sin(angle)*_x+Math.cos(angle)*_y;
         _x = newX;
         _y = newY;
 	}
-	
+
+	/**
+	 * Returns a normal of the vector
+	 * @return a normal vector2
+	 */
 	public Vector2 normal() {
 		Vector2 normal = clone();
 		normal.rotate(0.5 * Math.PI);
         return normal;
 	}
-	
+
+	/**
+	 * returns the sqrLength of the vector
+	 * @return
+	 */
 	public double sqrLength() {
 		return _x * _x + _y * _y;
 	}
