@@ -15,14 +15,34 @@ public class Vector2 {
 		_y = y;
 	}
 
+	/**
+	 * @return Vector2 in origo
+	 */
 	public static Vector2 zero() { return new Vector2(0, 0); }
+
+	/**
+	 * @return Vector2 pointing up
+	 */
 	public static Vector2 up() { return new Vector2(0, -1); }
+
+	/**
+	 * @return Vector2
+	 */
 	public static Vector2 down() { return new Vector2(0, 1); }
+
+	/**
+	 * @return A vector pointing left
+	 */
 	public static Vector2 left() { return new Vector2(-1, 0); }
+
+	/**
+	 * @return A vector pointing right
+	 */
 	public static Vector2 right() { return new Vector2(1, 0); }
 
 	/**
 	 * Gets the X component of the vector.
+	 * @return x
 	 */
 	public double getX() {
 		return _x;
@@ -30,6 +50,7 @@ public class Vector2 {
 
 	/**
 	 * Sets the X component of the vector.
+	 * @param x
 	 */
 	public void setX(double x) {
 		_x = x;
@@ -37,6 +58,7 @@ public class Vector2 {
 
 	/**
 	 * Gets the Y component of the vector.
+	 * @return y
 	 */
 	public double getY() {
 		return _y;
@@ -44,6 +66,7 @@ public class Vector2 {
 
 	/**
 	 * Sets the Y component of the vector.
+	 * @param y
 	 */
 	public void setY(double y) {
 		_y = y;
@@ -51,6 +74,7 @@ public class Vector2 {
 	
 	/**
 	 * Gets the pythagorean length of the vector.
+	 * @return the length
 	 */
 	public double length() {
 		return Math.sqrt(this.sqrLength());
@@ -58,6 +82,7 @@ public class Vector2 {
 	
 	/**
 	 * Adds the given vector to this vector component-wise.
+	 * @param vector  the vector to add
 	 */
 	public void add(Vector2 vector) {
 		_x += vector.getX();
@@ -66,7 +91,7 @@ public class Vector2 {
 	
 	/**
 	 * Subtracts the given vector from this vector component-wise.
-	 * @param vector
+	 * @param vector  the vector to subtract
 	 */
 	public void subtract(Vector2 vector) {
 		_x -= vector.getX();
@@ -75,6 +100,7 @@ public class Vector2 {
 	
 	/**
 	 * Multiplies each component of this vector with the given scalar.
+	 * @param scalar  the scalar to multiply with
 	 */
 	public void multiply(double scalar) {
 		_x *= scalar;
@@ -83,13 +109,14 @@ public class Vector2 {
 	
 	/**
 	 * Computes the dot-product of two vectors.
+	 * @return the dot product
 	 */
 	public static double dot(Vector2 a, Vector2 b) {
 		return (a.getX() * b.getX()) + (a.getY() * b.getY());
 	}
 	
 	/**
-	 * Stretches the length of this vector to 1.0.
+	 * Normalizes vector so length is 1
 	 */
 	public void normalize() {
 		double length = length();
@@ -100,6 +127,7 @@ public class Vector2 {
 	
 	/**
 	 * Creates a new vector equal to this.
+	 * @return a new vector equal to current
 	 */
 	public Vector2 clone() {
 		return new Vector2(_x, _y);
@@ -107,15 +135,16 @@ public class Vector2 {
 	
 	/**
 	 * Computes the angle of this vector.
+	 * @return a double representing the angle
 	 */
 	public double angle() {
 		return Math.atan(_y / _x);
 	}
 
 	/**
-	 * 
+	 * Checks if the given vector is normal to current
 	 * @param vector
-	 * @return
+	 * @return true if normal, false otherwise
 	 */
 	public boolean isNormal(Vector2 vector) {
 		return Vector2.dot(this,vector) == 0;
