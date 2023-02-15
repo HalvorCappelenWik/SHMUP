@@ -103,7 +103,7 @@ public class GameModel implements GameScene {
     private ArrayList<GameObject> getEnemies() {
         ArrayList<GameObject> enemies = new ArrayList<>();
         for (GameObject gameObject : _gameObjects) {
-            if (gameObject.getSprite().equals("bullet")) {
+            if (gameObject.getSprite().equals("enemy")) {
                 enemies.add(gameObject);
             }
         }
