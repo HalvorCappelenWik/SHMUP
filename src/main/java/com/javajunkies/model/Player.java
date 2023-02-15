@@ -39,7 +39,7 @@ public class Player extends GameObject {
 
 	/**
 	 * Sets the field input to the given vector object
-	 * @param input  The input 
+	 * @param input  The input
 	 */
 	public void setInput(Vector2 input) {
 		_input = input;
