@@ -99,4 +99,28 @@ public abstract class GameObject {
 	public GameScene getScene() {
 		return _scene;
 	}
+
+	public boolean collides(GameObject object){
+		Vector2 l1 = this.getPosition();
+		Vector2 r1 = new Vector2(l1.getX() + this._hitBox.getX(), l1.getY() + this._hitBox.getY());
+
+		Vector2 l2 = object.getPosition();
+		Vector2 r2 = new Vector2(l2.getX() + object._hitBox.getX(), l2.getY() + object._hitBox.getY());
+
+		// if rectangle has area 0, no overlap
+		if (l1.getX() == r1.getX() || l1.getY() == r1.getY() || r2.getX() == l2.getX() || l2.getY() == r2.getY())
+			return false;
+
+		// If one rectangle is on left side of other
+		if (l1.getX() > r2.getX() || l2.getX() > r1.getX()) {
+			return false;
+		}
+
+		// If one rectangle is above other
+		if (r1.getY() > l2.getY() || r2.getY() > l1.getY()) {
+			return false;
+		}
+
+		return true;
+	}
 }
