@@ -9,7 +9,7 @@ public abstract class GameObject {
     
 	private Vector2 _position;
 	private Vector2 _hitBox;
-    private String _sprite;
+  private String _sprite;
 	private GameScene _scene;
 
 	/**
