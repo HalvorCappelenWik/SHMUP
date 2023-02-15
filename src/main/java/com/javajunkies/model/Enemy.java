@@ -12,6 +12,13 @@ public class Enemy extends GameObject{
 	private final int _speed = 100;
 	private int _direction = 1;
 
+	/**
+	 * Creates a new GameObject of the type Enemy
+	 * @param positionX  The x-position of the leftmost top corner of the enemy object to spawn at
+	 * @param positionY  The y-position of the leftmost top corner of the enemy object to spawn at
+	 * @param height     The height of the enemy object
+	 * @param width      The width of the enemy object
+	 */
 	public Enemy(int positionX, int positionY, int height, int width) {
 		super(new Vector2(positionX, positionY), new Vector2(height, width), "enemy");
 		_startX = positionX;

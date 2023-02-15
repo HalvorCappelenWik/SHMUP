@@ -11,6 +11,10 @@ public class Player extends GameObject {
 	private double _secondsSinceLastBullet = 0;
 	private Vector2 _input = Vector2.zero();
 
+	/**
+	 * Creates a GameObject of the type Player
+	 * @param position  The position the player object should spawn at
+	 */
     public Player(Vector2 position) {
         super(position, new Vector2(10, 10), "player");
     }
@@ -35,7 +39,7 @@ public class Player extends GameObject {
 
 	/**
 	 * Sets the field input to the given vector object
-	 * @param input
+	 * @param input  The input 
 	 */
 	public void setInput(Vector2 input) {
 		_input = input;

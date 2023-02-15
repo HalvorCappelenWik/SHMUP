@@ -6,6 +6,10 @@ public class Bullet extends GameObject {
 
     private final int _speed = 500;
 
+    /**
+     * Creates a new GameObject of the type Bullet
+     * @param position  The position of the bullet to spawn at
+     */
     public Bullet(Vector2 position) {
         super(position, new Vector2(5, 10), "bullet");
     }
