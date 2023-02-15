@@ -26,7 +26,7 @@ public class Vector2 {
 	public static Vector2 up() { return new Vector2(0, -1); }
 
 	/**
-	 * @return Vector2
+	 * @return Vector2 representing down
 	 */
 	public static Vector2 down() { return new Vector2(0, 1); }
 
