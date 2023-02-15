@@ -2,6 +2,7 @@ package com.javajunkies.model;
 
 import com.javajunkies.Vector2;
 
+
 /**
  * Base class for on-screen objects with behavior.
  */
