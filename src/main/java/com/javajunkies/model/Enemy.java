@@ -14,15 +14,13 @@ public class Enemy extends GameObject{
 
 	/**
 	 * Creates a new GameObject of the type Enemy
-	 * @param positionX  The x-position of the leftmost top corner of the enemy object to spawn at
-	 * @param positionY  The y-position of the leftmost top corner of the enemy object to spawn at
-	 * @param height     The height of the enemy object
-	 * @param width      The width of the enemy object
+	 * @param position Position vector of the enemy
+	 * @param size Size vector of the enemy, x is width and y is height
 	 */
-	public Enemy(int positionX, int positionY, int height, int width) {
-		super(new Vector2(positionX, positionY), new Vector2(height, width), "enemy");
-		_startX = positionX;
-		_endX = positionX + 100;
+	public Enemy(Vector2 position, Vector2 size) {
+		super(position, size, "enemy");
+		_startX = (int) position.getX();
+		_endX = (int) position.getX() + 100;
 	}
 
 	@Override

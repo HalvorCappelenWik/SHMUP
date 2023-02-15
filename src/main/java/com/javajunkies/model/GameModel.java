@@ -85,7 +85,7 @@ public class GameModel implements GameScene {
     		for (int col = 0; col < columns; col++) {
     			int x = col * (enemyWidth + spacing) + spacing;
     			int y = row * (enemyWidth + spacing) + spacing;
-    			spawn(new Enemy(x,y,enemyWidth, enemyWidth));
+    			spawn(new Enemy(new Vector2(x,y),new Vector2(enemyWidth, enemyWidth)));
     		}
     	}
     }
