@@ -1,5 +1,5 @@
 # INF112 Project – Navn tbd
-
+j
 * Team: *Java Junkies (Gruppe 4): Mats Dyrøy, Herman Torget Stautland, Ljubomir Simic, Philip Svenningsen, Halvor Cappelen Wik, Lars Haukland*
 * [https://git.app.uib.no/javajunkies/shmup](Lenke til gitlab).
 
