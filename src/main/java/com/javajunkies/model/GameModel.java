@@ -42,7 +42,7 @@ public class GameModel implements GameScene {
             gameObject.update(deltaTime);
 
         containPlayer();
-        testMethod();
+        bulletCollisionWithEnemies();
     }
 
     private void containPlayer()
@@ -110,7 +110,7 @@ public class GameModel implements GameScene {
         return enemies;
     }
 
-    private void testMethod() {
+    private void bulletCollisionWithEnemies() {
         for (GameObject bullet : getBullets()) {
             for (GameObject enemy : getEnemies()) {
                 if (bullet.hasCollidedWith(enemy)) {
