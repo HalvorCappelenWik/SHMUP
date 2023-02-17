@@ -46,7 +46,7 @@ Noen tilpasnigner vi ønsker å gjøre er blant annet å ha endel parprogrammeri
 
 ##### Tekniske praksiser 
 Fra pensumboken Agile Technical Practices Distilled har vi følgende hovedprinsipper som vi vil forsøke å følge:
-- Pair Programming
+- Pair Programming (NB! Vi har benyttet oss av en god del parprogrammering, som betyr antall commits kan være litt skjevt fordelt mellom alle i gruppen...)
 - TDD 
 - Refactoring 
 - Simple Design
