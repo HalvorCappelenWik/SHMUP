@@ -105,11 +105,16 @@ Task to perfrom:
 
 ## A5 - Oppsummering 
 #### Prosjekt-retrospektiv
-Hva er vi fornøyd med på oblig1?
-
 Hva fungerte bra/dårlig?
+- I starten av prosjektet var vi litt usikker på hvor mye kreves i MVP. Vi har opplevd at det har vært en noe skjev arbeidsfordeling da det ikke var like lett å fordele arbeid ettersom vi enda ikke har hatt en «stamme» i vårt prosjekt. Men mye programmering sammen fysisk har vært bra. Vi tror det kommer til å bli lettere å delegere oppgaver når vi skal jobbe mer med spesifikke deler av spillet. 
 
-Hva skal vi ta med videre til oblig2? 
+Kommunikasjon
+- Vi er stort sett fornøyde med kommunikasjonen. Vi har tatt i bruk Git Issues for å holde en oversikt over arbeidsoppgaver og fordeling av ansvar. Discord blir brukt for generell kommunikasjon og loggføring av møter. Alle har blitt bedre kjent, og eventuelle uenigheter tas opp i plenum og er ingen problem å snakke om. 
 
-Hva skal vi gjøre annerledes? 
+Kode
+- Vi har valgt å gå for en model-view-controller løsning. Dette hadde alle erfaring med fra INF101. Godt fornøyd med MVP og rammen er satt for videre utvikling. For MVP’en har vi alle stort sett jobbet på main-branch. Vi vil nok videre endre Git workflow slik at alle jobber på egne branches. 
+
+Til oblig2 
+- Vi må sette oss inn i libGDX og gjøre oss kjent med hvordan vi kan bruke rammeverket best mulig. Vurdere å sette opp enda et fast møte i uken. 
+
 
