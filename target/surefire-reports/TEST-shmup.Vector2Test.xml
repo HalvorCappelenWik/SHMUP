@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="shmup.Vector2Test" time="0.028" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="shmup.Vector2Test" time="0.039" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
-    <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/home/yral/UiB/INF112/shmup/target/test-classes:/home/yral/UiB/INF112/shmup/target/classes:/home/yral/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/yral/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="sun.jnu.encoding" value="ANSI_X3.4-1968"/>
+    <property name="java.class.path" value="/home/ljubs/School/INF112/shmup/target/test-classes:/home/ljubs/School/INF112/shmup/target/classes:/home/ljubs/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/ljubs/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://openjdk.java.net/"/>
     <property name="os.name" value="Linux"/>
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="user.country" value="NO"/>
+    <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-17-openjdk/lib"/>
-    <property name="sun.java.command" value="/home/yral/UiB/INF112/shmup/target/surefire/surefirebooter4124955025138654814.jar /home/yral/UiB/INF112/shmup/target/surefire 2023-02-17T14-37-09_375-jvmRun1 surefire15681784783722263596tmp surefire_02160477694211142811tmp"/>
+    <property name="sun.java.command" value="/home/ljubs/School/INF112/shmup/target/surefire/surefirebooter10065328126102958123.jar /home/ljubs/School/INF112/shmup/target/surefire 2023-02-17T14-53-02_174-jvmRun1 surefire8601033934920666850tmp surefire_013497250630748701094tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/home/yral/UiB/INF112/shmup/target/test-classes:/home/yral/UiB/INF112/shmup/target/classes:/home/yral/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/yral/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="surefire.test.class.path" value="/home/ljubs/School/INF112/shmup/target/test-classes:/home/ljubs/School/INF112/shmup/target/classes:/home/ljubs/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/ljubs/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="/home/yral"/>
-    <property name="user.language" value="nb"/>
+    <property name="user.home" value="/home/ljubs"/>
+    <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.version.date" value="2023-01-17"/>
     <property name="java.home" value="/usr/lib/jvm/java-17-openjdk"/>
     <property name="file.separator" value="/"/>
-    <property name="basedir" value="/home/yral/UiB/INF112/shmup"/>
+    <property name="basedir" value="/home/ljubs/School/INF112/shmup"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/home/yral/UiB/INF112/shmup/target/surefire/surefirebooter4124955025138654814.jar"/>
+    <property name="surefire.real.class.path" value="/home/ljubs/School/INF112/shmup/target/surefire/surefirebooter10065328126102958123.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.6+10"/>
-    <property name="user.name" value="yral"/>
+    <property name="user.name" value="ljubs"/>
     <property name="path.separator" value=":"/>
     <property name="os.version" value="6.1.11-arch1-1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="file.encoding" value="UTF-8"/>
+    <property name="file.encoding" value="ANSI_X3.4-1968"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="localRepository" value="/home/yral/.m2/repository"/>
+    <property name="localRepository" value="/home/ljubs/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="java.version" value="17.0.6"/>
-    <property name="user.dir" value="/home/yral/UiB/INF112/shmup"/>
+    <property name="user.dir" value="/home/ljubs/School/INF112/shmup"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="native.encoding" value="UTF-8"/>
+    <property name="native.encoding" value="ANSI_X3.4-1968"/>
     <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="java.vendor" value="N/A"/>
@@ -57,5 +57,5 @@
   <testcase name="equalsTest" classname="shmup.Vector2Test" time="0"/>
   <testcase name="dotProductTest" classname="shmup.Vector2Test" time="0"/>
   <testcase name="subtractTest" classname="shmup.Vector2Test" time="0"/>
-  <testcase name="lengthTest" classname="shmup.Vector2Test" time="0"/>
+  <testcase name="lengthTest" classname="shmup.Vector2Test" time="0.001"/>
 </testsuite>
