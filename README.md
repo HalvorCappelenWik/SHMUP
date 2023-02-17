@@ -1,17 +1,18 @@
-# INF112 Project – Navn tbd
+# INF112 Project – Navn TBD
 
 * Team: *Java Junkies (Gruppe 4): Mats Dyrøy, Herman Torget Stautland, Ljubomir Simic, Philip Svenningsen, Halvor Cappelen Wik, Lars Haukland*
 * [https://git.app.uib.no/javajunkies/shmup](Lenke til gitlab).
 
 ## Om spillet
-En variant på shooter map (space invaders) detaljer tbd
+Spillet er av varianten Shoot ’Em Up (samme som f.eks. Space Invaders). 
 
 ## Kjøring
- - Satser på mvn tbd
+* Kompileres med `mvn package`
+* Kjøres med `java -jar target/shmup-1.0-SNAPSHOT.jar`
+* Krever Java 17 eller senere
 
 ## Kjente feil
- - Alt er perfekt
+ Ingenting enda
 
 ## Credits
-Tileset tbd
-
+Ingenting enda
