@@ -7,8 +7,8 @@
 Spillet er av varianten Shoot ’Em Up (samme som f.eks. Space Invaders). 
 
 ## Kjøring
-* Kompileres med `mvn package`
-* Kjøres med `java -jar target/shmup-1.0-SNAPSHOT.jar`
+Rammeverk er byttet til gradle
+* For testing kjøres det med `./gradlew desktop:run`
 * Krever Java 17 eller senere
 
 ## Kjente feil
