@@ -1,28 +1,37 @@
 package inf112.shmup.app;
 
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import inf112.shmup.view.stages.WelcomeStage;
+import inf112.shmup.view.screens.MainMenuScreen;
 
-public class Game implements ApplicationListener{
-	Stage stage;
+public class ShmupGame extends Game{
+	
+	public static final String TITLE = "Shmup";
+	public static final int V_WIDTH = 1000;
+	public static final int V_HEIGHT = 1000;
+	
+	public OrthographicCamera camera;
+	public SpriteBatch batch;
 
+	public BitmapFont font;
+	
 	@Override
 	public void create() {
-		// TODO Auto-generated method stub
-		stage = new WelcomeStage();
-	}
-
-	@Override
-	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
 		
+		batch = new SpriteBatch();
+		font = new BitmapFont();
+        
+        this.setScreen(new MainMenuScreen(this));
 	}
 
 	@Override
 	public void render() {
-		// TODO Auto-generated method stub
+		super.render();
 		
 	}
 
@@ -40,8 +49,7 @@ public class Game implements ApplicationListener{
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-		
+        batch.dispose();
 	}
 
 }

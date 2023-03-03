@@ -7,8 +7,8 @@ public class Main {
     public static void main(String[] args) {
         Lwjgl3ApplicationConfiguration cfg = new Lwjgl3ApplicationConfiguration();
         cfg.setTitle("shmup");
-        cfg.setWindowedMode(480, 320);
+        cfg.setWindowedMode(1280, 960);
 
-        new Lwjgl3Application(new HelloWorld(), cfg);
+        new Lwjgl3Application(new ShmupGame(), cfg);
     }
 }
