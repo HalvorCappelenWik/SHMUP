@@ -8,6 +8,7 @@ public class Main {
         Lwjgl3ApplicationConfiguration cfg = new Lwjgl3ApplicationConfiguration();
         cfg.setTitle("shmup");
         cfg.setWindowedMode(1280, 960);
+        cfg.setForegroundFPS(60);
 
         new Lwjgl3Application(new ShmupGame(), cfg);
     }
