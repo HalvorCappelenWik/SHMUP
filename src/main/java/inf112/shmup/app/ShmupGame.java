@@ -50,6 +50,7 @@ public class ShmupGame extends Game{
 	@Override
 	public void dispose() {
         batch.dispose();
+        this.getScreen().dispose();
 	}
 
 }
