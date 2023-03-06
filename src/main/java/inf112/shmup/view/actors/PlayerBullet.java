@@ -18,13 +18,13 @@ public class PlayerBullet extends Actor{
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
+		sprite.setPosition(getX(), getY());
 		sprite.draw(batch);
 	}
 
 	@Override
 	public void act(float delta) {
 		this.moveBy(0, 5f);
-		sprite.setPosition(getX(), getY());
 		Rectangle bounds = new Rectangle(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		if (!bounds.contains(sprite.getBoundingRectangle())) {
 			this.remove();
