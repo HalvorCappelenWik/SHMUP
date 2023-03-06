@@ -56,7 +56,8 @@ public class GameScreen implements Screen{
 		
 
 	}
-	
+
+	// Test
 	private void update(float dt) {
 		// Input handling
 		if(Gdx.input.isKeyPressed(Keys.LEFT))
