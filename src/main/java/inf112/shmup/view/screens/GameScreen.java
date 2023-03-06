@@ -20,7 +20,6 @@ public class GameScreen implements Screen{
 	private final ShmupGame game;
 	private Stage stage;
 	private Player player;
-	private ArrayList<PlayerBullet> playerBullets;
 	
 	private final float _secondsBetweenBullets = 0.2f;
 	private float _secondsSinceLastBullet = 0f;
@@ -29,7 +28,6 @@ public class GameScreen implements Screen{
 	public GameScreen(ShmupGame game) {
 		this.game = game;
 		this.stage = new Stage(new FitViewport(game.V_WIDTH, game.V_HEIGHT, game.camera));
-		playerBullets = new ArrayList<>();
 		Gdx.input.setInputProcessor(stage);
 		
 		player = new Player();
@@ -56,8 +54,7 @@ public class GameScreen implements Screen{
 		
 
 	}
-
-	// Test
+	
 	private void update(float dt) {
 		// Input handling
 		if(Gdx.input.isKeyPressed(Keys.LEFT))
@@ -69,21 +66,10 @@ public class GameScreen implements Screen{
 		if(Gdx.input.isKeyPressed(Keys.DOWN))
 			if(moveInBounds(0, -5f))	player.moveBy(0, -5f);
 		
-		// Check and remove out of bounds bullets
-		ArrayList<PlayerBullet> pbCopy = new ArrayList<>(playerBullets);
-		Rectangle gameBounds = new Rectangle(0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		for(PlayerBullet b : pbCopy) {
-			if(!gameBounds.contains(b.getSprite().getBoundingRectangle())) {
-				playerBullets.remove(b);
-				b.remove();
-			}
-		}
-		
 		// Spawn new bullet every 200th of a second
 		if(_secondsSinceLastBullet > _secondsBetweenBullets) {
 			PlayerBullet newBullet = new PlayerBullet(player.getX() + player.getWidth()/2, player.getY() + player.getHeight());
 			stage.addActor(newBullet);
-			playerBullets.add(newBullet);
 			_secondsSinceLastBullet = 0f;
 		}
 		else {
