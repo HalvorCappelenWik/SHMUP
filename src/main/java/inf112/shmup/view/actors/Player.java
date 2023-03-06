@@ -13,6 +13,8 @@ public class Player extends Actor {
 
 	private final float _secondsBetweenBullets = 0.2f;
 	private float _secondsSinceLastBullet = 0f;
+	private float speedx = 5;
+	private float speedy = 5;
 
 	Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/playerShip1_blue.png")));
 	
@@ -35,13 +37,13 @@ public class Player extends Actor {
 	public void act(float delta) {
 		// Input handling
 		if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
-			if(moveInBounds(-5f, 0)) 	this.moveBy(-5f, 0);
+			if(moveInBounds(-5f, 0)) 	this.moveBy(-speedx, 0);
 		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-			if(moveInBounds(5f, 0))	this.moveBy(5f, 0);
+			if(moveInBounds(5f, 0))	this.moveBy(speedx, 0);
 		if(Gdx.input.isKeyPressed(Input.Keys.UP))
-			if(moveInBounds(0, 5f))	this.moveBy(0, 5f);
+			if(moveInBounds(0, 5f))	this.moveBy(0, speedy);
 		if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
-			if(moveInBounds(0, -5f))	this.moveBy(0, -5f);
+			if(moveInBounds(0, -5f))	this.moveBy(0, -speedy);
 
 		// Spawn new bullet every 200th of a second
 		if(_secondsSinceLastBullet > _secondsBetweenBullets) {
