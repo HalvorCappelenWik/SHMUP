@@ -1,5 +1,7 @@
 package inf112.shmup.view.actors;
 
+import javax.swing.text.Position;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.files.FileHandle;
@@ -13,13 +15,16 @@ public class Player extends Actor {
 
 	private final float _secondsBetweenBullets = 0.2f;
 	private float _secondsSinceLastBullet = 0f;
-	private float speedx = 5;
-	private float speedy = 5;
+	private float speed_x = 5f;
+	private float speed_y = 5f;
 
 	Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/playerShip1_blue.png")));
-	
+
 	public Player() {
+		sprite.setOrigin(0,0);
+		//sprite.setScale(2, 2);
 		setBounds(1, 1, sprite.getWidth(), sprite.getHeight());
+		
 	}
 
 	@Override
@@ -37,17 +42,20 @@ public class Player extends Actor {
 	public void act(float delta) {
 		// Input handling
 		if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
-			if(moveInBounds(-5f, 0)) 	this.moveBy(-speedx, 0);
+			this.moveBy(-speed_x, 0);
 		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-			if(moveInBounds(5f, 0))	this.moveBy(speedx, 0);
+			this.moveBy(speed_x, 0);
 		if(Gdx.input.isKeyPressed(Input.Keys.UP))
-			if(moveInBounds(0, 5f))	this.moveBy(0, speedy);
+			this.moveBy(0, speed_y);
 		if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
-			if(moveInBounds(0, -5f))	this.moveBy(0, -speedy);
+			this.moveBy(0, -speed_y);
+
+		moveIntoBounds(getX(), getY());
+		
 
 		// Spawn new bullet every 200th of a second
 		if(_secondsSinceLastBullet > _secondsBetweenBullets) {
-			PlayerBullet newBullet = new PlayerBullet(this.getX() + this.getWidth()/2, this.getY() + this.getHeight());
+			PlayerBullet newBullet = new PlayerBullet(this.getX() + (this.getWidth() * sprite.getScaleX())/2, this.getY() + (this.getHeight() * sprite.getScaleY()));
 			this.getStage().addActor(newBullet);
 			_secondsSinceLastBullet = 0f;
 		}
@@ -60,14 +68,35 @@ public class Player extends Actor {
 		return sprite;
 	}
 
-	private boolean moveInBounds(float x, float y) {
-		Rectangle gameBounds = new Rectangle(0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		Rectangle playerBounds = this.getSprite().getBoundingRectangle();
-		float newPlayerX = playerBounds.getX() + x;
-		float newPlayerY = playerBounds.getY() + y;
-		playerBounds.setX(newPlayerX);
-		playerBounds.setY(newPlayerY);
+	/**
+	 * Temporary function for getting the coordinates at the ends 
+	 * @param sprite Which sprite to check for
+	 * @param side which side ("top","bottom","left","right")
+	 * @return The respective x / y coordinate of the side you ask for
+	 */
+	private float bbox(Sprite sprite, String side){
+		Rectangle bounds = sprite.getBoundingRectangle();
+		switch(side){
+			case "top":
+				return bounds.y + bounds.height * sprite.getScaleX();
+			case "bottom":
+				return bounds.y;
+			case "left":
+				return bounds.x;
+			case "right":
+				return bounds.y + bounds.width * sprite.getScaleY();
+			default:
+				throw new IllegalArgumentException("String not a legal direction, choose 'top', 'bottom', 'left', 'right'");
+				
+		}
+	}
 
-		return gameBounds.contains(playerBounds);
+	private void moveIntoBounds(float x, float y) {
+		Rectangle gameBounds = new Rectangle(0,0,800,800); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
+		
+		setX(Math.max(gameBounds.x, getX()));
+		setX(Math.min(gameBounds.x + gameBounds.width - sprite.getWidth() * sprite.getScaleX(), getX()));
+		setY(Math.max(gameBounds.y, getY()));
+		setY(Math.min(gameBounds.y + gameBounds.height - sprite.getHeight()* sprite.getScaleY(), getY()));
 	}
 }
