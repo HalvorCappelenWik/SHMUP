@@ -1,12 +1,20 @@
-package inf112.skeleton.app;
+package inf112.shmup.app;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import com.badlogic.gdx.Game;
+
+import inf112.shmup.view.screens.SplashScreen;
+
 public class AppTest {
+	Game game;
 	/**
 	 * Static method run before everything else
 	 */
@@ -19,6 +27,12 @@ public class AppTest {
 	 */
 	@BeforeEach
 	void setUpBeforeEach() {
+		game = new ShmupGame();
+	}
+	
+	@Test
+	void TestGameInitWithSplashScreen() {
+		assertTrue()
 	}
 
 	/**
