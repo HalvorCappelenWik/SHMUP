@@ -20,8 +20,6 @@ public class GameScreen implements Screen{
 	private final ShmupGame game;
 	private Stage stage;
 	private Player player;
-
-	
 	
 	public GameScreen(ShmupGame game) {
 		this.game = game;
@@ -44,6 +42,14 @@ public class GameScreen implements Screen{
 		Gdx.gl.glClearColor(.25f, .25f, .25f, 1f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+		/*
+		game.shape.setProjectionMatrix(g.camera.combined);
+		game.shape.begin(ShapeType.Line);
+		game.shape.setColor(Color.RED);
+		game.shape.rect(box.x, box.y, box.width, box.height);
+		game.shape.end();*/
+
+
 		stage.act(delta);
 
 		stage.draw();
@@ -51,7 +57,7 @@ public class GameScreen implements Screen{
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
+		game.resizeViewport(width, height);
 	}
 
 	@Override
