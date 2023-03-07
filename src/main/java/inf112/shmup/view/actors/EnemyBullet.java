@@ -19,11 +19,6 @@ public class EnemyBullet extends Bullet{
 
     @Override
     public void act(float delta) {
-        Rectangle bounds = new Rectangle(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_HEIGHT);
-		if (bounds.overlaps(sprite.getBoundingRectangle())) {
-			this.remove();
-		}
-
         super.act(delta);
     }
 }

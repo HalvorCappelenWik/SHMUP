@@ -21,7 +21,7 @@ public class Bullet extends Actor{
 		sprite.setOriginCenter();
 		//sprite.setScale(1, 1);
 		setOrigin(getTotalWidth(), getTotalHeight());
-		setBounds(x, y, sprite.getWidth() * sprite.getScaleX(), sprite.getHeight() * sprite.getScaleY());
+		setBounds(x, y, getTotalWidth(), getTotalHeight());
 	}
 	
 	@Override
