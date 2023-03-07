@@ -7,11 +7,13 @@ import com.badlogic.gdx.math.Rectangle;
 
 import inf112.shmup.app.ShmupGame;
 
-public class PlayerBullet extends Bullet{
+public class EnemyBullet extends Bullet{
 
-    Sprite sprite =  super.sprite;
+    Sprite sprite = super.sprite;
 
-    public PlayerBullet(float x, float y) {
+    int vrt_direction = -1;
+
+    public EnemyBullet(float x, float y, Player player) {
         super(x, y);
     }
 

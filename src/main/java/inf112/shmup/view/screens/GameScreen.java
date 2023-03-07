@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import inf112.shmup.app.ShmupGame;
+import inf112.shmup.view.actors.Enemy;
 import inf112.shmup.view.actors.Player;
 import inf112.shmup.view.actors.PlayerBullet;
 
@@ -30,6 +31,7 @@ public class GameScreen implements Screen{
 		Gdx.input.setInputProcessor(stage);
 		
 		player = new Player();
+		stage.addActor(new Enemy(400,600));
 		stage.addActor(player);
 		stage.setKeyboardFocus(player);
 	}

@@ -15,7 +15,7 @@ import inf112.shmup.app.ShmupGame;
 
 public class Player extends Actor {
 
-	private final float _secondsBetweenBullets = 0.2f;
+	private final float _secondsBetweenBullets = 0.1f;
 	private float _secondsSinceLastBullet = 0f;
 	private float speed_x = 5f;
 	private float speed_y = 5f;
@@ -25,9 +25,11 @@ public class Player extends Actor {
 	public Player() {
 		sprite.setOrigin(0,0);
 		//sprite.setScale(2, 2);
-		setBounds(1, 1, sprite.getWidth(), sprite.getHeight());
+		setBounds(0, 0, getTotalWidth(), getTotalHeight());
 		
 	}
+
+	// -------- actor functions ----------
 
 	@Override
 	protected void positionChanged() {
@@ -57,7 +59,7 @@ public class Player extends Actor {
 
 		// Spawn new bullet every 200th of a second
 		if(_secondsSinceLastBullet > _secondsBetweenBullets) {
-			PlayerBullet newBullet = new PlayerBullet(this.getX() + (this.getWidth() * sprite.getScaleX())/2, this.getY() + (this.getHeight() * sprite.getScaleY()));
+			PlayerBullet newBullet = new PlayerBullet(this.getX() + getTotalWidth()/2, this.getY() + getTotalHeight());
 			this.getStage().addActor(newBullet);
 			_secondsSinceLastBullet = 0f;
 		}
@@ -66,6 +68,8 @@ public class Player extends Actor {
 		}
 	}
 	
+	// ------- other functions ---------
+
 	public Sprite getSprite() {
 		return sprite;
 	}
@@ -103,8 +107,22 @@ public class Player extends Actor {
 		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
 		
 		setX(Math.max(gameBounds.x, getX()));
-		setX(Math.min(gameBounds.x + gameBounds.width - sprite.getWidth() * sprite.getScaleX(), getX()));
+		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth(), getX()));
 		setY(Math.max(gameBounds.y, getY()));
-		setY(Math.min(gameBounds.y + gameBounds.height - sprite.getHeight()* sprite.getScaleY(), getY()));
+		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight(), getY()));
+	}
+
+	/**
+	 * @return Total width with scale
+	 */
+	public float getTotalWidth(){
+		return sprite.getWidth() * sprite.getScaleX();
+	}
+
+	/**
+	 * @return Total height with scale
+	 */
+	public float getTotalHeight(){
+		return sprite.getHeight() * sprite.getScaleY();
 	}
 }
