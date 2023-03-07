@@ -30,7 +30,7 @@ public class MainMenuScreen implements Screen{
 	
 	public MainMenuScreen(final ShmupGame game) {
 		this.game = game;
-		this.stage = new Stage(new FitViewport(game.V_WIDTH, game.V_HEIGHT, game.camera));
+		this.stage = new Stage(game.getViewport());
 		
 		skin = new Skin();
 
