@@ -126,6 +126,11 @@
 		</dependency>
 			</dependencies>
 	<build>
+		<resources>
+    		<resource>
+      			<directory>src/assets</directory>
+    		</resource>
+  		</resources>
 		<plugins>
 			<!-- Run app through Maven -->
 			<plugin>
