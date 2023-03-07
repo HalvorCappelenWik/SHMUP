@@ -2,6 +2,7 @@ package inf112.shmup.app;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,10 +12,11 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import com.badlogic.gdx.Game;
 
+import inf112.shmup.view.screens.MainMenuScreen;
 import inf112.shmup.view.screens.SplashScreen;
 
 public class AppTest {
-	Game game;
+	ShmupGame game;
 	/**
 	 * Static method run before everything else
 	 */
@@ -30,43 +32,12 @@ public class AppTest {
 		game = new ShmupGame();
 	}
 	
+	/**
+	 * Tests that when a game object is created it is initialized with the splashscreen
+	 */
 	@Test
 	void TestGameInitWithSplashScreen() {
-		assertTrue()
+		assertTrue(game.getScreen() instanceof SplashScreen);
 	}
 
-	/**
-	 * Simple test case
-	 */
-	@Test
-	void dummy1() {
-		// Expected result is the first argument, value to be tested is the second.
-		// The message is optional.
-		assertEquals("foo", "f".concat("oo"), "fooo?");
-	}
-
-	/**
-	 * Simple test case
-	 */
-	@Test
-	void dummy2() {
-		// For floats and doubles it's best to use assertEquals with a delta, since
-		// floating-point numbers are imprecise
-		float a = 100000;
-		a = a + 0.1f;
-		assertEquals(100000.1, a, 0.01);
-	}
-
-	/**
-	 * Parameterized test case, reading arguments from comma-separated strings
-	 * 
-	 * @param a
-	 * @param b
-	 * @param c
-	 */
-	@CsvSource(value = { "1,1,2", "1,2,3", "2,3,5", "3,5,8", "5,8,13", "8,13,21" })
-	@ParameterizedTest(name = "{0}+{1} == {2}")
-	void addTest(int a, int b, int c) {
-		assertEquals(c, a + b);
-	}
 }
