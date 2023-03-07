@@ -9,19 +9,43 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public class EnemyFactory extends Actor {
 
     private List<Actor> enemyList;
-    private Stage stage;
 
-    public EnemyFactory(List<Actor> enemyList, Stage stage){
-        this.enemyList = enemyList; 
-        this.stage = stage;
+    public EnemyFactory(List<Actor> enemyList){
+        this.enemyList = enemyList;
     }
 
-    public void spawnEnemy(Enemy enemyInstance){
-        stage.addActor(enemyInstance);
-        enemyList.add(enemyInstance);
-    }
-    
+    /**
+     * @return Enemy list of the enemy factory
+     */
     public List<Actor> getEnemyList(){
         return enemyList;
+    }
+
+    /**
+     * Spawns an enemy instance
+     * @param enemyInstance Enemy instance to spawn
+     */
+    public void spawnEnemy(Enemy enemyInstance){
+        this.getStage().addActor(enemyInstance);
+        enemyList.add(enemyInstance);
+    }
+
+
+    /**
+     * Removes an enemy if it is found in the enemy list, and removes it from the list
+     * @param enemyInstance The instance you want to remove
+     * @exception IllegalArgumentExeption if the enemy was not in the enemy factories enemy list
+     */
+    public void killEnemy(Enemy enemyInstance){
+        int i = 0;
+        for(Actor e : enemyList){
+            if(e == enemyInstance){
+                enemyList.remove(i);
+                enemyInstance.remove();
+            }
+            i++;
+        }
+        
+        throw new IllegalArgumentException(String.format("Please remove an enemy that is within the enemy list. Attempted to remove %s", enemyInstance.getClass().getSimpleName()));
     }
 }

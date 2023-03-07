@@ -2,6 +2,7 @@ package inf112.shmup.view.screens;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -11,11 +12,13 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import inf112.shmup.app.ShmupGame;
 import inf112.shmup.view.actors.Enemy;
+import inf112.shmup.view.actors.EnemyFactory;
 import inf112.shmup.view.actors.Player;
 import inf112.shmup.view.actors.PlayerBullet;
 
@@ -24,14 +27,17 @@ public class GameScreen implements Screen{
 	private final ShmupGame game;
 	private Stage stage;
 	private Player player;
+	private EnemyFactory enemyFactory;
 	
 	public GameScreen(ShmupGame game) {
 		this.game = game;
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
 		
+		enemyFactory = new EnemyFactory(new ArrayList<>());
+		stage.addActor(enemyFactory);
+		
 		player = new Player();
-		stage.addActor(new Enemy(400,600));
 		stage.addActor(player);
 		stage.setKeyboardFocus(player);
 	}
@@ -83,5 +89,14 @@ public class GameScreen implements Screen{
 	@Override
 	public void dispose() {
 		stage.dispose();
+	}
+
+	// --------- other methods ----------
+
+	/**
+	 * @return Enemyfactory object in scene
+	 */
+	public EnemyFactory getEnemyFactory(){
+		return this.enemyFactory;
 	}
 }
