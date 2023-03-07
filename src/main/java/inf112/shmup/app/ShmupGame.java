@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -19,6 +20,7 @@ public class ShmupGame extends Game{
 
 	public OrthographicCamera camera;
 	public SpriteBatch batch;
+	public ShapeRenderer shape;
 
 	public BitmapFont font;
 	
@@ -29,7 +31,9 @@ public class ShmupGame extends Game{
 
 		//keeps track of the aspect ratio of the game
 		viewport = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+
 		
+		shape = new ShapeRenderer(); //allows us to draw primitives
 		batch = new SpriteBatch();
 		font = new BitmapFont();
         
@@ -38,6 +42,10 @@ public class ShmupGame extends Game{
 
 	public void resizeViewport(float width, float height){
 		viewport.update((int) width, (int) height);
+	}
+
+	public Viewport getViewport(){
+		return viewport;
 	}
 
 	@Override
