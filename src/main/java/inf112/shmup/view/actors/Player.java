@@ -131,7 +131,8 @@ public class Player extends Actor {
 	/**
 	 * Set the boolean value "killed" to true
 	 */
-	public void setKilled() {
+	public void kill() {
 		killed = true;
+		remove();
 	}
 }

@@ -29,6 +29,9 @@ public class GameScreen implements Screen{
 	private Player player;
 	private EnemyFactory enemyFactory;
 	
+	// Keep track of enemy waves
+	
+	
 	public GameScreen(ShmupGame game) {
 		this.game = game;
 		this.stage = new Stage(game.getViewport());
@@ -37,7 +40,7 @@ public class GameScreen implements Screen{
 		enemyFactory = new EnemyFactory(new ArrayList<>(), stage);
 		stage.addActor(enemyFactory);
 		
-		player = new Player(ShmupGame.V_WIDTH/2, 100);
+		player = new Player(ShmupGame.V_WIDTH/2-200, 100);
 		stage.addActor(player);
 		stage.setKeyboardFocus(player);
 	}

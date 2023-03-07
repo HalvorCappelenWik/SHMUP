@@ -40,7 +40,7 @@ public class EnemyBullet extends Bullet{
 		   if(a instanceof Player) {
 			   // Check collision 
 			   if(bounds.overlaps(((Player) a).getSprite().getBoundingRectangle())){
-				   ((Player) a).setKilled();
+				   ((Player) a).kill();
 				   this.remove();
 				   return;
 			   }

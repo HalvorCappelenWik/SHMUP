@@ -36,7 +36,15 @@ public abstract class Bullet extends Actor{
 		if (!bounds.overlaps(sprite.getBoundingRectangle())) {
 			this.remove();
 		}
-		killEnemyIfCollide();
+	}
+	
+	
+
+	@Override
+	protected void positionChanged() {
+		// TODO Auto-generated method stub
+		sprite.setPosition(getX(), getY());
+		super.positionChanged();
 	}
 
 	/**	
@@ -59,27 +67,4 @@ public abstract class Bullet extends Actor{
 	public float getTotalHeight(){
 		return sprite.getHeight() * sprite.getScaleY();
 	}
-	
-	/**
-    * Kills any player that collides
-    */
-   private void killEnemyIfCollide() {
-	   Rectangle bounds = this.sprite.getBoundingRectangle();
-	   
-	   // Double check that bullet is not out of bounds
-	   if(this.getStage() == null) return;
-	   // Loop over actors
-	   for(Actor a : getStage().getActors()) {
-		   // If it is a player
-		   if(a instanceof Enemy) {
-			   // Check collision 
-			   if(bounds.overlaps(((Enemy) a).getSprite().getBoundingRectangle())){
-				   ((Enemy) a).setKilled();
-				   this.remove();
-				   a.remove();
-				   return;
-			   }
-		   }
-	   }
-   }
 }

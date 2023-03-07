@@ -24,6 +24,7 @@ public class ShmupGame extends Game{
 
 	public BitmapFont font;
 	
+	
 	@Override
 	public void create() {
 		camera = new OrthographicCamera();

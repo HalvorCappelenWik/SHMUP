@@ -1,6 +1,11 @@
 package inf112.shmup.view.actors;
 
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.fadeOut;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.removeActor;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
+
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -31,6 +36,7 @@ public class Enemy extends Actor{ //might be a good idea to make an abstract cla
 
     @Override
     public void act(float delta) {
+    	if(killed) return;
         //move
         this.moveBy(dir * speed * delta, 0);
 		Rectangle bounds = new Rectangle(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_HEIGHT); 
@@ -58,7 +64,8 @@ public class Enemy extends Actor{ //might be a good idea to make an abstract cla
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        sprite.draw(batch);
+    	//if(killed) return;
+        sprite.draw(batch, parentAlpha);
     }
 
 
@@ -84,11 +91,14 @@ public class Enemy extends Actor{ //might be a good idea to make an abstract cla
 		return sprite;
 	}
 	
+
 	/**
-	 * Set the killed boolean value to true
+	 * Set the killed field to true
+	 * Fade out actor then remove from stage
 	 */
-	public void setKilled() {
+	public void kill() {
 		this.killed = true;
+		this.remove();
 	}
 
 }
