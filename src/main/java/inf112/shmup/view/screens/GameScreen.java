@@ -49,7 +49,7 @@ public class GameScreen implements Screen{
 		game.shape.setProjectionMatrix(game.camera.combined);
 		game.shape.begin(ShapeType.Filled);
 		game.shape.setColor(Color.LIGHT_GRAY);
-		game.shape.rect(0, 0, game.V_WIDTH, game.V_WIDTH);
+		game.shape.rect(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH);
 		game.shape.end();
 
 

@@ -40,6 +40,11 @@ public class ShmupGame extends Game{
         this.setScreen(new MainMenuScreen(this));
 	}
 
+	/**
+	 * Resize the viewport | Remember to include in resize function in scene
+	 * @param width width input in resize function
+	 * @param height width input in resize function
+	 */
 	public void resizeViewport(float width, float height){
 		viewport.update((int) width, (int) height);
 	}

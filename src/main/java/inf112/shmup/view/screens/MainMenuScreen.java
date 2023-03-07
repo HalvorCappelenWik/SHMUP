@@ -18,6 +18,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
 import inf112.shmup.app.ShmupGame;
 
@@ -89,7 +91,13 @@ public class MainMenuScreen implements Screen{
 		Gdx.gl.glClearColor(.25f, .25f, .25f, 1f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
-		
+		//draw background rectangle using shapeRenderer
+		game.shape.setProjectionMatrix(game.camera.combined);
+		game.shape.begin(ShapeType.Filled);
+		game.shape.setColor(Color.LIGHT_GRAY);
+		game.shape.rect(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH);
+		game.shape.end();
+
 		stage.act(delta);
 		
 		stage.draw();
