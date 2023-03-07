@@ -19,11 +19,14 @@ public class Player extends Actor {
 	private float speed_y = 5f;
 
 	Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/playerShip1_blue.png")));
+	
+	public boolean killed;
 
 	public Player(float x, float y) {
 		sprite.setOrigin(0,0);
 		//sprite.setScale(2, 2);
 		setBounds(x, y, getTotalWidth(), getTotalHeight());
+		killed = false;
 		
 	}
 
@@ -42,6 +45,7 @@ public class Player extends Actor {
 
 	@Override
 	public void act(float delta) {
+		
 		// Input handling
 		if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
 			this.moveBy(-speed_x, 0);
@@ -122,5 +126,12 @@ public class Player extends Actor {
 	 */
 	public float getTotalHeight(){
 		return sprite.getHeight() * sprite.getScaleY();
+	}
+	
+	/**
+	 * Set the boolean value "killed" to true
+	 */
+	public void setKilled() {
+		killed = true;
 	}
 }

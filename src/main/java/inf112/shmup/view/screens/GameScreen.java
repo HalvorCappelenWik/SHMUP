@@ -59,6 +59,13 @@ public class GameScreen implements Screen{
 		game.shape.setColor(Color.LIGHT_GRAY);
 		game.shape.rect(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH);
 		game.shape.end();
+		
+		// Check if player is killed
+		if(player.killed) {
+			player.remove();
+			dispose();
+			game.setScreen(new GameOverScreen(game));
+		}
 
 
 		stage.act(delta);

@@ -12,6 +12,7 @@ import inf112.shmup.app.ShmupGame;
 public class Enemy extends Actor{ //might be a good idea to make an abstract class if we want enemy variety
 
     Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/playerShip1_blue.png")));
+    public boolean killed = false;
 
     int dir = 1;
     float speed = 100;
@@ -73,6 +74,21 @@ public class Enemy extends Actor{ //might be a good idea to make an abstract cla
 	 */
 	public float getTotalHeight(){
 		return sprite.getHeight() * sprite.getScaleY();
+	}
+	
+	/**
+	 * get the current sprite
+	 * @return sprite
+	 */
+	public Sprite getSprite() {
+		return sprite;
+	}
+	
+	/**
+	 * Set the killed boolean value to true
+	 */
+	public void setKilled() {
+		this.killed = true;
 	}
 
 }
