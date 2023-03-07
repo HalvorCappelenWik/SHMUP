@@ -34,10 +34,10 @@ public class GameScreen implements Screen{
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
 		
-		enemyFactory = new EnemyFactory(new ArrayList<>());
+		enemyFactory = new EnemyFactory(new ArrayList<>(), stage);
 		stage.addActor(enemyFactory);
 		
-		player = new Player();
+		player = new Player(ShmupGame.V_WIDTH/2, 100);
 		stage.addActor(player);
 		stage.setKeyboardFocus(player);
 	}

@@ -5,13 +5,18 @@ import java.util.List;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+import inf112.shmup.app.ShmupGame;
+
 
 public class EnemyFactory extends Actor {
 
     private List<Actor> enemyList;
 
-    public EnemyFactory(List<Actor> enemyList){
+    public EnemyFactory(List<Actor> enemyList, Stage stage){
         this.enemyList = enemyList;
+        setStage(stage); //for some reason it thinks it has no stage
+
+        getStage().addActor(new Enemy(ShmupGame.V_WIDTH/2, ShmupGame.V_HEIGHT - 100));
     }
 
     /**

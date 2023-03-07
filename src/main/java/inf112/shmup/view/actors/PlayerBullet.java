@@ -4,6 +4,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import inf112.shmup.app.ShmupGame;
 
@@ -16,7 +17,7 @@ public class PlayerBullet extends Bullet{
     }
 
     @Override
-    public void act(float delta) {
-        super.act(delta);
+    protected void move(float delta) {
+        moveBy(0, 2000*delta);
     }
 }

@@ -9,14 +9,14 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import inf112.shmup.app.ShmupGame;
 
-public class Enemy extends Actor{
+public class Enemy extends Actor{ //might be a good idea to make an abstract class if we want enemy variety
 
     Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/playerShip1_blue.png")));
 
     int dir = 1;
     float speed = 100;
 
-    private final float _secondsBetweenBullets = 0.1f;
+    private final float _secondsBetweenBullets = 0.3f;
 	private float _secondsSinceLastBullet = 0f;
     
 
@@ -38,7 +38,14 @@ public class Enemy extends Actor{
 		}
 
         //shoot
-
+        if(_secondsSinceLastBullet > _secondsBetweenBullets) {
+			Bullet newBullet = new EnemyBullet(this.getX() + getTotalWidth()/2, this.getY());
+			this.getStage().addActor(newBullet);
+			_secondsSinceLastBullet = 0f;
+		}
+		else {
+			_secondsSinceLastBullet += delta;
+		}
 
     }
 

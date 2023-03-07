@@ -1,7 +1,5 @@
 package inf112.shmup.view.actors;
 
-import javax.swing.text.Position;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.files.FileHandle;
@@ -22,10 +20,10 @@ public class Player extends Actor {
 
 	Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/playerShip1_blue.png")));
 
-	public Player() {
+	public Player(float x, float y) {
 		sprite.setOrigin(0,0);
 		//sprite.setScale(2, 2);
-		setBounds(0, 0, getTotalWidth(), getTotalHeight());
+		setBounds(x, y, getTotalWidth(), getTotalHeight());
 		
 	}
 

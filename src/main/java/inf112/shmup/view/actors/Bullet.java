@@ -10,17 +10,16 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import inf112.shmup.app.ShmupGame;
 
-public class Bullet extends Actor{
+public abstract class Bullet extends Actor{
 	
 	Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/laserBlue02.png")));
 
-	float speed = 2000;
-	int vrt_direction = 1;
+	EnemyFactory enemyFactory;
 	
 	public Bullet(float x, float y) {
 		sprite.setOriginCenter();
 		//sprite.setScale(1, 1);
-		setOrigin(getTotalWidth(), getTotalHeight());
+		setOrigin(getTotalWidth()/2, getTotalHeight()/2);
 		setBounds(x, y, getTotalWidth(), getTotalHeight());
 	}
 	
@@ -32,11 +31,18 @@ public class Bullet extends Actor{
 
 	@Override
 	public void act(float delta) {
-		this.moveBy(0, vrt_direction*speed*delta);
+		move(delta);
 		Rectangle bounds = new Rectangle(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_HEIGHT);
 		if (!bounds.overlaps(sprite.getBoundingRectangle())) {
 			this.remove();
 		}
+	}
+
+	/**	
+	 * Method for moving in the act method. Disctinct method to avoid an issue where you could not change the speed in child objects
+	 */
+	protected void move(float delta){
+		moveBy(0, 1000);
 	}
 
 	/**
