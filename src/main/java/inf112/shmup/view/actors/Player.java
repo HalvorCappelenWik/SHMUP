@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import inf112.shmup.app.ShmupGame;
+
 public class Player extends Actor {
 
 	private final float _secondsBetweenBullets = 0.2f;
@@ -69,7 +71,8 @@ public class Player extends Actor {
 	}
 
 	/**
-	 * Temporary function for getting the coordinates at the ends 
+	 * Temporary function for getting the coordinates at the ends of the bounding box 
+	 * (might be on the chopping block if never used or not not sufficient)
 	 * @param sprite Which sprite to check for
 	 * @param side which side ("top","bottom","left","right")
 	 * @return The respective x / y coordinate of the side you ask for
@@ -91,8 +94,13 @@ public class Player extends Actor {
 		}
 	}
 
+	/**
+	 * Method that keeps the player within the scene 
+	 * @param x current X coordinate
+	 * @param y current Y coordinate
+	 */
 	private void moveIntoBounds(float x, float y) {
-		Rectangle gameBounds = new Rectangle(0,0,800,800); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
+		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
 		
 		setX(Math.max(gameBounds.x, getX()));
 		setX(Math.min(gameBounds.x + gameBounds.width - sprite.getWidth() * sprite.getScaleX(), getX()));

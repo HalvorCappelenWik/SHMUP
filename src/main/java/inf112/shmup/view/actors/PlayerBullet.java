@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import inf112.shmup.app.ShmupGame;
+
 public class PlayerBullet extends Actor{
 	
 	private final Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/laserBlue02.png")));
@@ -25,7 +27,7 @@ public class PlayerBullet extends Actor{
 	@Override
 	public void act(float delta) {
 		this.moveBy(0, 5f);
-		Rectangle bounds = new Rectangle(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		Rectangle bounds = new Rectangle(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_HEIGHT); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
 		if (!bounds.contains(sprite.getBoundingRectangle())) {
 			this.remove();
 		}
