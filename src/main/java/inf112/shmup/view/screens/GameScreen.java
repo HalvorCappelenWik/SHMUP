@@ -96,7 +96,7 @@ public class GameScreen implements Screen{
 	/**
 	 * @return Enemyfactory object in scene
 	 */
-	public EnemyFactory getEnemyFactory(){
-		return this.enemyFactory;
+	public EnemyFactory getEnemyFactory(){	//Currently pointless, thought .getScene was .getScreen.
+		return this.enemyFactory;			//Which would have allowed me to access tbe factory from any actor
 	}
 }
