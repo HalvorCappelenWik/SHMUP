@@ -62,14 +62,14 @@ public class Enemy extends Actor{ //might be a good idea to make an abstract cla
 
 
     /**
-	 * @return Total width with scale
+	 * @return Sprite width with scale
 	 */
 	public float getTotalWidth(){
 		return sprite.getWidth() * sprite.getScaleX();
 	}
 
 	/**
-	 * @return Total height with scale
+	 * @return Sprite height with scale
 	 */
 	public float getTotalHeight(){
 		return sprite.getHeight() * sprite.getScaleY();

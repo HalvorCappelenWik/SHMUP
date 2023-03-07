@@ -110,15 +110,15 @@ public class Player extends Actor {
 		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight(), getY()));
 	}
 
-	/**
-	 * @return Total width with scale
+ 	/**
+	 * @return Sprite width with scale
 	 */
 	public float getTotalWidth(){
 		return sprite.getWidth() * sprite.getScaleX();
 	}
 
 	/**
-	 * @return Total height with scale
+	 * @return Sprite height with scale
 	 */
 	public float getTotalHeight(){
 		return sprite.getHeight() * sprite.getScaleY();

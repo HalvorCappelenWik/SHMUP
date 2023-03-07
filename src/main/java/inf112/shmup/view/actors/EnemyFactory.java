@@ -16,7 +16,7 @@ public class EnemyFactory extends Actor {
         this.enemyList = enemyList;
         setStage(stage); //for some reason it thinks it has no stage
 
-        getStage().addActor(new Enemy(ShmupGame.V_WIDTH/2, ShmupGame.V_HEIGHT - 100));
+        spawnEnemy(new Enemy(ShmupGame.V_WIDTH/2, ShmupGame.V_HEIGHT - 100));
     }
 
     /**
