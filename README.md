@@ -7,7 +7,8 @@
 Spillet er av varianten Shoot ’Em Up (samme som f.eks. Space Invaders). 
 
 ## Kjøring
-* Kjøres currently med `mvn exec:java`
+* Pakkes med `mvn clean package`
+* Kjøres med `target/shmup-1.0-SNAPSHOT-fat.jar`
 * Krever Java 17 eller senere
 
 ## Kjente feil
