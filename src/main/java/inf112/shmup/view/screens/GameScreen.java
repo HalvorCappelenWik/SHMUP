@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import inf112.shmup.app.ShmupGame;
+import inf112.shmup.util.WaveManager;
 import inf112.shmup.view.actors.Enemy;
 import inf112.shmup.view.actors.EnemyFactory;
 import inf112.shmup.view.actors.Player;
@@ -30,6 +31,8 @@ public class GameScreen implements Screen{
 	private EnemyFactory enemyFactory;
 	
 	// Keep track of enemy waves
+	int waveNum = 0;
+	WaveManager waveManager;
 	
 	
 	public GameScreen(ShmupGame game) {
@@ -43,6 +46,8 @@ public class GameScreen implements Screen{
 		player = new Player(ShmupGame.V_WIDTH/2-200, 100);
 		stage.addActor(player);
 		stage.setKeyboardFocus(player);
+		
+		this.waveManager = new WaveManager("src/assets/levels/testLevel.json");
 	}
 
 	@Override
@@ -69,7 +74,23 @@ public class GameScreen implements Screen{
 			dispose();
 			game.setScreen(new GameOverScreen(game));
 		}
-
+		
+		// Check if all waves are killed
+		if(waveNum > waveManager.waveNums) {
+			dispose();
+			game.setScreen(new GameOverScreen(game));
+		}
+		
+		// If no enemies then spawn next wave
+		if(getEnemiesInStage().isEmpty()) {
+			try {
+				addEnemiesToStage(waveManager.getWave(waveNum));
+				waveNum += 1;
+			} catch(IndexOutOfBoundsException e) {
+				dispose();
+				game.setScreen(new GameOverScreen(game));
+			}
+		}
 
 		stage.act(delta);
 
@@ -108,5 +129,31 @@ public class GameScreen implements Screen{
 	 */
 	public EnemyFactory getEnemyFactory(){	//Currently pointless, thought .getScene was .getScreen.
 		return this.enemyFactory;			//Which would have allowed me to access tbe factory from any actor
+	}
+	
+	/**
+	 * Makes a list of all (not killed) enemies currently in the stage
+	 * @return list of alive enemies
+	 */
+	private List<Enemy> getEnemiesInStage(){
+		List<Enemy> enemies = new ArrayList<>();
+		
+		for(Actor a : stage.getActors()) {
+			if (a instanceof Enemy && !((Enemy) a).killed) {
+				enemies.add((Enemy) a);
+			}
+		}
+		
+		return enemies;
+	}
+	
+	/**
+	 * Adds all enemies in list to stage
+	 * @param enemies  List of enemies
+	 */
+	private void addEnemiesToStage(List<Enemy> enemies) {
+		for(Enemy e : enemies) {
+			stage.addActor(e);
+		}
 	}
 }
