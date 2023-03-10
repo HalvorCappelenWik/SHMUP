@@ -101,13 +101,16 @@ tema & arbeid:  -- hentes fra discord kanal --
 - Dato: 9 mars  
 - Tilstede: Lars, Philip, Mats, Halvor, Herman, Ljubo
 
-tema & arbeid:  -- hentes fra discord kanal --
+tema & arbeid:
+- Planlegge hva som må gjøres før innlevering og disponere dette rundt om i gruppen.
 
 #### - Uke 10 (møte 3) - 
 - Dato: 10 mars  
 - Tilstede: Lars, Philip, Mats, Herman, Ljubo
 
-tema & arbeid:  -- hentes fra discord kanal --
+tema & arbeid:
+- "Ferdigstille" alpha-versjonen av spillet før innlevering.
+- Merget den branchen vi jobbet i med main-branchen.
 
 ## MVP's
 1. Vise et spillbrett 
