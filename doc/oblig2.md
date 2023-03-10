@@ -17,7 +17,11 @@ Bruken av disse verktøyene har gjør at vi hele tiden har oversikt over hva som
 Vi er i stor grad enig i at dynamikken i gruppen er god. Kommunikasjonen foregår på vår discord kanal og face-to-face, og dette synes vi fungerer godt. Alle som er med i gruppen stiller opp på våre faste møter når de kan og bidrar så godt de kan.  
 
 #### *Retrospektiv*
--- skal fylles ut -- 
+Det har vært veldig nyttig og viktig å møtes minst en gang i uken. Vi diskuterer mye og gjør stor fremgang på disse møtene.  
+Det har også vist seg å være nyttig å samle gruppen en ekstra gang rett før innleveringer for å passe på at alle issues er lukket som kan lukkes og sørge for at selve innleveringen går som den skal.
+Det har vært en utfordring å fordele oppgaver/arbeid på en effektiv måte som også passer på at mengden opplevd arbeid føles rettferdig.  
+Vi har en privat discord server utenom den som tilhører INF112 faget. Denne gruppen har vist seg å være en enormt god ressurs for loggføring av møter og koordinering av gruppen.  
+Vi må finne en enkel måte å lage og kjøre tester for spillet.
 
 #### *Kommentar til commits*
 Vi har prøvd å fordele arbeidsoppgaver likt så godt det lar seg gjøre. Samt har vi prioritert å jobbe med kode i fellesskap på møter, slik at de mindre erfarne på gruppen kan lære av andre. I tillegg har vi skjønt at det innad i gruppen er forskjellig praksis på commits (noen commiter oftere enn andre, eks commits av typos/hele features). Derfor er nok ikke commit-historikken helt representativ for hvor mye arbeid som er gjort av hver enkelt gruppemedlem.
@@ -25,9 +29,9 @@ Vi har prøvd å fordele arbeidsoppgaver likt så godt det lar seg gjøre. Samt 
 Forutenom dette prøver vi å lage informative commits meldinger som referer til respektive issues. 
 
 #### *3 forbedringspunkter fra retrospektiv*
-1. -- skal fylles ut -- 
-2. -- skal fylles ut -- 
-3. Være flinkere på testdrevet utvikling. 
+1. Må samle gruppen før hver innlevering
+2. Mulig bedring av oppgavefordeling
+3. Mer presis kommunikasjon for bedre koordinering av gruppen.
 
 ## Del 2 - Krav og spesifikasjon 
 #### *Prioriteringer*
