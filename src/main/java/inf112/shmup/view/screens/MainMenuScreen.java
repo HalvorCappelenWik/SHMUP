@@ -64,7 +64,7 @@ public class MainMenuScreen implements Screen{
 		
 		final TextButton playButton = new TextButton("PLAY!", skin);
 		playButton.setWidth(Gdx.graphics.getWidth()/2);
-        playButton.setPosition(Gdx.graphics.getWidth()/2-playButton.getWidth()/2,Gdx.graphics.getHeight()/2-playButton.getHeight()/2);
+        //playButton.setPosition(Gdx.graphics.getWidth()/2-playButton.getWidth()/2,Gdx.graphics.getHeight()/2-playButton.getHeight()/2);
 		
 		playButton.addListener(new InputListener() {
 			@Override

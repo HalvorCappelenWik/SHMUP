@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import inf112.shmup.view.screens.MainMenuScreen;
+import inf112.shmup.view.screens.SplashScreen;
 
 public class ShmupGame extends Game{
 	
@@ -27,7 +28,7 @@ public class ShmupGame extends Game{
 	
 	@Override
 	public void create() {
-		camera = new OrthographicCamera();
+		camera = new OrthographicCamera(V_WIDTH, V_HEIGHT);
 		camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
 
 		//keeps track of the aspect ratio of the game
@@ -38,7 +39,8 @@ public class ShmupGame extends Game{
 		batch = new SpriteBatch();
 		font = new BitmapFont();
         
-        this.setScreen(new MainMenuScreen(this));
+        // this.setScreen(new MainMenuScreen(this));
+		this.setScreen(new SplashScreen(this));
 	}
 
 	/**
