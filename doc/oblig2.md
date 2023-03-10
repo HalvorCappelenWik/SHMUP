@@ -50,7 +50,9 @@ Nå ved levering av oblig2 (uke 10), har vi via neste milestone klart for oss hv
 ingen store justeringer på MVP krav. Kravene fra oblig1 var utformet ganske generelle av den grunn å kunne tilfredstille ulik implementasjon. Vi har derimot lagt til noen krav ettersom vi har kommet lengre i utviklingen av spillet og spesifisert noen krav etterhver som vi har sett hva vi ønsker. Se [MVP's](#MVP's).
  
  #### *Bugs (som vi vet om)* 
-ingen 
+* Det hender at teksten på "Play"-knappen i menyen blir borte når man prøver å kjøre spillet i full skjerm.
+* Spill kan krasje når spiller dør
+* Pipeline fungerer ikke
 
 ## Del 3 - Produkt og kode 
 #### *Kommentater til kode:*
@@ -63,7 +65,7 @@ Ved forrige oblig var kun krav 1-3 fullført, og kun disse hadde brukerhistorier
 Se [README.md](shmup/README.md)
 
 #### *Klassediagram*
-Se [klassediagram.png](shmup/doc/klassediagram.png)
+Se [klassediagram.png](shmup/doc/classDiagram.png)
 
 #### *Manuelle tester*
 Se [manuelletester.md](shmup/doc/ManuelleTester.md)
@@ -95,7 +97,12 @@ tema & arbeid:
 - Dato: 6 mars 
 - Tilstede: Lars, Philip, Mats, Halvor, Herman, Ljubo
 
-tema & arbeid:  -- hentes fra discord kanal -- 
+tema & arbeid:
+- Jobbet videre med oblig1. 
+- Flyttet bulletlogic fra gameview til playerbullet. 
+- Flyttet playerlogic fra gamescreen til player. 
+- Snakket om veien videre til obligfrist og oppdaterte issues. 
+- Alle jobber selvstendig med egne issues fram til neste møte.
 
 #### - Uke 10 (møte 2) - 
 - Dato: 9 mars  

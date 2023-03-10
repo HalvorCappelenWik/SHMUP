@@ -12,7 +12,9 @@ Spillet er av varianten Shoot ’Em Up (samme som f.eks. Space Invaders).
 * Krever Java 17 eller senere
 
 ## Kjente feil
-Det hender at teksten på "Play"-knappen i menyen blir borte når man prøver å kjøre spillet i full skjerm.
+* Det hender at teksten på "Play"-knappen i menyen blir borte når man prøver å kjøre spillet i full skjerm.
+* Spill kan krasje når spiller dør
+* Pipeline fungerer ikke
 
 ## Credits
 Ingenting enda
