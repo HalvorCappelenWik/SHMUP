@@ -28,6 +28,7 @@ public class MainMenuScreen implements Screen{
 	private final ShmupGame game;
 	private Stage stage;
 	private Skin skin;
+	private TextButton playButton;
 	
 	
 	public MainMenuScreen(final ShmupGame game) {
@@ -60,11 +61,13 @@ public class MainMenuScreen implements Screen{
 		title.setAlignment(Align.center);
 		title.setY(Gdx.graphics.getHeight()*2/3);
 		title.setWidth(Gdx.graphics.getWidth());
+		title.setX(ShmupGame.V_WIDTH/2 - title.getWidth()/2);
 		stage.addActor(title);
 		
-		final TextButton playButton = new TextButton("PLAY!", skin);
+		playButton = new TextButton("PLAY!", skin);
 		playButton.setWidth(Gdx.graphics.getWidth()/2);
-        playButton.setPosition(Gdx.graphics.getWidth()/2-playButton.getWidth()/2,Gdx.graphics.getHeight()/2-playButton.getHeight()/2);
+		playButton.setPosition(ShmupGame.V_WIDTH/2-playButton.getWidth()/2,ShmupGame.V_HEIGHT/2-playButton.getHeight()/2);
+        //playButton.setPosition(Gdx.graphics.getWidth()/2-playButton.getWidth()/2,Gdx.graphics.getHeight()/2-playButton.getHeight()/2);
 		
 		playButton.addListener(new InputListener() {
 			@Override
@@ -82,7 +85,6 @@ public class MainMenuScreen implements Screen{
 
 	@Override
 	public void show() {
-		//stage.clear();
 		
 	}
 
