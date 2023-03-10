@@ -46,7 +46,7 @@ public class SplashScreen implements Screen {
 		        game.setScreen(new MainMenuScreen(game));;
 		    }
 		});
-		splashImage.setPosition(ShmupGame.V_WIDTH / 2 - splashImage.getWidth(), ShmupGame.V_HEIGHT / 2 - splashImage.getHeight());
+		splashImage.setPosition(ShmupGame.V_WIDTH / 2 - splashImage.getWidth()/2, ShmupGame.V_HEIGHT / 2 - splashImage.getHeight()/2);
 		splashImage.addAction(sequence(alpha(.1f), fadeIn(3f), run));
 		
 	}
