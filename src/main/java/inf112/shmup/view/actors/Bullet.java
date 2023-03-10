@@ -14,7 +14,7 @@ public abstract class Bullet extends Actor{
 	
 	Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/laserBlue02.png")));
 
-	EnemyFactory enemyFactory;
+	EnemyCollection enemyFactory;
 	
 	public Bullet(float x, float y) {
 		sprite.setOriginCenter();
