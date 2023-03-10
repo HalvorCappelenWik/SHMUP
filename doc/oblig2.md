@@ -66,7 +66,7 @@ Se [README.md](shmup/README.md)
 Se [klassediagram.png](shmup/doc/klassediagram.png)
 
 #### *Manuelle tester*
-Se [manuelletester.md](shmup/doc/manuelletester.md)
+Se [manuelletester.md](shmup/doc/ManuelleTester.md)
 
 #### *Automatiske tester*
 Automatiske tester har dessverre blitt nedprioritert i oblig2. Som sagt er noe av det vi har lyst til å forbedre til oblig3 dette. Vi har hatt stort fokus på kun implementering og neglisjert det å skrive tester. 
