@@ -6,8 +6,10 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -51,11 +53,17 @@ public class SplashScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
-		// TODO Auto-generated method stub
-		Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
+		Gdx.gl.glClearColor(.25f, .25f, .25f, 1f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		update(delta);
+		//draw background rectangle using shapeRenderer
+		game.shape.setProjectionMatrix(game.camera.combined);
+		game.shape.begin(ShapeRenderer.ShapeType.Filled);
+		game.shape.setColor(Color.LIGHT_GRAY);
+		game.shape.rect(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH);
+		game.shape.end();
+
+		stage.act(delta);
 
 		stage.draw();
 
@@ -63,14 +71,10 @@ public class SplashScreen implements Screen {
 		game.batch.end();
 	}
 
-	public void update(float delta) {
-		stage.act(delta);
-
-	}
-
 	@Override
 	public void resize(int width, int height) {
 		// TODO Auto-generated method stub
+		stage.getViewport().update(width, height, false);
 	}
 
 	@Override
