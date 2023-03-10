@@ -19,7 +19,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import inf112.shmup.app.ShmupGame;
 import inf112.shmup.util.WaveManager;
 import inf112.shmup.view.actors.Enemy;
-import inf112.shmup.view.actors.EnemyFactory;
+import inf112.shmup.view.actors.EnemyCollection;
 import inf112.shmup.view.actors.Player;
 import inf112.shmup.view.actors.PlayerBullet;
 
@@ -28,7 +28,6 @@ public class GameScreen implements Screen{
 	private final ShmupGame game;
 	private Stage stage;
 	private Player player;
-	private EnemyFactory enemyFactory;
 	
 	// Keep track of enemy waves
 	int waveNum = 0;
@@ -40,14 +39,12 @@ public class GameScreen implements Screen{
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
 		
-		enemyFactory = new EnemyFactory(new ArrayList<>(), stage);
-		stage.addActor(enemyFactory);
-		
 		player = new Player(ShmupGame.V_WIDTH/2-200, 100);
 		stage.addActor(player);
 		stage.setKeyboardFocus(player);
 		
 		this.waveManager = new WaveManager("src/assets/levels/testLevel.json");
+		addEnemiesToStage(waveManager.getWave(0));
 	}
 
 	@Override
@@ -124,13 +121,6 @@ public class GameScreen implements Screen{
 
 	// --------- other methods ----------
 
-	/**
-	 * @return Enemyfactory object in scene
-	 */
-	public EnemyFactory getEnemyFactory(){	//Currently pointless, thought .getScene was .getScreen.
-		return this.enemyFactory;			//Which would have allowed me to access tbe factory from any actor
-	}
-	
 	/**
 	 * Makes a list of all (not killed) enemies currently in the stage
 	 * @return list of alive enemies
