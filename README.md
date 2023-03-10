@@ -12,7 +12,7 @@ Spillet er av varianten Shoot ’Em Up (samme som f.eks. Space Invaders).
 * Krever Java 17 eller senere
 
 ## Kjente feil
- Ingenting enda
+Det hender at teksten på "Play"-knappen i menyen blir borte når man prøver å kjøre spillet i full skjerm.
 
 ## Credits
 Ingenting enda
