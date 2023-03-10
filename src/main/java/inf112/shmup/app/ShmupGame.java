@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import inf112.shmup.view.screens.MainMenuScreen;
+import inf112.shmup.view.screens.SplashScreen;
 
 public class ShmupGame extends Game{
 	
@@ -38,7 +39,8 @@ public class ShmupGame extends Game{
 		batch = new SpriteBatch();
 		font = new BitmapFont();
         
-        this.setScreen(new MainMenuScreen(this));
+        // this.setScreen(new MainMenuScreen(this));
+		this.setScreen(new SplashScreen(this));
 	}
 
 	/**
