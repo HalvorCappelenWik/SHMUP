@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import inf112.shmup.app.ShmupGame;
+import inf112.shmup.util.ScoreManager;
 import inf112.shmup.util.WaveManager;
 import inf112.shmup.view.actors.Enemy;
 import inf112.shmup.view.actors.EnemyCollection;
@@ -45,6 +46,9 @@ public class GameScreen implements Screen{
 		
 		this.waveManager = new WaveManager("src/assets/levels/testLevel.json");
 		addEnemiesToStage(waveManager.getWave(0));
+		waveNum += 1;
+		
+		stage.addActor(new ScoreManager());
 	}
 
 	@Override
@@ -67,7 +71,6 @@ public class GameScreen implements Screen{
 		
 		// Check if player is killed
 		if(player.killed) {
-			player.remove();
 			dispose();
 			game.setScreen(new GameOverScreen(game));
 		}

@@ -13,6 +13,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import inf112.shmup.app.ShmupGame;
+import inf112.shmup.util.GameScore;
 
 public class Enemy extends Actor{ //might be a good idea to make an abstract class if we want enemy variety
 
@@ -99,6 +100,7 @@ public class Enemy extends Actor{ //might be a good idea to make an abstract cla
 	 */
 	public void kill() {
 		this.killed = true;
+		GameScore.addScore(100);
 		this.remove();
 	}
 
