@@ -80,10 +80,10 @@ public class Player extends DrawableActor {
 	private void moveIntoBounds(float x, float y) {
 		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
 		
-		setX(Math.max(gameBounds.x, getX()));
-		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth(), getX()));
-		setY(Math.max(gameBounds.y, getY()));
-		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight(), getY()));
+		setX(Math.max(gameBounds.x + getTotalWidth()/2, getX()));
+		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth()/2, getX()));
+		setY(Math.max(gameBounds.y + getTotalHeight()/2, getY()));
+		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight()/2, getY()));
 	}
 	
 	/**

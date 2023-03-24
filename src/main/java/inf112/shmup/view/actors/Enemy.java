@@ -22,7 +22,7 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
     int dir = 1;
     float speed = 100;
 
-    private final float _secondsBetweenBullets = 0.3f;
+    private final float _secondsBetweenBullets = 1f;
 	private float _secondsSinceLastBullet = 0f;
     
 
@@ -91,10 +91,10 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 	private void moveIntoBounds(float x, float y) {
 		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
 		
-		setX(Math.max(gameBounds.x, getX()));
-		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth(), getX()));
-		setY(Math.max(gameBounds.y, getY()));
-		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight(), getY()));
+		setX(Math.max(gameBounds.x + getTotalWidth()/2, getX()));
+		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth()/2, getX()));
+		setY(Math.max(gameBounds.y + getTotalWidth()/2, getY()));
+		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight()/2, getY()));
 	}
 
 }

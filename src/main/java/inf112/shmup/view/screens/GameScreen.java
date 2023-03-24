@@ -71,20 +71,6 @@ public class GameScreen implements Screen{
 		game.shape.rect(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH);
 		game.shape.end();
 
-		// use for debugging, bounding box of objects
-		/*
-		for(Actor a : stage.getActors()){
-			if(a instanceof DrawableActor){
-				DrawableActor aa = (DrawableActor) a;
-				game.shape.setProjectionMatrix(game.camera.combined);
-				game.shape.begin(ShapeType.Line);
-				game.shape.setColor(Color.RED);
-				Rectangle rect = aa.getSprite().getBoundingRectangle();
-				game.shape.rect(rect.getX(), rect.getY(), rect.getWidth(), rect.getHeight());
-				game.shape.end();
-			}
-			
-		} */
 		
 		// Check if player is killed
 		if(player.killed) {
@@ -112,6 +98,28 @@ public class GameScreen implements Screen{
 		stage.act(delta);
 
 		stage.draw();
+
+		
+		// use for debugging, bounding box of objects
+		
+		for(Actor a : stage.getActors()){
+			if(a instanceof DrawableActor){
+				DrawableActor aa = (DrawableActor) a;
+				game.shape.setProjectionMatrix(game.camera.combined);
+				game.shape.begin(ShapeType.Line);
+				game.shape.setColor(Color.RED);
+				Rectangle rect = aa.getSprite().getBoundingRectangle();
+				game.shape.rect(rect.getX(), rect.getY(), rect.getWidth(), rect.getHeight());
+				game.shape.end();
+
+				game.shape.setProjectionMatrix(game.camera.combined);
+				game.shape.begin(ShapeType.Filled);
+				game.shape.setColor(Color.LIME);
+				game.shape.rect(aa.getX() - 2, aa.getY() - 2, 4, 4);
+				game.shape.end();
+			}
+			
+		} 
 	}
 
 	@Override
