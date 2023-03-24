@@ -28,10 +28,10 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 
     public Enemy(float x, float y){
         setPosition(x, y);
-        setBounds(x, y, getTotalWidth(), getTotalHeight());
+        //setBounds(x, y, getTotalWidth(), getTotalHeight());
         setSprite("src/assets/ships/ship_red1.png");
 		
-		sprite.setOrigin(0,0);
+		setOrigin(0,0);
         //setOrigin(sprite.getWidth()/2, sprite.getHeight()/2);
        
 		setEnemyRotation(sprite);
@@ -51,7 +51,7 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 
         //shoot
         if(_secondsSinceLastBullet > _secondsBetweenBullets) {
-			Bullet newBullet = new EnemyBullet(this.getX(), this.getY());
+			Bullet newBullet = new EnemyBullet(this.getX() + 5, this.getY());
 			this.getStage().addActor(newBullet);
 			_secondsSinceLastBullet = 0f;
 		}

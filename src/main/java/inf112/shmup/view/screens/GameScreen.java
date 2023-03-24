@@ -42,7 +42,7 @@ public class GameScreen implements Screen{
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
 		
-		player = new Player(ShmupGame.V_WIDTH/2-200, 100);
+		player = new Player(ShmupGame.V_WIDTH/2, 100);
 		stage.addActor(player);
 		stage.setKeyboardFocus(player);
 		
@@ -84,8 +84,7 @@ public class GameScreen implements Screen{
 				game.shape.end();
 			}
 			
-		}
-		*/
+		} */
 		
 		// Check if player is killed
 		if(player.killed) {

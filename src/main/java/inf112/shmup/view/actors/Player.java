@@ -21,7 +21,9 @@ public class Player extends DrawableActor {
 	public boolean killed;
 
 	public Player(float x, float y) {
-		//sprite.setScale(2, 2);
+		
+		setPosition(x, y);
+		
 		setBounds(x, y, getTotalWidth(), getTotalHeight());
 		killed = false;
 
@@ -59,7 +61,7 @@ public class Player extends DrawableActor {
 
 		// Spawn new bullet every 200th of a second
 		if(_secondsSinceLastBullet > _secondsBetweenBullets) {
-			PlayerBullet newBullet = new PlayerBullet(this.getX() + getTotalWidth()/2, this.getY() + getTotalHeight());
+			PlayerBullet newBullet = new PlayerBullet(this.getX()+10, this.getY() + getTotalHeight()/2);
 			this.getStage().addActor(newBullet);
 			_secondsSinceLastBullet = 0f;
 		}
@@ -68,13 +70,6 @@ public class Player extends DrawableActor {
 		}
 
 	}
-	
-	// ------- other functions ---------
-
-	public Sprite getSprite() {
-		return sprite;
-	}
-
 
 
 	/**

@@ -17,7 +17,7 @@ public class EnemyBullet extends Bullet{
    @Override
    protected void move(float delta) {
        moveBy(0, -500*delta);
-       sprite.setBounds(getX(), getY(), getWidth(), getHeight());
+       //sprite.setBounds(getX(), getY(), getTotalWidth(), getTotalHeight());
    }
    
    @Override

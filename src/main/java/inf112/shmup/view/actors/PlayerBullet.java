@@ -9,7 +9,7 @@ public class PlayerBullet extends Bullet{
 
     public PlayerBullet(float x, float y) {
         super(x, y);
-		setSprite("src/assets/bullets/bullet_.cpng");
+		setSprite("src/assets/bullets/bullet_a.png");
     }
 
     @Override

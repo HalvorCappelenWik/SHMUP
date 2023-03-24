@@ -14,7 +14,7 @@ public abstract class DrawableActor extends Actor{
     Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/no_sprite.png")));
 
     float defaultScale = 3;
-
+    
     /**
      * Sets the sprite of the current object with correct orgin.
      * Only using the file path

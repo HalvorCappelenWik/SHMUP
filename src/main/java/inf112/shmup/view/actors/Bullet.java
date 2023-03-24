@@ -11,16 +11,14 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import inf112.shmup.app.ShmupGame;
 
 public abstract class Bullet extends DrawableActor{
-	
-	Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/laserBlue02.png")));
 
 	EnemyCollection enemyFactory;
 	
 	public Bullet(float x, float y) {
-		sprite.setOriginCenter();
-		//sprite.setScale(1, 1);
-		setOrigin(getTotalWidth()/2, getTotalHeight()/2);
-		setBounds(x, y, getTotalWidth(), getTotalHeight());
+		setSprite("src/assets/bullets/bullet_a.png");
+		setPosition(x, y);
+		sprite.setPosition(getX(), getY());
+		//setBounds(x, y, getTotalWidth(), getTotalHeight());
 	}
 	
 	@Override
