@@ -11,23 +11,21 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import inf112.shmup.app.ShmupGame;
 
-public class Player extends Actor {
+public class Player extends DrawableActor {
 
 	private final float _secondsBetweenBullets = 0.1f;
 	private float _secondsSinceLastBullet = 0f;
 	private float speed_x = 5f;
 	private float speed_y = 5f;
-
-	Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/playerShip1_blue.png")));
 	
 	public boolean killed;
 
 	public Player(float x, float y) {
-		sprite.setOrigin(0,0);
 		//sprite.setScale(2, 2);
 		setBounds(x, y, getTotalWidth(), getTotalHeight());
 		killed = false;
-		
+
+		setSprite("src/assets/ships/ship_blue2.png");
 	}
 
 	// -------- actor functions ----------
@@ -68,6 +66,7 @@ public class Player extends Actor {
 		else {
 			_secondsSinceLastBullet += delta;
 		}
+
 	}
 	
 	// ------- other functions ---------
@@ -76,32 +75,10 @@ public class Player extends Actor {
 		return sprite;
 	}
 
-	/**
-	 * Temporary function for getting the coordinates at the ends of the bounding box 
-	 * (might be on the chopping block if never used or not not sufficient)
-	 * @param sprite Which sprite to check for
-	 * @param side which side ("top","bottom","left","right")
-	 * @return The respective x / y coordinate of the side you ask for
-	 */
-	private float bbox(Sprite sprite, String side){
-		Rectangle bounds = sprite.getBoundingRectangle();
-		switch(side){
-			case "top":
-				return bounds.y + bounds.height * sprite.getScaleX();
-			case "bottom":
-				return bounds.y;
-			case "left":
-				return bounds.x;
-			case "right":
-				return bounds.y + bounds.width * sprite.getScaleY();
-			default:
-				throw new IllegalArgumentException("String not a legal direction, choose 'top', 'bottom', 'left', 'right'");
-				
-		}
-	}
+
 
 	/**
-	 * Method that keeps the player within the scene 
+	 * Method that keeps the object within the scene 
 	 * @param x current X coordinate
 	 * @param y current Y coordinate
 	 */
@@ -112,20 +89,6 @@ public class Player extends Actor {
 		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth(), getX()));
 		setY(Math.max(gameBounds.y, getY()));
 		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight(), getY()));
-	}
-
- 	/**
-	 * @return Sprite width with scale
-	 */
-	public float getTotalWidth(){
-		return sprite.getWidth() * sprite.getScaleX();
-	}
-
-	/**
-	 * @return Sprite height with scale
-	 */
-	public float getTotalHeight(){
-		return sprite.getHeight() * sprite.getScaleY();
 	}
 	
 	/**

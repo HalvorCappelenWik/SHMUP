@@ -7,10 +7,9 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class PlayerBullet extends Bullet{
 
-    Sprite sprite =  super.sprite;
-
     public PlayerBullet(float x, float y) {
         super(x, y);
+		setSprite("src/assets/bullets/bullet_.cpng");
     }
 
     @Override

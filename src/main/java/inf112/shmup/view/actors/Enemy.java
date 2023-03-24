@@ -15,9 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import inf112.shmup.app.ShmupGame;
 import inf112.shmup.util.GameScore;
 
-public class Enemy extends Actor{ //might be a good idea to make an abstract class if we want enemy variety
-
-    Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/playerShip1_blue.png")));
+public class Enemy extends DrawableActor{ //might be a good idea to make an abstract class if we want enemy variety
 
     public boolean killed = false;
 
@@ -31,9 +29,12 @@ public class Enemy extends Actor{ //might be a good idea to make an abstract cla
     public Enemy(float x, float y){
         setPosition(x, y);
         setBounds(x, y, getTotalWidth(), getTotalHeight());
-        sprite.setOriginCenter();
+        setSprite("src/assets/ships/ship_red1.png");
+		
+		sprite.setOrigin(0,0);
         //setOrigin(sprite.getWidth()/2, sprite.getHeight()/2);
-        sprite.rotate(180f);
+       
+		setEnemyRotation(sprite);
     }
 
     @Override
@@ -46,9 +47,11 @@ public class Enemy extends Actor{ //might be a good idea to make an abstract cla
 			dir = -dir;
 		}
 
+		moveIntoBounds(getX(), getY());
+
         //shoot
         if(_secondsSinceLastBullet > _secondsBetweenBullets) {
-			Bullet newBullet = new EnemyBullet(this.getX() + getTotalWidth()/2, this.getY());
+			Bullet newBullet = new EnemyBullet(this.getX(), this.getY());
 			this.getStage().addActor(newBullet);
 			_secondsSinceLastBullet = 0f;
 		}
@@ -70,30 +73,6 @@ public class Enemy extends Actor{ //might be a good idea to make an abstract cla
         sprite.draw(batch, parentAlpha);
     }
 
-
-    /**
-	 * @return Sprite width with scale
-	 */
-	public float getTotalWidth(){
-		return sprite.getWidth() * sprite.getScaleX();
-	}
-
-	/**
-	 * @return Sprite height with scale
-	 */
-	public float getTotalHeight(){
-		return sprite.getHeight() * sprite.getScaleY();
-	}
-	
-	/**
-	 * get the current sprite
-	 * @return sprite
-	 */
-	public Sprite getSprite() {
-		return sprite;
-	}
-	
-
 	/**
 	 * Set the killed field to true
 	 * Fade out actor then remove from stage
@@ -102,6 +81,20 @@ public class Enemy extends Actor{ //might be a good idea to make an abstract cla
 		this.killed = true;
 		GameScore.addScore(100);
 		this.remove();
+	}
+
+		/**
+	 * Method that keeps the object within the scene 
+	 * @param x current X coordinate
+	 * @param y current Y coordinate
+	 */
+	private void moveIntoBounds(float x, float y) {
+		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
+		
+		setX(Math.max(gameBounds.x, getX()));
+		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth(), getX()));
+		setY(Math.max(gameBounds.y, getY()));
+		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight(), getY()));
 	}
 
 }

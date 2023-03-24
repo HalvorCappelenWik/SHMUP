@@ -7,22 +7,23 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class EnemyBullet extends Bullet{
 
-    Sprite sprite = super.sprite;
-
     public EnemyBullet(float x, float y) { // add Player parameter
         super(x, y);
+
+        setSprite("src/assets/bullets/bullet_c.png");
+        setEnemyRotation(sprite);
     }
 
    @Override
    protected void move(float delta) {
-       moveBy(0, -1000*delta);
+       moveBy(0, -500*delta);
        sprite.setBounds(getX(), getY(), getWidth(), getHeight());
    }
    
    @Override
    public void act(float delta) {
-   	super.act(delta);
-   	killPlayerIfCollide();
+   	    super.act(delta);
+   	    killPlayerIfCollide();
    }
    
    

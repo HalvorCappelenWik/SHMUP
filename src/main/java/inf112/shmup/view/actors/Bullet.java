@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import inf112.shmup.app.ShmupGame;
 
-public abstract class Bullet extends Actor{
+public abstract class Bullet extends DrawableActor{
 	
 	Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/laserBlue02.png")));
 

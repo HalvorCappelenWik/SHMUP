@@ -14,11 +14,13 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import inf112.shmup.app.ShmupGame;
 import inf112.shmup.util.ScoreManager;
 import inf112.shmup.util.WaveManager;
+import inf112.shmup.view.actors.DrawableActor;
 import inf112.shmup.view.actors.Enemy;
 import inf112.shmup.view.actors.EnemyCollection;
 import inf112.shmup.view.actors.Player;
@@ -68,6 +70,22 @@ public class GameScreen implements Screen{
 		game.shape.setColor(Color.LIGHT_GRAY);
 		game.shape.rect(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH);
 		game.shape.end();
+
+		// use for debugging, bounding box of objects
+		/*
+		for(Actor a : stage.getActors()){
+			if(a instanceof DrawableActor){
+				DrawableActor aa = (DrawableActor) a;
+				game.shape.setProjectionMatrix(game.camera.combined);
+				game.shape.begin(ShapeType.Line);
+				game.shape.setColor(Color.RED);
+				Rectangle rect = aa.getSprite().getBoundingRectangle();
+				game.shape.rect(rect.getX(), rect.getY(), rect.getWidth(), rect.getHeight());
+				game.shape.end();
+			}
+			
+		}
+		*/
 		
 		// Check if player is killed
 		if(player.killed) {
