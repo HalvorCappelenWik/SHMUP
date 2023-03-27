@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import inf112.shmup.view.screens.MainMenuScreen;
 import inf112.shmup.view.screens.SplashScreen;
 
-public class ShmupGame extends Game{
+public class ShmupGame extends Game {
 	
 	public static final String TITLE = "Shmup";
 	public static final int V_WIDTH = 800;
@@ -24,7 +24,6 @@ public class ShmupGame extends Game{
 	public ShapeRenderer shape;
 
 	public BitmapFont font;
-	
 	
 	@Override
 	public void create() {
@@ -57,27 +56,8 @@ public class ShmupGame extends Game{
 	}
 
 	@Override
-	public void render() {
-		super.render();
-		
-	}
-
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void dispose() {
         batch.dispose();
         this.getScreen().dispose();
 	}
-
 }
