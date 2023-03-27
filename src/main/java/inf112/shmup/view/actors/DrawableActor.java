@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.utils.Align;
 
 public abstract class DrawableActor extends Actor{
     
@@ -14,7 +16,7 @@ public abstract class DrawableActor extends Actor{
     Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/no_sprite.png")));
 
     float defaultScale = 3;
-    
+
     /**
      * Sets the sprite of the current object with correct orgin.
      * Only using the file path
@@ -34,7 +36,19 @@ public abstract class DrawableActor extends Actor{
 		sprite = new_sprite;
 		sprite.setOriginCenter();
 		sprite.setScale(defaultScale, defaultScale);
+		setBounds(getX(), getY(), getTotalWidth(), getTotalHeight());
+
+		sprite.setX(getWidth()/2-sprite.getWidth()/2);
+		sprite.setY(getHeight()/2-sprite.getHeight()/2);
     }
+
+	@Override
+    protected void positionChanged() {
+        sprite.setX(getX(Align.center) - sprite.getWidth()/2);
+		sprite.setY(getY(Align.center) - sprite.getHeight()/2);
+        super.positionChanged();
+    }
+
 
     /**
 	 * @return Total width with scale

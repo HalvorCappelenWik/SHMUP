@@ -8,8 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 public class EnemyBullet extends Bullet{
 
     public EnemyBullet(float x, float y) { // add Player parameter
+        
         super(x, y);
-
         setSprite("src/assets/bullets/bullet_c.png");
         setEnemyRotation(sprite);
     }

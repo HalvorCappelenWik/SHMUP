@@ -28,26 +28,18 @@ public class Player extends DrawableActor {
 	public Player(float x, float y) {
 		
 		setPosition(x, y);
-		
-		setBounds(x, y, getTotalWidth(), getTotalHeight());
 		killed = false;
-
 		setSprite("src/assets/ships/ship_blue2.png");
+		//setBounds(x, y, getTotalWidth(), getTotalHeight());
 		sprite.setPosition(x, y);
-
 		health = maxHEALTH = 100;
 	}
 
 	// -------- actor functions ----------
 
 	@Override
-	protected void positionChanged() {
-		sprite.setPosition(getX(), getY());
-		super.positionChanged();
-	}
-
-	@Override
 	public void draw(Batch batch, float parentAlpha) {
+		positionChanged();
 		sprite.draw(batch);
 	}
 
@@ -69,7 +61,7 @@ public class Player extends DrawableActor {
 
 		// Spawn new bullet every 200th of a second
 		if(_secondsSinceLastBullet > _secondsBetweenBullets) {
-			PlayerBullet newBullet = new PlayerBullet(this.getX()+10, this.getY() + getTotalHeight()/2);
+			PlayerBullet newBullet = new PlayerBullet(this.getX(Align.center), this.getY(Align.bottom));
 			this.getStage().addActor(newBullet);
 			_secondsSinceLastBullet = 0f;
 		}
@@ -88,10 +80,10 @@ public class Player extends DrawableActor {
 	private void moveIntoBounds(float x, float y) {
 		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
 		
-		setX(Math.max(gameBounds.x + getTotalWidth()/2, getX(Align.center)), Align.center);
-		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth()/2, getX(Align.center)), Align.center);
-		setY(Math.max(gameBounds.y + getTotalHeight()/2, getY(Align.center)), Align.center);
-		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight()/2, getY(Align.center)), Align.center);
+		setX(Math.max(gameBounds.x, getX()));
+		setX(Math.min(gameBounds.x + gameBounds.width - getWidth(), getX()));
+		setY(Math.max(gameBounds.y, getY()));
+		setY(Math.min(gameBounds.y + gameBounds.height - getHeight(), getY()));
 	}
 	
 	/**

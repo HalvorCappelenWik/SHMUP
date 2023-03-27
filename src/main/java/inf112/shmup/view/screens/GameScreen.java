@@ -15,6 +15,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import inf112.shmup.app.ShmupGame;
@@ -110,6 +111,12 @@ public class GameScreen implements Screen{
 				game.shape.setColor(Color.RED);
 				Rectangle rect = aa.getSprite().getBoundingRectangle();
 				game.shape.rect(rect.getX(), rect.getY(), rect.getWidth(), rect.getHeight());
+				game.shape.end();
+
+				game.shape.setProjectionMatrix(game.camera.combined);
+				game.shape.begin(ShapeType.Line);
+				game.shape.setColor(Color.BLUE);
+				game.shape.rect(aa.getX(), aa.getY(), aa.getWidth(), aa.getHeight());
 				game.shape.end();
 
 				game.shape.setProjectionMatrix(game.camera.combined);

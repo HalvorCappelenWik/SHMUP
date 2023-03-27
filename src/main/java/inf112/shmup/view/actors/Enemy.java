@@ -28,8 +28,9 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
     
 
     public Enemy(float x, float y){
-        setPosition(x, y);
-        setBounds(x, y, getTotalWidth(), getTotalHeight());
+        
+
+		setPosition(x, y, Align.center);
         setSprite("src/assets/ships/ship_red1.png");
 		
 		//setOrigin(0,0);
@@ -64,12 +65,6 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
     }
 
     @Override
-    protected void positionChanged() {
-        sprite.setPosition(getX(), getY());
-        super.positionChanged();
-    }
-
-    @Override
     public void draw(Batch batch, float parentAlpha) {
     	//if(killed) return;
         sprite.draw(batch, parentAlpha);
@@ -93,10 +88,10 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 	private void moveIntoBounds(float x, float y) {
 		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
 		
-		setX(Math.max(gameBounds.x + getTotalWidth()/2, getX(Align.center)), Align.center);
-		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth()/2, getX(Align.center)), Align.center);
-		setY(Math.max(gameBounds.y + getTotalHeight()/2, getY(Align.center)), Align.center);
-		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight()/2, getY(Align.center)), Align.center);
+		setX(Math.max(gameBounds.x + getWidth()/2, getX(Align.center)), Align.center);
+		setX(Math.min(gameBounds.x + gameBounds.width - getWidth()/2, getX(Align.center)), Align.center);
+		setY(Math.max(gameBounds.y + getHeight()/2, getY(Align.center)), Align.center);
+		setY(Math.min(gameBounds.y + gameBounds.height - getHeight()/2, getY(Align.center)), Align.center);
 	}
 
 }

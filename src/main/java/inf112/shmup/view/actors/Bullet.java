@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.app.ShmupGame;
 
@@ -15,15 +16,14 @@ public abstract class Bullet extends DrawableActor{
 	EnemyCollection enemyFactory;
 	
 	public Bullet(float x, float y) {
+
+		setPosition(x, y, Align.center);
 		setSprite("src/assets/bullets/bullet_a.png");
-		setPosition(x, y);
-		sprite.setPosition(getX(), getY());
-		//setBounds(x, y, getTotalWidth(), getTotalHeight());
 	}
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		sprite.setPosition(getX(), getY());
+		positionChanged();
 		sprite.draw(batch);
 	}
 
@@ -36,33 +36,11 @@ public abstract class Bullet extends DrawableActor{
 		}
 	}
 	
-	
-
-	@Override
-	protected void positionChanged() {
-		// TODO Auto-generated method stub
-		sprite.setPosition(getX(), getY());
-		super.positionChanged();
-	}
 
 	/**	
 	 * Method for moving in the act method. Disctinct method to avoid an issue where you could not change the speed in child objects
 	 */
 	protected void move(float delta){
 		moveBy(0, 1000);
-	}
-
-	/**
-	 * @return Total width with scale
-	 */
-	public float getTotalWidth(){
-		return sprite.getWidth() * sprite.getScaleX();
-	}
-
-	/**
-	 * @return Total height with scale
-	 */
-	public float getTotalHeight(){
-		return sprite.getHeight() * sprite.getScaleY();
-	}
+	}	
 }
