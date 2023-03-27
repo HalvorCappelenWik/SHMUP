@@ -7,10 +7,13 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class PlayerBullet extends Bullet{
 
+
     public PlayerBullet(float x, float y) {
         super(x, y);
 		setSprite("src/assets/bullets/bullet_a.png");
     }
+
+// ------------------------------- Override actor methods -----------------------------------
 
     @Override
     protected void move(float delta) {
@@ -22,6 +25,8 @@ public class PlayerBullet extends Bullet{
 		super.act(delta);
 		killEnemyIfCollide();
 	}
+
+// --------------------------- Utility -----------------------------------
     
     
     /**

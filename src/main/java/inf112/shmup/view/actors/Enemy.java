@@ -25,19 +25,16 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 
     private final float _secondsBetweenBullets = 1f;
 	private float _secondsSinceLastBullet = 0f;
-    
 
     public Enemy(float x, float y){
         
-
 		setPosition(x, y, Align.center);
         setSprite("src/assets/ships/ship_red1.png");
-		
-		//setOrigin(0,0);
-        //setOrigin(sprite.getWidth()/2, sprite.getHeight()/2);
        
 		setEnemyRotation(sprite);
     }
+
+// ------------------------------- Override actor methods -----------------------------------
 
     @Override
     public void act(float delta) {
@@ -69,6 +66,8 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
     	//if(killed) return;
         sprite.draw(batch, parentAlpha);
     }
+
+// ------------------------ Other/Utility methods ---------------------------
 
 	/**
 	 * Set the killed field to true

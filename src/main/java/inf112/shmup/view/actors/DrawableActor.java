@@ -17,6 +17,8 @@ public abstract class DrawableActor extends Actor{
 
     float defaultScale = 3;
 
+// ----------------------- Sprite assignment methods -------------------------
+
     /**
      * Sets the sprite of the current actor with correct orgin and bounds.
      * Only using a file path. Default scale
@@ -54,6 +56,8 @@ public abstract class DrawableActor extends Actor{
 		positionChanged(); //as to not draw the sprite in an inapropreate location
     }
 
+// --------------------- override actor method --------------------
+
 	@Override
     protected void positionChanged() {
 		//if you override this method, without the code below. The sprite may not be rendered correctly
@@ -62,20 +66,7 @@ public abstract class DrawableActor extends Actor{
         super.positionChanged();
     }
 
-
-    ///**
-	// * @return Total width with scale
-	// */
-	//public float getTotalWidth(){
-	//	return sprite.getWidth() * sprite.getScaleX();
-	//}
-//
-	///**
-	// * @return Total height with scale
-	// */
-	//public float getTotalHeight(){
-	//	return sprite.getHeight() * sprite.getScaleY();
-	//}
+// --------------------------- Uility -----------------------------
 
     /**
      * @return current sprite

@@ -21,6 +21,8 @@ public abstract class Bullet extends DrawableActor{
 		setY(y, Align.center);
 		setSprite("src/assets/bullets/bullet_a.png");
 	}
+
+// -------------- Override actor methods ------------------------
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
@@ -37,6 +39,7 @@ public abstract class Bullet extends DrawableActor{
 		}
 	}
 	
+// --------------------- Utility ------------------------
 
 	/**	
 	 * Method for moving in the act method. Disctinct method to avoid an issue where you could not change the speed in child objects
