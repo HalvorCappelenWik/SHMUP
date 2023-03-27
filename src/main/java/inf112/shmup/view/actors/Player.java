@@ -28,6 +28,7 @@ public class Player extends DrawableActor {
 		killed = false;
 
 		setSprite("src/assets/ships/ship_blue2.png");
+		sprite.setPosition(x, y);
 	}
 
 	// -------- actor functions ----------
