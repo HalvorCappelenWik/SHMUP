@@ -1,7 +1,7 @@
 package inf112.shmup.view.actors;
 
 /**
- * Actor that can take damage.
+ * Actor that can take damage by the player.
  */
 public interface Damageable {
 
