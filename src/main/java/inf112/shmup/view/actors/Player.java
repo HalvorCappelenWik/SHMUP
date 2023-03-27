@@ -27,7 +27,8 @@ public class Player extends DrawableActor {
 
 	public Player(float x, float y) {
 		
-		setPosition(x, y);
+		setX(x,Align.center);
+		setY(y,Align.center);
 		killed = false;
 		setSprite("src/assets/ships/ship_blue2.png");
 		//setBounds(x, y, getTotalWidth(), getTotalHeight());
@@ -78,7 +79,7 @@ public class Player extends DrawableActor {
 	 * @param y current Y coordinate
 	 */
 	private void moveIntoBounds(float x, float y) {
-		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
+		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH);
 		
 		setX(Math.max(gameBounds.x, getX()));
 		setX(Math.min(gameBounds.x + gameBounds.width - getWidth(), getX()));

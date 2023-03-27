@@ -17,7 +17,8 @@ public abstract class Bullet extends DrawableActor{
 	
 	public Bullet(float x, float y) {
 
-		setPosition(x, y, Align.center);
+		setX(x, Align.center);
+		setY(y, Align.center);
 		setSprite("src/assets/bullets/bullet_a.png");
 	}
 	

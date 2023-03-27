@@ -18,51 +18,64 @@ public abstract class DrawableActor extends Actor{
     float defaultScale = 3;
 
     /**
-     * Sets the sprite of the current object with correct orgin.
-     * Only using the file path
+     * Sets the sprite of the current actor with correct orgin and bounds.
+     * Only using a file path. Default scale
      * @param file_location location of image file
      */
     public void setSprite(String file_location) {
-        setSprite(  new Sprite(new Texture(new FileHandle(file_location)))  );
+		Sprite s = new Sprite(new Texture(new FileHandle(file_location)));
+        setSpriteScaled(s, defaultScale);
     }
 
+	/**
+     * Sets the sprite of the current actor with correct orgin and bounds.
+     * Using a file path. Custom scale
+     * @param file_location location location of image file
+	 * @param scale scale to render sprite in
+     */
+	public void setSpriteScaled(String file_location, float scale){
+		Sprite s = new Sprite(new Texture(new FileHandle(file_location)));
+		setSpriteScaled(s , scale);
+	}
+
     /**
-     * Sets the sprite of the current object with correct orgin.
+     * Sets the sprite of the current actor with correct orgin and bounds.
      * Using a sprite object
      * @param new_sprite sprite object to assign
+	 * @param scale scale to render sprite in
      */
-    public void setSprite(Sprite new_sprite){
+    public void setSpriteScaled(Sprite new_sprite, float scale){
 		
 		sprite = new_sprite;
 		sprite.setOriginCenter();
-		sprite.setScale(defaultScale, defaultScale);
-		setBounds(getX(), getY(), getTotalWidth(), getTotalHeight());
+		sprite.setScale(scale, scale);
+		setBounds(getX(), getY(), sprite.getWidth() * scale, sprite.getHeight() * scale);
 
-		sprite.setX(getWidth()/2-sprite.getWidth()/2);
-		sprite.setY(getHeight()/2-sprite.getHeight()/2);
+		positionChanged(); //as to not draw the sprite in an inapropreate location
     }
 
 	@Override
     protected void positionChanged() {
+		//if you override this method, without the code below. The sprite may not be rendered correctly
         sprite.setX(getX(Align.center) - sprite.getWidth()/2);
 		sprite.setY(getY(Align.center) - sprite.getHeight()/2);
         super.positionChanged();
     }
 
 
-    /**
-	 * @return Total width with scale
-	 */
-	public float getTotalWidth(){
-		return sprite.getWidth() * sprite.getScaleX();
-	}
-
-	/**
-	 * @return Total height with scale
-	 */
-	public float getTotalHeight(){
-		return sprite.getHeight() * sprite.getScaleY();
-	}
+    ///**
+	// * @return Total width with scale
+	// */
+	//public float getTotalWidth(){
+	//	return sprite.getWidth() * sprite.getScaleX();
+	//}
+//
+	///**
+	// * @return Total height with scale
+	// */
+	//public float getTotalHeight(){
+	//	return sprite.getHeight() * sprite.getScaleY();
+	//}
 
     /**
      * @return current sprite

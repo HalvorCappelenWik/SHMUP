@@ -86,12 +86,12 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 	 * @param y current Y coordinate
 	 */
 	private void moveIntoBounds(float x, float y) {
-		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
-		
-		setX(Math.max(gameBounds.x + getWidth()/2, getX(Align.center)), Align.center);
-		setX(Math.min(gameBounds.x + gameBounds.width - getWidth()/2, getX(Align.center)), Align.center);
-		setY(Math.max(gameBounds.y + getHeight()/2, getY(Align.center)), Align.center);
-		setY(Math.min(gameBounds.y + gameBounds.height - getHeight()/2, getY(Align.center)), Align.center);
+		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); 
+	
+		setX(Math.max(gameBounds.x, getX()));
+		setX(Math.min(gameBounds.x + gameBounds.width - getWidth(), getX()));
+		setY(Math.max(gameBounds.y, getY()));
+		setY(Math.min(gameBounds.y + gameBounds.height - getHeight(), getY()));
 	}
 
 }
