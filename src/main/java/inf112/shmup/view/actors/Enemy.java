@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.app.ShmupGame;
 import inf112.shmup.util.GameScore;
@@ -19,7 +20,7 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 
     public boolean killed = false;
 
-    int dir = 1;
+    int dir = -1;
     float speed = 100;
 
     private final float _secondsBetweenBullets = 1f;
@@ -28,10 +29,10 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 
     public Enemy(float x, float y){
         setPosition(x, y);
-        //setBounds(x, y, getTotalWidth(), getTotalHeight());
+        setBounds(x, y, getTotalWidth(), getTotalHeight());
         setSprite("src/assets/ships/ship_red1.png");
 		
-		setOrigin(0,0);
+		//setOrigin(0,0);
         //setOrigin(sprite.getWidth()/2, sprite.getHeight()/2);
        
 		setEnemyRotation(sprite);
@@ -39,6 +40,7 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 
     @Override
     public void act(float delta) {
+		
     	if(killed) return;
         //move
         this.moveBy(dir * speed * delta, 0);
@@ -51,7 +53,7 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 
         //shoot
         if(_secondsSinceLastBullet > _secondsBetweenBullets) {
-			Bullet newBullet = new EnemyBullet(this.getX() + 5, this.getY());
+			Bullet newBullet = new EnemyBullet(this.getX(Align.center), this.getY());
 			this.getStage().addActor(newBullet);
 			_secondsSinceLastBullet = 0f;
 		}
@@ -91,10 +93,10 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 	private void moveIntoBounds(float x, float y) {
 		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
 		
-		setX(Math.max(gameBounds.x + getTotalWidth()/2, getX()));
-		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth()/2, getX()));
-		setY(Math.max(gameBounds.y + getTotalWidth()/2, getY()));
-		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight()/2, getY()));
+		setX(Math.max(gameBounds.x + getTotalWidth()/2, getX(Align.center)), Align.center);
+		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth()/2, getX(Align.center)), Align.center);
+		setY(Math.max(gameBounds.y + getTotalHeight()/2, getY(Align.center)), Align.center);
+		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight()/2, getY(Align.center)), Align.center);
 	}
 
 }

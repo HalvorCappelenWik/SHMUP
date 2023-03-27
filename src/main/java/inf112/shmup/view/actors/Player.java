@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.app.ShmupGame;
 
@@ -87,10 +88,10 @@ public class Player extends DrawableActor {
 	private void moveIntoBounds(float x, float y) {
 		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); //Gdx.graphics.getWidth(), Gdx.graphics.getHeight()
 		
-		setX(Math.max(gameBounds.x + getTotalWidth()/2, getX()));
-		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth()/2, getX()));
-		setY(Math.max(gameBounds.y + getTotalHeight()/2, getY()));
-		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight()/2, getY()));
+		setX(Math.max(gameBounds.x + getTotalWidth()/2, getX(Align.center)), Align.center);
+		setX(Math.min(gameBounds.x + gameBounds.width - getTotalWidth()/2, getX(Align.center)), Align.center);
+		setY(Math.max(gameBounds.y + getTotalHeight()/2, getY(Align.center)), Align.center);
+		setY(Math.min(gameBounds.y + gameBounds.height - getTotalHeight()/2, getY(Align.center)), Align.center);
 	}
 	
 	/**
