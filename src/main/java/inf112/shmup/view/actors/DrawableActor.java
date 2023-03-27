@@ -3,9 +3,7 @@ package inf112.shmup.view.actors;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Align;
 
 public abstract class DrawableActor extends Actor{
@@ -16,6 +14,8 @@ public abstract class DrawableActor extends Actor{
     Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/no_sprite.png")));
 
     float defaultScale = 3;
+
+	
 
 // ----------------------- Sprite assignment methods -------------------------
 

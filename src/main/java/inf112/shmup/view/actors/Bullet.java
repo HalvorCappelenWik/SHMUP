@@ -1,12 +1,7 @@
 package inf112.shmup.view.actors;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.app.ShmupGame;
@@ -17,9 +12,8 @@ public abstract class Bullet extends DrawableActor{
 	
 	public Bullet(float x, float y) {
 
-		setX(x, Align.center);
-		setY(y, Align.center);
 		setSprite("src/assets/bullets/bullet_a.png");
+		setPosition(x, y, Align.center);
 	}
 
 // -------------- Override actor methods ------------------------

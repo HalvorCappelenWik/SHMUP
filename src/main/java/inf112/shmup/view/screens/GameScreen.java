@@ -102,7 +102,7 @@ public class GameScreen implements Screen{
 
 		
 		// use for debugging, bounding box of objects
-		
+		/*
 		for(Actor a : stage.getActors()){
 			if(a instanceof DrawableActor){
 				DrawableActor aa = (DrawableActor) a;
@@ -125,8 +125,8 @@ public class GameScreen implements Screen{
 				game.shape.rect(aa.getX() - 2, aa.getY() - 2, 4, 4);
 				game.shape.end();
 			}
-			
 		} 
+		*/
 	}
 
 	@Override

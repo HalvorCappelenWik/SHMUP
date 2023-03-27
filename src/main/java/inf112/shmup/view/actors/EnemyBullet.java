@@ -3,6 +3,7 @@ package inf112.shmup.view.actors;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.utils.Align;
 
 
 public class EnemyBullet extends Bullet{
@@ -11,8 +12,11 @@ public class EnemyBullet extends Bullet{
         
         super(x, y);
         setSprite("src/assets/bullets/bullet_c.png");
+        setPosition(x, y, Align.center);
         setEnemyRotation(sprite);
     }
+
+// ------------------------------- Override actor methods -----------------------------------
 
    @Override
    protected void move(float delta) {
@@ -25,6 +29,9 @@ public class EnemyBullet extends Bullet{
    	    super.act(delta);
    	    killPlayerIfCollide();
    }
+
+
+// --------------------------- Utility -----------------------------------
    
    
    /**

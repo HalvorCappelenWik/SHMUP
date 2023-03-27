@@ -28,9 +28,8 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 
     public Enemy(float x, float y){
         
-		setPosition(x, y, Align.center);
         setSprite("src/assets/ships/ship_red1.png");
-       
+		setPosition(x, y, Align.center);
 		setEnemyRotation(sprite);
     }
 

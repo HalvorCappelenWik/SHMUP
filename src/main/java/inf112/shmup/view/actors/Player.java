@@ -27,16 +27,13 @@ public class Player extends DrawableActor {
 
 	public Player(float x, float y) {
 		
-		setX(x,Align.center);
-		setY(y,Align.center);
-		killed = false;
 		setSprite("src/assets/ships/ship_blue2.png");
-		//setBounds(x, y, getTotalWidth(), getTotalHeight());
-		sprite.setPosition(x, y);
+		setPosition(x, y, Align.center);
+		killed = false;
 		health = maxHEALTH = 100;
 	}
 
-	// -------- actor functions ----------
+// ------------------------------- Override actor methods -----------------------------------
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
@@ -62,7 +59,7 @@ public class Player extends DrawableActor {
 
 		// Spawn new bullet every 200th of a second
 		if(_secondsSinceLastBullet > _secondsBetweenBullets) {
-			PlayerBullet newBullet = new PlayerBullet(this.getX(Align.center), this.getY(Align.bottom));
+			PlayerBullet newBullet = new PlayerBullet(this.getX(Align.center), this.getY(Align.top));
 			this.getStage().addActor(newBullet);
 			_secondsSinceLastBullet = 0f;
 		}
@@ -72,6 +69,7 @@ public class Player extends DrawableActor {
 
 	}
 
+// ----------------------- Utility ------------------------------
 
 	/**
 	 * Method that keeps the object within the scene 
