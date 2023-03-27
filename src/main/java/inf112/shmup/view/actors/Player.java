@@ -17,6 +17,10 @@ public class Player extends DrawableActor {
 	private float _secondsSinceLastBullet = 0f;
 	private float speed_x = 5f;
 	private float speed_y = 5f;
+
+	private int health;
+
+	private int maxHEALTH;
 	
 	public boolean killed;
 
@@ -29,6 +33,8 @@ public class Player extends DrawableActor {
 
 		setSprite("src/assets/ships/ship_blue2.png");
 		sprite.setPosition(x, y);
+
+		health = maxHEALTH = 100;
 	}
 
 	// -------- actor functions ----------
