@@ -52,6 +52,18 @@ public class PlayerBullet extends Bullet{
  				   return;
  			   }
  		   }
+ 		   
+ 		   // Temporary code for destroying powerups
+ 		   
+ 		   if(a instanceof PowerUp) {
+ 			   PowerUp powerUp = (PowerUp) a;
+ 			   if(bounds.overlaps(powerUp.getSprite().getBoundingRectangle())) {
+	 			   powerUp.takeDamage(0);
+	 			   
+	 			   remove();
+	 			   return;
+ 			   }
+ 		   }
  	   }
     }
 }

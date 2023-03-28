@@ -14,7 +14,7 @@ import inf112.shmup.app.ShmupGame;
 
 public class Player extends DrawableActor implements Damageable{
 
-	private final float _secondsBetweenBullets = 0.35f;
+	private final float _secondsBetweenBullets = 0.65f;
 	private float _secondsSinceLastBullet = 0f;
 	private float speed_x = 5f;
 	private float speed_y = 5f;

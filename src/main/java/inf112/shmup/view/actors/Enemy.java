@@ -1,16 +1,9 @@
 package inf112.shmup.view.actors;
 
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.fadeOut;
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.removeActor;
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
+import java.util.Random;
 
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.app.ShmupGame;
@@ -78,6 +71,12 @@ public class Enemy extends DrawableActor implements Damageable{ //might be a goo
 		
 		// TEMPORARY CODE FOR SPAWNING AND TESTING BOMBBBASAAAAS
 		// I love bombas
+		Random rand = new Random();
+		
+		if(rand.nextInt(3) == 0) {
+			getStage().addActor(new Bomb(sprite.getX(), sprite.getY()));
+		}
+		
 		this.remove();
 	}
 

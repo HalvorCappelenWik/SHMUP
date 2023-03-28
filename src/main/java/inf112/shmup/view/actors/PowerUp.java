@@ -1,20 +1,20 @@
 package inf112.shmup.view.actors;
 
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
-public abstract class PowerUP extends DrawableActor implements Damageable{
+public abstract class PowerUp extends DrawableActor implements Damageable{
 	
-	Sprite sprite;
-
 
 	@Override
 	public void act(float delta) {
 		super.act(delta);
-		moveBy(0, -5f);
+		moveBy(0, -0.5f);
 		
 		if(collidesWithPlayer()) takeDamage(0);
 	}
