@@ -75,13 +75,11 @@ public class GameScreen implements Screen{
 		
 		// Check if player is killed
 		if(player.killed) {
-			dispose();
 			game.setScreen(new GameOverScreen(game));
 		}
 		
 		// Check if all waves are killed
 		if(waveNum > waveManager.waveNums) {
-			dispose();
 			game.setScreen(new GameOverScreen(game));
 		}
 		
@@ -91,7 +89,6 @@ public class GameScreen implements Screen{
 				addEnemiesToStage(waveManager.getWave(waveNum));
 				waveNum += 1;
 			} catch(IndexOutOfBoundsException e) {
-				dispose();
 				game.setScreen(new GameOverScreen(game));
 			}
 		}
