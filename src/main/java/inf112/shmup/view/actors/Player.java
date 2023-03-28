@@ -12,9 +12,9 @@ import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.app.ShmupGame;
 
-public class Player extends DrawableActor {
+public class Player extends DrawableActor implements Damageable{
 
-	private final float _secondsBetweenBullets = 0.1f;
+	private final float _secondsBetweenBullets = 0.35f;
 	private float _secondsSinceLastBullet = 0f;
 	private float speed_x = 5f;
 	private float speed_y = 5f;
@@ -91,5 +91,11 @@ public class Player extends DrawableActor {
 	public void kill() {
 		killed = true;
 		remove();
+	}
+
+	@Override
+	public void takeDamage(int damage) {
+		// TODO Auto-generated method stub
+		
 	}
 }

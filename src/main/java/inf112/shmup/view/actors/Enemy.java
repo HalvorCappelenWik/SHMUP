@@ -16,7 +16,7 @@ import com.badlogic.gdx.utils.Align;
 import inf112.shmup.app.ShmupGame;
 import inf112.shmup.util.GameScore;
 
-public class Enemy extends DrawableActor{ //might be a good idea to make an abstract class if we want enemy variety
+public class Enemy extends DrawableActor implements Damageable{ //might be a good idea to make an abstract class if we want enemy variety
 
     public boolean killed = false;
 
@@ -75,6 +75,9 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 	public void kill() {
 		this.killed = true;
 		GameScore.addScore(100);
+		
+		// TEMPORARY CODE FOR SPAWNING AND TESTING BOMBBBASAAAAS
+		// I love bombas
 		this.remove();
 	}
 
@@ -91,5 +94,11 @@ public class Enemy extends DrawableActor{ //might be a good idea to make an abst
 		setY(Math.max(gameBounds.y, getY()));
 		setY(Math.min(gameBounds.y + gameBounds.height - getHeight(), getY()));
 	}
+
+		@Override
+		public void takeDamage(int damage) {
+			
+			
+		}
 
 }
