@@ -14,7 +14,7 @@ import inf112.shmup.app.ShmupGame;
 import inf112.shmup.util.Assets;
 import inf112.shmup.util.AudioPlayer;
 
-public class Player extends DrawableActor implements Damageable{
+public class Player extends DrawableActor {
 
 	private final float _secondsBetweenBullets = 0.65f;
 	private float _secondsSinceLastBullet = 0f;
@@ -31,7 +31,7 @@ public class Player extends DrawableActor implements Damageable{
 		setSprite(Assets.sprite("ships/ship_blue2.png"));
 		setPosition(x, y, Align.center);
 		killed = false;
-		health = maxHealth = 100;
+		health = maxHealth = 3;
 	}
 
 // ------------------------------- Override actor methods -----------------------------------
@@ -87,18 +87,15 @@ public class Player extends DrawableActor implements Damageable{
 		setY(Math.min(gameBounds.y + gameBounds.height - getHeight(), getY()));
 	}
 	
-	/**
-	 * Set the boolean value "killed" to true
-	 */
-	public void kill() {
+	public void takeDamage(int damage) {
+		health -= damage;
+		AudioPlayer.playEffect("player_killed");
+
+		if (health > 0)
+			return;
+
+		health = 0;
 		killed = true;
 		remove();
-		AudioPlayer.playEffect("player_killed");
-	}
-
-	@Override
-	public void takeDamage(int damage) {
-		// TODO Auto-generated method stub
-		
 	}
 }

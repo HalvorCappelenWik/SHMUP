@@ -9,9 +9,12 @@ import inf112.shmup.util.Assets;
 
 public class EnemyBullet extends Bullet{
 
-    public EnemyBullet(float x, float y) { // add Player parameter
+    private final int _damage;
+
+    public EnemyBullet(float x, float y, int damage) {
         
         super(x, y);
+        _damage = damage;
         setSprite(Assets.sprite("bullets/bullet_c.png"));
         setPosition(x, y, Align.center);
         setEnemyRotation(sprite);
@@ -28,7 +31,7 @@ public class EnemyBullet extends Bullet{
    @Override
    public void act(float delta) {
    	    super.act(delta);
-   	    killPlayerIfCollide();
+   	    damagePlayerIfCollode();
    }
 
 
@@ -38,7 +41,7 @@ public class EnemyBullet extends Bullet{
    /**
     * Kills any player that collides
     */
-   private void killPlayerIfCollide() {
+   private void damagePlayerIfCollode() {
 	   Rectangle bounds = this.sprite.getBoundingRectangle();
 	   
 	   // Double check that bullet is not out of bounds
@@ -49,7 +52,7 @@ public class EnemyBullet extends Bullet{
 		   if(a instanceof Player) {
 			   // Check collision 
 			   if(bounds.overlaps(((Player) a).getSprite().getBoundingRectangle())){
-				   ((Player) a).kill();
+				   ((Player) a).takeDamage(_damage);
 				   this.remove();
 				   return;
 			   }

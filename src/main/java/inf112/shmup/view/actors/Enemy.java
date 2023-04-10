@@ -45,7 +45,7 @@ public class Enemy extends DrawableActor implements Damageable{ //might be a goo
 
         //shoot
         if(_secondsSinceLastBullet > _secondsBetweenBullets) {
-			Bullet newBullet = new EnemyBullet(this.getX(Align.center), this.getY());
+			Bullet newBullet = new EnemyBullet(this.getX(Align.center), this.getY(), 1);
 			this.getStage().addActor(newBullet);
 			_secondsSinceLastBullet = 0f;
 			AudioPlayer.playEffect("shoot_2");
