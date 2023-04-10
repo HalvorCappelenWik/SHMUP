@@ -1,6 +1,5 @@
 package inf112.shmup.view.actors;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
@@ -9,9 +8,11 @@ import inf112.shmup.util.Assets;
 
 public class PlayerBullet extends Bullet{
 
+	private final int _damage;
 
-    public PlayerBullet(float x, float y) {
+    public PlayerBullet(float x, float y, int damage) {
         super(x, y);
+		_damage = damage;
 		setSprite(Assets.sprite("bullets/bullet_a.png"));
     }
 
@@ -25,47 +26,28 @@ public class PlayerBullet extends Bullet{
     @Override
 	public void act(float delta) {
 		super.act(delta);
-		killEnemyIfCollide();
+		damageIfCollide();
 	}
 
 // --------------------------- Utility -----------------------------------
     
-    
-    /**
-     * Kills any player that collides
-     */
-    private void killEnemyIfCollide() {
- 	   Rectangle bounds = this.sprite.getBoundingRectangle();
- 	   
- 	   // Double check that bullet is not out of bounds
- 	   if(this.getStage() == null) return;
- 	   // Loop over actors
- 	   for(Actor a : getStage().getActors()) {
- 		   // If it is a player
- 		   if(a instanceof Enemy) {
- 			   // Skip dead enemies that are in death animation
- 			   if(((Enemy) a).killed) {
- 				   continue;
- 			   }
- 			   // Check collision 
- 			   if(bounds.overlaps(((Enemy) a).getSprite().getBoundingRectangle())){
- 				   ((Enemy) a).kill();
- 				   this.remove();
- 				   return;
- 			   }
- 		   }
- 		   
- 		   // Temporary code for destroying powerups
- 		   
- 		   if(a instanceof PowerUp) {
- 			   PowerUp powerUp = (PowerUp) a;
- 			   if(bounds.overlaps(powerUp.getSprite().getBoundingRectangle())) {
-	 			   powerUp.takeDamage(0);
-	 			   
-	 			   remove();
-	 			   return;
- 			   }
- 		   }
- 	   }
-    }
+	private void damageIfCollide() {
+		Rectangle bounds = sprite.getBoundingRectangle();
+
+		if (getStage() == null)
+			return;
+
+		for (Actor actor : getStage().getActors()) {
+			if (actor instanceof Damageable) {
+				Damageable damageable = (Damageable) actor;
+
+				if (bounds.overlaps(damageable.getBounds())) {
+
+					// Temporary damage:
+					damageable.takeDamage(_damage);
+					remove();
+				}
+			}
+		}
+	}
 }

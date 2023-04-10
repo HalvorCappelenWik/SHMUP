@@ -12,7 +12,6 @@ public abstract class Bullet extends DrawableActor{
 	EnemyCollection enemyFactory;
 	
 	public Bullet(float x, float y) {
-
 		setSprite(Assets.sprite("bullets/bullet_a.png"));
 		setPosition(x, y, Align.center);
 	}

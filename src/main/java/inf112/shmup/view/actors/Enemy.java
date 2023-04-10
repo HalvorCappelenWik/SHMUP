@@ -64,11 +64,22 @@ public class Enemy extends DrawableActor implements Damageable{ //might be a goo
 
 // ------------------------ Other/Utility methods ---------------------------
 
-	/**
-	 * Set the killed field to true
-	 * Fade out actor then remove from stage
+		/**
+	 * Method that keeps the object within the scene 
+	 * @param x current X coordinate
+	 * @param y current Y coordinate
 	 */
-	public void kill() {
+	private void moveIntoBounds(float x, float y) {
+		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); 
+	
+		setX(Math.max(gameBounds.x, getX()));
+		setX(Math.min(gameBounds.x + gameBounds.width - getWidth(), getX()));
+		setY(Math.max(gameBounds.y, getY()));
+		setY(Math.min(gameBounds.y + gameBounds.height - getHeight(), getY()));
+	}
+
+	@Override
+	public void takeDamage(int damage) {
 		this.killed = true;
 		GameScore.addScore(100);
 		
@@ -84,24 +95,9 @@ public class Enemy extends DrawableActor implements Damageable{ //might be a goo
 		AudioPlayer.playEffect("enemy_killed");
 	}
 
-		/**
-	 * Method that keeps the object within the scene 
-	 * @param x current X coordinate
-	 * @param y current Y coordinate
-	 */
-	private void moveIntoBounds(float x, float y) {
-		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); 
-	
-		setX(Math.max(gameBounds.x, getX()));
-		setX(Math.min(gameBounds.x + gameBounds.width - getWidth(), getX()));
-		setY(Math.max(gameBounds.y, getY()));
-		setY(Math.min(gameBounds.y + gameBounds.height - getHeight(), getY()));
+	@Override
+	public Rectangle getBounds() {
+		return getSprite().getBoundingRectangle();
 	}
-
-		@Override
-		public void takeDamage(int damage) {
-			
-			
-		}
 
 }

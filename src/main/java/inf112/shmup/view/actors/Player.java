@@ -2,12 +2,8 @@ package inf112.shmup.view.actors;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.app.ShmupGame;
@@ -60,7 +56,7 @@ public class Player extends DrawableActor {
 
 		// Spawn new bullet every 200th of a second
 		if(_secondsSinceLastBullet > _secondsBetweenBullets) {
-			PlayerBullet newBullet = new PlayerBullet(this.getX(Align.center), this.getY(Align.top));
+			PlayerBullet newBullet = new PlayerBullet(this.getX(Align.center), this.getY(Align.top), 1);
 			this.getStage().addActor(newBullet);
 			AudioPlayer.playEffect("shoot_1");
 			_secondsSinceLastBullet = 0f;
