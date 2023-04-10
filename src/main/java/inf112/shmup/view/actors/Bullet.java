@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.app.ShmupGame;
+import inf112.shmup.util.Assets;
 
 public abstract class Bullet extends DrawableActor{
 
@@ -12,7 +13,7 @@ public abstract class Bullet extends DrawableActor{
 	
 	public Bullet(float x, float y) {
 
-		setSprite("src/assets/bullets/bullet_a.png");
+		setSprite(Assets.sprite("bullets/bullet_a.png"));
 		setPosition(x, y, Align.center);
 	}
 

@@ -11,6 +11,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.app.ShmupGame;
+import inf112.shmup.util.Assets;
+import inf112.shmup.util.AudioPlayer;
 
 public class Player extends DrawableActor implements Damageable{
 
@@ -20,17 +22,16 @@ public class Player extends DrawableActor implements Damageable{
 	private float speed_y = 5f;
 
 	private int health;
-
-	private int maxHEALTH;
+	private int maxHealth;
 	
 	public boolean killed;
 
 	public Player(float x, float y) {
 		
-		setSprite("src/assets/ships/ship_blue2.png");
+		setSprite(Assets.sprite("ships/ship_blue2.png"));
 		setPosition(x, y, Align.center);
 		killed = false;
-		health = maxHEALTH = 100;
+		health = maxHealth = 100;
 	}
 
 // ------------------------------- Override actor methods -----------------------------------
@@ -61,6 +62,7 @@ public class Player extends DrawableActor implements Damageable{
 		if(_secondsSinceLastBullet > _secondsBetweenBullets) {
 			PlayerBullet newBullet = new PlayerBullet(this.getX(Align.center), this.getY(Align.top));
 			this.getStage().addActor(newBullet);
+			AudioPlayer.playEffect("shoot_1");
 			_secondsSinceLastBullet = 0f;
 		}
 		else {
@@ -91,6 +93,7 @@ public class Player extends DrawableActor implements Damageable{
 	public void kill() {
 		killed = true;
 		remove();
+		AudioPlayer.playEffect("player_killed");
 	}
 
 	@Override

@@ -1,9 +1,10 @@
 package inf112.shmup.view.actors;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
+
+import inf112.shmup.util.Assets;
 
 
 public class EnemyBullet extends Bullet{
@@ -11,7 +12,7 @@ public class EnemyBullet extends Bullet{
     public EnemyBullet(float x, float y) { // add Player parameter
         
         super(x, y);
-        setSprite("src/assets/bullets/bullet_c.png");
+        setSprite(Assets.sprite("bullets/bullet_c.png"));
         setPosition(x, y, Align.center);
         setEnemyRotation(sprite);
     }

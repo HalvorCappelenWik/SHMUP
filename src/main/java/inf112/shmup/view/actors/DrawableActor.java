@@ -6,14 +6,16 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
+import inf112.shmup.util.Assets;
+
 public abstract class DrawableActor extends Actor{
     
     
 
     //defult sprite - missing
-    Sprite sprite = new Sprite(new Texture(new FileHandle("src/assets/no_sprite.png")));
+    Sprite sprite = Assets.sprite("no_sprite.png");
 
-    float defaultScale = 3;
+    static final float defaultScale = 3;
 
 	
 
@@ -25,8 +27,15 @@ public abstract class DrawableActor extends Actor{
      * @param file_location location of image file
      */
     public void setSprite(String file_location) {
-		Sprite s = new Sprite(new Texture(new FileHandle(file_location)));
-        setSpriteScaled(s, defaultScale);
+        setSprite(new Sprite(new Texture(new FileHandle(file_location))));
+    }
+    /**
+     * Sets the sprite of the current actor with correct orgin and bounds.
+     * Using a sprite object
+     * @param sprite sprite object to assign
+     */
+    public void setSprite(Sprite sprite) {
+        setSpriteScaled(sprite, defaultScale);
     }
 
 	/**

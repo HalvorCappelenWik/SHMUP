@@ -7,6 +7,8 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.app.ShmupGame;
+import inf112.shmup.util.Assets;
+import inf112.shmup.util.AudioPlayer;
 import inf112.shmup.util.GameScore;
 
 public class Enemy extends DrawableActor implements Damageable{ //might be a good idea to make an abstract class if we want enemy variety
@@ -21,7 +23,7 @@ public class Enemy extends DrawableActor implements Damageable{ //might be a goo
 
     public Enemy(float x, float y){
         
-        setSprite("src/assets/ships/ship_red1.png");
+        setSprite(Assets.sprite("ships/ship_red1.png"));
 		setPosition(x, y, Align.center);
 		setEnemyRotation(sprite);
     }
@@ -46,6 +48,7 @@ public class Enemy extends DrawableActor implements Damageable{ //might be a goo
 			Bullet newBullet = new EnemyBullet(this.getX(Align.center), this.getY());
 			this.getStage().addActor(newBullet);
 			_secondsSinceLastBullet = 0f;
+			AudioPlayer.playEffect("shoot_2");
 		}
 		else {
 			_secondsSinceLastBullet += delta;
@@ -78,6 +81,7 @@ public class Enemy extends DrawableActor implements Damageable{ //might be a goo
 		}
 		
 		this.remove();
+		AudioPlayer.playEffect("enemy_killed");
 	}
 
 		/**

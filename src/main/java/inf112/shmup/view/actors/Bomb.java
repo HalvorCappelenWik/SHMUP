@@ -4,12 +4,15 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import inf112.shmup.util.Assets;
+import inf112.shmup.util.AudioPlayer;
+
 public class Bomb extends PowerUp{
 	
 	float blastRadius = 100f;
 	
 	public Bomb(float x, float y) {
-		setSprite("src/assets/Bomb_1.png");
+		setSprite(Assets.sprite("Bomb_1.png"));
 		setPosition(x, y);
 		sprite.setPosition(x, y);
 	}
@@ -27,6 +30,7 @@ public class Bomb extends PowerUp{
 		}
 		
 		remove();
+		AudioPlayer.playEffect("explosion");
 	}
 
 }

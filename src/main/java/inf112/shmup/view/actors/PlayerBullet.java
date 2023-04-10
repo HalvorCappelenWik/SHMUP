@@ -4,13 +4,15 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import inf112.shmup.util.Assets;
+
 
 public class PlayerBullet extends Bullet{
 
 
     public PlayerBullet(float x, float y) {
         super(x, y);
-		setSprite("src/assets/bullets/bullet_a.png");
+		setSprite(Assets.sprite("bullets/bullet_a.png"));
     }
 
 // ------------------------------- Override actor methods -----------------------------------
