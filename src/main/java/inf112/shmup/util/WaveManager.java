@@ -3,7 +3,6 @@ package inf112.shmup.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
@@ -13,7 +12,7 @@ import inf112.shmup.app.ShmupGame;
 import inf112.shmup.view.actors.Enemy;
 
 public class WaveManager {
-	public int waveNums;
+	public int waveCount;
 	JsonValue waves;
 	JsonReader json;
 	
@@ -24,7 +23,7 @@ public class WaveManager {
 	 */
 	public WaveManager(String file) {
 		json = new JsonReader();
-		waveNums = json.parse(new FileHandle(file)).getInt("waves");
+		waveCount = json.parse(new FileHandle(file)).getInt("waves");
 		waves = json.parse(new FileHandle(file)).get("waveSetups");
 	}
 	
@@ -35,7 +34,11 @@ public class WaveManager {
 	 * @return the list of enemies for that wave
 	 */
 	public List<Enemy> getWave(int wave){
-		if(wave >= waveNums || wave < 0) throw new IndexOutOfBoundsException();
+		if (wave < 0)
+			wave = -wave;
+
+		wave = wave % waveCount;
+
 		List<Enemy> enemies = new ArrayList<>();
 		
 		JsonValue levelInfo = waves.get(wave);

@@ -79,7 +79,7 @@ public class GameScreen implements Screen{
 		}
 		
 		// Check if all waves are killed
-		if(waveNum > waveManager.waveNums) {
+		if(waveNum > waveManager.waveCount) {
 			game.setScreen(new GameOverScreen(game));
 		}
 		
