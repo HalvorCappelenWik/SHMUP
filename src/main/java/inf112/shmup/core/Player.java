@@ -1,4 +1,4 @@
-package inf112.shmup.view.actors;
+package inf112.shmup.core;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -6,9 +6,10 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 
-import inf112.shmup.app.ShmupGame;
-import inf112.shmup.util.Assets;
-import inf112.shmup.util.AudioPlayer;
+import inf112.shmup.core.utilities.Assets;
+import inf112.shmup.core.utilities.AudioPlayer;
+import inf112.shmup.core.ui.DrawableActor;
+import inf112.shmup.core.bullets.PlayerBullet;
 
 public class Player extends DrawableActor {
 

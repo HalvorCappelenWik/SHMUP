@@ -1,4 +1,4 @@
-package inf112.shmup.app;
+package inf112.shmup.core;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -8,8 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import inf112.shmup.view.screens.MainMenuScreen;
-import inf112.shmup.view.screens.SplashScreen;
+import inf112.shmup.core.ui.SplashScreen;
 
 public class ShmupGame extends Game {
 	

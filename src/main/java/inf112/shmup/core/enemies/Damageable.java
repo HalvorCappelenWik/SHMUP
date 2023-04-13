@@ -1,4 +1,4 @@
-package inf112.shmup.view.actors;
+package inf112.shmup.core.enemies;
 
 import com.badlogic.gdx.math.Rectangle;
 

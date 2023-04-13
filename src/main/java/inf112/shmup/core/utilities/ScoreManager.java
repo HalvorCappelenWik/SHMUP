@@ -1,10 +1,11 @@
-package inf112.shmup.util;
+package inf112.shmup.core.utilities;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import inf112.shmup.app.ShmupGame;
+import inf112.shmup.core.ShmupGame;
+import inf112.shmup.core.ui.GameScore;
 
 public class ScoreManager extends Actor {
 	

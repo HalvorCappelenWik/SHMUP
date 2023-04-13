@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import inf112.shmup.core.utilities.EnemyCollection;
 import org.junit.jupiter.api.Test;
 
 public class EnemyCollectionTest {

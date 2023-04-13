@@ -1,11 +1,9 @@
-package inf112.shmup.view.screens;
+package inf112.shmup.core.ui;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
@@ -21,16 +19,12 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-
-import inf112.shmup.app.ShmupGame;
-import inf112.shmup.util.BackgroundHandler;
-import inf112.shmup.util.ScoreManager;
-import inf112.shmup.util.WaveManager;
-import inf112.shmup.view.actors.DrawableActor;
-import inf112.shmup.view.actors.Enemy;
-import inf112.shmup.view.actors.EnemyCollection;
-import inf112.shmup.view.actors.Player;
-import inf112.shmup.view.actors.PlayerBullet;
+import inf112.shmup.core.ShmupGame;
+import inf112.shmup.core.utilities.BackgroundHandler;
+import inf112.shmup.core.utilities.ScoreManager;
+import inf112.shmup.core.utilities.WaveManager;
+import inf112.shmup.core.enemies.Enemy;
+import inf112.shmup.core.Player;
 
 public class GameScreen implements Screen{
 	

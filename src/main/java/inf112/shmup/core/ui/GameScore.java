@@ -1,4 +1,4 @@
-package inf112.shmup.util;
+package inf112.shmup.core.ui;
 
 public class GameScore {
 	private static int score = 0;

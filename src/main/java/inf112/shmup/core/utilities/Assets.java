@@ -1,4 +1,4 @@
-package inf112.shmup.util;
+package inf112.shmup.core.utilities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;

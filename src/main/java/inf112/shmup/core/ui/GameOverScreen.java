@@ -1,4 +1,4 @@
-package inf112.shmup.view.screens;
+package inf112.shmup.core.ui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.Align;
 
-import inf112.shmup.app.ShmupGame;
+import inf112.shmup.core.ShmupGame;
 
 public class GameOverScreen implements Screen{
 	private ShmupGame game;

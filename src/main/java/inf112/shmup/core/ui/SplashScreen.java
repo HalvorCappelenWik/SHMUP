@@ -1,4 +1,4 @@
-package inf112.shmup.view.screens;
+package inf112.shmup.core.ui;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.alpha;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.fadeIn;
@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
-import inf112.shmup.app.ShmupGame;
+import inf112.shmup.core.ShmupGame;
 
 public class SplashScreen implements Screen {
 

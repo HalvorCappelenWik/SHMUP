@@ -1,12 +1,13 @@
-package inf112.shmup.view.actors;
+package inf112.shmup.core.bullets;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import inf112.shmup.util.Assets;
+import inf112.shmup.core.enemies.Damageable;
+import inf112.shmup.core.utilities.Assets;
 
 
-public class PlayerBullet extends Bullet{
+public class PlayerBullet extends Bullet {
 
 	private final int _damage;
 

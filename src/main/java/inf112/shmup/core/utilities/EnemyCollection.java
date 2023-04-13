@@ -1,4 +1,4 @@
-package inf112.shmup.view.actors;
+package inf112.shmup.core.utilities;
 
 import java.util.ArrayList;
 import java.util.List;

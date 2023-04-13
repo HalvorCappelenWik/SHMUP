@@ -1,4 +1,4 @@
-package inf112.shmup.view.actors;
+package inf112.shmup.core.enemies;
 
 import java.util.Random;
 
@@ -6,12 +6,16 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 
-import inf112.shmup.app.ShmupGame;
-import inf112.shmup.util.Assets;
-import inf112.shmup.util.AudioPlayer;
-import inf112.shmup.util.GameScore;
+import inf112.shmup.core.ShmupGame;
+import inf112.shmup.core.utilities.Assets;
+import inf112.shmup.core.utilities.AudioPlayer;
+import inf112.shmup.core.ui.GameScore;
+import inf112.shmup.core.powerups.Bomb;
+import inf112.shmup.core.bullets.Bullet;
+import inf112.shmup.core.ui.DrawableActor;
+import inf112.shmup.core.bullets.EnemyBullet;
 
-public class Enemy extends DrawableActor implements Damageable{ //might be a good idea to make an abstract class if we want enemy variety
+public class Enemy extends DrawableActor implements Damageable { //might be a good idea to make an abstract class if we want enemy variety
 
     public boolean killed = false;
 

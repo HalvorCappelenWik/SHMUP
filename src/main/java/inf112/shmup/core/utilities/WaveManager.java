@@ -1,4 +1,4 @@
-package inf112.shmup.util;
+package inf112.shmup.core.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.JsonValue.JsonIterator;
 
-import inf112.shmup.app.ShmupGame;
-import inf112.shmup.view.actors.Enemy;
+import inf112.shmup.core.ShmupGame;
+import inf112.shmup.core.enemies.Enemy;
 
 public class WaveManager {
 	public int waveCount;

@@ -1,7 +1,8 @@
-package inf112.shmup.app;
+package inf112.shmup.desktop;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
+import inf112.shmup.core.ShmupGame;
 
 public class Main {
     public static void main(String[] args) {

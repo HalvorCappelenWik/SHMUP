@@ -1,13 +1,15 @@
-package inf112.shmup.view.actors;
+package inf112.shmup.core.bullets;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 
-import inf112.shmup.app.ShmupGame;
-import inf112.shmup.util.Assets;
+import inf112.shmup.core.ShmupGame;
+import inf112.shmup.core.utilities.Assets;
+import inf112.shmup.core.ui.DrawableActor;
+import inf112.shmup.core.utilities.EnemyCollection;
 
-public abstract class Bullet extends DrawableActor{
+public abstract class Bullet extends DrawableActor {
 
 	EnemyCollection enemyFactory;
 	

@@ -1,11 +1,14 @@
-package inf112.shmup.view.actors;
+package inf112.shmup.core.powerups;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
+import inf112.shmup.core.Player;
+import inf112.shmup.core.enemies.Damageable;
+import inf112.shmup.core.ui.DrawableActor;
 
-public abstract class PowerUp extends DrawableActor implements Damageable{
+public abstract class PowerUp extends DrawableActor implements Damageable {
 	
 
 	@Override

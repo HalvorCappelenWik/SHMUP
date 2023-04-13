@@ -1,7 +1,8 @@
-package inf112.shmup.view.actors;
-import inf112.shmup.util.Assets;
+package inf112.shmup.core.powerups;
+import inf112.shmup.core.utilities.Assets;
+import inf112.shmup.core.utilities.Explosion;
 
-public class Bomb extends PowerUp{
+public class Bomb extends PowerUp {
 	
 	private final float blastRadius = 100f;
 	private final int blastDamage = 3;

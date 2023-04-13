@@ -1,4 +1,4 @@
-package inf112.shmup.view.actors;
+package inf112.shmup.core.ui;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
-import inf112.shmup.util.Assets;
+import inf112.shmup.core.utilities.Assets;
 
 public abstract class DrawableActor extends Actor{
     
