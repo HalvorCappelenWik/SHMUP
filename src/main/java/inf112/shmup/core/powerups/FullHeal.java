@@ -10,7 +10,7 @@ public class FullHeal extends PowerUp {
     // Should one be able to shoot the FullHeal to get the PowerUp?
     // Seems wonky? Should it be collision only?
 
-    Player player = getPlayer();
+    Player player;
 
     FullHeal(float x, float y) {
         setSprite(AssetManager.sprite("no_sprite.png")); // Add FullHeal sprite!
@@ -20,6 +20,7 @@ public class FullHeal extends PowerUp {
 
     @Override
     public void takeDamage(int damage) {
+    	player = getPlayer();
         player.takeDamage(-player.getMaxHealth());
     }
     
