@@ -9,7 +9,7 @@ import inf112.shmup.core.enemies.Enemy;
 
 public class PowerUpFactory {
 	// NEEDS TO BE EDITED AS WE IMPLEMENT MORE POWERUPS!!!!
-	static List<String> availablePowerUps = new ArrayList<>(Arrays.asList("Bomb"));
+	static List<String> availablePowerUps = new ArrayList<>(Arrays.asList("Bomb", "FullHeal"));
 	
 	
 	/**
@@ -26,7 +26,7 @@ public class PowerUpFactory {
 			
 			if (powerUpString == "Bomb") powerUp = new Bomb(enemy.getX(), enemy.getY());
 			
-			// if (powerUpString == "MaxHealth") powerUp = new MaxHealth(enemy.getX(), enemy.getY());
+			if (powerUpString == "FullHeal") powerUp = new FullHeal(enemy.getX(), enemy.getY());
 			
 			// if (powerUpString == "") powerUp = new (enemy.getX(), enemy.getY());
 			
