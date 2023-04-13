@@ -7,8 +7,12 @@ import java.util.List;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
@@ -32,10 +36,17 @@ public class GameScreen implements Screen{
 	private final ShmupGame game;
 	private Stage stage;
 	private Player player;
-	
+
 	// Keep track of enemy waves
 	int waveNum = 0;
 	WaveManager waveManager;
+
+	//background variables
+	private int bgOffset = 0;
+	private int bgScale = 2;
+
+	//background texture
+	Texture bg = new Texture(Gdx.files.internal("world_map.png"));
 	
 	
 	public GameScreen(ShmupGame game) {
@@ -92,6 +103,23 @@ public class GameScreen implements Screen{
 				game.setScreen(new GameOverScreen(game));
 			}
 		}
+
+		//draw background
+		SpriteBatch batch = new SpriteBatch();
+	
+		batch.begin();
+		batch.draw(bg, 0, ShmupGame.V_HEIGHT - bg.getHeight() - bgOffset, bg.getWidth() * bgScale, bg.getHeight() * bgScale);
+		batch.end();
+
+		//increment background offset
+		bgOffset += 100*delta;
+		if(bgOffset > bg.getHeight()){
+			bgOffset -= bg.getHeight();
+		}
+		
+
+
+		//stage rendering
 
 		stage.act(delta);
 
