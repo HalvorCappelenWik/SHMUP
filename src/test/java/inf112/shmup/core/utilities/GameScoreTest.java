@@ -1,4 +1,4 @@
-package inf112.shmup.util;
+package inf112.shmup.core.utilities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
