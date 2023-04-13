@@ -95,4 +95,15 @@ public class Player extends DrawableActor {
 		killed = true;
 		remove();
 	}
+
+	/** Returns the current health of the player */
+	public int getHealth() {
+		return this.health;
+	}
+
+	/** Returns the max health of the player */
+	public int getMaxHealth() {
+		return this.maxHealth;
+	}
+
 }

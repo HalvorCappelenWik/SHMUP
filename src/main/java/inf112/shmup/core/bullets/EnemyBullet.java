@@ -32,7 +32,7 @@ public class EnemyBullet extends Bullet {
    @Override
    public void act(float delta) {
    	    super.act(delta);
-   	    //damagePlayerIfCollode();
+   	    damagePlayerIfCollide();
    }
 
 
@@ -42,17 +42,17 @@ public class EnemyBullet extends Bullet {
    /**
     * Kills any player that collides
     */
-   private void damagePlayerIfCollode() {
+   private void damagePlayerIfCollide() {
 	   Rectangle bounds = this.sprite.getBoundingRectangle();
 	   
 	   // Double check that bullet is not out of bounds
-	   if(this.getStage() == null) return;
+	   if (this.getStage() == null) return;
 	   // Loop over actors
-	   for(Actor a : getStage().getActors()) {
+	   for (Actor a : getStage().getActors()) {
 		   // If it is a player
-		   if(a instanceof Player) {
+		   if (a instanceof Player) {
 			   // Check collision 
-			   if(bounds.overlaps(((Player) a).getSprite().getBoundingRectangle())){
+			   if (bounds.overlaps(((Player) a).getSprite().getBoundingRectangle())) {
 				   ((Player) a).takeDamage(_damage);
 				   this.remove();
 				   return;
