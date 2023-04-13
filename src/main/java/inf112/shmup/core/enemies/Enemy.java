@@ -1,19 +1,18 @@
 package inf112.shmup.core.enemies;
 
-import java.util.Random;
-
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.core.Game;
+import inf112.shmup.core.bullets.Bullet;
+import inf112.shmup.core.bullets.EnemyBullet;
+import inf112.shmup.core.powerups.PowerUp;
+import inf112.shmup.core.powerups.PowerUpFactory;
+import inf112.shmup.core.ui.DrawableActor;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.AudioPlayer;
 import inf112.shmup.core.utilities.ScoreManager;
-import inf112.shmup.core.powerups.Bomb;
-import inf112.shmup.core.bullets.Bullet;
-import inf112.shmup.core.ui.DrawableActor;
-import inf112.shmup.core.bullets.EnemyBullet;
 
 public class Enemy extends DrawableActor implements Damageable { //might be a good idea to make an abstract class if we want enemy variety
 
@@ -87,13 +86,9 @@ public class Enemy extends DrawableActor implements Damageable { //might be a go
 		this.killed = true;
 		ScoreManager.addScore(100);
 		
-		// TEMPORARY CODE FOR SPAWNING AND TESTING BOMBBBASAAAAS
-		// I love bombas
-		Random rand = new Random();
+		PowerUp pp = PowerUpFactory.nextPowerUp(this);
 		
-		if(rand.nextInt(3) == 0) {
-			getStage().addActor(new Bomb(sprite.getX(), sprite.getY()));
-		}
+		if (pp != null) getStage().addActor(pp);
 		
 		this.remove();
 		AudioPlayer.playEffect("enemy_killed");
