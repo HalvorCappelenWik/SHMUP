@@ -44,7 +44,7 @@ public class GameScreen implements Screen{
 
 	//enable background
 	Boolean backgroundEnabled = true;
-	BackgroundHandler background = new BackgroundHandler("world_map.png");
+	BackgroundHandler background = new BackgroundHandler("shmup_map.png");
 	
 	public GameScreen(ShmupGame game) {
 		this.game = game;
