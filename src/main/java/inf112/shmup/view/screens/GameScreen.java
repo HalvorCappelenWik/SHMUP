@@ -23,6 +23,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import inf112.shmup.app.ShmupGame;
+import inf112.shmup.util.BackgroundHandler;
 import inf112.shmup.util.ScoreManager;
 import inf112.shmup.util.WaveManager;
 import inf112.shmup.view.actors.DrawableActor;
@@ -41,13 +42,9 @@ public class GameScreen implements Screen{
 	int waveNum = 0;
 	WaveManager waveManager;
 
-	//background variables
-	private int bgOffset = 0;
-	private int bgScale = 2;
-
-	//background texture
-	Texture bg = new Texture(Gdx.files.internal("world_map.png"));
-	
+	//enable background
+	Boolean backgroundEnabled = true;
+	BackgroundHandler background = new BackgroundHandler("world_map.png");
 	
 	public GameScreen(ShmupGame game) {
 		this.game = game;
@@ -104,20 +101,10 @@ public class GameScreen implements Screen{
 			}
 		}
 
-		//draw background
-		SpriteBatch batch = new SpriteBatch();
-	
-		batch.begin();
-		batch.draw(bg, 0, ShmupGame.V_HEIGHT - bg.getHeight() - bgOffset, bg.getWidth() * bgScale, bg.getHeight() * bgScale);
-		batch.end();
-
-		//increment background offset
-		bgOffset += 100*delta;
-		if(bgOffset > bg.getHeight()){
-			bgOffset -= bg.getHeight();
+		//render background
+		if(backgroundEnabled){
+			background.render(delta);
 		}
-		
-
 
 		//stage rendering
 

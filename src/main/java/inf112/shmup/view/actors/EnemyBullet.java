@@ -31,7 +31,7 @@ public class EnemyBullet extends Bullet{
    @Override
    public void act(float delta) {
    	    super.act(delta);
-   	    damagePlayerIfCollode();
+   	    //damagePlayerIfCollode();
    }
 
 
