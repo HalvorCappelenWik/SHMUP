@@ -54,6 +54,8 @@ public class GameScreen implements Screen{
 		waveNum += 1;
 		
 		stage.addActor(new GameScore());
+		
+		stage.addActor(new PlayerHealth());
 	}
 
 	@Override
