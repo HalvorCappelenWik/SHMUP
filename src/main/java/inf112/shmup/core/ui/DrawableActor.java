@@ -13,7 +13,7 @@ public abstract class DrawableActor extends Actor{
     
 
     //defult sprite - missing
-    Sprite sprite = Assets.sprite("no_sprite.png");
+    protected Sprite sprite = Assets.sprite("no_sprite.png");
 
     static final float defaultScale = 3;
 

@@ -6,10 +6,10 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 
+import inf112.shmup.core.bullets.PlayerBullet;
+import inf112.shmup.core.ui.DrawableActor;
 import inf112.shmup.core.utilities.Assets;
 import inf112.shmup.core.utilities.AudioPlayer;
-import inf112.shmup.core.ui.DrawableActor;
-import inf112.shmup.core.bullets.PlayerBullet;
 
 public class Player extends DrawableActor {
 
