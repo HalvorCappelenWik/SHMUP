@@ -21,7 +21,7 @@ public class Explosion extends Actor {
     private final int _damage;
     private float currentRadius = 0;
 
-    public Explosion(float x, float y, float radius, int damage) {
+    Explosion(float x, float y, float radius, int damage) {
         setX(x);
         setY(y);
         _maxRadius = radius;

@@ -6,7 +6,7 @@ public class Bomb extends PowerUp {
 	private final float blastRadius = 100f;
 	private final int blastDamage = 3;
 	
-	public Bomb(float x, float y) {
+	Bomb(float x, float y) {
 		setSprite(AssetManager.sprite("Bomb_1.png"));
 		setPosition(x, y);
 		sprite.setPosition(x, y);

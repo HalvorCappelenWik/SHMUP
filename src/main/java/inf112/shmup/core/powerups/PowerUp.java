@@ -9,7 +9,6 @@ import inf112.shmup.core.enemies.Damageable;
 import inf112.shmup.core.ui.DrawableActor;
 
 public abstract class PowerUp extends DrawableActor implements Damageable {
-	
 
 	@Override
 	public void act(float delta) {
