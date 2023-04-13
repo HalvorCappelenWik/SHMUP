@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.core.bullets.PlayerBullet;
 import inf112.shmup.core.ui.DrawableActor;
-import inf112.shmup.core.utilities.Assets;
+import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.AudioPlayer;
 
 public class Player extends DrawableActor {
@@ -25,7 +25,7 @@ public class Player extends DrawableActor {
 
 	public Player(float x, float y) {
 		
-		setSprite(Assets.sprite("ships/ship_blue2.png"));
+		setSprite(AssetManager.sprite("ships/ship_blue2.png"));
 		setPosition(x, y, Align.center);
 		killed = false;
 		health = maxHealth = 3;
@@ -76,7 +76,7 @@ public class Player extends DrawableActor {
 	 * @param y current Y coordinate
 	 */
 	private void moveIntoBounds(float x, float y) {
-		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH);
+		Rectangle gameBounds = new Rectangle(0,0, Game.V_WIDTH, Game.V_WIDTH);
 		
 		setX(Math.max(gameBounds.x, getX()));
 		setX(Math.min(gameBounds.x + gameBounds.width - getWidth(), getX()));

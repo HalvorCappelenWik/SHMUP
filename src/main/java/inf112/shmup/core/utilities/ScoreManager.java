@@ -1,24 +1,41 @@
 package inf112.shmup.core.utilities;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-
-import inf112.shmup.core.ShmupGame;
-import inf112.shmup.core.ui.GameScore;
-
-public class ScoreManager extends Actor {
+public class ScoreManager {
+	private static int score = 0;
 	
-	BitmapFont font = new BitmapFont();
-
-	@Override
-	public void act(float delta) {
-		// GameScore.addScore(1);
+	// Multiplier variable for the possible extension where score can be multiplied before adding to total score.
+	private static float multiplier = 1;
+	
+	/**
+	 * Add to the score, is multiplied with multiplier before adding to the score
+	 * @param score  the score points to be added
+	 */
+	public static void addScore(int scoreAdd) {
+		score += scoreAdd*multiplier;
 	}
-
-	@Override
-	public void draw(Batch batch, float parentAlpha) {
-		font.draw(batch, "SCORE: " + GameScore.getScore(), 10, ShmupGame.V_HEIGHT - 10);
+	
+	/**
+	 * Get the current total score
+	 * @return total score
+	 */
+	public static int getScore() {
+		return score; 
+	}
+	
+	/**
+	 * Set the score multiplier
+	 * @param mult  the new multiplier
+	 */
+	public static void setMultiplier(float mult) {
+		multiplier = mult;
+	}
+	
+	/**
+	 * Get the current score multiplier
+	 * @return multiplier
+	 */
+	public static float getMultiplier() {
+		return multiplier;
 	}
 
 }

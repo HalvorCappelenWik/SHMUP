@@ -5,7 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.core.Player;
-import inf112.shmup.core.utilities.Assets;
+import inf112.shmup.core.utilities.AssetManager;
 
 
 public class EnemyBullet extends Bullet {
@@ -16,7 +16,7 @@ public class EnemyBullet extends Bullet {
         
         super(x, y);
         _damage = damage;
-        setSprite(Assets.sprite("bullets/bullet_c.png"));
+        setSprite(AssetManager.sprite("bullets/bullet_c.png"));
         setPosition(x, y, Align.center);
         setEnemyRotation(sprite);
     }

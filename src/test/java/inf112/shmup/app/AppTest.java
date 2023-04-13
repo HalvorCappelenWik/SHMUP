@@ -4,13 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import inf112.shmup.core.ShmupGame;
+import inf112.shmup.core.Game;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AppTest {
-	ShmupGame game;
+	Game game;
 	/**
 	 * Static method run before everything else
 	 */
@@ -23,7 +23,7 @@ public class AppTest {
 	 */
 	@BeforeEach
 	void setUpBeforeEach() {
-		game = new ShmupGame();
+		game = new Game();
 	}
 	
 	/**

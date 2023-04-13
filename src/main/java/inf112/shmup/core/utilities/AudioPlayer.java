@@ -16,7 +16,7 @@ public class AudioPlayer {
         Sound sound = _sounds.get(name);
 
         if (sound == null) {
-            sound = Assets.sound("sounds/" + name + ".wav");
+            sound = AssetManager.sound("sounds/" + name + ".wav");
             _sounds.put(name, sound);
         }
 

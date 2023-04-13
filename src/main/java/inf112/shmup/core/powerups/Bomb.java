@@ -1,6 +1,5 @@
 package inf112.shmup.core.powerups;
-import inf112.shmup.core.utilities.Assets;
-import inf112.shmup.core.utilities.Explosion;
+import inf112.shmup.core.utilities.AssetManager;
 
 public class Bomb extends PowerUp {
 	
@@ -8,7 +7,7 @@ public class Bomb extends PowerUp {
 	private final int blastDamage = 3;
 	
 	public Bomb(float x, float y) {
-		setSprite(Assets.sprite("Bomb_1.png"));
+		setSprite(AssetManager.sprite("Bomb_1.png"));
 		setPosition(x, y);
 		sprite.setPosition(x, y);
 	}

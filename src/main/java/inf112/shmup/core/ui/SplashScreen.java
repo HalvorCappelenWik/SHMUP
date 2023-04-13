@@ -14,16 +14,16 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
-import inf112.shmup.core.ShmupGame;
+import inf112.shmup.core.Game;
 
 public class SplashScreen implements Screen {
 
-	private final ShmupGame game;
+	private final Game game;
 	private final Stage stage;
 	private final Image splashImage;
 	
 
-	public SplashScreen(final ShmupGame game) {
+	public SplashScreen(final Game game) {
 		this.game = game;
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
@@ -46,7 +46,7 @@ public class SplashScreen implements Screen {
 		        game.setScreen(new MainMenuScreen(game));;
 		    }
 		});
-		splashImage.setPosition(ShmupGame.V_WIDTH / 2 - splashImage.getWidth()/2, ShmupGame.V_HEIGHT / 2 - splashImage.getHeight()/2);
+		splashImage.setPosition(Game.V_WIDTH / 2 - splashImage.getWidth()/2, Game.V_HEIGHT / 2 - splashImage.getHeight()/2);
 		splashImage.addAction(sequence(alpha(.1f), fadeIn(3f), run));
 		
 	}
@@ -60,7 +60,7 @@ public class SplashScreen implements Screen {
 		game.shape.setProjectionMatrix(game.camera.combined);
 		game.shape.begin(ShapeRenderer.ShapeType.Filled);
 		game.shape.setColor(Color.LIGHT_GRAY);
-		game.shape.rect(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH);
+		game.shape.rect(0, 0, Game.V_WIDTH, Game.V_WIDTH);
 		game.shape.end();
 
 		stage.act(delta);

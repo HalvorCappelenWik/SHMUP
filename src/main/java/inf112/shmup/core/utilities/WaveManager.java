@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.JsonValue.JsonIterator;
 
-import inf112.shmup.core.ShmupGame;
+import inf112.shmup.core.Game;
 import inf112.shmup.core.enemies.Enemy;
 
 public class WaveManager {
@@ -46,16 +46,16 @@ public class WaveManager {
 		int cols = levelInfo.getInt("cols");
 		JsonIterator enemyPositions = levelInfo.get("enemyPositions").iterator();
 		
-		float colWidth = ShmupGame.V_WIDTH / cols;
-		float rowHeight = (ShmupGame.V_HEIGHT/2) / rows;
+		float colWidth = Game.V_WIDTH / cols;
+		float rowHeight = (Game.V_HEIGHT/2) / rows;
 		
 		while(enemyPositions.hasNext()) {
 			int[] pos = enemyPositions.next().asIntArray();
 			int row = pos[0];
 			int col = pos[1];
-			float ypos = (ShmupGame.V_HEIGHT - (row*rowHeight));
+			float ypos = (Game.V_HEIGHT - (row*rowHeight));
 			if(row == 0) {
-				ypos = ShmupGame.V_HEIGHT - (row*rowHeight) - 100;
+				ypos = Game.V_HEIGHT - (row*rowHeight) - 100;
 			}
 			enemies.add(new Enemy(col*colWidth, ypos));
 		}

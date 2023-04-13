@@ -1,4 +1,4 @@
-package inf112.shmup.core.utilities;
+package inf112.shmup.core.powerups;
 
 import java.util.HashSet;
 
@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import inf112.shmup.core.enemies.Damageable;
+import inf112.shmup.core.utilities.AudioPlayer;
 
 public class Explosion extends Actor {
     private final HashSet<Damageable> _damaged = new HashSet<>();

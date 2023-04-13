@@ -6,10 +6,10 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 
-import inf112.shmup.core.ShmupGame;
-import inf112.shmup.core.utilities.Assets;
+import inf112.shmup.core.Game;
+import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.AudioPlayer;
-import inf112.shmup.core.ui.GameScore;
+import inf112.shmup.core.utilities.ScoreManager;
 import inf112.shmup.core.powerups.Bomb;
 import inf112.shmup.core.bullets.Bullet;
 import inf112.shmup.core.ui.DrawableActor;
@@ -27,7 +27,7 @@ public class Enemy extends DrawableActor implements Damageable { //might be a go
 
     public Enemy(float x, float y){
         
-        setSprite(Assets.sprite("ships/ship_red1.png"));
+        setSprite(AssetManager.sprite("ships/ship_red1.png"));
 		setPosition(x, y, Align.center);
 		setEnemyRotation(sprite);
     }
@@ -40,7 +40,7 @@ public class Enemy extends DrawableActor implements Damageable { //might be a go
     	if(killed) return;
         //move
         this.moveBy(dir * speed * delta, 0);
-		Rectangle bounds = new Rectangle(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_HEIGHT); 
+		Rectangle bounds = new Rectangle(0, 0, Game.V_WIDTH, Game.V_HEIGHT);
 		if (!bounds.contains(sprite.getBoundingRectangle())) {
 			dir = -dir;
 		}
@@ -74,7 +74,7 @@ public class Enemy extends DrawableActor implements Damageable { //might be a go
 	 * @param y current Y coordinate
 	 */
 	private void moveIntoBounds(float x, float y) {
-		Rectangle gameBounds = new Rectangle(0,0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH); 
+		Rectangle gameBounds = new Rectangle(0,0, Game.V_WIDTH, Game.V_WIDTH);
 	
 		setX(Math.max(gameBounds.x, getX()));
 		setX(Math.min(gameBounds.x + gameBounds.width - getWidth(), getX()));
@@ -85,7 +85,7 @@ public class Enemy extends DrawableActor implements Damageable { //might be a go
 	@Override
 	public void takeDamage(int damage) {
 		this.killed = true;
-		GameScore.addScore(100);
+		ScoreManager.addScore(100);
 		
 		// TEMPORARY CODE FOR SPAWNING AND TESTING BOMBBBASAAAAS
 		// I love bombas

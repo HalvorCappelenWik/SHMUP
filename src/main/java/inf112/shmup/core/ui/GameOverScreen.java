@@ -9,13 +9,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.Align;
 
-import inf112.shmup.core.ShmupGame;
+import inf112.shmup.core.Game;
 
 public class GameOverScreen implements Screen{
-	private ShmupGame game;
+	private Game game;
 	private Stage stage;
 	
-	public GameOverScreen(final ShmupGame game) {
+	public GameOverScreen(final Game game) {
 		// Game object can be used to get score and etc
 		this.game = game;
 		this.stage = new Stage(game.getViewport());

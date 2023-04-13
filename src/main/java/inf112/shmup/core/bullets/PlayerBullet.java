@@ -4,7 +4,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import inf112.shmup.core.enemies.Damageable;
-import inf112.shmup.core.utilities.Assets;
+import inf112.shmup.core.utilities.AssetManager;
 
 
 public class PlayerBullet extends Bullet {
@@ -14,7 +14,7 @@ public class PlayerBullet extends Bullet {
     public PlayerBullet(float x, float y, int damage) {
         super(x, y);
 		_damage = damage;
-		setSprite(Assets.sprite("bullets/bullet_a.png"));
+		setSprite(AssetManager.sprite("bullets/bullet_a.png"));
     }
 
 // ------------------------------- Override actor methods -----------------------------------

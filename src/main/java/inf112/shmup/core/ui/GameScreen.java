@@ -19,16 +19,16 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import inf112.shmup.core.ShmupGame;
 import inf112.shmup.core.utilities.BackgroundHandler;
 import inf112.shmup.core.utilities.ScoreManager;
+import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.WaveManager;
 import inf112.shmup.core.enemies.Enemy;
 import inf112.shmup.core.Player;
 
 public class GameScreen implements Screen{
 	
-	private final ShmupGame game;
+	private final Game game;
 	private Stage stage;
 	private Player player;
 
@@ -40,12 +40,12 @@ public class GameScreen implements Screen{
 	Boolean backgroundEnabled = true;
 	BackgroundHandler background = new BackgroundHandler("shmup_map.png");
 	
-	public GameScreen(ShmupGame game) {
+	public GameScreen(Game game) {
 		this.game = game;
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
 		
-		player = new Player(ShmupGame.V_WIDTH/2, 100);
+		player = new Player(Game.V_WIDTH/2, 100);
 		stage.addActor(player);
 		stage.setKeyboardFocus(player);
 		
@@ -53,7 +53,7 @@ public class GameScreen implements Screen{
 		addEnemiesToStage(waveManager.getWave(0));
 		waveNum += 1;
 		
-		stage.addActor(new ScoreManager());
+		stage.addActor(new GameScore());
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class GameScreen implements Screen{
 		game.shape.setProjectionMatrix(game.camera.combined);
 		game.shape.begin(ShapeType.Filled);
 		game.shape.setColor(Color.LIGHT_GRAY);
-		game.shape.rect(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_WIDTH);
+		game.shape.rect(0, 0, Game.V_WIDTH, Game.V_WIDTH);
 		game.shape.end();
 
 		

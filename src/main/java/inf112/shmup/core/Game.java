@@ -1,6 +1,5 @@
 package inf112.shmup.core;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,7 +9,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import inf112.shmup.core.ui.SplashScreen;
 
-public class ShmupGame extends Game {
+public class Game extends com.badlogic.gdx.Game {
 	
 	public static final String TITLE = "Shmup";
 	public static final int V_WIDTH = 800;

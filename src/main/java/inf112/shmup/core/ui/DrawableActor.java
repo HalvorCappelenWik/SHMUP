@@ -6,14 +6,14 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
-import inf112.shmup.core.utilities.Assets;
+import inf112.shmup.core.utilities.AssetManager;
 
 public abstract class DrawableActor extends Actor{
     
     
 
     //defult sprite - missing
-    protected Sprite sprite = Assets.sprite("no_sprite.png");
+    protected Sprite sprite = AssetManager.sprite("no_sprite.png");
 
     static final float defaultScale = 3;
 

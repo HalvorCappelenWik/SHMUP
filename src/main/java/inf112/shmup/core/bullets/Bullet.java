@@ -4,8 +4,8 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 
-import inf112.shmup.core.ShmupGame;
-import inf112.shmup.core.utilities.Assets;
+import inf112.shmup.core.Game;
+import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.ui.DrawableActor;
 import inf112.shmup.core.utilities.EnemyCollection;
 
@@ -14,7 +14,7 @@ public abstract class Bullet extends DrawableActor {
 	EnemyCollection enemyFactory;
 	
 	public Bullet(float x, float y) {
-		setSprite(Assets.sprite("bullets/bullet_a.png"));
+		setSprite(AssetManager.sprite("bullets/bullet_a.png"));
 		setPosition(x, y, Align.center);
 	}
 
@@ -29,7 +29,7 @@ public abstract class Bullet extends DrawableActor {
 	@Override
 	public void act(float delta) {
 		move(delta);
-		Rectangle bounds = new Rectangle(0, 0, ShmupGame.V_WIDTH, ShmupGame.V_HEIGHT);
+		Rectangle bounds = new Rectangle(0, 0, Game.V_WIDTH, Game.V_HEIGHT);
 		if (!bounds.overlaps(sprite.getBoundingRectangle())) {
 			this.remove();
 		}

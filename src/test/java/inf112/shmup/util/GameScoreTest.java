@@ -5,44 +5,44 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import inf112.shmup.core.ui.GameScore;
+import inf112.shmup.core.utilities.ScoreManager;
 
 public class GameScoreTest {
 	
 	@BeforeEach
 	public void setUp() {
-		GameScore.setMultiplier(1); // Reset multiplier before each test
-		GameScore.addScore(-GameScore.getScore()); // Reset score before each test
+		ScoreManager.setMultiplier(1); // Reset multiplier before each test
+		ScoreManager.addScore(-ScoreManager.getScore()); // Reset score before each test
 	}
 	
 	@Test
 	public void testAddScore() {
-		GameScore.addScore(100);
-		assertEquals(100, GameScore.getScore());
+		ScoreManager.addScore(100);
+		assertEquals(100, ScoreManager.getScore());
 	}
 	
 	@Test
 	public void testAddScoreWithMultiplier() {
-		GameScore.setMultiplier(2);
-		GameScore.addScore(100);
-		assertEquals(200, GameScore.getScore());
+		ScoreManager.setMultiplier(2);
+		ScoreManager.addScore(100);
+		assertEquals(200, ScoreManager.getScore());
 	}
 	
 	@Test
 	public void testAddNegativeScore() {
-	    GameScore.addScore(-50);
-	    assertEquals(-50, GameScore.getScore());
+	    ScoreManager.addScore(-50);
+	    assertEquals(-50, ScoreManager.getScore());
 	}
 	
 	@Test
 	public void testGetMultiplier() {
-		GameScore.setMultiplier(0.5f);
-		assertEquals(0.5f, GameScore.getMultiplier(), 0.001); // Use delta for float comparison
+		ScoreManager.setMultiplier(0.5f);
+		assertEquals(0.5f, ScoreManager.getMultiplier(), 0.001); // Use delta for float comparison
 	}
 	
 	@Test
 	public void testSetMultiplier() {
-		GameScore.setMultiplier(1.5f);
-		assertEquals(1.5f, GameScore.getMultiplier(), 0.001); // Use delta for float comparison
+		ScoreManager.setMultiplier(1.5f);
+		assertEquals(1.5f, ScoreManager.getMultiplier(), 0.001); // Use delta for float comparison
 	}
 }
