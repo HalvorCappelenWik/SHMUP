@@ -9,7 +9,7 @@ import inf112.shmup.core.bullets.Bullet;
 import inf112.shmup.core.bullets.EnemyBullet;
 import inf112.shmup.core.powerups.PowerUp;
 import inf112.shmup.core.powerups.PowerUpFactory;
-import inf112.shmup.core.ui.DrawableActor;
+import inf112.shmup.core.utilities.DrawableActor;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.AudioPlayer;
 import inf112.shmup.core.utilities.ScoreManager;

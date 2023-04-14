@@ -1,5 +1,6 @@
 package inf112.shmup.core.powerups;
 import inf112.shmup.core.utilities.AssetManager;
+import inf112.shmup.core.utilities.Explosion;
 
 public class Bomb extends PowerUp {
 	

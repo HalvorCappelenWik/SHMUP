@@ -1,4 +1,4 @@
-package inf112.shmup.core.powerups;
+package inf112.shmup.core.utilities;
 
 import java.util.HashSet;
 

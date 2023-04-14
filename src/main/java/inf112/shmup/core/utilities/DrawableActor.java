@@ -1,4 +1,4 @@
-package inf112.shmup.core.ui;
+package inf112.shmup.core.utilities;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.core.utilities.AssetManager;
 
-public abstract class DrawableActor extends Actor{
+public abstract class DrawableActor extends Actor {
     
     
 

@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.core.bullets.PlayerBullet;
-import inf112.shmup.core.ui.DrawableActor;
+import inf112.shmup.core.utilities.DrawableActor;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.AudioPlayer;
 

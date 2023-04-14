@@ -6,7 +6,7 @@ import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
-import inf112.shmup.core.ui.DrawableActor;
+import inf112.shmup.core.utilities.DrawableActor;
 import inf112.shmup.core.utilities.EnemyCollection;
 
 public abstract class Bullet extends DrawableActor {
