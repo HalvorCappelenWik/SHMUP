@@ -19,31 +19,16 @@ public class PlayerHealth extends Actor{
 	public void draw(Batch batch, float parentAlpha) {
 		// TODO Auto-generated method stub
 		super.draw(batch, parentAlpha);
-		if(getPlayer() == null) return;
+
+		Player player = Player.getInstance();
+
+		if(player == null) return;
 		sprite.setX(100);
 		sprite.setY(50);
 		
-		for (int i = 0; i < getPlayer().getHealth(); i++) {
+		for (int i = 0; i < player.getHealth(); i++) {
 			sprite.draw(batch);
 			sprite.setX(sprite.getX() + sprite.getWidth());
 		}
-	}
-
-	@Override
-	public void act(float delta) {
-		// TODO Auto-generated method stub
-		super.act(delta);
-	}
-
-	private Player getPlayer() {
-		// Loop over actors
-		for(Actor a : getStage().getActors()) {
-			// If it is a player
-			if(a instanceof Player) {
-			// Check collision
-				return (Player) a;
-			}
-		}
-		return null;
 	}
 }

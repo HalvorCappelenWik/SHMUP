@@ -13,6 +13,7 @@ import inf112.shmup.core.utilities.AudioPlayer;
 
 public class Player extends DrawableActor {
 
+	private static Player _instance;
 	private final float _secondsBetweenBullets = 0.65f;
 	private float _secondsSinceLastBullet = 0f;
 	private float speed_x = 5f;
@@ -29,6 +30,8 @@ public class Player extends DrawableActor {
 		setPosition(x, y, Align.center);
 		killed = false;
 		health = maxHealth = 3;
+
+		_instance = this;
 	}
 
 // ------------------------------- Override actor methods -----------------------------------
@@ -69,6 +72,10 @@ public class Player extends DrawableActor {
 	}
 
 // ----------------------- Utility ------------------------------
+
+	public static Player getInstance() {
+		return _instance;
+	}
 
 	/**
 	 * Method that keeps the object within the scene 

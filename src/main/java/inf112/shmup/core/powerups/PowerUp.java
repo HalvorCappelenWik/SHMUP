@@ -31,18 +31,10 @@ public abstract class PowerUp extends DrawableActor implements Damageable {
 	private boolean collidesWithPlayer() {
 		Rectangle bounds = sprite.getBoundingRectangle();
 		
-		if (getStage() == null)
-			return false;
+		Player player = Player.getInstance();
+		if (player == null) return false;
 
-		for(Actor a : getStage().getActors()) {
-			if (a instanceof Player) {
-				if (bounds.overlaps(((Player) a).getSprite().getBoundingRectangle())) {
-					return true;
-				}
-			}
-		}
-		
-		return false;
+		return bounds.overlaps(player.getSprite().getBoundingRectangle());
 	}
 
 	@Override

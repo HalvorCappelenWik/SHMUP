@@ -42,23 +42,20 @@ public class EnemyBullet extends Bullet {
    /**
     * Kills any player that collides
     */
-   private void damagePlayerIfCollide() {
-	   Rectangle bounds = this.sprite.getBoundingRectangle();
+    private void damagePlayerIfCollide() {
+	    Rectangle bounds = this.sprite.getBoundingRectangle();
 	   
-	   // Double check that bullet is not out of bounds
-	   if (this.getStage() == null) return;
-	   // Loop over actors
-	   for (Actor a : getStage().getActors()) {
-		   // If it is a player
-		   if (a instanceof Player) {
-			   // Check collision 
-			   if (bounds.overlaps(((Player) a).getSprite().getBoundingRectangle())) {
-				   ((Player) a).takeDamage(_damage);
-				   this.remove();
-				   return;
-			   }
-		   }
-	   }
-   }
-   
+	    // Double check that bullet is not out of bounds
+	    if (this.getStage() == null) return;
+
+        Player player = Player.getInstance();
+        if (player == null) return;
+       
+        // Check collision 
+        if (bounds.overlaps(player.getSprite().getBoundingRectangle())) {
+            player.takeDamage(_damage);
+            this.remove();
+            return;
+        }
+    }
 }
