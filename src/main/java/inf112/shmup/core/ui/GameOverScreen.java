@@ -12,12 +12,10 @@ import com.badlogic.gdx.utils.Align;
 import inf112.shmup.core.Game;
 
 public class GameOverScreen implements Screen{
-	private Game game;
 	private Stage stage;
 	
 	public GameOverScreen(final Game game) {
 		// Game object can be used to get score and etc
-		this.game = game;
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
 		

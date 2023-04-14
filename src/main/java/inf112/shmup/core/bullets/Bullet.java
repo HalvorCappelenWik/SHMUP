@@ -7,12 +7,9 @@ import com.badlogic.gdx.utils.Align;
 import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.DrawableActor;
-import inf112.shmup.core.utilities.EnemyCollection;
 
 public abstract class Bullet extends DrawableActor {
 
-	EnemyCollection enemyFactory;
-	
 	public Bullet(float x, float y) {
 		setSprite(AssetManager.sprite("bullets/bullet_a.png"));
 		setPosition(x, y, Align.center);
