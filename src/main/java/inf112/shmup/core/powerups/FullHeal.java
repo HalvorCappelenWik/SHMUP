@@ -18,5 +18,6 @@ public class FullHeal extends PowerUp {
     public void takeDamage(int damage) {
     	Player player = Player.getInstance();
         player.takeDamage(-player.getMaxHealth());
+        remove();
     }
 }

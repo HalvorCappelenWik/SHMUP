@@ -95,8 +95,10 @@ public class Player extends DrawableActor {
 		health -= damage;
 		AudioPlayer.playEffect("player_killed");
 
-		if (health > 0)
+		if (health > 0) {
+			if (health > maxHealth) health = maxHealth;
 			return;
+		}
 
 		health = 0;
 		killed = true;
