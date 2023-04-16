@@ -1,9 +1,12 @@
 package inf112.shmup.core.utilities;
 
+import javax.swing.text.View;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class BackgroundHandler{
     
@@ -13,15 +16,18 @@ public class BackgroundHandler{
     private int bgSpeed = -250;
     private float width;
     private float height;
+    private Viewport viewport;
 
 	//background texture
 	Sprite bg;
 
 
-    public BackgroundHandler(String texture_file){
+    public BackgroundHandler(String texture_file, Viewport viewport){
         bg = new Sprite(new Texture(Gdx.files.internal(texture_file)));
         bg.setScale(bgScale);
         bg.setOriginCenter();
+
+        this.viewport = viewport;
 
         width = bg.getWidth() * bgScale;
         height = bg.getHeight() * bgScale;
@@ -31,7 +37,9 @@ public class BackgroundHandler{
     public void render(float delta){
         
 		SpriteBatch batch = new SpriteBatch();
-	
+        
+        batch.setProjectionMatrix(viewport.getCamera().combined);
+
 		batch.begin();
 		renderSingle(batch, 0, bgOffset);
         renderSingle(batch, 0, bgOffset + height);

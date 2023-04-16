@@ -38,12 +38,14 @@ public class GameScreen implements Screen{
 
 	//enable background
 	Boolean backgroundEnabled = true;
-	BackgroundHandler background = new BackgroundHandler("shmup_map.png");
+	BackgroundHandler background;
 	
 	public GameScreen(Game game) {
 		this.game = game;
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
+
+		background = new BackgroundHandler("shmup_map.png", game.getViewport());
 		
 		player = new Player(Game.V_WIDTH/2, 100);
 		stage.addActor(player);
