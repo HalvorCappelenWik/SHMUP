@@ -1,13 +1,9 @@
-package inf112.shmup.util;
+package inf112.shmup.core.utilities;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.Align;
-
-import inf112.shmup.app.ShmupGame;
 
 public class BackgroundHandler{
     
