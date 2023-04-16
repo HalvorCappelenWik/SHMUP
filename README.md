@@ -1,7 +1,16 @@
 # INF112 Project – Navn TBD
 
-* Team: *Java Junkies (Gruppe 4): Mats Dyrøy, Herman Torget Stautland, Ljubomir Simic, Philip Svenningsen, Halvor Cappelen Wik, Lars Haukland*
-* [https://git.app.uib.no/javajunkies/shmup](Lenke til gitlab).
+Team: *Java Junkies (Gruppe 4)* 
+
+Forfattere: 
+- Mats Dyrøy 
+- Herman Torget Stautland
+- Ljubomir Simic
+- Philip Svenningsen
+- Halvor Cappelen Wik
+- Lars Haukland
+
+[https://git.app.uib.no/javajunkies/shmup](Lenke til gitlab).
 
 ## Om spillet
 Spillet er av varianten Shoot ’Em Up (samme som f.eks. Space Invaders). 
@@ -17,5 +26,10 @@ Spillet er av varianten Shoot ’Em Up (samme som f.eks. Space Invaders).
 * Pipeline fungerer ikke
 
 ## Credits
-Ingenting enda
+Applikasjonsrammeverk 
+- LibGDX https://libgdx.com
+
+Game assets
+- Kenny https://kenney.nl/assets/pixel-shmup 
+
 
