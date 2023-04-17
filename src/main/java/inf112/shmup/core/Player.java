@@ -2,117 +2,69 @@ package inf112.shmup.core;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Align;
 
-import inf112.shmup.core.bullets.PlayerBullet;
-import inf112.shmup.core.utilities.DrawableActor;
-import inf112.shmup.core.utilities.AssetManager;
-import inf112.shmup.core.utilities.AudioPlayer;
+import inf112.shmup.core.ships.BlueShip1;
+import inf112.shmup.core.ships.Ship;
 
-public class Player extends DrawableActor {
+public class Player extends Actor {
 
 	private static Player _instance;
-	private final float _secondsBetweenBullets = 0.65f;
-	private float _secondsSinceLastBullet = 0f;
+	private Ship _ship;
+
 	private float speed_x = 5f;
 	private float speed_y = 5f;
 
-	private int health;
-	private int maxHealth;
-	
-	public boolean killed;
-
 	public Player(float x, float y) {
-		
-		setSprite(AssetManager.sprite("ships/ship_blue2.png"));
-		setPosition(x, y, Align.center);
-		killed = false;
-		health = maxHealth = 3;
-
 		_instance = this;
-	}
-
-// ------------------------------- Override actor methods -----------------------------------
-
-	@Override
-	public void draw(Batch batch, float parentAlpha) {
-		positionChanged();
-		sprite.draw(batch);
+		_ship = new BlueShip1();
+		_ship.setPosition(x, y, Align.center);
 	}
 
 	@Override
 	public void act(float delta) {
-		
+
 		// Input handling
 		if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
-			this.moveBy(-speed_x, 0);
+			_ship.moveBy(-speed_x, 0);
 		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-			this.moveBy(speed_x, 0);
+			_ship.moveBy(speed_x, 0);
 		if(Gdx.input.isKeyPressed(Input.Keys.UP))
-			this.moveBy(0, speed_y);
+			_ship.moveBy(0, speed_y);
 		if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
-			this.moveBy(0, -speed_y);
+			_ship.moveBy(0, -speed_y);
 
-		moveIntoBounds(getX(), getY());
-		
+		_ship.clampToScreen();
 
-		// Spawn new bullet every 200th of a second
-		if(_secondsSinceLastBullet > _secondsBetweenBullets) {
-			PlayerBullet newBullet = new PlayerBullet(this.getX(Align.center), this.getY(Align.top), 1);
-			this.getStage().addActor(newBullet);
-			AudioPlayer.playEffect("shoot_1");
-			_secondsSinceLastBullet = 0f;
+		if (_ship.isDead()) {
+			_ship.remove();
+			remove();
 		}
-		else {
-			_secondsSinceLastBullet += delta;
-		}
-
 	}
 
-// ----------------------- Utility ------------------------------
+	@Override
+	protected void setStage(Stage stage) {
+		super.setStage(stage);
+		if (stage != null)
+			stage.addActor(_ship);
+	}
+
+	public Ship getShip() {
+		return _ship;
+	}
+
+	public void setShip(Ship ship) {
+		float x = _ship.getX(),
+			  y = _ship.getY();
+		_ship = ship;
+		_ship.setPosition(x, y, Align.center);
+		_ship.setRotation(0f);
+		getStage().addActor(_ship);
+	}
 
 	public static Player getInstance() {
 		return _instance;
 	}
-
-	/**
-	 * Method that keeps the object within the scene 
-	 * @param x current X coordinate
-	 * @param y current Y coordinate
-	 */
-	private void moveIntoBounds(float x, float y) {
-		Rectangle gameBounds = new Rectangle(0,0, Game.V_WIDTH, Game.V_WIDTH);
-		
-		setX(Math.max(gameBounds.x, getX()));
-		setX(Math.min(gameBounds.x + gameBounds.width - getWidth(), getX()));
-		setY(Math.max(gameBounds.y, getY()));
-		setY(Math.min(gameBounds.y + gameBounds.height - getHeight(), getY()));
-	}
-	
-	public void takeDamage(int damage) {
-		health -= damage;
-		AudioPlayer.playEffect("player_killed");
-
-		if (health > 0) {
-			if (health > maxHealth) health = maxHealth;
-			return;
-		}
-
-		health = 0;
-		killed = true;
-		remove();
-	}
-
-	/** Returns the current health of the player */
-	public int getHealth() {
-		return this.health;
-	}
-
-	/** Returns the max health of the player */
-	public int getMaxHealth() {
-		return this.maxHealth;
-	}
-
 }

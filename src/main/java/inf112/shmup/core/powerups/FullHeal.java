@@ -9,16 +9,13 @@ public class FullHeal extends PowerUp {
     // Seems wonky? Should it be collision only?
 
     FullHeal(float x, float y) {
-        setSprite(AssetManager.sprite("health.png")); // Add FullHeal sprite!
-        setPosition(x, y);
-        sprite.setPosition(x, y);
+        super(x, y, AssetManager.sprite("health.png"));
     }
 
     @Override
     public void takeDamage(int damage) {
     	Player player = Player.getInstance();
-        if (player.getHealth() >= 0) // This should probably not be here...
-            player.takeDamage(-(player.getMaxHealth() - player.getHealth()));
+        player.getShip().takeDamage(-player.getShip().getMaxHealth());
         remove();
     }
 }

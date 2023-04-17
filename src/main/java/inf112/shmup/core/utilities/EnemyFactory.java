@@ -9,7 +9,8 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.JsonValue.JsonIterator;
 
 import inf112.shmup.core.Game;
-import inf112.shmup.core.enemies.Enemy;
+import inf112.shmup.core.enemies.EnemyShip;
+import inf112.shmup.core.enemies.Grunt1;
 
 public class EnemyFactory {
 	private final int _waveCount;
@@ -33,13 +34,13 @@ public class EnemyFactory {
 	 * @param wave the index of wave
 	 * @return the list of enemies for that wave
 	 */
-	public List<Enemy> createWave(int wave){
+	public List<EnemyShip> createWave(int wave){
 		if (wave < 0)
 			wave = -wave;
 
 		wave = wave % _waveCount;
 
-		List<Enemy> enemies = new ArrayList<>();
+		List<EnemyShip> enemies = new ArrayList<>();
 		
 		JsonValue levelInfo = _waves.get(wave);
 		int rows = levelInfo.getInt("rows");
@@ -57,7 +58,8 @@ public class EnemyFactory {
 			if(row == 0) {
 				ypos = Game.V_HEIGHT - (row*rowHeight) - 100;
 			}
-			enemies.add(new Enemy(col*colWidth, ypos));
+
+			enemies.add(new Grunt1(col*colWidth, ypos + Game.V_HEIGHT));
 		}
 		
 		return enemies;

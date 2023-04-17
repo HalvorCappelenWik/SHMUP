@@ -13,7 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import inf112.shmup.core.utilities.BackgroundHandler;
 import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.EnemyFactory;
-import inf112.shmup.core.enemies.Enemy;
+import inf112.shmup.core.enemies.EnemyShip;
 import inf112.shmup.core.Player;
 
 public class GameScreen implements Screen {
@@ -62,7 +62,7 @@ public class GameScreen implements Screen {
 
 		
 		// Check if player is killed
-		if(player.killed) {
+		if(player.getShip().isDead()) {
 			game.setScreen(new GameOverScreen(game));
 		}
 		
@@ -92,8 +92,8 @@ public class GameScreen implements Screen {
 	}
 
 	private void createNextWave() {
-		List<Enemy> newEnemies = enemyFactory.createWave(currentWave++);
-		for(Enemy enemy : newEnemies) {
+		List<EnemyShip> newEnemies = enemyFactory.createWave(currentWave++);
+		for(EnemyShip enemy : newEnemies) {
 			stage.addActor(enemy);
 		}
 	}
@@ -104,12 +104,12 @@ public class GameScreen implements Screen {
 	 * Makes a list of all (not killed) enemies currently in the stage
 	 * @return list of alive enemies
 	 */
-	private List<Enemy> getEnemiesInStage(){
-		List<Enemy> enemies = new ArrayList<>();
+	private List<EnemyShip> getEnemiesInStage(){
+		List<EnemyShip> enemies = new ArrayList<>();
 		
 		for(Actor a : stage.getActors()) {
-			if (a instanceof Enemy && !((Enemy) a).killed) {
-				enemies.add((Enemy) a);
+			if (a instanceof EnemyShip && !((EnemyShip) a).isDead()) {
+				enemies.add((EnemyShip) a);
 			}
 		}
 		

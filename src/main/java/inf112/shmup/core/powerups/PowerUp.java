@@ -1,13 +1,20 @@
 package inf112.shmup.core.powerups;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 import inf112.shmup.core.Player;
 import inf112.shmup.core.enemies.Damageable;
-import inf112.shmup.core.utilities.DrawableActor;
+import inf112.shmup.core.utilities.SpriteActor;
 
-public abstract class PowerUp extends DrawableActor implements Damageable {
+public abstract class PowerUp extends SpriteActor implements Damageable {
+
+	protected PowerUp(float x, float y, Sprite sprite) {
+		super(sprite);
+		setPosition(x, y);
+		sprite.setPosition(x, y);
+	}
 
 	@Override
 	public void act(float delta) {
@@ -25,15 +32,11 @@ public abstract class PowerUp extends DrawableActor implements Damageable {
 		sprite.setY(getY(Align.center) - sprite.getHeight()/2);
 	}
 
-
-
 	private boolean collidesWithPlayer() {
-		Rectangle bounds = sprite.getBoundingRectangle();
-		
 		Player player = Player.getInstance();
 		if (player == null) return false;
 
-		return bounds.overlaps(player.getSprite().getBoundingRectangle());
+		return getBoundingRectangle().overlaps(player.getShip().getBoundingRectangle());
 	}
 
 	@Override

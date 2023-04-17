@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import inf112.shmup.core.enemies.Enemy;
+import inf112.shmup.core.enemies.EnemyShip;
 
 public class PowerUpFactory {
 	// NEEDS TO BE EDITED AS WE IMPLEMENT MORE POWERUPS!!!!
@@ -16,7 +16,7 @@ public class PowerUpFactory {
 	 * 
 	 * @return
 	 */
-	public static PowerUp nextPowerUp(Enemy enemy) {
+	public static PowerUp nextPowerUp(EnemyShip enemy) {
 		PowerUp powerUp = null;
 		
 		Random rand = new Random();

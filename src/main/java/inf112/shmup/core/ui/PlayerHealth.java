@@ -26,7 +26,7 @@ public class PlayerHealth extends Actor{
 		sprite.setX(100);
 		sprite.setY(50);
 		
-		for (int i = 0; i < player.getHealth(); i++) {
+		for (int i = 0; i < player.getShip().getHealth(); i++) {
 			sprite.draw(batch);
 			sprite.setX(sprite.getX() + sprite.getWidth());
 		}
