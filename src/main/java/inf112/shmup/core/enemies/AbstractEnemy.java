@@ -112,4 +112,12 @@ public abstract class AbstractEnemy extends DrawableActor implements Damageable 
         return getSprite().getBoundingRectangle();
     }
 
+    public int getHealth() {
+        return this.health;
+    }
+
+    public int getMaxHealth() {
+        return this.maxHealth;
+    }
+
 }
