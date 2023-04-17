@@ -12,7 +12,7 @@ import inf112.shmup.core.ships.Ship;
 public abstract class EnemyShip extends Ship implements Damageable {
     public EnemyShip(float x, float y, Sprite shipSprite, int maxHealth) {
         super(shipSprite, maxHealth);
-        setEnemyRotation();
+        setRotationDownwards();
         setPosition(x, y, Align.center);
 
         Action sequence = new SequenceAction(

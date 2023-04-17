@@ -44,7 +44,7 @@ public abstract class SpriteActor extends Actor {
 
     @Override 
     public void setRotation(float degrees) {
-        sprite.setRotation(180f);
+        sprite.setRotation(degrees);
     }
 
     public boolean isOnScreen() {
@@ -74,7 +74,7 @@ public abstract class SpriteActor extends Actor {
     /** 
      * Sets the rotation of the sprite to downward, used for enemy objects
      */
-    public void setEnemyRotation(){
+    public void setRotationDownwards(){
         sprite.setRotation(180f);
     }
 }

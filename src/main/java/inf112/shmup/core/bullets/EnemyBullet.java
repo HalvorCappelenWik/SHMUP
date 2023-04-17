@@ -8,7 +8,7 @@ public class EnemyBullet extends Bullet {
 
     public EnemyBullet(int damage) {
         super(-500, "bullet_c.png", "shoot_2");
-        setEnemyRotation();
+        setRotationDownwards();
         _damage = damage;
     }
     

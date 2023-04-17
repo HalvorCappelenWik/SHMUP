@@ -2,6 +2,8 @@ package inf112.shmup.core.ships;
 
 import java.util.function.Supplier;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.utils.Align;
+
 import inf112.shmup.core.bullets.Bullet;
 
 public class Rifle extends Actor {
@@ -83,8 +85,7 @@ public class Rifle extends Actor {
             getStage().addActor(bullet);
 
             bullet.setRotation(angle + _origin.getRotation());
-            bullet.setX(_origin.getX());
-            bullet.setY(_origin.getY());
+            bullet.setPosition(_origin.getX(Align.center), _origin.getY(Align.center), Align.center);
         }
     }
 }
