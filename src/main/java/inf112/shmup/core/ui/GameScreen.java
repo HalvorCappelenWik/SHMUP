@@ -14,6 +14,7 @@ import inf112.shmup.core.utilities.BackgroundHandler;
 import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.EnemyFactory;
 import inf112.shmup.core.enemies.EnemyShip;
+import inf112.shmup.core.powerups.PowerUpFactory;
 import inf112.shmup.core.Player;
 
 public class GameScreen implements Screen {
@@ -43,7 +44,8 @@ public class GameScreen implements Screen {
 		
 		enemyFactory = new EnemyFactory("src/assets/levels/testLevel.json");
 		createNextWave();
-		
+
+		stage.addActor(new PowerUpFactory());
 		stage.addActor(new GameScore());
 		stage.addActor(new PlayerHealth());
 	}
