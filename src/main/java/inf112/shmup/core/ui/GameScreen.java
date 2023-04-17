@@ -35,7 +35,7 @@ public class GameScreen implements Screen {
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
 
-		background = new BackgroundHandler("sea_map.png", game.getViewport());
+		background = new BackgroundHandler("src/assets/sea_map.png", game.getViewport());
 		
 		player = new Player(Game.V_WIDTH/2, 100);
 		stage.addActor(player);
