@@ -28,7 +28,7 @@ public class SplashScreen implements Screen {
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
 
-		Texture splashTexture = new Texture(Gdx.files.internal("javaJunkiesLogo.png"));
+		Texture splashTexture = new Texture(Gdx.files.internal("src/assets/javaJunkiesLogo.png"));
 		splashImage = new Image(splashTexture);
 		splashImage.setOrigin(splashImage.getWidth() / 2, splashImage.getHeight() / 2);
 
