@@ -1,7 +1,5 @@
 package inf112.shmup.core.utilities;
 
-import javax.swing.text.View;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;

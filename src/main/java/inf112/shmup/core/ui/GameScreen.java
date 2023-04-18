@@ -11,8 +11,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import inf112.shmup.core.utilities.BackgroundHandler;
+import inf112.shmup.core.utilities.WaveFactory;
 import inf112.shmup.core.Game;
-import inf112.shmup.core.utilities.EnemyFactory;
+import inf112.shmup.core.enemies.EnemyFactory;
 import inf112.shmup.core.enemies.EnemyShip;
 import inf112.shmup.core.powerups.PowerUpFactory;
 import inf112.shmup.core.Player;
@@ -22,10 +23,6 @@ public class GameScreen implements Screen {
 	private final Game game;
 	private final Stage stage;
 	private final Player player;
-
-	// Keep track of enemy waves
-	private final EnemyFactory enemyFactory;
-	private int currentWave = 0;
 
 	//enable background
 	Boolean backgroundEnabled = true;
@@ -41,13 +38,14 @@ public class GameScreen implements Screen {
 		player = new Player(Game.V_WIDTH/2, 100);
 		stage.addActor(player);
 		stage.setKeyboardFocus(player);
-		
-		enemyFactory = new EnemyFactory("src/assets/levels/testLevel.json");
-		createNextWave();
 
 		stage.addActor(new PowerUpFactory());
+		stage.addActor(new EnemyFactory());
 		stage.addActor(new GameScore());
 		stage.addActor(new PlayerHealth());
+		
+		WaveFactory.reset();
+		WaveFactory.spawnNextWave();
 	}
 
 	@Override
@@ -70,7 +68,7 @@ public class GameScreen implements Screen {
 		
 		// If no enemies then spawn next wave
 		if(getEnemiesInStage().isEmpty()) {
-			createNextWave();
+			WaveFactory.spawnNextWave();
 		}
 
 		//render background
@@ -91,13 +89,6 @@ public class GameScreen implements Screen {
 	@Override
 	public void dispose() {
 		stage.dispose();
-	}
-
-	private void createNextWave() {
-		List<EnemyShip> newEnemies = enemyFactory.createWave(currentWave++);
-		for(EnemyShip enemy : newEnemies) {
-			stage.addActor(enemy);
-		}
 	}
 
 	// --------- other methods ----------

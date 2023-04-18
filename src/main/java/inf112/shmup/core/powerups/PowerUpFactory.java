@@ -21,14 +21,14 @@ public class PowerUpFactory extends Actor {
 		registerPowerUp("ship_upgrade_gunship", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.GUNSHIP_TYPE));
 	}
 
-	public static void registerPowerUp(String name, float weight, BiFunction<Float, Float, PowerUp> create) {
-		System.out.println("Registered powerup: " + name + "@" + weight);
+	public static void registerPowerUp(String id, float weight, BiFunction<Float, Float, PowerUp> create) {
+		System.out.println("PowerUp registered: " + id + "@" + weight);
 
-		_creators.put(name, create);
-		_weights.put(name, (double)weight);
+		_creators.put(id, create);
+		_weights.put(id, (double)weight);
 	}
 
-	public static void spawnPowerup(float x, float y) {
+	public static void spawnPowerUp(float x, float y) {
 		spawnPowerUp(x, y, _creators.keySet());
 	}
 
@@ -36,20 +36,25 @@ public class PowerUpFactory extends Actor {
 		double totalWeight = options.stream().mapToDouble(PowerUpFactory::getWeight).sum();
 		double randomWeight = _random.nextDouble() * totalWeight;
 
-		for (String name : options) {
-			randomWeight -= getWeight(name);
+		for (String id : options) {
+			randomWeight -= getWeight(id);
 
 			if (randomWeight < 0) {
-				spawnPowerUp(x, y, name);
+				spawnPowerUp(x, y, id);
 				return;
 			}
 		}
 	}
 
-	public static void spawnPowerUp(float x, float y, String name) {
-		PowerUp powerUp = _creators.get(name).apply(x, y);
-		_instance.getStage().addActor(powerUp);
-		System.out.println("Spawned powerup: " + name);
+	public static void spawnPowerUp(float x, float y, String id) {
+		if (_creators.containsKey(id)) {
+			PowerUp powerUp = _creators.get(id).apply(x, y);
+			_instance.getStage().addActor(powerUp);
+			System.out.println("PowerUp spawned: " + id);
+		}
+		else {
+			System.out.println("PowerUp unknown: " + id);
+		}
 	}
 
 	public static boolean shouldSpawnPowerUp(float yesProbability) {

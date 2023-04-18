@@ -1,0 +1,29 @@
+{
+    "$id": "./config.schema.json",
+    "title": "SHMUP Game data",
+    "description": "The configuration of the SHMUP game.",
+    "type": "object",
+    "properties": {
+        "waves": {
+            "description": "List of waves. A wave is a list of enemy ids.",
+            "type": "array",
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        "endgameWaves": {
+            "description": "List of waves looping once the player has completed all normal waves. These waves should be difficult.",
+            "type": "array",
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "required": [ "waves", "endgameWaves" ]
+}

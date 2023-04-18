@@ -4,16 +4,20 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.utils.JsonReader;
+import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import inf112.shmup.core.ui.SplashScreen;
+import inf112.shmup.core.utilities.AssetManager;
 
 public class Game extends com.badlogic.gdx.Game {
 	
 	public static final String TITLE = "Shmup";
 	public static final int V_WIDTH = 800;
 	public static final int V_HEIGHT = 800;
+	public static final JsonValue CONFIG = new JsonReader().parse(AssetManager.file("config.json"));
 	
 	private Viewport viewport;
 

@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 import inf112.shmup.core.Player;
-import inf112.shmup.core.enemies.Damageable;
+import inf112.shmup.core.utilities.Damageable;
 import inf112.shmup.core.utilities.SpriteActor;
 
 public abstract class PowerUp extends SpriteActor implements Damageable {

@@ -6,16 +6,16 @@ import inf112.shmup.core.powerups.PowerUpFactory;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.AudioPlayer;
 
-public class Grunt1 extends EnemyShip {
-
-    private float _speed = 100;
+public class Grunt2 extends EnemyShip {
+    private float _speed = 200;
     private int _dir = 1;
 
-    public Grunt1(float x, float y) {
-        super(x, y, AssetManager.sprite("ships/ship_1.png"), 1);
+    public Grunt2(float x, float y) {
+        super(x, y, AssetManager.sprite("ships/ship_8.png"), 5);
 
-        addRifle(1f, () -> new EnemyBullet(1))
-            .useSound("shoot_2");
+        addRifle(0.7f, () -> new EnemyBullet(1))
+            .useSound("shoot_2")
+            .useAngles(10f, -10f);
     }
 
     @Override
@@ -41,9 +41,8 @@ public class Grunt1 extends EnemyShip {
     @Override
     protected void onDead() { 
 		AudioPlayer.playEffect("enemy_killed");
-        if (PowerUpFactory.shouldSpawnPowerUp(0.6f)) {
+        if (PowerUpFactory.shouldSpawnPowerUp(0.8f)) {
             PowerUpFactory.spawnPowerUp(getX(), getY());
         }
     }
-    
 }
