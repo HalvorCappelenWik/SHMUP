@@ -5,6 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.core.bullets.Bullet;
+import inf112.shmup.core.utilities.AudioPlayer;
 
 public class Rifle extends Actor {
 
@@ -16,6 +17,7 @@ public class Rifle extends Actor {
     private float _burstCooldown;
     private float[] _angles;
     private boolean _autoShoot;
+    private String _sound;
 
     private float _timeSinceLastShot;
     private float _timeSinceLastBurst;
@@ -44,6 +46,11 @@ public class Rifle extends Actor {
 
     public Rifle setAutoShoot(boolean shootAutomatically) {
         _autoShoot = shootAutomatically;
+        return this;
+    }
+
+    public Rifle useSound(String sound) {
+        _sound = sound;
         return this;
     }
 
@@ -86,6 +93,10 @@ public class Rifle extends Actor {
 
             bullet.setRotation(angle + _origin.getRotation());
             bullet.setPosition(_origin.getX(Align.center), _origin.getY(Align.center), Align.center);
+        }
+
+        if (_sound != null) {
+            AudioPlayer.playEffect(_sound);
         }
     }
 }

@@ -10,7 +10,7 @@ public class PlayerBullet extends Bullet {
 	private final int _damage;
 
     public PlayerBullet(int damage) {
-		super(2000, "bullet_a.png", "shoot_1");
+		super(2000, "bullet_a.png");
 		_damage = damage;
     }
 

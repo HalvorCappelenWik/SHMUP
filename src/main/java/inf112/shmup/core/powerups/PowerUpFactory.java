@@ -18,10 +18,11 @@ public class PowerUpFactory extends Actor {
 		_instance = this;
 		registerPowerUp("bomb", 2, (x,y) -> new Bomb(x, y));
 		registerPowerUp("full_heal", 1, (x, y) -> new FullHeal(x, y));
+		registerPowerUp("ship_upgrade_gunship", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.GUNSHIP_TYPE));
 	}
 
 	public static void registerPowerUp(String name, float weight, BiFunction<Float, Float, PowerUp> create) {
-		System.out.println("Registered powerup \"" + name + "\" with weight \"" + weight + '"');
+		System.out.println("Registered powerup: " + name + "@" + weight);
 
 		_creators.put(name, create);
 		_weights.put(name, (double)weight);
@@ -48,7 +49,7 @@ public class PowerUpFactory extends Actor {
 	public static void spawnPowerUp(float x, float y, String name) {
 		PowerUp powerUp = _creators.get(name).apply(x, y);
 		_instance.getStage().addActor(powerUp);
-		System.out.println("Spawned " + name);
+		System.out.println("Spawned powerup: " + name);
 	}
 
 	public static boolean shouldSpawnPowerUp(float yesProbability) {

@@ -14,7 +14,8 @@ public class Grunt1 extends EnemyShip {
     public Grunt1(float x, float y) {
         super(x, y, AssetManager.sprite("ships/ship_1.png"), 1);
 
-        addRifle(1f, () -> new EnemyBullet(1));
+        addRifle(1f, () -> new EnemyBullet(1))
+            .useSound("shoot_2");
     }
 
     @Override
@@ -40,10 +41,8 @@ public class Grunt1 extends EnemyShip {
     @Override
     protected void onDead() { 
 		AudioPlayer.playEffect("enemy_killed");
-        if (PowerUpFactory.shouldSpawnPowerUp(0.33f)) {
+        if (PowerUpFactory.shouldSpawnPowerUp(0.6f)) {
             PowerUpFactory.spawnPowerup(getX(), getY());
-        } else {
-            System.out.println("Did not spawn powerup");
         }
     }
     

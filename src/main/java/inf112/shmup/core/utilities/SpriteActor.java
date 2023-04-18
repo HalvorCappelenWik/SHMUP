@@ -38,12 +38,11 @@ public abstract class SpriteActor extends Actor {
 	public void draw(Batch batch, float parentAlpha) {
 		positionChanged();
 		sprite.draw(batch);
-
-        this.setRotation(parentAlpha);
 	}
 
     @Override 
     public void setRotation(float degrees) {
+        super.setRotation(-degrees);
         sprite.setRotation(degrees);
     }
 
@@ -75,6 +74,6 @@ public abstract class SpriteActor extends Actor {
      * Sets the rotation of the sprite to downward, used for enemy objects
      */
     public void setRotationDownwards(){
-        sprite.setRotation(180f);
+        setRotation(180f);
     }
 }

@@ -6,7 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Align;
 
-import inf112.shmup.core.ships.BlueShip1;
+import inf112.shmup.core.ships.Gunship1;
 import inf112.shmup.core.ships.Ship;
 
 public class Player extends Actor {
@@ -19,7 +19,7 @@ public class Player extends Actor {
 
 	public Player(float x, float y) {
 		_instance = this;
-		_ship = new BlueShip1();
+		_ship = new Gunship1();
 		_ship.setPosition(x, y, Align.center);
 	}
 
@@ -58,10 +58,12 @@ public class Player extends Actor {
 	public void setShip(Ship ship) {
 		float x = _ship.getX(),
 			  y = _ship.getY();
+		_ship.remove();
 		_ship = ship;
 		_ship.setPosition(x, y, Align.center);
 		_ship.setRotation(0f);
 		getStage().addActor(_ship);
+		System.out.println("Changed ship: " + _ship.getClass().getName());
 	}
 
 	public static Player getInstance() {
