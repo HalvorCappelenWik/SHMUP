@@ -20,7 +20,7 @@ public class WaveFactory {
 		for (int i = 0; i < _wave.length; i++) {
 			if (_wave[i] != null) {
 				float x = gridOffset + gridWidth * i;
-				EnemyFactory.spawnEnemy(x, Game.V_HEIGHT, _wave[i]);
+				EnemyFactory.spawnEnemy(x, Game.V_HEIGHT - 100, _wave[i]);
 			}
 		}
 	}

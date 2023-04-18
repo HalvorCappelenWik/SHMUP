@@ -21,6 +21,7 @@ public class Grunt2 extends EnemyShip {
     @Override
     public void act(float delta) {
         super.act(delta);
+        if(getActions().size != 0) return;
         clampToScreen();
 
         moveBy(_dir * _speed * delta, 0);
