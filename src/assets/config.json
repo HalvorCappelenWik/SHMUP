@@ -1,6 +1,7 @@
 {
     "$schema": "./config.schema.json",
     "waves": [
+		["zig1"],
         [ "strafe1", "strafe1" ],
         [ "grunt1", "grunt1", "grunt1" ],
         [ "grunt1", "grunt1", "grunt1", "grunt1" ],
