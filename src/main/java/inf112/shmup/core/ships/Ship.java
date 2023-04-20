@@ -14,8 +14,8 @@ import inf112.shmup.core.utilities.SpriteActor;
 public abstract class Ship extends SpriteActor {
     private final HealthPool _health;
     private final List<Rifle> _rifles;
-    private float _speedX = 5f;
-    private float _speedY = 5f;
+    private float _speedX = 300f;
+    private float _speedY = 300f;
 
     public Ship(Sprite shipSprite, int maxHealth) {
         super(shipSprite);

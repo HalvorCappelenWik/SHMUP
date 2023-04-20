@@ -26,13 +26,13 @@ public class Player extends Actor {
 
 		// Input handling
 		if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
-			_ship.moveBy(-_ship.getSpeedX(), 0);
+			_ship.moveBy(-_ship.getSpeedX() * delta, 0);
 		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-			_ship.moveBy(_ship.getSpeedX(), 0);
+			_ship.moveBy(_ship.getSpeedX() * delta, 0);
 		if(Gdx.input.isKeyPressed(Input.Keys.UP))
-			_ship.moveBy(0, _ship.getSpeedY());
+			_ship.moveBy(0, _ship.getSpeedY() * delta);
 		if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
-			_ship.moveBy(0, -_ship.getSpeedY());
+			_ship.moveBy(0, -_ship.getSpeedY() * delta);
 
 		_ship.clampToScreen();
 
