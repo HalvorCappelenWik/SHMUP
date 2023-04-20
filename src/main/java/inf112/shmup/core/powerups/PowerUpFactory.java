@@ -8,6 +8,8 @@ import java.util.function.BiFunction;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import inf112.shmup.core.enemies.EnemyBomb;
+
 public class PowerUpFactory extends Actor {
 	private static PowerUpFactory _instance;
 	private static final Random _random = new Random();
@@ -20,6 +22,7 @@ public class PowerUpFactory extends Actor {
 		registerPowerUp("full_heal", 1, (x, y) -> new FullHeal(x, y));
 		registerPowerUp("ship_upgrade_gunship", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.GUNSHIP_TYPE));
 		registerPowerUp("ship_upgrade_speed", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.SPEED_TYPE));
+		registerPowerUp("EnemyBomb", 2, (x,y) -> new EnemyBomb(x, y));
 	}
 
 	public static void registerPowerUp(String id, float weight, BiFunction<Float, Float, PowerUp> create) {
