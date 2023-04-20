@@ -29,10 +29,10 @@ public class ShipUpgrade extends PowerUp {
         if (GUNSHIP_TYPE.equals(_type)) {
             upgradeGunship();
         }
-        else if (NOT_IN_USE_1_TYPE.equals(_type)) {
-            
+        else if (YELLOW_SHIP.equals(_type)) {
+            upgradeToYellowShip();
         }
-        else if (NOT_IN_USE_2_TYPE.equals(_type)) {
+        else if (SPEED_TYPE.equals(_type)) {
             
         }
         else if (NOT_IN_USE_3_TYPE.equals(_type)) {
