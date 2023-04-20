@@ -8,7 +8,7 @@ import inf112.shmup.core.powerups.PowerUp;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.Explosion;
 
-public class EnemyBomb extends PowerUp {
+public class FallingRedBomb extends PowerUp {
 	
 	private final Color DAMAGE_COLOR = Color.BLUE;
 	private final int DAMAGE_FRAMES = 3;
@@ -17,7 +17,7 @@ public class EnemyBomb extends PowerUp {
 	private static Sprite _sprite = AssetManager.sprite("Bomb_1.png");
 	private int health = 5;
 
-	public EnemyBomb(float x, float y) {
+	public FallingRedBomb(float x, float y) {
 		super(x, y, _sprite);
 		_sprite.setColor(Color.RED);
 	}
