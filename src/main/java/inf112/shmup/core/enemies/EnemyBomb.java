@@ -16,7 +16,6 @@ public class EnemyBomb extends PowerUp {
 	
 	private static Sprite _sprite = AssetManager.sprite("Bomb_1.png");
 	private int health = 5;
-	//registerPowerUp("EnemyBomb", 1, (x,y) -> new EnemyBomb(x, y));
 
 	public EnemyBomb(float x, float y) {
 		super(x, y, _sprite);
