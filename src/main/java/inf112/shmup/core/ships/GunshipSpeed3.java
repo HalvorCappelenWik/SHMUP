@@ -12,8 +12,7 @@ public class GunshipSpeed3 extends Ship {
         super(AssetManager.sprite("ships/ship_green3.png"), 4);
 
         addRifle(0.5f, () -> new PlayerBullet(1))
-            .useSound("shoot_1")
-            .useAngles(-12f, 0f, 12f);
+            .useSound("shoot_1");
 
         setSpeedX(speed1x);
         setSpeedY(speed1y);
