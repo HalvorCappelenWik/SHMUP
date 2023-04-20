@@ -5,6 +5,8 @@ import java.util.function.BiFunction;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import inf112.shmup.core.ships.RocketShip1;
+
 public class EnemyFactory extends Actor {
     private static EnemyFactory _instance;
 

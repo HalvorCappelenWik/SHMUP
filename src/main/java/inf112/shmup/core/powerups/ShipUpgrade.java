@@ -94,18 +94,18 @@ public class ShipUpgrade extends PowerUp {
     }
 
     private void upgradrocketship() {
-        if (currentShip() instanceof Gunship1) {
-            setShip(new Gunship2());
+        if (currentShip() instanceof RocketShip1) {
+            setShip(new RocketShip2());
         }
-        else if (currentShip() instanceof Gunship2) {
-            setShip(new Gunship3());
+        else if (currentShip() instanceof RocketShip2) {
+            setShip(new RocketShip3());
         }
-        else if (currentShip() instanceof Gunship3) {
+        else if (currentShip() instanceof RocketShip3) {
             // The ship is upgraded to the maximum.
         }
         else {
             // The player had another ship-type.
-            setShip(new Gunship1());
+            setShip(new RocketShip1());
         }
     }
 

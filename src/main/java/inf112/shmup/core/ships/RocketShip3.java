@@ -16,20 +16,15 @@ public class RocketShip3 extends Ship {
 
     @Override
     protected void onHealed() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onHealed'");
     }
 
     @Override
     protected void onDamaged() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onDamaged'");
     }
 
     @Override
     protected void onDead() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onDead'");
+
     }
     
 }

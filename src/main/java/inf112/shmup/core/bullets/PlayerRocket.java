@@ -15,7 +15,9 @@ public class PlayerRocket extends Rocket{
 
     @Override
     void onHitEnemy(Damageable enemy) {
+        enemy.takeDamage(-1);
         spawnExplosion(getX(), getY(), _damage);
+
         remove();
     }
 
