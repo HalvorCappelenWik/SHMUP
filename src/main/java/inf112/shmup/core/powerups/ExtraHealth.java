@@ -8,7 +8,7 @@ public class ExtraHealth extends PowerUp {
 
     ExtraHealth(float x, float y) {
         super(x, y, AssetManager.sprite("heart.png"));
-        sprite.setSize(12, 12);
+        sprite.setSize(13, 13);
     }
 
     @Override
