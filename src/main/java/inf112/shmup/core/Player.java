@@ -54,8 +54,8 @@ public class Player extends Actor {
 	}
 
 	public void setShip(Ship ship) {
-		float x = _ship.getX(),
-			  y = _ship.getY();
+		float x = _ship.getX(Align.center),
+			  y = _ship.getY(Align.center);
 		_ship.remove();
 		_ship = ship;
 		_ship.setPosition(x, y, Align.center);

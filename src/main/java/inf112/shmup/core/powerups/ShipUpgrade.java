@@ -17,7 +17,7 @@ public class ShipUpgrade extends PowerUp {
     private final String _type;
 
     public ShipUpgrade(float x, float y, String type) {
-        super(x, y, AssetManager.sprite("items/upgrade_" + type + ".png"));
+        super(x, y, AssetManager.sprite("items/powerup_" + type + ".png"));
         _type = type;
     }
 
