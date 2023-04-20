@@ -22,7 +22,7 @@ public abstract class EnemyShip extends Ship implements Damageable {
     public EnemyShip(float x, float y, Sprite shipSprite, int maxHealth) {
         super(shipSprite, maxHealth);
         setRotationDownwards();
-        setPosition(x, y + Game.V_HEIGHT);
+        setPosition(x, Game.V_HEIGHT * 1.5f);
 
         Action sequence = new SequenceAction(
             Actions.moveTo(x, y+25, 2.2f), 
