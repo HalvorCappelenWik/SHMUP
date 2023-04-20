@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import inf112.shmup.core.Player;
+import inf112.shmup.core.powerups.PowerUp;
 
 public class Explosion extends Actor {
     private final HashSet<Damageable> _damaged = new HashSet<>();
@@ -60,6 +61,7 @@ public class Explosion extends Actor {
 		Circle blastArea = new Circle(getX(), getY(), currentRadius);
 
         for (Actor actor : getStage().getActors()) {
+            if (actor instanceof PowerUp) continue;
             if (actor instanceof Damageable) {
                 Damageable damageable = (Damageable) actor;
                 tryDamage(damageable, blastArea);
