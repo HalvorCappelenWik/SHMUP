@@ -13,6 +13,7 @@ public class EnemyFactory extends Actor {
         registerEnemy("grunt1", (x, y) -> new Grunt1(x, y));
         registerEnemy("grunt2", (x, y) -> new Grunt2(x, y));
         registerEnemy("zig1", 	(x, y) -> new Zig1	(x, y));
+        registerEnemy("strafe1",(x, y) -> new StrafeEnemy(x, y));
     }
 
     private static final HashMap<String, BiFunction<Float, Float, EnemyShip>> _creators = new HashMap<>();
