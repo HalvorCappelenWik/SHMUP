@@ -32,7 +32,7 @@ public abstract class PowerUp extends SpriteActor implements Damageable {
 		sprite.setY(getY(Align.center) - sprite.getHeight()/2);
 	}
 
-	private boolean collidesWithPlayer() {
+	protected boolean collidesWithPlayer() {
 		Player player = Player.getInstance();
 		if (player == null) return false;
 
