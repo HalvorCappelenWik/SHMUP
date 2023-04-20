@@ -14,13 +14,15 @@ public class Player extends Actor {
 	private static Player _instance;
 	private Ship _ship;
 
-	private float speed_x = 5f;
-	private float speed_y = 5f;
+	private float speed_x;
+	private float speed_y;
 
 	public Player(float x, float y) {
 		_instance = this;
 		_ship = new Gunship1();
 		_ship.setPosition(x, y, Align.center);
+		speed_y = _ship.getSpeedY();
+		speed_x = _ship.getSpeedX();
 	}
 
 	@Override
