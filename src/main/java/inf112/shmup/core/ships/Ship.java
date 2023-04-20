@@ -14,6 +14,8 @@ import inf112.shmup.core.utilities.SpriteActor;
 public abstract class Ship extends SpriteActor {
     private final HealthPool _health;
     private final List<Rifle> _rifles;
+    private float _speedX = 5f;
+    private float _speedY = 5f;
 
     public Ship(Sprite shipSprite, int maxHealth) {
         super(shipSprite);
@@ -33,6 +35,22 @@ public abstract class Ship extends SpriteActor {
 
     public int getMaxHealth() {
         return _health.getMax();
+    }
+    
+    public float getSpeedX() {
+    	return _speedX;
+    }
+    
+    public float getSpeedY() {
+    	return _speedY;
+    }
+    
+    public void setSpeedX(float speedX) {
+    	this._speedX = speedX;
+    }
+    
+    public void setSpeedY(float speedY) {
+    	this._speedY = speedY;
     }
 
     public boolean isDead() {
