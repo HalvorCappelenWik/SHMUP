@@ -8,7 +8,7 @@ import java.util.function.BiFunction;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import inf112.shmup.core.enemies.EnemyBomb;
+import inf112.shmup.core.enemies.FallingRedBomb;
 
 public class PowerUpFactory extends Actor {
 	private static PowerUpFactory _instance;
@@ -24,7 +24,7 @@ public class PowerUpFactory extends Actor {
 		registerPowerUp("ship_upgrade_yellow", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.YELLOW_SHIP));
 		registerPowerUp("ship_upgrade_speed", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.SPEED_TYPE));
 		registerPowerUp("ship_upgrade_rocket", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.ROCKET_TYPE));
-		registerPowerUp("enemybomb", 2, (x,y) -> new EnemyBomb(x, y));
+		registerPowerUp("fallingredbomb", 2, (x,y) -> new FallingRedBomb(x, y));
 		registerPowerUp("extraHealth", 1, (x,y) -> new ExtraHealth(x,y));
 		registerPowerUp("atomBomb", 1, (x,y) -> new AtomBomb(x,y));
 	}
