@@ -5,15 +5,14 @@ import inf112.shmup.core.utilities.AssetManager;
 
 public class GunshipSpeed2 extends Ship {
 
-    float speed1x = 600f;
-    float speed1y = 600f;
+    float speed1x = 1100f;
+    float speed1y = 1100f;
     
     public GunshipSpeed2() {
         super(AssetManager.sprite("ships/ship_green2.png"), 4);
 
-        addRifle(0.5f, () -> new PlayerBullet(1))
+        addRifle(0.15f, () -> new PlayerBullet(1))
             .useSound("shoot_1");
-
 
         setSpeedX(speed1x);
         setSpeedY(speed1y);
