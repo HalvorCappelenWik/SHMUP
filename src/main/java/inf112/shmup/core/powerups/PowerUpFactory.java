@@ -24,11 +24,11 @@ public class PowerUpFactory extends Actor {
 		registerPowerUp("ship_upgrade_yellow", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.YELLOW_SHIP));
 
 		registerPowerUp("ship_upgrade_speed", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.SPEED_TYPE));
-<<<<<<< Updated upstream
+
 		registerPowerUp("EnemyBomb", 2, (x,y) -> new EnemyBomb(x, y));
-=======
+
 		registerPowerUp("extraHealth", 1, (x,y) -> new ExtraHealth(x,y));
->>>>>>> Stashed changes
+
 	}
 
 	public static void registerPowerUp(String id, float weight, BiFunction<Float, Float, PowerUp> create) {
