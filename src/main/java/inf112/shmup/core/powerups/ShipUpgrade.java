@@ -33,7 +33,7 @@ public class ShipUpgrade extends PowerUp {
             upgradeToYellowShip();
         }
         else if (SPEED_TYPE.equals(_type)) {
-            
+            upgradeGunshipSpeed();
         }
         else if (NOT_IN_USE_3_TYPE.equals(_type)) {
             
