@@ -1,6 +1,7 @@
 package inf112.shmup.core.enemies;
 
 
+import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
 
 public class Zig1 extends EnemyShip{
@@ -8,7 +9,7 @@ public class Zig1 extends EnemyShip{
 	public Zig1(float x, float y) {
 		super(x, y, AssetManager.sprite("ships/ship_9.png"), Integer.MAX_VALUE);
 		setSpeedX(100f);
-		setSpeedY(50f);
+		setSpeedY(-50f);
 	}
 
 	@Override
@@ -34,6 +35,11 @@ public class Zig1 extends EnemyShip{
 		super.act(delta);
 		
 		moveBy(getSpeedX() * delta, getSpeedY() * delta);
+		
+		if(getX() >= SCREEN_BOUNDS.width || getX() <= 0) {
+			setSpeedX(-1 * getSpeedX());
+			clampToBounds(SCREEN_BOUNDS);
+		}
 	}
 	
 	
