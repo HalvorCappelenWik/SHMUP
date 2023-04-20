@@ -12,7 +12,7 @@ public class ShipUpgrade extends PowerUp {
     public static final String NOT_IN_USE_2_TYPE = "green";
     public static final String NOT_IN_USE_1_TYPE = "yellow";
     public static final String SPEED_TYPE = "green";
-    public static final String NOT_IN_USE_3_TYPE = "red";
+    public static final String ROCKET_TYPE = "red";
 
     private final String _type;
 
@@ -35,8 +35,8 @@ public class ShipUpgrade extends PowerUp {
         else if (SPEED_TYPE.equals(_type)) {
             upgradeGunshipSpeed();
         }
-        else if (NOT_IN_USE_3_TYPE.equals(_type)) {
-            
+        else if (ROCKET_TYPE.equals(_type)) {
+            upgradrocketship();
         }
         else {
             System.out.println("Unknown ship upgrade: " + _type);
@@ -90,6 +90,22 @@ public class ShipUpgrade extends PowerUp {
         else {
             // The player had another ship-type.
             setShip(new GunshipSpeed1());
+        }
+    }
+
+    private void upgradrocketship() {
+        if (currentShip() instanceof Gunship1) {
+            setShip(new Gunship2());
+        }
+        else if (currentShip() instanceof Gunship2) {
+            setShip(new Gunship3());
+        }
+        else if (currentShip() instanceof Gunship3) {
+            // The ship is upgraded to the maximum.
+        }
+        else {
+            // The player had another ship-type.
+            setShip(new Gunship1());
         }
     }
 
