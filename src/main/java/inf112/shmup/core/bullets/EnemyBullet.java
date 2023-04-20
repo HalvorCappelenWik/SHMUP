@@ -1,6 +1,7 @@
 package inf112.shmup.core.bullets;
 
 import inf112.shmup.core.Player;
+import inf112.shmup.core.utilities.Damageable;
 
 public class EnemyBullet extends Bullet {
 
@@ -12,13 +13,13 @@ public class EnemyBullet extends Bullet {
     }
     
     @Override
-    protected void checkIfHit() {
-        Player player = Player.getInstance();
-        if (player == null) return;
-       
-        if (sprite.getBoundingRectangle().overlaps(player.getShip().getBoundingRectangle())) {
-            player.getShip().takeDamage(_damage);
-            remove();
-        }
+    protected void onHitPlayer(Player player) {
+        player.getShip().takeDamage(_damage);
+        remove();
+    }
+
+    @Override
+    void onHitEnemy(Damageable enemy) {
+        //nothing
     }
 }
