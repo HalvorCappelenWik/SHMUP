@@ -26,6 +26,7 @@ public class PowerUpFactory extends Actor {
 		registerPowerUp("ship_upgrade_rocket", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.ROCKET_TYPE));
 		registerPowerUp("enemybomb", 2, (x,y) -> new EnemyBomb(x, y));
 		registerPowerUp("extraHealth", 1, (x,y) -> new ExtraHealth(x,y));
+		registerPowerUp("atomBomb", 1000, (x,y) -> new AtomBomb(x,y));
 	}
 
 	public static void registerPowerUp(String id, float weight, BiFunction<Float, Float, PowerUp> create) {
