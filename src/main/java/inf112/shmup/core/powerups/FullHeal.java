@@ -9,7 +9,7 @@ public class FullHeal extends PowerUp {
     // Seems wonky? Should it be collision only?
 
     FullHeal(float x, float y) {
-        super(x, y, AssetManager.sprite("health.png"));
+        super(x, y, AssetManager.sprite("items/health.png"));
     }
 
     @Override

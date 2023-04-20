@@ -21,6 +21,8 @@ public class PowerUpFactory extends Actor {
 		registerPowerUp("bomb", 2, (x,y) -> new Bomb(x, y));
 		registerPowerUp("full_heal", 1, (x, y) -> new FullHeal(x, y));
 		registerPowerUp("ship_upgrade_gunship", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.GUNSHIP_TYPE));
+		registerPowerUp("ship_upgrade_yellow", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.YELLOW_SHIP));
+
 		registerPowerUp("ship_upgrade_speed", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.SPEED_TYPE));
 		registerPowerUp("EnemyBomb", 2, (x,y) -> new EnemyBomb(x, y));
 	}
