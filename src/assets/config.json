@@ -8,6 +8,7 @@
         [ "grunt1", "grunt1", "grunt1", "grunt1" ],
         [  "grunt1", "grunt2", "grunt1" ]
     ],
+    
     "endgameWaves": [
         [ "grunt1", "grunt2", "grunt1", "grunt2", "grunt2" ],
         [ "grunt2", "grunt1", "grunt2", "grunt1", "grunt2" ],

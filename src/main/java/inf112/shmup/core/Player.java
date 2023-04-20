@@ -14,15 +14,11 @@ public class Player extends Actor {
 	private static Player _instance;
 	private Ship _ship;
 
-	private float speed_x;
-	private float speed_y;
 
 	public Player(float x, float y) {
 		_instance = this;
 		_ship = new Gunship1();
 		_ship.setPosition(x, y, Align.center);
-		speed_y = _ship.getSpeedY();
-		speed_x = _ship.getSpeedX();
 	}
 
 	@Override
@@ -30,13 +26,13 @@ public class Player extends Actor {
 
 		// Input handling
 		if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
-			_ship.moveBy(-speed_x, 0);
+			_ship.moveBy(-_ship.getSpeedX(), 0);
 		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-			_ship.moveBy(speed_x, 0);
+			_ship.moveBy(_ship.getSpeedX(), 0);
 		if(Gdx.input.isKeyPressed(Input.Keys.UP))
-			_ship.moveBy(0, speed_y);
+			_ship.moveBy(0, _ship.getSpeedY());
 		if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
-			_ship.moveBy(0, -speed_y);
+			_ship.moveBy(0, -_ship.getSpeedY());
 
 		_ship.clampToScreen();
 

@@ -1,5 +1,7 @@
 package inf112.shmup.core.enemies;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Action;
@@ -12,6 +14,11 @@ import inf112.shmup.core.ships.Ship;
 import inf112.shmup.core.utilities.Damageable;
 
 public abstract class EnemyShip extends Ship implements Damageable {
+	
+	private final Color DAMAGE_COLOR = Color.RED;
+	private final int DAMAGE_FRAMES = 3;
+	private int _damageFrames = 0;
+	
     public EnemyShip(float x, float y, Sprite shipSprite, int maxHealth) {
         super(shipSprite, maxHealth);
         setRotationDownwards();
@@ -28,10 +35,24 @@ public abstract class EnemyShip extends Ship implements Damageable {
     @Override
     public void takeDamage(int damage) {
         super.takeDamage(damage);
+        _damageFrames = DAMAGE_FRAMES;
     }
 
     @Override
     public Rectangle getBounds() {
         return getBoundingRectangle();
     }
+
+
+	@Override
+	public void draw(Batch batch, float parentAlpha) {
+		if (_damageFrames > 0) {
+			_damageFrames--;
+			sprite.setColor(DAMAGE_COLOR);
+		}
+		super.draw(batch, parentAlpha);
+		sprite.setColor(Color.WHITE);
+	}
+    
+    
 }
