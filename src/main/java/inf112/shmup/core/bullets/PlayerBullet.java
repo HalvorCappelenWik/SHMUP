@@ -6,6 +6,7 @@ import java.util.List;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import inf112.shmup.core.Player;
 import inf112.shmup.core.utilities.Damageable;
 
 public class PlayerBullet extends Bullet {
@@ -18,28 +19,13 @@ public class PlayerBullet extends Bullet {
     }
 
 	@Override
-	protected void checkIfHit() {
-		Rectangle bounds = sprite.getBoundingRectangle();
-
-		if (getStage() == null)
-			return;
-		
-		List<Damageable> actorsHit = new ArrayList<>();
-
-		for (Actor actor : getStage().getActors()) {
-			if (actor instanceof Damageable) {
-				Damageable damageable = (Damageable) actor;
-
-				if (bounds.overlaps(damageable.getBounds())) {
-					actorsHit.add(damageable);
-				}
-			}
-		}
-		
-		if (actorsHit.isEmpty()) return;
-		
+	void onHitEnemy(Damageable enemy) {
 		remove();
-		for (Damageable d : actorsHit) 
-			d.takeDamage(_damage);
+		enemy.takeDamage(_damage);
+	}
+
+	@Override
+	void onHitPlayer(Player player) {
+		//nothing
 	}
 }
