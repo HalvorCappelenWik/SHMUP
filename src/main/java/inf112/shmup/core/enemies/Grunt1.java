@@ -12,7 +12,7 @@ public class Grunt1 extends EnemyShip {
     private int _dir = 1;
 
     public Grunt1(float x, float y) {
-        super(x, y, AssetManager.sprite("ships/ship_1.png"), 1);
+        super(x, y, AssetManager.sprite("ships/ship_1.png"), 2);
 
         addRifle(1f, () -> new EnemyBullet(1))
             .useSound("shoot_2");
