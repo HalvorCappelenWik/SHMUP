@@ -1,5 +1,8 @@
 package inf112.shmup.core.bullets;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
@@ -20,16 +23,23 @@ public class PlayerBullet extends Bullet {
 
 		if (getStage() == null)
 			return;
+		
+		List<Damageable> actorsHit = new ArrayList<>();
 
 		for (Actor actor : getStage().getActors()) {
 			if (actor instanceof Damageable) {
 				Damageable damageable = (Damageable) actor;
 
 				if (bounds.overlaps(damageable.getBounds())) {
-					damageable.takeDamage(_damage);
-					remove();
+					actorsHit.add(damageable);
 				}
 			}
 		}
+		
+		if (actorsHit.isEmpty()) return;
+		
+		remove();
+		for (Damageable d : actorsHit) 
+			d.takeDamage(_damage);
 	}
 }
