@@ -36,6 +36,8 @@ public abstract class EnemyShip extends Ship implements Damageable {
 
     @Override
     public void takeDamage(int damage) {
+        if(getActions().size > 0) return;
+        
         super.takeDamage(damage);
         _damageFrames = DAMAGE_FRAMES;
         
