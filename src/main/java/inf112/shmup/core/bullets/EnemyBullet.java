@@ -8,7 +8,7 @@ public class EnemyBullet extends Bullet {
     private final int _damage;
 
     public EnemyBullet(int damage) {
-        super(500, "bullet_c.png");
+        super(500, "bullet_e.png");
         _damage = damage;
     }
     
