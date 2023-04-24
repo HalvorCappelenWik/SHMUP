@@ -18,7 +18,7 @@ public class AtomBomb extends PowerUp{
     }
 
     @Override
-    public void takeDamage(int damage) {
+    public void activate() {
         List<Actor> damageable = new ArrayList<Actor>();
 
         for (Actor actor : getStage().getActors()) {
@@ -34,4 +34,9 @@ public class AtomBomb extends PowerUp{
         }
         remove();
     }
+
+	@Override
+	public void takeDamage(int damage) {
+		return;
+	}
 }
