@@ -72,6 +72,24 @@
 					<artifactId>gdx-lwjgl3-glfw-awt-macos</artifactId>
 					<version>${libgdx.version}</version>
 				</dependency>
+				
+				<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+				<dependency>
+				    <groupId>org.mockito</groupId>
+				    <artifactId>mockito-core</artifactId>
+				    <version>5.3.1</version>
+				    <scope>test</scope>
+				</dependency>
+
+				
+				<!-- https://mvnrepository.com/artifact/com.badlogicgames.gdx/gdx-backend-headless -->
+				<dependency>
+				    <groupId>com.badlogicgames.gdx</groupId>
+				    <artifactId>gdx-backend-headless</artifactId>
+				    <version>1.11.0</version>
+				    <scope>test</scope>
+				</dependency>
+
 			</dependencies>
 		</profile>
 		<!-- We might need the SNAPSHOT version of libgdx in order to support the M1 processor
@@ -124,7 +142,13 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-			</dependencies>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>5.3.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 	<build>
 		<resources>
     		<resource>
