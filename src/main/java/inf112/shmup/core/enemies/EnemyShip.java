@@ -12,6 +12,7 @@ import com.badlogic.gdx.utils.Align;
 import inf112.shmup.core.Game;
 import inf112.shmup.core.ships.Ship;
 import inf112.shmup.core.utilities.Damageable;
+import inf112.shmup.core.utilities.ScoreManager;
 
 public abstract class EnemyShip extends Ship implements Damageable {
 	
@@ -36,6 +37,10 @@ public abstract class EnemyShip extends Ship implements Damageable {
     public void takeDamage(int damage) {
         super.takeDamage(damage);
         _damageFrames = DAMAGE_FRAMES;
+        
+        if(getHealth() <= 0) {
+        	ScoreManager.addScore(100);
+        }
     }
 
     @Override
