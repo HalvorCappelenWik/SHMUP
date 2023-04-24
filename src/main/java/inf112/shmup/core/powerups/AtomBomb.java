@@ -1,6 +1,8 @@
 package inf112.shmup.core.powerups;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
+
+import inf112.shmup.core.enemies.EnemyShip;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.Damageable;
 import inf112.shmup.core.utilities.Explosion;
@@ -16,8 +18,9 @@ public class AtomBomb extends PowerUp{
     }
 
     @Override
-    public void takeDamage(int damage) {
+    public void activate() {
         List<Actor> damageable = new ArrayList<Actor>();
+
 
         for (Actor actor : getStage().getActors()) {
             if (actor instanceof Damageable) {
@@ -25,8 +28,18 @@ public class AtomBomb extends PowerUp{
             }
         }
         for (Actor actor : damageable) {
+        	if(actor instanceof EnemyShip) {
+        		((EnemyShip) actor).takeDamage(Integer.MAX_VALUE);
+        	}
             actor.remove();
         }
+        Explosion explosion = new Explosion(getX(), getY(), 500, 0);
+        getStage().addActor(explosion);
         remove();
     }
+
+	@Override
+	public void takeDamage(int damage) {
+		return;
+	}
 }

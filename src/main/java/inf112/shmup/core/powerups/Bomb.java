@@ -12,9 +12,14 @@ public class Bomb extends PowerUp {
 	}
 
 	@Override
-	public void takeDamage(int damage) {
+	public void activate() {
 		Explosion explosion = new Explosion(getX(), getY(), blastRadius, blastDamage);
 		getStage().addActor(explosion);
 		remove();
+	}
+
+	@Override
+	public void takeDamage(int damage) {
+		activate();
 	}
 }

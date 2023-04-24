@@ -21,7 +21,7 @@ public abstract class PowerUp extends SpriteActor implements Damageable {
 		super.act(delta);
 		moveBy(0, -0.5f);
 		
-		if(collidesWithPlayer()) takeDamage(0);
+		if(collidesWithPlayer()) activate();
 	}
 	
 	@Override
@@ -50,4 +50,12 @@ public abstract class PowerUp extends SpriteActor implements Damageable {
 	public Rectangle getBounds() {
 		return sprite.getBoundingRectangle();
 	}
+	
+	/**
+	 * Activates the powerup ability
+	 */
+	protected abstract void activate();
+
+	
+	
 }

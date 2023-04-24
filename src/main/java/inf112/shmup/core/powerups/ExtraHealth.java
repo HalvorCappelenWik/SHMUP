@@ -12,10 +12,15 @@ public class ExtraHealth extends PowerUp {
     }
 
     @Override
-    public void takeDamage(int damage) {
+    public void activate() {
         Player player = Player.getInstance();
         player.getShip().takeDamage(-2);
         remove();
     }
+
+	@Override
+	public void takeDamage(int damage) {
+		return;
+	}
 }
 

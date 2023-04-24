@@ -22,7 +22,7 @@ public class ShipUpgrade extends PowerUp {
     }
 
     @Override
-    public void takeDamage(int damage) {
+    public void activate() {
         AudioPlayer.playEffect("powerup");
         System.out.println("Upgraded ship:" + _type);
 
@@ -116,4 +116,9 @@ public class ShipUpgrade extends PowerUp {
     private static void setShip(Ship ship) {
         Player.getInstance().setShip(ship);
     }
+
+	@Override
+	public void takeDamage(int damage) {
+		return;
+	}
 }

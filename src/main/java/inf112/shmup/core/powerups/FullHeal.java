@@ -13,10 +13,15 @@ public class FullHeal extends PowerUp {
     }
 
     @Override
-    public void takeDamage(int damage) {
+    public void activate() {
     	Player player = Player.getInstance();
         player.getShip().takeDamage(-player.getShip().getMaxHealth());
         remove();
     }
+
+	@Override
+	public void takeDamage(int damage) {
+		return;
+	}
 }
 
