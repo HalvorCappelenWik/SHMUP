@@ -15,6 +15,8 @@ public class Zig1 extends EnemyShip{
 		setSpeedX((float)Math.sin(Math.toRadians(_angle)) * speed * -1);
 		setSpeedY((float)Math.cos(Math.toRadians(_angle)) * speed);
 		setRotation(_angle);
+		
+		this.killPoints = 20;
 	}
 
 	@Override

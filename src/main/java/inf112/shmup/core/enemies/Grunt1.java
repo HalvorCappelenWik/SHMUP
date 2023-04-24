@@ -16,6 +16,8 @@ public class Grunt1 extends EnemyShip {
 
         addRifle(1f, () -> new EnemyBullet(1))
             .useSound("shoot_2");
+        
+        this.killPoints = 50;
     }
 
     @Override
