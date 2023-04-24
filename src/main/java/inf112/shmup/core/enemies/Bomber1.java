@@ -19,6 +19,8 @@ public class Bomber1 extends EnemyShip {
         super(x, y, AssetManager.sprite("ships/ship_3.png"), 5);
 
         _rifle = addRifle(3f, () -> new EnemyBomb(_speed)).useSound("shoot_2").useAngles(_angle); // Change sounds
+        
+        this.killPoints = 100;
     }
 
     @Override

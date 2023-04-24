@@ -19,6 +19,7 @@ public abstract class EnemyShip extends Ship implements Damageable {
 	private final Color DAMAGE_COLOR = Color.RED;
 	private final int DAMAGE_FRAMES = 3;
 	private int _damageFrames = 0;
+	protected int killPoints = 100;
 	
     public EnemyShip(float x, float y, Sprite shipSprite, int maxHealth) {
         super(shipSprite, maxHealth);
@@ -39,7 +40,7 @@ public abstract class EnemyShip extends Ship implements Damageable {
         _damageFrames = DAMAGE_FRAMES;
         
         if(getHealth() <= 0) {
-        	ScoreManager.addScore(100);
+        	ScoreManager.addScore(killPoints);
         }
     }
 

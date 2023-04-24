@@ -22,6 +22,8 @@ public class StrafeEnemy extends EnemyShip{
         else{
             _dir = -1;
         }
+        
+        this.killPoints = 50;
     }
 
     @Override
