@@ -7,13 +7,13 @@ import inf112.shmup.core.utilities.AudioPlayer;
 
 public class StrafeEnemy extends EnemyShip{
 
-    private float _speed = 100;
+    private float _speed = 130;
     private int _dir = 1;
 
     public StrafeEnemy(float x, float y){
         super(x, 
              (float) Math.random() * Game.V_HEIGHT*0.4f + Game.V_HEIGHT*0.25f, 
-             AssetManager.sprite("ships/ship_5.png"), 4);
+             AssetManager.sprite("ships/ship_5.png"), 6);
 
 
         if(x < Game.V_WIDTH/2){

@@ -12,13 +12,13 @@ public class Bomber1 extends EnemyShip {
 
     private final float _speed = 100;
     private final Rifle _rifle;
-    private static final float _angle = 45;
+    private static final float _angle = 55;
     private int _dir = 1;
 
     public Bomber1(float x, float y) {
-        super(x, y, AssetManager.sprite("ships/ship_3.png"), 5);
+        super(x, y, AssetManager.sprite("ships/ship_2.png"), 5);
 
-        _rifle = addRifle(3f, () -> new EnemyBomb(_speed)).useSound("shoot_2").useAngles(_angle); // Change sounds
+        _rifle = addRifle(3f, () -> new EnemyBomb(_speed + 20)).useSound("shoot_2").useAngles(-_angle + 180); // Change sounds
         
         this.killPoints = 100;
     }
@@ -33,10 +33,10 @@ public class Bomber1 extends EnemyShip {
 
         if (getX() < 0) {
             _dir = 1;
-            //_rifle.useAngles(_angle);
+            _rifle.useAngles(-_angle + 180);
         } else if (getX() + getWidth() > Game.V_WIDTH) {
             _dir = -1;
-            //_rifle.useAngles(-_angle);
+            _rifle.useAngles(_angle + 180);
         }
 
         setRotation(90 * -_dir);

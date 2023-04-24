@@ -9,7 +9,7 @@ public class Zig1 extends EnemyShip{
 	private float _angle = 260f;
 
 	public Zig1(float x, float y) {
-		super(x, y, AssetManager.sprite("ships/ship_9.png"), Integer.MAX_VALUE);
+		super(x, y, AssetManager.sprite("ships/ship_9.png"), 8);
 		
 		float speed = 150f;
 		setSpeedX((float)Math.sin(Math.toRadians(_angle)) * speed * -1);
