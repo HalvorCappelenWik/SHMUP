@@ -12,7 +12,7 @@ public abstract class Rocket extends Bullet{
     }
     
     protected void spawnExplosion(float x, float y, int damage){
-        Explosion explosion =  new Explosion(x, y, _radius, damage);
+        Explosion explosion =  new Explosion(x, y, _radius, damage, false);
         getStage().addActor(explosion);
     }
 }

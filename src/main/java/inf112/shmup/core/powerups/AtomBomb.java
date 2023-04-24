@@ -19,6 +19,9 @@ public class AtomBomb extends PowerUp{
 
     @Override
     public void activate() {
+    	
+    	Explosion explosion = new Explosion(getX(), getY(), 500, 0, false);
+        getStage().addActor(explosion);
         List<Actor> damageable = new ArrayList<Actor>();
 
 
@@ -33,8 +36,7 @@ public class AtomBomb extends PowerUp{
         	}
             actor.remove();
         }
-        Explosion explosion = new Explosion(getX(), getY(), 500, 0);
-        getStage().addActor(explosion);
+        
         remove();
     }
 

@@ -21,12 +21,14 @@ public class Explosion extends Actor {
     private final int _damage;
     private float currentRadius = 0;
     private boolean playerDamaged = false;
+    private boolean _canKillPlayer;
 
-    public Explosion(float x, float y, float radius, int damage) {
+    public Explosion(float x, float y, float radius, int damage, boolean canKillPlayer) {
         setX(x);
         setY(y);
         _maxRadius = radius;
         _damage = damage;
+        _canKillPlayer = canKillPlayer;
         AudioPlayer.playEffect("explosion");
     }
 
@@ -74,6 +76,9 @@ public class Explosion extends Actor {
 
     private void tryDamage(Damageable damageable, Circle blastArea)
     {
+    	if(damageable instanceof Player && !_canKillPlayer) {
+    		return;
+    	}
         if (_damaged.contains(damageable))
             return;
 

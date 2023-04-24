@@ -31,7 +31,7 @@ public class FallingRedBomb extends PowerUp {
 	}
 
 	private void onDead() {
-		Explosion explosion = new Explosion(getX(), getY(), 100f, 100);
+		Explosion explosion = new Explosion(getX(), getY(), 100f, 100, true);
 		getStage().addActor(explosion);
 		remove();
 	}

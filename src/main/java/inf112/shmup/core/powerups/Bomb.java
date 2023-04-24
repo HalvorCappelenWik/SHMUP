@@ -13,7 +13,7 @@ public class Bomb extends PowerUp {
 
 	@Override
 	public void activate() {
-		Explosion explosion = new Explosion(getX(), getY(), blastRadius, blastDamage);
+		Explosion explosion = new Explosion(getX(), getY(), blastRadius, blastDamage, true);
 		getStage().addActor(explosion);
 		remove();
 	}
