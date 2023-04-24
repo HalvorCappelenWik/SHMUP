@@ -54,7 +54,11 @@ public class FallingRedBomb extends PowerUp {
 		super.draw(batch, parentAlpha);
 		sprite.setColor(Color.RED);
 	}
-	
-	
+
+	@Override
+	protected void activate() {
+
+	}
+
 
 }
