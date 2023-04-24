@@ -1,18 +1,19 @@
 {
     "$schema": "./config.schema.json",
     "waves": [
-		["grunt1"],
-        [ "bomber1" ],
-        [ "grunt1", "grunt1", "grunt1" ],
-        [ "grunt1", "grunt1", "grunt1", "grunt1" ],
-        [ "grunt2" ],
-        [ "grunt1", "grunt1", "grunt1", "grunt1" ],
-        [  "grunt1", "grunt2", "grunt1" ]
+		["grunt1", "bomber1"],
+        [ "grunt1","zig1" ],
+        [ "grunt1", "grunt1", "grunt1", "zig1" ],
+        [ "grunt2", "grunt1", "zig1", "grunt1" ],
+        [ "grunt1", "grunt1", "grunt1", "strafe1" ],
+        [ "grunt1", "strafe1", "grunt1", "grunt1", "grunt1", "grunt1",  "zig1" ],
+        [  "strafe1", "grunt1", "grunt1", "grunt2", "grunt1", "grunt1", "strafe1" ],
+        [ "bomber1", "grunt1", "grunt1", "grunt1", "grunt1", "grunt1", "grunt1", "strafe1"]
     ],
     
     "endgameWaves": [
-        [ "grunt1", "grunt2", "grunt1", "grunt2", "grunt2" ],
-        [ "grunt2", "grunt1", "grunt2", "grunt1", "grunt2" ],
-        [ "grunt2", "grunt2", "grunt2", "grunt2", "grunt2" ]
+        [ "zig1", "grunt1", "grunt2", "grunt1", "grunt1", "grunt2", "zig1"],
+        [ "strafe1", "grunt2", "grunt1", "bomber1", "grunt1", "strafe1", "grunt1" ],
+        [ "strafe1", "grunt2", "grunt2", "zip1", "grunt2", "grunt2", "strafe1" ]
     ]
 }
