@@ -1,6 +1,8 @@
 package inf112.shmup.core.powerups;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
+
+import inf112.shmup.core.enemies.EnemyShip;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.Damageable;
 import inf112.shmup.core.utilities.Explosion;
@@ -25,6 +27,9 @@ public class AtomBomb extends PowerUp{
             }
         }
         for (Actor actor : damageable) {
+        	if(actor instanceof EnemyShip) {
+        		((EnemyShip) actor).takeDamage(Integer.MAX_VALUE);
+        	}
             actor.remove();
         }
         remove();
