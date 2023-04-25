@@ -7,7 +7,7 @@ import inf112.shmup.core.utilities.AudioPlayer;
 public class Tank2 extends Ship {
 
     public Tank2() {
-        super(AssetManager.sprite("ships/ship_yellow2.png"), 6);
+        super(AssetManager.sprite("ships/ship_yellow2.png"), 7);
 
         addRifle(0.65f, () -> new PlayerBullet(1))
             .useSound("shoot_1")

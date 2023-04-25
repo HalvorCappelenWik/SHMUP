@@ -8,7 +8,7 @@ public class Rocketeer1 extends Ship {
     public Rocketeer1() {
         super(AssetManager.sprite("ships/ship_red1.png"), 4);
 
-        addRifle(0.5f, () -> new PlayerRocket(2))
+        addRifle(0.7f, () -> new PlayerRocket(2))
             .useSound("shoot_1");
     }
 
