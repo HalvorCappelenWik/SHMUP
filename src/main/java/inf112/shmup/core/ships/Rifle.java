@@ -1,11 +1,15 @@
 package inf112.shmup.core.ships;
 
 import java.util.function.Supplier;
+
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.core.bullets.Bullet;
 import inf112.shmup.core.utilities.AudioPlayer;
+import inf112.shmup.core.utilities.Gizmos;
 
 public class Rifle extends Actor {
 
@@ -18,6 +22,7 @@ public class Rifle extends Actor {
     private float[] _angles;
     private boolean _autoShoot;
     private String _sound;
+    private float _offset;
 
     private float _timeSinceLastShot;
     private float _timeSinceLastBurst;
@@ -28,12 +33,13 @@ public class Rifle extends Actor {
         _shootCooldown = cooldown;
         _origin = origin;
         _angles = new float[] { 0f };
+        _offset = 45f;
         _bulletsPerBurst = 1;
         _burstCooldown = cooldown / 5;
         _autoShoot = true;
     }
 
-    public Rifle setBurst(int bulletsPerBurst, float cooldown) {
+    public Rifle useBurst(int bulletsPerBurst, float cooldown) {
         _bulletsPerBurst = bulletsPerBurst;
         _burstCooldown = cooldown;
         return this;
@@ -54,6 +60,10 @@ public class Rifle extends Actor {
         return this;
     }
 
+    public Rifle useOffset(float offset) {
+        _offset = offset;
+        return this;
+    }
     
     public void shoot() {
         if (_timeSinceLastShot < _shootCooldown)
@@ -76,6 +86,13 @@ public class Rifle extends Actor {
         shootBurst();
     }
 
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+        for (float angle : _angles) {
+            Gizmos.line(batch, Color.GREEN, _origin.getX(Align.center), _origin.getY(Align.center), getBulletX(angle), getBulletY(angle));
+        }
+    }
+
     private void shootBurst() {
         if (_remainingBurst <= 0)
             return;
@@ -91,12 +108,24 @@ public class Rifle extends Actor {
             Bullet bullet = _bulletSupplier.get();
             getStage().addActor(bullet);
 
-            bullet.setRotation(angle + _origin.getRotation());
-            bullet.setPosition(_origin.getX(Align.center), _origin.getY(Align.center), Align.center);
+            bullet.setRotation(getBulletAngle(angle));
+            bullet.setPosition(getBulletX(angle), getBulletY(angle), Align.center);
         }
 
         if (_sound != null) {
             AudioPlayer.playEffect(_sound);
         }
+    }
+
+    private float getBulletAngle(float angle) {
+        return angle + _origin.getRotation();
+    }
+
+    private float getBulletX(float angle) {
+        return _origin.getX(Align.center) + (float)Math.sin(Math.toRadians(getBulletAngle(angle))) * _offset;
+    }
+
+    private float getBulletY(float angle) {
+        return _origin.getY(Align.center) + (float)Math.cos(Math.toRadians(getBulletAngle(angle))) * _offset;
     }
 }

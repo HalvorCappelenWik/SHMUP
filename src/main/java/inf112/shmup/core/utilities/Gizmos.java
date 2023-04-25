@@ -15,8 +15,22 @@ public class Gizmos {
 
     public static final boolean ENABLED = true;
 
-    public static void rectangle(Batch batch, Rectangle rectangle, Color color) {
-        if (!ENABLED) return;
+    public static void rectangle(Batch batch, Color color, Rectangle rectangle) {
+        if (startShape(batch, color)) {
+            _renderer.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+            endShape(batch);
+        }
+    }
+
+    public static void line(Batch batch, Color color, float x1, float y1, float x2, float y2) {
+        if (startShape(batch, color)) {
+            _renderer.line(x1, y1, x2, y2);
+            endShape(batch);
+        }
+    }
+
+    private static boolean startShape(Batch batch, Color color) {
+        if (!ENABLED) return false;
 
         batch.end();
         
@@ -25,9 +39,12 @@ public class Gizmos {
 
         _renderer.begin(ShapeType.Line);
         _renderer.setColor(color);
-        _renderer.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-        _renderer.end();
 
+        return true;
+    }
+
+    private static void endShape(Batch batch) {
+        _renderer.end();
         batch.begin();
     }
 }
