@@ -55,7 +55,4 @@ public abstract class PowerUp extends SpriteActor implements Damageable {
 	 * Activates the powerup ability
 	 */
 	protected abstract void activate();
-
-	
-	
 }

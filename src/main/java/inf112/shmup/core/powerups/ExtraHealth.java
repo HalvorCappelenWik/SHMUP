@@ -18,8 +18,6 @@ public class ExtraHealth extends PowerUp {
     }
 
 	@Override
-	public void takeDamage(int damage) {
-		return;
-	}
+	public void takeDamage(int damage) { }
 }
 

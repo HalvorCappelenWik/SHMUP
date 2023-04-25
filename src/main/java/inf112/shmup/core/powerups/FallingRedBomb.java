@@ -55,9 +55,5 @@ public class FallingRedBomb extends PowerUp {
 	}
 
 	@Override
-	protected void activate() {
-
-	}
-
-
+	protected void activate() { }
 }
