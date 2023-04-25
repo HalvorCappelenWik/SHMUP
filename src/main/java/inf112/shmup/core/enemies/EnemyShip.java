@@ -7,7 +7,6 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
-import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.core.Game;
 import inf112.shmup.core.ships.Ship;
@@ -23,6 +22,7 @@ public abstract class EnemyShip extends Ship implements Damageable {
 	
     public EnemyShip(float x, float y, Sprite shipSprite, int maxHealth) {
         super(shipSprite, maxHealth);
+        setCollisionScale(0.8f);
         setRotationDownwards();
         setPosition(x, Game.V_HEIGHT * 1.5f);
 
@@ -48,7 +48,7 @@ public abstract class EnemyShip extends Ship implements Damageable {
 
     @Override
     public Rectangle getBounds() {
-        return getBoundingRectangle();
+        return getCollisionBox();
     }
 
 

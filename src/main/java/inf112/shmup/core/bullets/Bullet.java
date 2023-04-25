@@ -1,6 +1,5 @@
 package inf112.shmup.core.bullets;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
@@ -16,11 +15,6 @@ public abstract class Bullet extends SpriteActor {
 	public Bullet(float speed, String bulletSprite) {
 		super(AssetManager.sprite("bullets/" + bulletSprite));
 		_speed = speed;
-	}
-
-	@Override
-	public void draw(Batch batch, float parentAlpha) {
-		sprite.draw(batch);
 	}
 
 	@Override
@@ -52,7 +46,7 @@ public abstract class Bullet extends SpriteActor {
 		Player player = Player.getInstance();
         if (player == null) return null;
        
-        if (sprite.getBoundingRectangle().overlaps(player.getShip().getBoundingRectangle())) {
+        if (sprite.getBoundingRectangle().overlaps(player.getShip().getCollisionBox())) {
             return player;
         }
 		else{

@@ -19,6 +19,7 @@ public abstract class Ship extends SpriteActor {
 
     public Ship(Sprite shipSprite, int maxHealth) {
         super(shipSprite);
+        setCollisionScale(0.6f, 0.4f);
         _health = new HealthPool(maxHealth);
         _rifles = new ArrayList<>();
     }

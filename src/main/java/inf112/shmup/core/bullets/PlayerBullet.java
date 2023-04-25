@@ -1,11 +1,5 @@
 package inf112.shmup.core.bullets;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-
 import inf112.shmup.core.Player;
 import inf112.shmup.core.utilities.Damageable;
 

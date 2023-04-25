@@ -1,6 +1,5 @@
 package inf112.shmup.core.powerups;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import inf112.shmup.core.Player;
 import inf112.shmup.core.utilities.AssetManager;
 
