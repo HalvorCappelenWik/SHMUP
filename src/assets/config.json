@@ -4,6 +4,7 @@
 		["grunt1"],
         [ "grunt1", "grunt1", "zig1" ],
         [ "zig1", "grunt1", "grunt1", "grunt1", "grunt1", "zig1" ],
+        [ "bomber1", "strafe1", "strafe1", "strafe1", "bomber1"],
         [ "grunt2", "grunt1", "zig1", "grunt1" ],
         [ "grunt1", "grunt1", "grunt1", "strafe1" ],
         [ "grunt1", "strafe1", "grunt1", "grunt1", "grunt1", "grunt1",  "zig1" ],

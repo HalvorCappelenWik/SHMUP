@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
@@ -16,6 +18,10 @@ public abstract class Ship extends SpriteActor {
     private final List<Rifle> _rifles;
     private float _speedX = 300f;
     private float _speedY = 300f;
+    
+    private final Color DAMAGE_COLOR = Color.RED;
+	private final int DAMAGE_FRAMES = 4;
+	private int _damageFrames = 0;
 
     public Ship(Sprite shipSprite, int maxHealth) {
         super(shipSprite);
@@ -64,12 +70,23 @@ public abstract class Ship extends SpriteActor {
         else if (damage < 0) onHealed();
 
         _health.takeDamage(damage);
+        _damageFrames = DAMAGE_FRAMES;
 
         if (isDead()) {
             onDead();
 			remove();
         }
     }
+    
+    @Override
+	public void draw(Batch batch, float parentAlpha) {
+		if (_damageFrames > 0) {
+			_damageFrames--;
+			sprite.setColor(DAMAGE_COLOR);
+		}
+		super.draw(batch, parentAlpha);
+		sprite.setColor(Color.WHITE);
+	}
 
     protected abstract void onHealed();
     protected abstract void onDamaged();
