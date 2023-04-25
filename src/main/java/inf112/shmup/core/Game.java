@@ -19,7 +19,7 @@ public class Game extends com.badlogic.gdx.Game {
 	public static final int V_HEIGHT = 800;
 	public static final JsonValue CONFIG = new JsonReader().parse(AssetManager.file("config.json"));
 	
-	private Viewport viewport;
+	Viewport viewport;
 
 	public OrthographicCamera camera;
 	public SpriteBatch batch;
