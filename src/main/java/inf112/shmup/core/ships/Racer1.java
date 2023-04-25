@@ -5,20 +5,15 @@ import inf112.shmup.core.utilities.AssetManager;
 
 public class Racer1 extends Ship {
     
-    float speed1x = 450f;
-    float speed1y = 450f;
-
     public Racer1() {
         super(AssetManager.sprite("ships/ship_green1.png"), 4);
 
         addRifle(0.35f, () -> new PlayerBullet(1))
             .useSound("shoot_1");
             
-        setSpeedX(speed1x);
-        setSpeedY(speed1y);
-    
+        setSpeedX(400f);
+        setSpeedY(400f);
     }
-
 
     @Override
     protected void onHealed() { }
@@ -28,7 +23,4 @@ public class Racer1 extends Ship {
 
     @Override
     protected void onDead() { }
-
-    
-    
 }

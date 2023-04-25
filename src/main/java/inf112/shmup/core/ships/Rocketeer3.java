@@ -12,19 +12,14 @@ public class Rocketeer3 extends Ship {
         addRifle(0.5f, () -> new PlayerRocket(5))
             .useSound("shoot_1")
             .useAngles(-12f, 0f, 12f);
-        }
-
-    @Override
-    protected void onHealed() {
     }
 
     @Override
-    protected void onDamaged() {
-    }
+    protected void onHealed() { }
 
     @Override
-    protected void onDead() {
+    protected void onDamaged() { }
 
-    }
-    
+    @Override
+    protected void onDead() { }
 }

@@ -6,23 +6,18 @@ import inf112.shmup.core.bullets.PlayerRocket;
 public class Rocketeer2 extends Ship {
 
     public Rocketeer2() {
-
         super(AssetManager.sprite("ships/ship_red2.png"), 4);
 
         addRifle(0.5f, () -> new PlayerRocket(5))
             .useSound("shoot_1");
-        }
-
-    @Override
-    protected void onHealed() {
     }
 
     @Override
-    protected void onDamaged() {
-    }
+    protected void onHealed() { }
 
     @Override
-    protected void onDead() {
-    }
-    
+    protected void onDamaged() { }
+
+    @Override
+    protected void onDead() { }
 }

@@ -19,12 +19,8 @@ public class Tank2 extends Ship {
     }
 
     @Override
-    protected void onDamaged() {
-
-    }
+    protected void onDamaged() { }
 
     @Override
-    protected void onDead() {
-
-    }
+    protected void onDead() { }
 }

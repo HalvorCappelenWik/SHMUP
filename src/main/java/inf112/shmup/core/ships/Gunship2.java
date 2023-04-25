@@ -21,5 +21,4 @@ public class Gunship2 extends Ship {
 
     @Override
     protected void onDead() { }
-    
 }
