@@ -8,11 +8,11 @@ public class Racer3 extends Ship {
     public Racer3() {
         super(AssetManager.sprite("ships/ship_green3.png"), 4);
 
-        addRifle(0.05f, () -> new PlayerBullet(1))
+        addRifle(0.20f, () -> new PlayerBullet(1))
             .useSound("shoot_1");
 
-        setSpeedX(550f);
-        setSpeedY(550f);
+        setSpeedX(650f);
+        setSpeedY(650f);
     }
 
     @Override

@@ -20,7 +20,7 @@ public class PowerUpFactory extends Actor {
 		registerPowerUp("full_heal", 1, (x, y) -> new FullHeal(x, y));
 		registerPowerUp("ship_upgrade_gunship", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.GUNSHIP_TYPE));
 		registerPowerUp("ship_upgrade_tank", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.TANK_TYPE));
-		registerPowerUp("ship_upgrade_racer", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.RACER_TYPE));
+		registerPowerUp("ship_upgrade_racer", 1000, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.RACER_TYPE));
 		registerPowerUp("ship_upgrade_rocketeer", 1, (x, y) -> new ShipUpgrade(x, y, ShipUpgrade.ROCKET_TYPE));
 		registerPowerUp("fallingredbomb", 2, (x,y) -> new FallingRedBomb(x, y));
 		registerPowerUp("extraHealth", 3, (x,y) -> new ExtraHealth(x,y));

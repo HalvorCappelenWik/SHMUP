@@ -11,8 +11,8 @@ public class Racer1 extends Ship {
         addRifle(0.35f, () -> new PlayerBullet(1))
             .useSound("shoot_1");
             
-        setSpeedX(400f);
-        setSpeedY(400f);
+        setSpeedX(450f);
+        setSpeedY(450f);
     }
 
     @Override

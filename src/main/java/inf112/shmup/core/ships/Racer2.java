@@ -6,13 +6,13 @@ import inf112.shmup.core.utilities.AssetManager;
 public class Racer2 extends Ship {
 
     public Racer2() {
-        super(AssetManager.sprite("ships/ship_green2.png"), 4);
+        super(AssetManager.sprite("ships/ship_green2.png"), 3);
 
-        addRifle(0.15f, () -> new PlayerBullet(1))
+        addRifle(0.25f, () -> new PlayerBullet(1))
             .useSound("shoot_1");
 
-        setSpeedX(500f);
-        setSpeedY(500f);
+        setSpeedX(550f);
+        setSpeedY(550f);
     }
 
     @Override
