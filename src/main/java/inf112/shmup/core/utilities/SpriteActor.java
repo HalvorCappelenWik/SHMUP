@@ -1,5 +1,6 @@
 package inf112.shmup.core.utilities;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
@@ -9,21 +10,46 @@ import com.badlogic.gdx.utils.Align;
 import inf112.shmup.core.Game;
 
 public abstract class SpriteActor extends Actor {
+    private static final float SCALE_NORMALIZING = 3;
     protected static final Rectangle SCREEN_BOUNDS = new Rectangle(0,0, Game.V_WIDTH, Game.V_WIDTH);
 
 	public final Sprite sprite;
+    private float _collisionScaleX;
+    private float _collisionScaleY;
 
     protected SpriteActor(Sprite sprite) {
-        this(sprite, 3);
+        this.sprite = sprite;
+		this.sprite.setOriginCenter();
+
+        this.setScale(_collisionScaleX, _collisionScaleY);
+
+        this.setScale(1.0f);
+        this.setCollisionScale(1.0f);
     }
 
-    protected SpriteActor(Sprite sprite, float scale) {
-		this.sprite = sprite;
-		this.sprite.setOriginCenter();
-		this.sprite.setScale(scale, scale);
-		setBounds(
+    public void setCollisionScale(float scaleXY) {
+        this.setCollisionScale(scaleXY, scaleXY);
+    }
+
+    public void setCollisionScale(float scaleX, float scaleY) {
+        this._collisionScaleX = scaleX;
+        this._collisionScaleY = scaleY;
+    }
+
+    @Override
+    public void setScale(float scaleXY) {
+        this.setScale(scaleXY, scaleXY);
+    }
+
+    @Override
+    public void setScale(float scaleX, float scaleY) {
+        scaleX *= SCALE_NORMALIZING;
+        scaleY *= SCALE_NORMALIZING;
+
+		this.sprite.setScale(scaleX, scaleY);
+        setBounds(
             getX(), getY(), 
-            this.sprite.getWidth() * scale, this.sprite.getHeight() * scale);
+            this.sprite.getWidth() * scaleX, this.sprite.getHeight() * scaleY);
     }
 
 	@Override
@@ -38,6 +64,8 @@ public abstract class SpriteActor extends Actor {
 	public void draw(Batch batch, float parentAlpha) {
 		positionChanged();
 		sprite.draw(batch);
+
+        Gizmos.rectangle(batch, getCollisionBox(), Color.BLUE);
 	}
 
     @Override 
@@ -66,8 +94,20 @@ public abstract class SpriteActor extends Actor {
             setY(bounds.y + bounds.height - getHeight());
     }
 
-    public Rectangle getBoundingRectangle() {
-        return sprite.getBoundingRectangle();
+    /**
+     * Gets the bounding rectangle used for collisions.
+     */
+    public Rectangle getCollisionBox() {
+
+        Rectangle spriteBox = sprite.getBoundingRectangle();
+
+        float width = spriteBox.width * _collisionScaleX;
+        float height = spriteBox.height * _collisionScaleY;
+
+        float x = spriteBox.x + (spriteBox.width - width) * 0.5f;
+        float y = spriteBox.y + (spriteBox.height - height) * 0.5f;
+
+        return new Rectangle(x, y, width, height);
     }
 
     /** 

@@ -93,7 +93,7 @@ public class Explosion extends Actor {
     {
     	if (playerDamaged) return;
 
-        if (!Intersector.overlaps(blastArea, damageable.getShip().getBoundingRectangle()))
+        if (!Intersector.overlaps(blastArea, damageable.getShip().getCollisionBox()))
             return;
 
         damageable.getShip().takeDamage(_damage);

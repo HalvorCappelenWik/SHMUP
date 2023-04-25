@@ -22,6 +22,7 @@ public abstract class EnemyShip extends Ship implements Damageable {
 	
     public EnemyShip(float x, float y, Sprite shipSprite, int maxHealth) {
         super(shipSprite, maxHealth);
+        setCollisionScale(0.8f);
         setRotationDownwards();
         setPosition(x, Game.V_HEIGHT * 1.5f);
 
@@ -47,7 +48,7 @@ public abstract class EnemyShip extends Ship implements Damageable {
 
     @Override
     public Rectangle getBounds() {
-        return getBoundingRectangle();
+        return getCollisionBox();
     }
 
 

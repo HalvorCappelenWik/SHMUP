@@ -2,7 +2,6 @@ package inf112.shmup.core.enemies;
 
 import inf112.shmup.core.Game;
 import inf112.shmup.core.bullets.EnemyBomb;
-import inf112.shmup.core.bullets.EnemyBullet;
 import inf112.shmup.core.powerups.PowerUpFactory;
 import inf112.shmup.core.ships.Rifle;
 import inf112.shmup.core.utilities.AssetManager;

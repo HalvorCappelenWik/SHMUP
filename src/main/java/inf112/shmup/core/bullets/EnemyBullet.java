@@ -9,6 +9,7 @@ public class EnemyBullet extends Bullet {
 
     public EnemyBullet(int damage) {
         super(500, "bullet_e.png");
+        setCollisionScale(0.5f, 0.7f);
         _damage = damage;
     }
     

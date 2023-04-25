@@ -36,7 +36,7 @@ public abstract class PowerUp extends SpriteActor implements Damageable {
 		Player player = Player.getInstance();
 		if (player == null) return false;
 
-		return getBoundingRectangle().overlaps(player.getShip().getBoundingRectangle());
+		return getCollisionBox().overlaps(player.getShip().getCollisionBox());
 	}
 
 	@Override
