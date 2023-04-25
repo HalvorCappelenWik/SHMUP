@@ -8,8 +8,6 @@ import java.util.function.BiFunction;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import inf112.shmup.core.enemies.FallingRedBomb;
-
 public class PowerUpFactory extends Actor {
 	private static PowerUpFactory _instance;
 	private static final Random _random = new Random();

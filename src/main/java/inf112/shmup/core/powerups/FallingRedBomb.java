@@ -1,10 +1,9 @@
-package inf112.shmup.core.enemies;
+package inf112.shmup.core.powerups;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
-import inf112.shmup.core.powerups.PowerUp;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.Explosion;
 
