@@ -10,7 +10,8 @@ public class Tank2 extends Ship {
         super(AssetManager.sprite("ships/ship_yellow2.png"), 6);
 
         addRifle(0.65f, () -> new PlayerBullet(1))
-                .useSound("shoot_1");
+            .useSound("shoot_1")
+            .useBurst(2, 0.1f);
     }
 
     @Override

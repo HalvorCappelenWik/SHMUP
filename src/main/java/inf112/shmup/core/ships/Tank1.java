@@ -7,10 +7,10 @@ import inf112.shmup.core.utilities.AudioPlayer;
 public class Tank1 extends Ship {
 
     public Tank1() {
-        super(AssetManager.sprite("ships/ship_yellow1.png"), 4);
+        super(AssetManager.sprite("ships/ship_yellow1.png"), 5);
 
         addRifle(0.65f, () -> new PlayerBullet(1))
-                .useSound("shoot_1");
+            .useSound("shoot_1");
     }
 
     @Override
