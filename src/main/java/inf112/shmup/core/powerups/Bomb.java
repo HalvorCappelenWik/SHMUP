@@ -8,7 +8,7 @@ public class Bomb extends PowerUp {
 	private final int blastDamage = 3;
 	
 	Bomb(float x, float y) {
-		super(x, y, AssetManager.sprite("Bomb_1.png"));
+		super(x, y, AssetManager.sprite("items/bomb_1.png"));
 	}
 
 	@Override

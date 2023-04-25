@@ -76,9 +76,6 @@ public class Explosion extends Actor {
 
     private void tryDamage(Damageable damageable, Circle blastArea)
     {
-    	if(damageable instanceof Player && !_canKillPlayer) {
-    		return;
-    	}
         if (_damaged.contains(damageable))
             return;
 
@@ -92,6 +89,8 @@ public class Explosion extends Actor {
     private void tryDamage(Player damageable, Circle blastArea)
     {
     	if (playerDamaged) return;
+    	
+    	if (!_canKillPlayer) return;
 
         if (!Intersector.overlaps(blastArea, damageable.getShip().getBoundingRectangle()))
             return;
