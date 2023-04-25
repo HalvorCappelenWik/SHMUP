@@ -14,7 +14,7 @@ public class FallingRedBomb extends PowerUp {
 	private final int DAMAGE_FRAMES = 3;
 	private int _damageFrames = 0;
 	
-	private static Sprite _sprite = AssetManager.sprite("Bomb_1.png");
+	private static Sprite _sprite = AssetManager.sprite("items/bomb_1.png");
 	private int health = 5;
 
 	public FallingRedBomb(float x, float y) {
