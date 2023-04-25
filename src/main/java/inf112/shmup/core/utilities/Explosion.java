@@ -4,8 +4,6 @@ import java.util.HashSet;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -15,7 +13,6 @@ import inf112.shmup.core.powerups.PowerUp;
 
 public class Explosion extends Actor {
     private final HashSet<Damageable> _damaged = new HashSet<>();
-    private final ShapeRenderer _renderer = new ShapeRenderer();
     private final float _explosionSpeed = 300;
     private final float _maxRadius;
     private final int _damage;
@@ -37,7 +34,6 @@ public class Explosion extends Actor {
         currentRadius += _explosionSpeed * delta;
         if (currentRadius >= _maxRadius) {
             remove();
-            _renderer.dispose();
             _damaged.clear();
         } else {
             damageNewObjectsWithinRadius();
@@ -46,17 +42,7 @@ public class Explosion extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        batch.end();
-        
-        _renderer.setProjectionMatrix(batch.getProjectionMatrix());
-        _renderer.setTransformMatrix(batch.getTransformMatrix());
-
-        _renderer.begin(ShapeType.Line);
-        _renderer.setColor(Color.RED);
-        _renderer.circle(getX(), getY(), currentRadius);
-        _renderer.end();
-
-        batch.begin();
+        DrawShape.circle(batch, Color.RED, getX(), getY(), currentRadius);
     }
 
     private void damageNewObjectsWithinRadius() {

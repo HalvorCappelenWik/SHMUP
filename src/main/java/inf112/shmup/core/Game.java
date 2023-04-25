@@ -14,6 +14,7 @@ import inf112.shmup.core.utilities.AssetManager;
 
 public class Game extends com.badlogic.gdx.Game {
 	
+	public static final boolean DEBUG_ENABLED = true;
 	public static final String TITLE = "Shmup";
 	public static final int V_WIDTH = 800;
 	public static final int V_HEIGHT = 800;

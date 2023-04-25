@@ -65,7 +65,8 @@ public abstract class SpriteActor extends Actor {
 		positionChanged();
 		sprite.draw(batch);
 
-        Gizmos.rectangle(batch, Color.BLUE, getCollisionBox());
+        if (Game.DEBUG_ENABLED)
+            DrawShape.rectangle(batch, Color.BLUE, getCollisionBox());
 	}
 
     @Override 

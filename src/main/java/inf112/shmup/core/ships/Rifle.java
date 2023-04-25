@@ -7,9 +7,10 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
 
+import inf112.shmup.core.Game;
 import inf112.shmup.core.bullets.Bullet;
 import inf112.shmup.core.utilities.AudioPlayer;
-import inf112.shmup.core.utilities.Gizmos;
+import inf112.shmup.core.utilities.DrawShape;
 
 public class Rifle extends Actor {
 
@@ -88,8 +89,10 @@ public class Rifle extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        for (float angle : _angles) {
-            Gizmos.line(batch, Color.GREEN, _origin.getX(Align.center), _origin.getY(Align.center), getBulletX(angle), getBulletY(angle));
+        if (Game.DEBUG_ENABLED) {
+            for (float angle : _angles) {
+                DrawShape.line(batch, Color.GREEN, _origin.getX(Align.center), _origin.getY(Align.center), getBulletX(angle), getBulletY(angle));
+            }
         }
     }
 
