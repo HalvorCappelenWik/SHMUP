@@ -8,10 +8,8 @@ import inf112.shmup.core.utilities.AudioPlayer;
 
 public class ShipUpgrade extends PowerUp {
     public static final String GUNSHIP_TYPE = "blue";
-    public static final String YELLOW_SHIP = "yellow";
-    public static final String NOT_IN_USE_2_TYPE = "green";
-    public static final String NOT_IN_USE_1_TYPE = "yellow";
-    public static final String SPEED_TYPE = "green";
+    public static final String TANK_TYPE = "yellow";
+    public static final String RACER_TYPE = "green";
     public static final String ROCKET_TYPE = "red";
 
     private final String _type;
@@ -29,14 +27,14 @@ public class ShipUpgrade extends PowerUp {
         if (GUNSHIP_TYPE.equals(_type)) {
             upgradeGunship();
         }
-        else if (YELLOW_SHIP.equals(_type)) {
-            upgradeToYellowShip();
+        else if (TANK_TYPE.equals(_type)) {
+            upgradeTank();
         }
-        else if (SPEED_TYPE.equals(_type)) {
-            upgradeGunshipSpeed();
+        else if (RACER_TYPE.equals(_type)) {
+            upgradeRacer();
         }
         else if (ROCKET_TYPE.equals(_type)) {
-            upgradrocketship();
+            upgradeRocketeer();
         }
         else {
             System.out.println("Unknown ship upgrade: " + _type);
@@ -61,51 +59,51 @@ public class ShipUpgrade extends PowerUp {
         }
     }
 
-    private void upgradeToYellowShip() {
-        if (currentShip() instanceof YellowShip1) {
-            setShip(new YellowShip2());
+    private void upgradeTank() {
+        if (currentShip() instanceof Tank1) {
+            setShip(new Tank2());
         }
-        else if (currentShip() instanceof YellowShip2) {
-            setShip(new YellowShip3());
+        else if (currentShip() instanceof Tank2) {
+            setShip(new Tank3());
         }
-        else if (currentShip() instanceof YellowShip3) {
+        else if (currentShip() instanceof Tank3) {
             // The ship is upgraded to the maximum.
         }
         else {
             // The player had another ship-type.
-            setShip(new YellowShip1());
+            setShip(new Tank1());
         }
     }
 
-    private void upgradeGunshipSpeed() {
-        if (currentShip() instanceof GunshipSpeed1) {
-            setShip(new GunshipSpeed2());
+    private void upgradeRacer() {
+        if (currentShip() instanceof Racer1) {
+            setShip(new Racer2());
         }
-        else if (currentShip() instanceof GunshipSpeed2) {
-            setShip(new GunshipSpeed3());
+        else if (currentShip() instanceof Racer2) {
+            setShip(new Racer3());
         }
-        else if (currentShip() instanceof GunshipSpeed3) {
+        else if (currentShip() instanceof Racer3) {
             // The ship is upgraded to the maximum.
         }
         else {
             // The player had another ship-type.
-            setShip(new GunshipSpeed1());
+            setShip(new Racer1());
         }
     }
 
-    private void upgradrocketship() {
-        if (currentShip() instanceof RocketShip1) {
-            setShip(new RocketShip2());
+    private void upgradeRocketeer() {
+        if (currentShip() instanceof Rocketeer1) {
+            setShip(new Rocketeer2());
         }
-        else if (currentShip() instanceof RocketShip2) {
-            setShip(new RocketShip3());
+        else if (currentShip() instanceof Rocketeer2) {
+            setShip(new Rocketeer3());
         }
-        else if (currentShip() instanceof RocketShip3) {
+        else if (currentShip() instanceof Rocketeer3) {
             // The ship is upgraded to the maximum.
         }
         else {
             // The player had another ship-type.
-            setShip(new RocketShip1());
+            setShip(new Rocketeer1());
         }
     }
 

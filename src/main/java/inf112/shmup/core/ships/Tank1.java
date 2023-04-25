@@ -4,10 +4,10 @@ import inf112.shmup.core.bullets.PlayerBullet;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.AudioPlayer;
 
-public class YellowShip2 extends Ship {
+public class Tank1 extends Ship {
 
-    public YellowShip2() {
-        super(AssetManager.sprite("ships/ship_yellow2.png"), 6);
+    public Tank1() {
+        super(AssetManager.sprite("ships/ship_yellow1.png"), 4);
 
         addRifle(0.65f, () -> new PlayerBullet(1))
                 .useSound("shoot_1");

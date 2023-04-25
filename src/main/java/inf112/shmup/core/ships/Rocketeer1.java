@@ -3,9 +3,9 @@ package inf112.shmup.core.ships;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.bullets.PlayerRocket;
 
-public class RocketShip1 extends Ship {
+public class Rocketeer1 extends Ship {
 
-    public RocketShip1() {
+    public Rocketeer1() {
 
         super(AssetManager.sprite("ships/ship_red1.png"), 4);
 

@@ -3,12 +3,12 @@ package inf112.shmup.core.ships;
 import inf112.shmup.core.bullets.PlayerBullet;
 import inf112.shmup.core.utilities.AssetManager;
 
-public class GunshipSpeed1 extends Ship {
+public class Racer1 extends Ship {
     
     float speed1x = 450f;
     float speed1y = 450f;
 
-    public GunshipSpeed1() {
+    public Racer1() {
         super(AssetManager.sprite("ships/ship_green1.png"), 4);
 
         addRifle(0.35f, () -> new PlayerBullet(1))
