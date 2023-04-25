@@ -20,20 +20,10 @@ public class Zig1 extends EnemyShip{
 	}
 
 	@Override
-	protected void onHealed() {
-
-	}
+	protected void onHealed() { }
 
 	@Override
-	protected void onDamaged() {
-		
-	}
-	
-	@Override
-	protected void onDead() {
-		// TODO Auto-generated method stub
-		
-	}
+	protected void onDamaged() { }
 
 	@Override
 	public void act(float delta) {
@@ -51,7 +41,4 @@ public class Zig1 extends EnemyShip{
         
         if(getY() <= 0) remove();
 	}
-	
-	
-
 }

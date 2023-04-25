@@ -1,9 +1,7 @@
 package inf112.shmup.core.enemies;
 
 import inf112.shmup.core.Game;
-import inf112.shmup.core.powerups.PowerUpFactory;
 import inf112.shmup.core.utilities.AssetManager;
-import inf112.shmup.core.utilities.AudioPlayer;
 
 public class StrafeEnemy extends EnemyShip{
 
@@ -51,23 +49,8 @@ public class StrafeEnemy extends EnemyShip{
     }
 
     @Override
-    protected void onHealed() {
-        // TODO Auto-generated method stub
-        
-    }
+    protected void onHealed() { }
 
     @Override
-    protected void onDamaged() {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    protected void onDead() {
-        AudioPlayer.playEffect("enemy_killed");
-        if (PowerUpFactory.shouldSpawnPowerUp(0.6f)) {
-            PowerUpFactory.spawnPowerUp(getX(), getY());
-        }
-    }
-    
+    protected void onDamaged() { }
 }

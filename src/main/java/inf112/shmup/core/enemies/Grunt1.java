@@ -2,9 +2,7 @@ package inf112.shmup.core.enemies;
 
 import inf112.shmup.core.Game;
 import inf112.shmup.core.bullets.EnemyBullet;
-import inf112.shmup.core.powerups.PowerUpFactory;
 import inf112.shmup.core.utilities.AssetManager;
-import inf112.shmup.core.utilities.AudioPlayer;
 
 public class Grunt1 extends EnemyShip {
 
@@ -40,13 +38,4 @@ public class Grunt1 extends EnemyShip {
 
     @Override
     protected void onDamaged() { }
-
-    @Override
-    protected void onDead() { 
-		AudioPlayer.playEffect("enemy_killed");
-        if (PowerUpFactory.shouldSpawnPowerUp(0.6f)) {
-            PowerUpFactory.spawnPowerUp(getX(), getY());
-        }
-    }
-    
 }

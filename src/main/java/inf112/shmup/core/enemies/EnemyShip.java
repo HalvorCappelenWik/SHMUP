@@ -9,7 +9,9 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 
 import inf112.shmup.core.Game;
+import inf112.shmup.core.powerups.PowerUpFactory;
 import inf112.shmup.core.ships.Ship;
+import inf112.shmup.core.utilities.AudioPlayer;
 import inf112.shmup.core.utilities.Damageable;
 import inf112.shmup.core.utilities.ScoreManager;
 
@@ -61,6 +63,12 @@ public abstract class EnemyShip extends Ship implements Damageable {
 		super.draw(batch, parentAlpha);
 		sprite.setColor(Color.WHITE);
 	}
-    
-    
+
+    @Override
+    protected void onDead() {
+        AudioPlayer.playEffect("enemy_killed");
+        if (PowerUpFactory.shouldSpawnPowerUp(0.8f)) {
+            PowerUpFactory.spawnPowerUp(getX(), getY());
+        }
+    }
 }
