@@ -20,6 +20,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
 import inf112.shmup.core.Game;
+import inf112.shmup.core.utilities.BackgroundHandler;
 
 public class MainMenuScreen implements Screen{
 	
@@ -27,12 +28,15 @@ public class MainMenuScreen implements Screen{
 	private Stage stage;
 	private Skin skin;
 	private TextButton playButton;
+	private BackgroundHandler background;
 	
 	
 	public MainMenuScreen(final Game game) {
 		this.game = game;
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
+		
+		background = new BackgroundHandler("src/assets/sea_map.png", game.getViewport());
 		
 		skin = new Skin();
 
@@ -97,7 +101,9 @@ public class MainMenuScreen implements Screen{
 		game.shape.setColor(Color.LIGHT_GRAY);
 		game.shape.rect(0, 0, Game.V_WIDTH, Game.V_WIDTH);
 		game.shape.end();
-
+		
+		background.render(delta);
+		
 		stage.act(delta);
 		
 		stage.draw();

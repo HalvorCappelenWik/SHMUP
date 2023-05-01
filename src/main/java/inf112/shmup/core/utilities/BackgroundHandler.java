@@ -9,7 +9,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 public class BackgroundHandler{
     
     //background variables
-	private int bgOffset = 0;
+	private static int bgOffset = 0;
 	private int bgScale = 2;
     private int bgSpeed = -250;
     private float width;
