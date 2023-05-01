@@ -7,30 +7,34 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
-import com.badlogic.gdx.utils.Align;
 
 import inf112.shmup.core.Game;
+import inf112.shmup.core.utilities.ScoreManager;
 
 public class GameOverScreen implements Screen{
-	private Stage stage;
+	private final Stage stage;
+	private final Game game;
 	
 	public GameOverScreen(final Game game) {
 		// Game object can be used to get score and etc
+		this.game = game;
 		this.stage = new Stage(game.getViewport());
 		Gdx.input.setInputProcessor(stage);
-		
-		Label title = new Label("GAME OVER", new LabelStyle(game.font, Color.BLACK));
-		title.setAlignment(Align.center);
-		title.setY(Gdx.graphics.getHeight()*2/3);
-		title.setWidth(Gdx.graphics.getWidth());
-		stage.addActor(title);
+
+		float top = Gdx.graphics.getHeight() / 3;
+		addLabel("GAME OVER", top);
+		addLabel("SCORE: " + ScoreManager.getScore(), top + 30);
+	}
+
+	private void addLabel(String text, float y) {
+		Label label = new Label(text, new LabelStyle(game.font, Color.BLACK));
+		label.setX(Gdx.graphics.getWidth() * 0.5f - label.getWidth() * 0.5f);
+		label.setY(y);
+		stage.addActor(label);
 	}
 
 	@Override
-	public void show() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void show() { }
 
 	@Override
 	public void render(float delta) {
@@ -38,39 +42,21 @@ public class GameOverScreen implements Screen{
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		stage.act();
-		
 		stage.draw();
-		
 	}
 
 	@Override
-	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void resize(int width, int height) { }
 
 	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void pause() { }
 
 	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void resume() { }
 
 	@Override
-	public void hide() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void hide() { }
 
 	@Override
-	public void dispose() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void dispose() { }
 }
