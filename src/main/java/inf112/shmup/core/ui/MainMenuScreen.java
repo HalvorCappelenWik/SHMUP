@@ -31,7 +31,7 @@ public class MainMenuScreen implements Screen{
 	private BackgroundHandler background;
 	
 	private boolean isZoomed = false;
-	private float zoomSpeed = 1.9f;
+	private float zoomSpeed = 1f;
 	
 	
 	public MainMenuScreen(final Game game) {
@@ -40,7 +40,7 @@ public class MainMenuScreen implements Screen{
 		Gdx.input.setInputProcessor(stage);
 		
 		background = new BackgroundHandler("src/assets/sea_map.png", game.getViewport());
-		background.setScale(4);
+		background.setScale(2.5f);
 		
 		skin = new Skin();
 
@@ -86,17 +86,6 @@ public class MainMenuScreen implements Screen{
 			}
 		});
 		stage.addActor(playButton);
-	}
-	
-	private boolean scalingBackground(float delta) {
-		if (delta >= 1000) {
-			background.setScale(2);
-			return false;
-		}
-		
-		background.setScale(background.getScale() + (2 * (delta/1000)));
-		
-		return true;
 	}
 	
 
