@@ -30,6 +30,9 @@ public class MainMenuScreen implements Screen{
 	private TextButton playButton;
 	private BackgroundHandler background;
 	
+	private boolean isZoomed = false;
+	private float zoomSpeed = 1.9f;
+	
 	
 	public MainMenuScreen(final Game game) {
 		this.game = game;
@@ -37,6 +40,7 @@ public class MainMenuScreen implements Screen{
 		Gdx.input.setInputProcessor(stage);
 		
 		background = new BackgroundHandler("src/assets/sea_map.png", game.getViewport());
+		background.setScale(4);
 		
 		skin = new Skin();
 
@@ -74,7 +78,7 @@ public class MainMenuScreen implements Screen{
 		playButton.addListener(new InputListener() {
 			@Override
 			public void touchUp (InputEvent e, float x, float y, int pointer, int button) {
-				game.setScreen(new GameScreen(game));
+				isZoomed = true;
 			}
 			@Override
 			public boolean touchDown (InputEvent e, float x, float y, int pointer, int button) {
@@ -82,6 +86,17 @@ public class MainMenuScreen implements Screen{
 			}
 		});
 		stage.addActor(playButton);
+	}
+	
+	private boolean scalingBackground(float delta) {
+		if (delta >= 1000) {
+			background.setScale(2);
+			return false;
+		}
+		
+		background.setScale(background.getScale() + (2 * (delta/1000)));
+		
+		return true;
 	}
 	
 
@@ -110,6 +125,15 @@ public class MainMenuScreen implements Screen{
 		
 		game.batch.begin();
 		game.batch.end();
+		
+		if(isZoomed) {
+			if(background.getScale() <= 2) {
+				game.setScreen(new GameScreen(game));
+			}
+			else {
+				background.setScale(background.getScale() - zoomSpeed * delta);
+			}
+		}
 	}
 
 	@Override

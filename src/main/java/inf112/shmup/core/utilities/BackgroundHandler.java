@@ -10,7 +10,7 @@ public class BackgroundHandler{
     
     //background variables
 	private static int bgOffset = 0;
-	private int bgScale = 2;
+	private float bgScale = 2;
     private int bgSpeed = -250;
     private float width;
     private float height;
@@ -55,6 +55,17 @@ public class BackgroundHandler{
 		}
 
         
+    }
+    
+    public void setScale(float scale) {
+    	this.bgScale = scale;
+    	bg.setScale(bgScale);
+        width = bg.getWidth() * bgScale;
+        height = bg.getHeight() * bgScale;
+    }
+    
+    public float getScale() {
+    	return bgScale;
     }
 
 
