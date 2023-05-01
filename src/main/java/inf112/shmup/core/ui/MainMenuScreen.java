@@ -4,21 +4,18 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
 import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
-import inf112.shmup.core.utilities.AudioPlayer;
 import inf112.shmup.core.utilities.BackgroundHandler;
 
 public class MainMenuScreen implements Screen{
@@ -27,6 +24,7 @@ public class MainMenuScreen implements Screen{
 	private Stage stage;
 	private Skin skin;
 	private BackgroundHandler background;
+	public static Color defaultColor = Color.GREEN;
 	
 	private boolean isZoomed = false;
 	private float zoomSpeed = 1f;
@@ -55,7 +53,7 @@ public class MainMenuScreen implements Screen{
 		//table.top();
 		
 		Label title = new Label("SHMUP", skin);
-		title.setColor(Color.GREEN);
+		title.setColor(defaultColor);
 		table.add(title).colspan(3);
 		
 		table.row();
@@ -73,29 +71,46 @@ public class MainMenuScreen implements Screen{
 			}
 		});
 		
-		playButton.setColor(Color.GREEN);
+		playButton.setColor(defaultColor);
 		table.add(playButton).colspan(3).width(400);
 		
 		table.row();
-
-		Label effectsVolumeSliderLabel = new Label("Effects volume", skin);
-		table.add(effectsVolumeSliderLabel).width(effectsVolumeSliderLabel.getWidth());
 		
-		Label effectsVolumeLabel = new Label(Float.toString(AudioPlayer.effectVolume * 100) + "%", skin);
+		TextButton optionsButton = new TextButton("OPTIONS", skin);
 		
-		Slider effectsVolumeSlider = new Slider(0, 1, 0.001f, false, skin);
-		effectsVolumeSlider.setValue(AudioPlayer.effectVolume);
-		effectsVolumeSlider.addListener(new ChangeListener() {
+		optionsButton.addListener(new InputListener() {
 			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				AudioPlayer.effectVolume = effectsVolumeSlider.getValue();
-				effectsVolumeLabel.setText(Float.toString(Math.round(AudioPlayer.effectVolume * 100)) + "%");
+			public void touchUp (InputEvent e, float x, float y, int pointer, int button) {
+				game.setScreen(new OptionsScreen(game));
+			}
+			
+			@Override
+			public boolean touchDown (InputEvent e, float x, float y, int pointer, int button) {
+				return true;
 			}
 		});
-		table.add(effectsVolumeSlider);
 		
+		optionsButton.setColor(defaultColor);
 		
-		table.add(effectsVolumeLabel).width(60);
+		table.add(optionsButton).width(200);
+		
+		TextButton aboutButton = new TextButton("ABOUT", skin);
+		
+		aboutButton.addListener(new InputListener() {
+			@Override
+			public void touchUp (InputEvent e, float x, float y, int pointer, int button) {
+				game.setScreen(new AboutScreen(game));
+			}
+			
+			@Override
+			public boolean touchDown (InputEvent e, float x, float y, int pointer, int button) {
+				return true;
+			}
+		});
+		
+		aboutButton.setColor(defaultColor);
+		
+		table.add(aboutButton).width(200);
 	}
 
 	@Override
@@ -156,7 +171,6 @@ public class MainMenuScreen implements Screen{
 	@Override
 	public void dispose() {
 		stage.dispose();
-		
 	}
 
 }
