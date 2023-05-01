@@ -22,6 +22,7 @@ public class StrafeEnemy extends EnemyShip{
         }
         
         this.killPoints = 50;
+        this.hasInvincibleIntro = false;
     }
 
     @Override
