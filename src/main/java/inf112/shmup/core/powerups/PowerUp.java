@@ -19,7 +19,7 @@ public abstract class PowerUp extends SpriteActor implements Damageable {
 	@Override
 	public void act(float delta) {
 		super.act(delta);
-		moveBy(0, -0.5f);
+		moveBy(0, -200f * delta);
 		
 		if(collidesWithPlayer()) activate();
 	}

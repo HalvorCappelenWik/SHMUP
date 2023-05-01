@@ -5,6 +5,9 @@ import java.util.HashMap;
 import com.badlogic.gdx.audio.Sound;
 
 public class AudioPlayer {
+	
+	public static float effectVolume = 1f;
+	
     private static final HashMap<String, Sound> _sounds = new HashMap<>();
 
     /**
@@ -20,6 +23,6 @@ public class AudioPlayer {
             _sounds.put(name, sound);
         }
 
-        sound.play();
+        sound.play(effectVolume);
     }
 }
