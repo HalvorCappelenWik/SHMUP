@@ -37,8 +37,6 @@ public class SplashScreen implements Screen {
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
-		// Fiks dette!
 		RunnableAction run = new RunnableAction();
 		run.setRunnable(new Runnable() {
 		    @Override
@@ -73,7 +71,6 @@ public class SplashScreen implements Screen {
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
 		stage.getViewport().update(width, height, false);
 	}
 

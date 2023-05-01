@@ -4,22 +4,21 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Pixmap.Format;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Slider;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
-import com.badlogic.gdx.utils.Align;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
 import inf112.shmup.core.Game;
+import inf112.shmup.core.utilities.AssetManager;
+import inf112.shmup.core.utilities.AudioPlayer;
 import inf112.shmup.core.utilities.BackgroundHandler;
 
 public class MainMenuScreen implements Screen{
@@ -27,7 +26,6 @@ public class MainMenuScreen implements Screen{
 	private final Game game;
 	private Stage stage;
 	private Skin skin;
-	private TextButton playButton;
 	private BackgroundHandler background;
 	
 	private boolean isZoomed = false;
@@ -42,38 +40,27 @@ public class MainMenuScreen implements Screen{
 		background = new BackgroundHandler("src/assets/sea_map.png", game.getViewport());
 		background.setScale(2.5f);
 		
-		skin = new Skin();
+		skin = new Skin(AssetManager.file("skin/sgx-ui.json"));
+	}
+	
 
-		// Generate a 1x1 white texture and store it in the skin named "white".
-		Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
-		pixmap.setColor(Color.WHITE);
-		pixmap.fill();
-		skin.add("white", new Texture(pixmap));
-
-		// Store the default libGDX font under the name "default".
-		skin.add("default", new BitmapFont());
-
-		// Configure a TextButtonStyle and name it "default". Skin resources are stored by type, so this doesn't overwrite the font.
-		TextButtonStyle textButtonStyle = new TextButtonStyle();
-		textButtonStyle.up = skin.newDrawable("white", Color.DARK_GRAY);
-		textButtonStyle.down = skin.newDrawable("white", Color.DARK_GRAY);
-		textButtonStyle.checked = skin.newDrawable("white", Color.BLUE);
-		textButtonStyle.over = skin.newDrawable("white", Color.LIGHT_GRAY);
-		textButtonStyle.font = skin.getFont("default");
-		skin.add("default", textButtonStyle);
+	@Override
+	public void show() {
 		
+		Table table = new Table(skin);
+		stage.addActor(table);
 		
-		Label title = new Label("SHMUP", new LabelStyle(game.font, Color.BLACK));
-		title.setAlignment(Align.center);
-		title.setY(Gdx.graphics.getHeight()*2/3);
-		title.setWidth(Gdx.graphics.getWidth());
-		title.setX(Game.V_WIDTH/2 - title.getWidth()/2);
-		stage.addActor(title);
+		//table.setDebug(true); // turn on all debug lines (table, cell, and widget)
+		table.setPosition(Game.V_WIDTH / 2 - (table.getWidth() / 2), Game.V_HEIGHT / 2 - (table.getHeight() / 2));
+		//table.top();
 		
-		playButton = new TextButton("PLAY!", skin);
-		playButton.setWidth(Gdx.graphics.getWidth()/2);
-		playButton.setPosition(Game.V_WIDTH/2-playButton.getWidth()/2, Game.V_HEIGHT/2-playButton.getHeight()/2);
-        //playButton.setPosition(Gdx.graphics.getWidth()/2-playButton.getWidth()/2,Gdx.graphics.getHeight()/2-playButton.getHeight()/2);
+		Label title = new Label("SHMUP", skin);
+		title.setColor(Color.GREEN);
+		table.add(title).colspan(3);
+		
+		table.row();
+		
+		TextButton playButton = new TextButton("PLAY!", skin);
 		
 		playButton.addListener(new InputListener() {
 			@Override
@@ -85,13 +72,30 @@ public class MainMenuScreen implements Screen{
 				return true;
 			}
 		});
-		stage.addActor(playButton);
-	}
-	
-
-	@Override
-	public void show() {
 		
+		playButton.setColor(Color.GREEN);
+		table.add(playButton).colspan(3).width(400);
+		
+		table.row();
+
+		Label effectsVolumeSliderLabel = new Label("Effects volume", skin);
+		table.add(effectsVolumeSliderLabel).width(effectsVolumeSliderLabel.getWidth());
+		
+		Label effectsVolumeLabel = new Label(Float.toString(AudioPlayer.effectVolume * 100) + "%", skin);
+		
+		Slider effectsVolumeSlider = new Slider(0, 1, 0.001f, false, skin);
+		effectsVolumeSlider.setValue(AudioPlayer.effectVolume);
+		effectsVolumeSlider.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				AudioPlayer.effectVolume = effectsVolumeSlider.getValue();
+				effectsVolumeLabel.setText(Float.toString(Math.round(AudioPlayer.effectVolume * 100)) + "%");
+			}
+		});
+		table.add(effectsVolumeSlider);
+		
+		
+		table.add(effectsVolumeLabel).width(60);
 	}
 
 	@Override
