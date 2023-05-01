@@ -96,11 +96,11 @@ public class MainMenuScreen implements Screen{
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		//draw background rectangle using shapeRenderer
-		game.shape.setProjectionMatrix(game.camera.combined);
-		game.shape.begin(ShapeType.Filled);
-		game.shape.setColor(Color.LIGHT_GRAY);
-		game.shape.rect(0, 0, Game.V_WIDTH, Game.V_WIDTH);
-		game.shape.end();
+		//game.shape.setProjectionMatrix(game.camera.combined);
+		//game.shape.begin(ShapeType.Filled);
+		//game.shape.setColor(Color.LIGHT_GRAY);
+		//game.shape.rect(0, 0, Game.V_WIDTH, Game.V_WIDTH);
+		//game.shape.end();
 		
 		background.render(delta);
 		
