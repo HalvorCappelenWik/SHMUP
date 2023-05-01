@@ -51,7 +51,8 @@ public class ShipUpgrade extends PowerUp {
             setShip(new Gunship3());
         }
         else if (currentShip() instanceof Gunship3) {
-            // The ship is upgraded to the maximum.
+        	// Ship is max, set to new ship for a full heal
+            setShip(new Gunship3());
         }
         else {
             // The player had another ship-type.
@@ -67,7 +68,8 @@ public class ShipUpgrade extends PowerUp {
             setShip(new Tank3());
         }
         else if (currentShip() instanceof Tank3) {
-            // The ship is upgraded to the maximum.
+        	// Ship is max, set to new ship for a full heal
+            setShip(new Tank3());
         }
         else {
             // The player had another ship-type.
@@ -83,7 +85,8 @@ public class ShipUpgrade extends PowerUp {
             setShip(new Racer3());
         }
         else if (currentShip() instanceof Racer3) {
-            // The ship is upgraded to the maximum.
+        	// Ship is max, set to new ship for a full heal
+            setShip(new Racer3());
         }
         else {
             // The player had another ship-type.
@@ -99,7 +102,8 @@ public class ShipUpgrade extends PowerUp {
             setShip(new Rocketeer3());
         }
         else if (currentShip() instanceof Rocketeer3) {
-            // The ship is upgraded to the maximum.
+        	// Ship is max, set to new ship for a full heal
+        	setShip(new Rocketeer3());
         }
         else {
             // The player had another ship-type.
