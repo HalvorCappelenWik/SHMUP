@@ -21,6 +21,7 @@ public abstract class EnemyShip extends Ship implements Damageable {
 	private final int DAMAGE_FRAMES = 3;
 	private int _damageFrames = 0;
 	protected int killPoints = 100;
+    protected boolean hasInvincibleIntro = true;
 	
     public EnemyShip(float x, float y, Sprite shipSprite, int maxHealth) {
         super(shipSprite, maxHealth);
@@ -38,7 +39,7 @@ public abstract class EnemyShip extends Ship implements Damageable {
 
     @Override
     public void takeDamage(int damage) {
-        if(getActions().size > 0) return;
+        if(getActions().size > 0 && hasInvincibleIntro) return;
         
         super.takeDamage(damage);
         _damageFrames = DAMAGE_FRAMES;
