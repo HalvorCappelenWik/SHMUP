@@ -7,8 +7,6 @@ import java.util.List;
 import com.shephertz.app42.paas.sdk.java.App42API;
 import com.shephertz.app42.paas.sdk.java.game.Game;
 import com.shephertz.app42.paas.sdk.java.game.ScoreBoardService;
-import com.shephertz.app42.paas.sdk.java.user.User;
-import com.shephertz.app42.paas.sdk.java.user.UserService;
 
 public class ScoreboardManager {
 	static ScoreBoardService scoreBoardService;
