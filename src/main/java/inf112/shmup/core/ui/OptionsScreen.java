@@ -18,18 +18,11 @@ import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.AudioPlayer;
 
-public class OptionsScreen implements Screen{
+public class OptionsScreen extends UiScreen{
 	
-	private Game game;
-	private Stage stage;
-	private Skin skin;
 
 	public OptionsScreen(final Game game) {
-		this.game = game;
-		this.stage = new Stage(game.getViewport());
-		Gdx.input.setInputProcessor(stage);
-		
-		skin = new Skin(AssetManager.file("skin/sgx-ui.json"));
+		super(game);
 	}
 
 	@Override
@@ -91,46 +84,4 @@ public class OptionsScreen implements Screen{
 		backButton.setColor(MainMenuScreen.defaultColor);
 		table.add(backButton).colspan(3);
 	}
-
-	@Override
-	public void render(float delta) {
-		Gdx.gl.glClearColor(.25f, .25f, .25f, 1f);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
-		stage.act(delta);
-		
-		stage.draw();
-		
-	}
-
-	@Override
-	public void resize(int width, int height) {
-		stage.getViewport().update(width, height, false);
-		
-	}
-
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void hide() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void dispose() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

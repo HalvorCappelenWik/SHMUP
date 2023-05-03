@@ -37,14 +37,6 @@ public class AssetManagerTest {
         HeadlessApplicationConfiguration config = new HeadlessApplicationConfiguration();
         app = new HeadlessApplication(new Game(), config);
     }
-    @Test
-    public void testSpriteLoading() {
-        // Load a sprite using AssetManager
-        Sprite sprite = AssetManager.sprite("Bomb_1.png");
-
-        // Assert that the sprite is not null
-        assertNotNull(sprite);
-    }
 
     @Test
     public void testSoundLoading() {

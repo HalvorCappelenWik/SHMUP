@@ -1,14 +1,10 @@
 package inf112.shmup.core.ui;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -18,11 +14,8 @@ import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.BackgroundHandler;
 
-public class MainMenuScreen implements Screen{
+public class MainMenuScreen extends UiScreen{
 	
-	private final Game game;
-	private Stage stage;
-	private Skin skin;
 	private BackgroundHandler background;
 	public static Color defaultColor = Color.GREEN;
 	
@@ -31,9 +24,7 @@ public class MainMenuScreen implements Screen{
 	
 	
 	public MainMenuScreen(final Game game) {
-		this.game = game;
-		this.stage = new Stage(game.getViewport());
-		Gdx.input.setInputProcessor(stage);
+		super(game);
 		
 		background = new BackgroundHandler("src/assets/sea_map.png", game.getViewport());
 		background.setScale(2.5f);
@@ -111,6 +102,44 @@ public class MainMenuScreen implements Screen{
 		aboutButton.setColor(defaultColor);
 		
 		table.add(aboutButton).width(200);
+		
+		table.row();
+		
+		TextButton leaderboardsButton = new TextButton("Leaderboards", skin);
+		
+		leaderboardsButton.addListener(new InputListener() {
+			@Override
+			public void touchUp (InputEvent e, float x, float y, int pointer, int button) {
+				game.setScreen(new LeaderboardScreen(game));
+			}
+			
+			@Override
+			public boolean touchDown (InputEvent e, float x, float y, int pointer, int button) {
+				return true;
+			}
+		});
+		
+		leaderboardsButton.setColor(defaultColor);
+		
+		table.add(leaderboardsButton).width(200);
+		
+		TextButton quitButton = new TextButton("QUIT", skin);
+		
+		quitButton.addListener(new InputListener() {
+			@Override
+			public void touchUp (InputEvent e, float x, float y, int pointer, int button) {
+				Gdx.app.exit();
+			}
+			
+			@Override
+			public boolean touchDown (InputEvent e, float x, float y, int pointer, int button) {
+				return true;
+			}
+		});
+		
+		quitButton.setColor(defaultColor);
+		
+		table.add(quitButton).width(200);
 	}
 
 	@Override
@@ -130,6 +159,7 @@ public class MainMenuScreen implements Screen{
 		stage.act(delta);
 		
 		stage.draw();
+
 		
 		game.batch.begin();
 		game.batch.end();
@@ -143,34 +173,4 @@ public class MainMenuScreen implements Screen{
 			}
 		}
 	}
-
-	@Override
-	public void resize(int width, int height) {
-		stage.getViewport().update(width, height, false);
-		
-	}
-
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void hide() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void dispose() {
-		stage.dispose();
-	}
-
 }

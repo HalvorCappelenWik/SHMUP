@@ -5,28 +5,22 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.fadeIn;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 import inf112.shmup.core.Game;
 
-public class SplashScreen implements Screen {
+public class SplashScreen extends UiScreen{
 
-	private final Game game;
-	private final Stage stage;
 	private final Image splashImage;
 	
 
 	public SplashScreen(final Game game) {
-		this.game = game;
-		this.stage = new Stage(game.getViewport());
-		Gdx.input.setInputProcessor(stage);
+		super(game);
 
 		Texture splashTexture = new Texture(Gdx.files.internal("src/assets/javaJunkiesLogo.png"));
 		splashImage = new Image(splashTexture);
@@ -68,30 +62,4 @@ public class SplashScreen implements Screen {
 		game.batch.begin();
 		game.batch.end();
 	}
-
-	@Override
-	public void resize(int width, int height) {
-		stage.getViewport().update(width, height, false);
-	}
-
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void hide() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void dispose() {
-		stage.dispose();
-	}
-
 }
