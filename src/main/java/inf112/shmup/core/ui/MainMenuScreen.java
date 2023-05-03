@@ -105,7 +105,7 @@ public class MainMenuScreen extends UiScreen{
 		
 		table.row();
 		
-		TextButton leaderboardsButton = new TextButton("Leaderboards", skin);
+		TextButton leaderboardsButton = new TextButton("Leaderboard", skin);
 		
 		leaderboardsButton.addListener(new InputListener() {
 			@Override

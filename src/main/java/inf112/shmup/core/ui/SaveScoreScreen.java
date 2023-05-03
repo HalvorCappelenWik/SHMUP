@@ -89,7 +89,7 @@ public class SaveScoreScreen extends UiScreen{
 			    	ScoreboardManager.saveScoreForUser(username, ScoreManager.getScore());
 			    	submitted = true;
 			    	messageLabel.setText("Record saved successfully, head back to the menu");
-			    	table.add(backToMainMenuButton);
+			    	table.add(backToMainMenuButton).colspan(2);
 			    } catch (Exception e1) {
 			    	messageLabel.setText(e1.getMessage());
 			    }

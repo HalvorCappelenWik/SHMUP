@@ -67,5 +67,22 @@ public class GameOverScreen extends UiScreen{
 		});
 		
 		table.add(yesButton);
+		
+		table.row();
+		
+		TextButton backToMainMenuButton = new TextButton("MAIN MENU", skin);
+		backToMainMenuButton.addListener(new InputListener() {
+			@Override
+			public void touchUp (InputEvent e, float x, float y, int pointer, int button) {
+				game.setScreen(new MainMenuScreen(game));
+			}
+			
+			@Override
+			public boolean touchDown (InputEvent e, float x, float y, int pointer, int button) {
+				return true;
+			}
+		});
+		
+		table.add(backToMainMenuButton);
 	}
 }
