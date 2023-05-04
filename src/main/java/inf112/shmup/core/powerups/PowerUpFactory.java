@@ -1,12 +1,12 @@
 package inf112.shmup.core.powerups;
 
+import com.badlogic.gdx.scenes.scene2d.Actor;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.function.BiFunction;
-
-import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class PowerUpFactory extends Actor {
 	private static PowerUpFactory _instance;

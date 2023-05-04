@@ -1,11 +1,9 @@
 package inf112.shmup.core.utilities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import inf112.shmup.core.utilities.ScoreManager;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameScoreTest {
 	
@@ -45,4 +43,5 @@ public class GameScoreTest {
 		ScoreManager.setMultiplier(1.5f);
 		assertEquals(1.5f, ScoreManager.getMultiplier(), 0.001); // Use delta for float comparison
 	}
+
 }

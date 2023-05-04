@@ -52,4 +52,26 @@ public class HealthPoolTest {
         // Assert that the current value is updated to 0
         assertEquals(0, healthPool.getCurrent());
     }
+
+    @Test
+    public void testHeal() {
+        // Take damage of 50
+        healthPool.takeDamage(50);
+
+        // Assert that the current value is updated correctly
+        assertEquals(50, healthPool.getCurrent());
+
+        // "Heal" for 30 by taking negative damage
+        healthPool.takeDamage(-30);
+
+        // Assert that the current value is updated correctly
+        assertEquals(80, healthPool.getCurrent());
+
+        // Try to "heal" for more than the max value
+        healthPool.takeDamage(-30);
+
+        // Assert that the current value is updated to the max value
+        assertEquals(100, healthPool.getCurrent());
+    }
+
 }

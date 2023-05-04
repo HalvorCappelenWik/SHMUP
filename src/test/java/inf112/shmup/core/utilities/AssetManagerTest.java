@@ -1,28 +1,21 @@
 package inf112.shmup.core.utilities;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.mock;
-
-import org.junit.jupiter.api.AfterAll;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.backends.headless.HeadlessApplication;
+import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.GL20;
+import inf112.shmup.core.Game;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-
-import inf112.shmup.core.Game;
-
-import com.badlogic.gdx.backends.headless.HeadlessApplication;
-import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.mock;
 
 public class AssetManagerTest {
 	private HeadlessApplication app;
-
 
     @BeforeAll
     public static void setUp() {
@@ -30,7 +23,6 @@ public class AssetManagerTest {
     	Gdx.gl = mock(GL20.class);       
         Gdx.gl20 = mock(GL20.class);
     }
-
 
     @BeforeEach
     void setUpBeforeEach() {
@@ -55,4 +47,5 @@ public class AssetManagerTest {
         // Assert that the file handle is not null
         assertNotNull(fileHandle);
     }
+
 }
