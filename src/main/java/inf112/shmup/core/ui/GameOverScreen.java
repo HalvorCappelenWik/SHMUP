@@ -16,7 +16,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.ScoreManager;
-import inf112.shmup.core.utilities.ScoreboardManager;
 
 public class GameOverScreen extends UiScreen{
 	
@@ -48,7 +47,7 @@ public class GameOverScreen extends UiScreen{
 		
 		table.row();
 		
-		Label saveLabel = new Label("WISH TO SAVE YOUR SCORE?", skin);
+		/*Label saveLabel = new Label("WISH TO SAVE YOUR SCORE?", skin);
 		table.add(saveLabel);
 		
 		table.row();
@@ -68,7 +67,7 @@ public class GameOverScreen extends UiScreen{
 		
 		table.add(yesButton);
 		
-		table.row();
+		table.row();*/
 		
 		TextButton backToMainMenuButton = new TextButton("MAIN MENU", skin);
 		backToMainMenuButton.addListener(new InputListener() {

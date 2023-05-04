@@ -105,24 +105,6 @@ public class MainMenuScreen extends UiScreen{
 		
 		table.row();
 		
-		TextButton leaderboardsButton = new TextButton("Leaderboard", skin);
-		
-		leaderboardsButton.addListener(new InputListener() {
-			@Override
-			public void touchUp (InputEvent e, float x, float y, int pointer, int button) {
-				game.setScreen(new LeaderboardScreen(game));
-			}
-			
-			@Override
-			public boolean touchDown (InputEvent e, float x, float y, int pointer, int button) {
-				return true;
-			}
-		});
-		
-		leaderboardsButton.setColor(defaultColor);
-		
-		table.add(leaderboardsButton).width(200);
-		
 		TextButton quitButton = new TextButton("QUIT", skin);
 		
 		quitButton.addListener(new InputListener() {
@@ -139,7 +121,7 @@ public class MainMenuScreen extends UiScreen{
 		
 		quitButton.setColor(defaultColor);
 		
-		table.add(quitButton).width(200);
+		table.add(quitButton).colspan(2);
 	}
 
 	@Override
