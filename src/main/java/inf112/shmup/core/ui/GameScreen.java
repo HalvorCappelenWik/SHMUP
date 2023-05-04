@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import inf112.shmup.core.utilities.BackgroundHandler;
+import inf112.shmup.core.utilities.ScoreManager;
 import inf112.shmup.core.utilities.WaveFactory;
 import inf112.shmup.core.Game;
 import inf112.shmup.core.enemies.EnemyFactory;
@@ -46,6 +47,8 @@ public class GameScreen implements Screen {
 		
 		WaveFactory.reset();
 		WaveFactory.spawnNextWave();
+		
+		ScoreManager.addScore(-ScoreManager.getScore());
 	}
 
 	@Override
