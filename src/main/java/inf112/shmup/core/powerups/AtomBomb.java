@@ -14,6 +14,12 @@ public class AtomBomb extends PowerUp {
 
     private static final int EXPLOSION_RADIUS = 500;
 
+    /**
+     * Constructor for the AtomBomb class.
+     * @param x The x-coordinate the AtomBomb powerup starts at
+     * @param y The y-coordinate the AtomBomb powerup starts at
+     */
+
     public AtomBomb(float x, float y) {
         super(x, y, AssetManager.sprite("items/nuke.png"));
         sprite.setSize(20, 20);
