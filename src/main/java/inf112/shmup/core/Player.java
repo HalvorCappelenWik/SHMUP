@@ -14,6 +14,11 @@ public class Player extends Actor {
 	private static Player _instance;
 	private Ship _ship;
 
+	/**
+	 * Constructor for the Player class.
+	 * @param x The x-coordinate the player starts at
+	 * @param y The y-coordinate the player starts at
+	 */
 	public Player(float x, float y) {
 		_instance = this;
 		_ship = new Gunship1();
