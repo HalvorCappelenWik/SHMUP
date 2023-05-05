@@ -1,37 +1,59 @@
 package inf112.shmup.core.ui;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import inf112.shmup.core.Game;
 import inf112.shmup.core.Player;
 import inf112.shmup.core.utilities.AssetManager;
 
 public class PlayerHealth extends Actor {
 
-	Sprite sprite;
+	Sprite spriteA;
+	Sprite spriteB;
+	int health;
+	int maxHealth;
+	int scale = 2;
+	float margin = 5;
+	float startX = 50;
+	float startY = 50;
 
 	/**
 	 *
 	 */
 	public PlayerHealth() {
-		sprite = AssetManager.sprite("heart.png");
+		spriteA = AssetManager.sprite("items/heart.png");
+		spriteA.setScale(scale, scale);
+		spriteB = AssetManager.sprite("items/heart_missing.png");
+		spriteB.setScale(scale, scale);
 	}
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		// TODO Auto-generated method stub
-		super.draw(batch, parentAlpha);
+		//super.draw(batch, parentAlpha);
 
 		Player player = Player.getInstance();
+	
 
 		if(player == null) return;
-		sprite.setX(100);
-		sprite.setY(50);
+		health = player.getShip().getHealth();
+		maxHealth = player.getShip().getMaxHealth();
+		spriteA.setPosition(startX, startY);
 		
-		for (int i = 0; i < player.getShip().getHealth(); i++) {
-			sprite.draw(batch);
-			sprite.setX(sprite.getX() + sprite.getWidth());
+		for (int i = 0; i < health; i++) {
+			spriteA.draw(batch);
+			spriteA.setX(spriteA.getX() + spriteA.getWidth()*scale + margin);
+		}
+
+		spriteB.setPosition(spriteA.getX(), spriteA.getY());
+
+		for(int i = health; i < maxHealth; i++){
+			
+			spriteB.draw(batch);
+			spriteB.setX(spriteB.getX() + spriteB.getWidth()*scale + margin);
 		}
 	}
 

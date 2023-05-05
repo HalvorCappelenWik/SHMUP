@@ -25,7 +25,7 @@ public class BackgroundHandler {
      * @param viewport
      */
     public BackgroundHandler(String texture_file, Viewport viewport){
-        bg = new Sprite(new Texture(Gdx.files.internal(texture_file)));
+        bg = AssetManager.sprite(texture_file);
         bg.setScale(bgScale);
         bg.setOriginCenter();
 

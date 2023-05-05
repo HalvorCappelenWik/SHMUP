@@ -29,7 +29,7 @@ public class MainMenuScreen extends UiScreen {
 	public MainMenuScreen(final Game game) {
 		super(game);
 		
-		background = new BackgroundHandler("src/assets/sea_map.png", game.getViewport());
+		background = new BackgroundHandler("sea_map.png", game.getViewport());
 		background.setScale(2.5f);
 		
 		skin = new Skin(AssetManager.file("skin/sgx-ui.json"));
