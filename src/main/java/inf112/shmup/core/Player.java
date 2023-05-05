@@ -78,8 +78,8 @@ public class Player extends Actor {
 	}
 
 	/**
-	 * Gets instance of player
-	 * @return Player instance
+	 * Gets instance of player.
+	 * @return the player instance
 	 */
 	public static Player getInstance() {
 		return _instance;
