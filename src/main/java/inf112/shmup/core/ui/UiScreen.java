@@ -16,7 +16,7 @@ public abstract class UiScreen implements Screen {
 	protected Skin skin;
 
 	/**
-	 *
+	 * Constructor for the UiScreen class
 	 * @param game
 	 */
 	public UiScreen(final Game game) {
