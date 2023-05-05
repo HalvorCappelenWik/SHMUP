@@ -2,7 +2,6 @@ package inf112.shmup.core.powerups;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.Explosion;
@@ -13,12 +12,12 @@ public class FallingRedBomb extends PowerUp {
 	private final int DAMAGE_FRAMES = 3;
 	private int _damageFrames = 0;
 	
-	private static Sprite _sprite = AssetManager.sprite("items/bomb_1.png");
 	private int health = 5;
 
 	public FallingRedBomb(float x, float y) {
-		super(x, y, _sprite);
-		_sprite.setColor(Color.RED);
+		super(x, y, AssetManager.sprite("items/bomb_1.png"));
+		if (sprite != null)
+			sprite.setColor(Color.RED);
 	}
 
 	@Override
@@ -27,6 +26,10 @@ public class FallingRedBomb extends PowerUp {
 		moveBy(0, -100f * delta);
 		
 		if(collidesWithPlayer()) takeDamage(health);
+	}
+
+	public boolean isDead() {
+		return health <= 0;
 	}
 
 	private void onDead() {
@@ -38,7 +41,7 @@ public class FallingRedBomb extends PowerUp {
 	@Override
 	public void takeDamage(int damage) {
 		this.health -= damage;
-		if (health <= 0) {
+		if (isDead()) {
 			onDead();
 		}
 		_damageFrames = DAMAGE_FRAMES;
