@@ -29,7 +29,7 @@ public class GameScreen implements Screen {
 	
 
 	/**
-	 * Constructor for the GameeScreen class
+	 * Constructor for the GameScreen class
 	 * @param game
 	 */
 	public GameScreen(Game game) {
