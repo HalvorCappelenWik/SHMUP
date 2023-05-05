@@ -1,4 +1,4 @@
-package inf112.shmup.bullets;
+package inf112.shmup.core.bullets;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,9 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import inf112.shmup.core.GameTestBase;
 import inf112.shmup.core.Player;
-import inf112.shmup.core.bullets.Bullet;
-import inf112.shmup.core.bullets.EnemyBullet;
-import inf112.shmup.core.bullets.PlayerBullet;
 import inf112.shmup.core.enemies.EnemyShip;
 import inf112.shmup.core.enemies.Grunt2;
 
@@ -16,11 +13,12 @@ public class BulletTest extends GameTestBase {
     @Test
     public void player_bullets_should_damage_enemies() {
         EnemyShip enemy = new Grunt2(0, 0);
+        EnemyShip.disableInvincibility(enemy);
         PlayerBullet bullet = new PlayerBullet(1);
 
         bullet.onHitEnemy(enemy);
 
-        assertEquals(enemy.getMaxHealth(), enemy.getHealth());
+        assertEquals(enemy.getMaxHealth() - 1, enemy.getHealth());
     }
     
     @Test
@@ -35,6 +33,7 @@ public class BulletTest extends GameTestBase {
     @Test
     public void enemy_bullets_should_not_damage_enemies() {
         EnemyShip enemy = new Grunt2(0, 0);
+        EnemyShip.disableInvincibility(enemy);
         EnemyBullet bullet = new EnemyBullet(1);
 
         bullet.onHitEnemy(enemy);

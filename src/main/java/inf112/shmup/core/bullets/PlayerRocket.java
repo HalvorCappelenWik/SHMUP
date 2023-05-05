@@ -27,7 +27,7 @@ public class PlayerRocket extends Rocket {
     	if(enemy instanceof PowerUp && !(enemy instanceof FallingRedBomb) && !(enemy instanceof Bomb)) {
 			return;
 		}
-        enemy.takeDamage(-1);
+        enemy.takeDamage(1);
         spawnExplosion(getX(), getY(), _damage);
 
         remove();

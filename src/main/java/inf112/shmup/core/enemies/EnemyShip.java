@@ -74,4 +74,13 @@ public abstract class EnemyShip extends Ship implements Damageable {
         }
     }
 
+    /**
+     * Disables the enemy invincibility.  
+     * Use this for testing purposes only.
+     * @param enemy
+     */
+    public static void disableInvincibility(EnemyShip enemy) {
+        enemy.hasInvincibleIntro = false;
+    }
+
 }
