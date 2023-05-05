@@ -55,7 +55,7 @@ public class Player extends Actor {
 
 	/**
 	 * Gets the player ship.
-	 * @return The ship
+	 * @return the player ship
 	 */
 	public Ship getShip() {
 		return _ship;
@@ -63,7 +63,7 @@ public class Player extends Actor {
 
 	/**
 	 * Sets the player ships new x and y coordinates 
-	 * @param ship
+	 * @param ship The ship to set the new position to
 	 */
 	public void setShip(Ship ship) {
 		float x = _ship.getX(Align.center),
