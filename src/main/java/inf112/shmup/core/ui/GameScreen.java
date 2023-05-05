@@ -1,23 +1,21 @@
 package inf112.shmup.core.ui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import inf112.shmup.core.utilities.BackgroundHandler;
-import inf112.shmup.core.utilities.ScoreManager;
-import inf112.shmup.core.utilities.WaveFactory;
 import inf112.shmup.core.Game;
+import inf112.shmup.core.Player;
 import inf112.shmup.core.enemies.EnemyFactory;
 import inf112.shmup.core.enemies.EnemyShip;
 import inf112.shmup.core.powerups.PowerUpFactory;
-import inf112.shmup.core.Player;
+import inf112.shmup.core.utilities.BackgroundHandler;
+import inf112.shmup.core.utilities.ScoreManager;
+import inf112.shmup.core.utilities.WaveFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameScreen implements Screen {
 	
@@ -25,7 +23,7 @@ public class GameScreen implements Screen {
 	private final Stage stage;
 	private final Player player;
 
-	//enable background
+	// Enable background
 	Boolean backgroundEnabled = true;
 	BackgroundHandler background;
 	
@@ -74,12 +72,12 @@ public class GameScreen implements Screen {
 			WaveFactory.spawnNextWave();
 		}
 
-		//render background
+		// Render background
 		if(backgroundEnabled){
 			background.render(delta);
 		}
 
-		//stage rendering
+		// Stage rendering
 		stage.act(delta);
 		stage.draw();
 	}
@@ -131,4 +129,5 @@ public class GameScreen implements Screen {
 	public void hide() {
 		// TODO Auto-generated method stub
 	}
+
 }

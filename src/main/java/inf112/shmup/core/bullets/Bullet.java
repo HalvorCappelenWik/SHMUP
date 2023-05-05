@@ -38,8 +38,6 @@ public abstract class Bullet extends SpriteActor {
 		if(enemyHit != null){
 			onHitEnemy(enemyHit);
 		}
-
-		
 	}
 
 	protected Player hasHitPlayer(){
@@ -72,11 +70,11 @@ public abstract class Bullet extends SpriteActor {
 				}
 			}
 		}
-		
 		return actorHit;
 	}
 
 	abstract void onHitPlayer(Player player);
 
 	abstract void onHitEnemy(Damageable enemy);
+
 }

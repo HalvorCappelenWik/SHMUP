@@ -11,10 +11,9 @@ import inf112.shmup.core.Game;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
-public class SplashScreen extends UiScreen{
+public class SplashScreen extends UiScreen {
 
 	private final Image splashImage;
-	
 
 	public SplashScreen(final Game game) {
 		super(game);
@@ -59,4 +58,5 @@ public class SplashScreen extends UiScreen{
 		game.batch.begin();
 		game.batch.end();
 	}
+
 }

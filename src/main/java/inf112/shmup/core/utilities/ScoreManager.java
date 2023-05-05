@@ -1,6 +1,7 @@
 package inf112.shmup.core.utilities;
 
 public class ScoreManager {
+
 	private static int score = 0;
 	
 	// Multiplier variable for the possible extension where score can be multiplied before adding to total score.

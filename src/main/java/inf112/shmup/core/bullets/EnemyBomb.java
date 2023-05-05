@@ -6,6 +6,7 @@ import inf112.shmup.core.utilities.Damageable;
 public class EnemyBomb extends Rocket {
 
     private static final int _damage = 3;
+
     public EnemyBomb(float speed) {
         super(speed, "missile_a.png");
         _radius = 60;
@@ -28,6 +29,7 @@ public class EnemyBomb extends Rocket {
 
     @Override
     void onHitEnemy(Damageable enemy) {
-
+        // Nothing
     }
+
 }

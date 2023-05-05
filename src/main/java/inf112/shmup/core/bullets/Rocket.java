@@ -2,8 +2,7 @@ package inf112.shmup.core.bullets;
 
 import inf112.shmup.core.utilities.Explosion;
 
-public abstract class Rocket extends Bullet{
-
+public abstract class Rocket extends Bullet {
 
     protected float _radius;
 
@@ -15,4 +14,5 @@ public abstract class Rocket extends Bullet{
         Explosion explosion =  new Explosion(x, y, _radius, damage, false);
         getStage().addActor(explosion);
     }
+
 }

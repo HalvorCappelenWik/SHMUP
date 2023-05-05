@@ -1,8 +1,8 @@
 package inf112.shmup.core.utilities;
 
-import java.util.HashMap;
-
 import com.badlogic.gdx.audio.Sound;
+
+import java.util.HashMap;
 
 public class AudioPlayer {
 	
@@ -25,4 +25,5 @@ public class AudioPlayer {
 
         sound.play(effectVolume);
     }
+
 }

@@ -1,18 +1,12 @@
 package inf112.shmup.core.ui;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-
 import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
 
@@ -74,6 +68,6 @@ public class AboutScreen extends UiScreen{
 		
 		backButton.setColor(MainMenuScreen.defaultColor);
 		table.add(backButton).colspan(3);
-		
 	}
+
 }

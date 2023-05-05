@@ -22,4 +22,5 @@ public class Bomb extends PowerUp {
 	public void takeDamage(int damage) {
 		activate();
 	}
+
 }

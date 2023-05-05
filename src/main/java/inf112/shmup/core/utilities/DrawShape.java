@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Rectangle;
  * Simplifies rendering shapes correctly.
  */
 public class DrawShape {
+
     private static final ShapeRenderer _renderer = new ShapeRenderer();
 
     public static void rectangle(Batch batch, Color color, Rectangle rectangle) {

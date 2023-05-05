@@ -32,8 +32,8 @@ public class AssetManager {
      * @param name Relative file in assets folder.
      * @return A handle to the file.
      */
-    public static FileHandle file(String name)
-    {
+    public static FileHandle file(String name) {
         return new FileHandle("src/assets/" + name);
     }
+
 }

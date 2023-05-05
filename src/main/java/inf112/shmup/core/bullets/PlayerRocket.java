@@ -6,12 +6,14 @@ import inf112.shmup.core.powerups.FallingRedBomb;
 import inf112.shmup.core.powerups.PowerUp;
 import inf112.shmup.core.utilities.Damageable;
 
-public class PlayerRocket extends Rocket{
+public class PlayerRocket extends Rocket {
+
+    private static final int ROCKET_SPEED = 400;
 
     private int _damage;
 
     public PlayerRocket(int damage){
-        super(400, "missile_a.png");
+        super(ROCKET_SPEED, "missile_a.png");
         _damage = damage;
         _radius = 100;
     }
@@ -29,7 +31,7 @@ public class PlayerRocket extends Rocket{
 
     @Override
     void onHitPlayer(Player player) {
-        //nothing
+        // Nothing
     }
     
 }

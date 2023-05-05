@@ -1,11 +1,12 @@
 package inf112.shmup.core.enemies;
 
+import com.badlogic.gdx.scenes.scene2d.Actor;
+
 import java.util.HashMap;
 import java.util.function.BiFunction;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
-
 public class EnemyFactory extends Actor {
+
     private static EnemyFactory _instance;
 
     public EnemyFactory() {
@@ -38,4 +39,5 @@ public class EnemyFactory extends Actor {
             return null;
         }
     }
+
 }

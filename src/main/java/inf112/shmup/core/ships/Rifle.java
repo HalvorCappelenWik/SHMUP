@@ -1,16 +1,15 @@
 package inf112.shmup.core.ships;
 
-import java.util.function.Supplier;
-
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Align;
-
 import inf112.shmup.core.Game;
 import inf112.shmup.core.bullets.Bullet;
 import inf112.shmup.core.utilities.AudioPlayer;
 import inf112.shmup.core.utilities.DrawShape;
+
+import java.util.function.Supplier;
 
 public class Rifle extends Actor {
 
@@ -131,4 +130,5 @@ public class Rifle extends Actor {
     private float getBulletY(float angle) {
         return _origin.getY(Align.center) + (float)Math.cos(Math.toRadians(getBulletAngle(angle))) * _offset;
     }
+
 }

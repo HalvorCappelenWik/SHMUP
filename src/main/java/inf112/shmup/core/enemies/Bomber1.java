@@ -40,8 +40,13 @@ public class Bomber1 extends EnemyShip {
     }
 
     @Override
-    protected void onHealed() { }
+    protected void onHealed() {
+        // Nothing
+    }
 
     @Override
-    protected void onDamaged() { }
+    protected void onDamaged() {
+        // Nothing
+    }
+
 }

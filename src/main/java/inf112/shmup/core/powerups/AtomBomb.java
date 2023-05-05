@@ -10,7 +10,7 @@ import inf112.shmup.core.utilities.Explosion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AtomBomb extends PowerUp{
+public class AtomBomb extends PowerUp {
 
     public AtomBomb(float x, float y) {
         super(x, y, AssetManager.sprite("items/nuke.png"));
@@ -30,6 +30,7 @@ public class AtomBomb extends PowerUp{
                 damageable.add(actor);
             }
         }
+
         for (Actor actor : damageable) {
         	if(actor instanceof EnemyShip) {
         		((EnemyShip) actor).takeDamage(Integer.MAX_VALUE);
@@ -41,5 +42,6 @@ public class AtomBomb extends PowerUp{
     }
 
 	@Override
-	public void takeDamage(int damage) { }
+	public void takeDamage(int damage) {}
+
 }

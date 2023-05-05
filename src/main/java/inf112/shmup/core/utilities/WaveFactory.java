@@ -44,4 +44,5 @@ public class WaveFactory {
 			_wave = _endgameWaves.get(index).asStringArray();
 		}
 	}
+
 }

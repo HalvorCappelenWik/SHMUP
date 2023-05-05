@@ -21,8 +21,7 @@ public class MainMenuScreen extends UiScreen{
 	
 	private boolean isZoomed = false;
 	private float zoomSpeed = 1f;
-	
-	
+
 	public MainMenuScreen(final Game game) {
 		super(game);
 		
@@ -31,7 +30,6 @@ public class MainMenuScreen extends UiScreen{
 		
 		skin = new Skin(AssetManager.file("skin/sgx-ui.json"));
 	}
-	
 
 	@Override
 	public void show() {
@@ -155,4 +153,5 @@ public class MainMenuScreen extends UiScreen{
 			}
 		}
 	}
+
 }

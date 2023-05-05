@@ -54,9 +54,9 @@ public abstract class SpriteActor extends Actor {
 
 	@Override
     protected void positionChanged() {
-		//if you override this method, without the code below. The sprite may not be rendered correctly
-        sprite.setX(getX(Align.center) - sprite.getWidth()/2);
-		sprite.setY(getY(Align.center) - sprite.getHeight()/2);
+		// If you override this method, without the code below. The sprite may not be rendered correctly
+        sprite.setX(getX(Align.center) - sprite.getWidth() / 2);
+		sprite.setY(getY(Align.center) - sprite.getHeight() / 2);
         super.positionChanged();
     }
 
@@ -117,4 +117,5 @@ public abstract class SpriteActor extends Actor {
     public void setRotationDownwards(){
         setRotation(180f);
     }
+
 }

@@ -23,4 +23,5 @@ public class EnemyBullet extends Bullet {
     void onHitEnemy(Damageable enemy) {
         //nothing
     }
+
 }

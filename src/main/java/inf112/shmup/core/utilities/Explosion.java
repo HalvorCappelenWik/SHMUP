@@ -1,17 +1,17 @@
 package inf112.shmup.core.utilities;
 
-import java.util.HashSet;
-
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-
 import inf112.shmup.core.Player;
 import inf112.shmup.core.powerups.PowerUp;
 
+import java.util.HashSet;
+
 public class Explosion extends Actor {
+
     private final HashSet<Damageable> _damaged = new HashSet<>();
     private final float _explosionSpeed = 300;
     private final float _maxRadius;
@@ -60,8 +60,7 @@ public class Explosion extends Actor {
         }
     }
 
-    private void tryDamage(Damageable damageable, Circle blastArea)
-    {
+    private void tryDamage(Damageable damageable, Circle blastArea) {
         if (_damaged.contains(damageable))
             return;
 
@@ -72,8 +71,7 @@ public class Explosion extends Actor {
         _damaged.add(damageable);
     }
     
-    private void tryDamage(Player damageable, Circle blastArea)
-    {
+    private void tryDamage(Player damageable, Circle blastArea) {
     	if (playerDamaged) return;
     	
     	if (!_canKillPlayer) return;
@@ -84,4 +82,5 @@ public class Explosion extends Actor {
         damageable.getShip().takeDamage(_damage);
         playerDamaged = true;
     }
+
 }

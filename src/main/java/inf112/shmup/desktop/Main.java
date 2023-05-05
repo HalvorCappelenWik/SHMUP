@@ -5,6 +5,7 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import inf112.shmup.core.Game;
 
 public class Main {
+
     public static void main(String[] args) {
         Lwjgl3ApplicationConfiguration cfg = new Lwjgl3ApplicationConfiguration();
         cfg.setTitle("shmup");
@@ -13,4 +14,5 @@ public class Main {
 
         new Lwjgl3Application(new Game(), cfg);
     }
+
 }

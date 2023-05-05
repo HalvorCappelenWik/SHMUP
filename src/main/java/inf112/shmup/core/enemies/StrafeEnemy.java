@@ -3,15 +3,17 @@ package inf112.shmup.core.enemies;
 import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
 
-public class StrafeEnemy extends EnemyShip{
+public class StrafeEnemy extends EnemyShip {
+
+    private static final int MAX_HEALTH = 6;
 
     private float _speed = 130;
     private int _dir = 1;
 
     public StrafeEnemy(float x, float y){
         super(x, 
-             (float) Math.random() * Game.V_HEIGHT*0.4f + Game.V_HEIGHT*0.25f, 
-             AssetManager.sprite("ships/ship_5.png"), 6);
+             (float) Math.random() * Game.V_HEIGHT * 0.4f + Game.V_HEIGHT * 0.25f,
+             AssetManager.sprite("ships/ship_5.png"), MAX_HEALTH);
 
 
         if(x < Game.V_WIDTH/2){
@@ -50,8 +52,9 @@ public class StrafeEnemy extends EnemyShip{
     }
 
     @Override
-    protected void onHealed() { }
+    protected void onHealed() {}
 
     @Override
-    protected void onDamaged() { }
+    protected void onDamaged() {}
+
 }

@@ -30,8 +30,8 @@ public abstract class EnemyShip extends Ship implements Damageable {
         setPosition(x, Game.V_HEIGHT * 1.5f);
 
         Action sequence = new SequenceAction(
-            Actions.moveTo(x, y+25, 2.2f), 
-            Actions.moveTo(x, y+5, 0.2f),
+            Actions.moveTo(x, y + 25, 2.2f),
+            Actions.moveTo(x, y + 5, 0.2f),
             Actions.moveTo(x, y, 0.4f));
 											
 		this.addAction(sequence);
@@ -54,7 +54,6 @@ public abstract class EnemyShip extends Ship implements Damageable {
         return getCollisionBox();
     }
 
-
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		if (_damageFrames > 0) {
@@ -72,4 +71,5 @@ public abstract class EnemyShip extends Ship implements Damageable {
             PowerUpFactory.spawnPowerUp(getX(), getY());
         }
     }
+
 }

@@ -5,13 +5,16 @@ import inf112.shmup.core.bullets.EnemyBullet;
 import inf112.shmup.core.utilities.AssetManager;
 
 public class Grunt2 extends EnemyShip {
+
+    private static final int MAX_HEALTH = 5;
+    private static final int BULLET_DAMAGE = 1;
     private float _speed = 200;
     private int _dir = 1;
 
     public Grunt2(float x, float y) {
-        super(x, y, AssetManager.sprite("ships/ship_8.png"), 5);
+        super(x, y, AssetManager.sprite("ships/ship_8.png"), MAX_HEALTH);
 
-        addRifle(0.7f, () -> new EnemyBullet(1))
+        addRifle(0.7f, () -> new EnemyBullet(BULLET_DAMAGE))
             .useSound("shoot_2")
             .useAngles(10f, -10f);
         
@@ -34,8 +37,9 @@ public class Grunt2 extends EnemyShip {
     }
 
     @Override
-    protected void onHealed() { }
+    protected void onHealed() {}
 
     @Override
-    protected void onDamaged() { }
+    protected void onDamaged() {}
+
 }

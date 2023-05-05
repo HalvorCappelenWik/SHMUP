@@ -6,13 +6,20 @@ import inf112.shmup.core.utilities.AudioPlayer;
 
 public class Tank3 extends Ship {
 
-    public Tank3() {
-        super(AssetManager.sprite("ships/ship_yellow3.png"), 9);
+    private static final int MAX_HEALTH = 9;
+    private static final float BULLET_COOLDOWN = 0.65f;
+    private static final int BULLET_DAMAGE = 1;
+    private static final float BULLET_ANGLE = 12f;
+    private static final int BULLETS_PER_BURST = 2;
+    private static final float BURST_COOLDOWN = 0.1f;
 
-        addRifle(0.65f, () -> new PlayerBullet(1))
+    public Tank3() {
+        super(AssetManager.sprite("ships/ship_yellow3.png"), MAX_HEALTH);
+
+        addRifle(BULLET_COOLDOWN, () -> new PlayerBullet(BULLET_DAMAGE))
             .useSound("shoot_1")
-            .useAngles(-12f, 12f)
-            .useBurst(2, 0.1f);
+            .useAngles(-BULLET_ANGLE, BULLET_ANGLE)
+            .useBurst(BULLETS_PER_BURST, BURST_COOLDOWN);
     }
 
     @Override
@@ -21,8 +28,9 @@ public class Tank3 extends Ship {
     }
 
     @Override
-    protected void onDamaged() { }
+    protected void onDamaged() {}
 
     @Override
-    protected void onDead() { }
+    protected void onDead() {}
+
 }

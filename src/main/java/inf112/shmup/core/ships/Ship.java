@@ -1,19 +1,19 @@
 package inf112.shmup.core.ships;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Supplier;
-
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-
 import inf112.shmup.core.bullets.Bullet;
 import inf112.shmup.core.utilities.HealthPool;
 import inf112.shmup.core.utilities.SpriteActor;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
+
 public abstract class Ship extends SpriteActor {
+
     private final HealthPool _health;
     private final List<Rifle> _rifles;
     private float _speedX = 300f;
@@ -108,4 +108,5 @@ public abstract class Ship extends SpriteActor {
             rifle.remove();
         return super.remove();
     }
+
 }

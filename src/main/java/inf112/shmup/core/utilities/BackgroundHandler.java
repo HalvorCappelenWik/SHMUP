@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class BackgroundHandler{
     
-    //background variables
+    //Background variables
 	private static int bgOffset = 0;
 	private float bgScale = 2;
     private int bgSpeed = -250;
@@ -16,9 +16,8 @@ public class BackgroundHandler{
     private float height;
     private Viewport viewport;
 
-	//background texture
+	// Background texture
 	Sprite bg;
-
 
     public BackgroundHandler(String texture_file, Viewport viewport){
         bg = new Sprite(new Texture(Gdx.files.internal(texture_file)));
@@ -31,7 +30,6 @@ public class BackgroundHandler{
         height = bg.getHeight() * bgScale;
     }
 
-
     public void render(float delta){
         
 		SpriteBatch batch = new SpriteBatch();
@@ -43,18 +41,16 @@ public class BackgroundHandler{
         renderSingle(batch, 0, bgOffset + height);
         batch.end();
 		
-		//increment background offset
+		// Increment background offset
 		bgOffset += bgSpeed*delta;
 
-		if(bgOffset > height){
+		if (bgOffset > height) {
 			bgOffset -= height;
 		}
 
-        if(bgOffset < -height){
+        if (bgOffset < -height) {
 			bgOffset += height;
 		}
-
-        
     }
     
     public void setScale(float scale) {
@@ -68,14 +64,10 @@ public class BackgroundHandler{
     	return bgScale;
     }
 
-
     private void renderSingle(SpriteBatch batch, float x, float y){
         bg.setCenterX(x + width/2);
         bg.setCenterY(y + height/2);
         bg.draw(batch);
     }
 
-	
 }
-
-

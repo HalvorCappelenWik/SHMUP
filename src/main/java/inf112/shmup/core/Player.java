@@ -14,7 +14,6 @@ public class Player extends Actor {
 	private static Player _instance;
 	private Ship _ship;
 
-
 	public Player(float x, float y) {
 		_instance = this;
 		_ship = new Gunship1();
@@ -67,4 +66,5 @@ public class Player extends Actor {
 	public static Player getInstance() {
 		return _instance;
 	}
+
 }

@@ -8,10 +8,12 @@ import inf112.shmup.core.utilities.Damageable;
 
 public class PlayerBullet extends Bullet {
 
+	private static final int BULLET_SPEED = 2000;
+
 	private final int _damage;
 
     public PlayerBullet(int damage) {
-		super(2000, "bullet_a.png");
+		super(BULLET_SPEED, "bullet_a.png");
 		_damage = damage;
     }
 
@@ -26,6 +28,7 @@ public class PlayerBullet extends Bullet {
 
 	@Override
 	void onHitPlayer(Player player) {
-		//nothing
+		// Nothing
 	}
+
 }

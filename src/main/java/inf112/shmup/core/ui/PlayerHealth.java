@@ -1,6 +1,5 @@
 package inf112.shmup.core.ui;
 
-
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -8,7 +7,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import inf112.shmup.core.Player;
 import inf112.shmup.core.utilities.AssetManager;
 
-public class PlayerHealth extends Actor{
+public class PlayerHealth extends Actor {
+
 	Sprite sprite;
 	
 	public PlayerHealth() {
@@ -31,4 +31,5 @@ public class PlayerHealth extends Actor{
 			sprite.setX(sprite.getX() + sprite.getWidth());
 		}
 	}
+
 }

@@ -1,6 +1,7 @@
 package inf112.shmup.core.utilities;
 
 public class HealthPool {
+
     private int _max;
     private int _current;
 
@@ -29,4 +30,5 @@ public class HealthPool {
         if (_current > _max)
             _current = _max;
     }
+
 }

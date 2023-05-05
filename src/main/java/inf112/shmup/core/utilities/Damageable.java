@@ -17,4 +17,5 @@ public interface Damageable {
      * Gets the bounding box for the damageable object.
     */
     Rectangle getBounds();
+
 }
