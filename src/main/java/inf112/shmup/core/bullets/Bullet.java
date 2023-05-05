@@ -46,8 +46,8 @@ public abstract class Bullet extends SpriteActor {
 	}
 
 	/**
-	 * Detects if the bullet is colliding with a player
-	 * @return The player instance 
+	 * Detects if the bullet is colliding with a player.
+	 * @return the player instance
 	 */
 	protected Player hasHitPlayer(){
 		Player player = Player.getInstance();
@@ -62,8 +62,8 @@ public abstract class Bullet extends SpriteActor {
 	}
 
 	/**
-	 * Detects if the bullet is colliding with an
-	 * @return Enemy instance
+	 * Detects if the bullet is colliding with an enemy.
+	 * @return an damageable instance
 	 */
 	protected Damageable hasHitEnemy(){
 		
@@ -87,13 +87,13 @@ public abstract class Bullet extends SpriteActor {
 	}
 
 	/**
-	 * Code to be executed when colliding with a player
+	 * Code to be executed when colliding with a player.
 	 * @param player The player instance collided with
 	 */
 	public abstract void onHitPlayer(Player player);
 
 	/**
-	 * Code to be executed when colliding with an enemy
+	 * Code to be executed when colliding with an enemy.
 	 * @param enemy The enemy instance collided with
 	 */
 	public abstract void onHitEnemy(Damageable enemy);
