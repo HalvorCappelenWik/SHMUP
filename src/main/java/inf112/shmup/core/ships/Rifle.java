@@ -30,9 +30,9 @@ public class Rifle extends Actor {
 
     /**
      * Constructor for the Rifle class.
-     * @param origin
-     * @param cooldown
-     * @param bulletSupplier
+     * @param origin The origins of the rifle on the ship
+     * @param cooldown The cooldown between each fire
+     * @param bulletSupplier The bullet supplier
      */
     public Rifle(Actor origin, float cooldown, Supplier<Bullet> bulletSupplier) {
         _bulletSupplier = bulletSupplier;
@@ -49,7 +49,7 @@ public class Rifle extends Actor {
      * Adds burst to the rifle.
      * @param bulletsPerBurst The amount of bullets per burst
      * @param cooldown The cooldown between each burst
-     * @return
+     * @return the same rifle with burst fire
      */
     public Rifle useBurst(int bulletsPerBurst, float cooldown) {
         _bulletsPerBurst = bulletsPerBurst;
@@ -58,9 +58,9 @@ public class Rifle extends Actor {
     }
 
     /**
-     * Change the angle of the rifle shot
-     * @param angles
-     * @return
+     * Change the angle of the rifle shot.
+     * @param angles The desired angle of the rifle
+     * @return the same rifle with changed angle
      */
     public Rifle useAngles(float ...angles) {
         _angles = angles;
@@ -68,9 +68,9 @@ public class Rifle extends Actor {
     }
 
     /**
-     *
-     * @param shootAutomatically
-     * @return
+     * Add automatic shooting to the rifle.
+     * @param shootAutomatically True if auto is on, false otherwise
+     * @return the same rifle with automatic shooting
      */
     public Rifle setAutoShoot(boolean shootAutomatically) {
         _autoShoot = shootAutomatically;
@@ -80,25 +80,16 @@ public class Rifle extends Actor {
     /**
      * Add sound to the rifle.
      * @param sound The sound that being played
-     * @return
+     * @return this rifle with sound
      */
     public Rifle useSound(String sound) {
         _sound = sound;
         return this;
     }
 
-    /**
-     *
-     * @param offset
-     * @return
-     */
-    public Rifle useOffset(float offset) {
-        _offset = offset;
-        return this;
-    }
 
     /**
-     *
+     * Shoots from the rifle.
      */
     public void shoot() {
         if (_timeSinceLastShot < _shootCooldown)
