@@ -53,10 +53,18 @@ public class Player extends Actor {
 			stage.addActor(_ship);
 	}
 
+	/**
+	 * Gets the player ship.
+	 * @return The ship
+	 */
 	public Ship getShip() {
 		return _ship;
 	}
 
+	/**
+	 * Sets the player ships new x and y coordinates 
+	 * @param ship
+	 */
 	public void setShip(Ship ship) {
 		float x = _ship.getX(Align.center),
 			  y = _ship.getY(Align.center);
@@ -69,6 +77,10 @@ public class Player extends Actor {
 		System.out.println("Changed ship: " + _ship.getClass().getName());
 	}
 
+	/**
+	 * Gets instance of player
+	 * @return Player instance
+	 */
 	public static Player getInstance() {
 		return _instance;
 	}
