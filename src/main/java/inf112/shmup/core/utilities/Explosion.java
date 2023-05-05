@@ -20,6 +20,14 @@ public class Explosion extends Actor {
     private boolean playerDamaged = false;
     private boolean _canKillPlayer;
 
+    /**
+     * Constructor for the Explosion class.
+     * @param x The x-coordinate of the explosion
+     * @param y The y-coordinate of the explosion
+     * @param radius The radius of the explosion
+     * @param damage The damage the explosion deals
+     * @param canKillPlayer True if it can kill the player, false otherwise
+     */
     public Explosion(float x, float y, float radius, int damage, boolean canKillPlayer) {
         setX(x);
         setY(y);
@@ -45,6 +53,10 @@ public class Explosion extends Actor {
         DrawShape.circle(batch, Color.RED, getX(), getY(), currentRadius);
     }
 
+    /**
+     * Deals damage to damageables.
+     * @param damageable The damagables to deal damage to
+     */
     public void tryDamage(Damageable damageable) {
         if (_damaged.contains(damageable))
             return;
@@ -52,7 +64,11 @@ public class Explosion extends Actor {
         damageable.takeDamage(_damage);
         _damaged.add(damageable);
     }
-    
+
+    /**
+     * Deals damage to the player if the explosion can hurt him.
+     * @param player The player to deal damage to
+     */
     public void tryDamage(Player player) {
     	if (playerDamaged)
             return;
