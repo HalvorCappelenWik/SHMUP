@@ -88,7 +88,7 @@ Se [forenkletKlassediagram.png](shmup/doc/forenkletKlassediagram.png)
 Se [manuelletester.md](shmup/doc/ManuelleTester.md)
 
 #### *Automatiske tester*
-En gjenganger gjennom hele prosjektet har vært for svake automatiske tester. Nå har vi tatt grep og både forbedret test-coverage og beskrivelse av tester (javadoc). Vi har tatt i bruk mockito. Vi lagde en GameTestBase klasse som setter spillet i testmodus før alle tester. 
+En gjenganger gjennom hele prosjektet har vært for svake automatiske tester. Nå har vi tatt grep og både forbedret test-coverage og beskrivelse av tester (javadoc). Vi har tatt i bruk mockito. Vi lagde en GameTestBase klasse som setter spillet i testmodus før alle tester. Vi har nå tester på så og si alle klasser som ikke involverer fil-lesing og tegning.
 
 Se directory "src/test/java/core"
 
