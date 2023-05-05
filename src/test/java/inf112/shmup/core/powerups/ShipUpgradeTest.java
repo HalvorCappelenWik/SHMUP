@@ -76,4 +76,32 @@ public class ShipUpgradeTest extends GameTestBase {
     private void assertShipType(Class<?> type) {
         assertInstanceOf(type, Player.getInstance().getShip());
     }
+
+    @Test
+public void should_upgrade_rocketeer_from_other_to_1() {
+    setShip(new Gunship1());
+    upgrade(ShipUpgrade.ROCKET_TYPE);
+    assertShipType(Rocketeer1.class);
+}
+ 
+@Test
+public void should_upgrade_rocketeer_from_1_to_2() {
+    setShip(new Rocketeer1());
+    upgrade(ShipUpgrade.ROCKET_TYPE);
+    assertShipType(Rocketeer2.class);
+}
+    
+@Test
+public void should_upgrade_rocketeer_from_2_to_3() {
+    setShip(new Rocketeer2());
+    upgrade(ShipUpgrade.ROCKET_TYPE);
+    assertShipType(Rocketeer3.class);
+}
+   
+@Test
+public void should_not_upgrade_rocketeer_from_3() {
+    setShip(new Rocketeer3());
+    upgrade(ShipUpgrade.ROCKET_TYPE);
+    assertShipType(Rocketeer3.class);
+}
 }
