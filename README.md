@@ -54,4 +54,4 @@ Online leaderboard hosting
 Musikk og lydeffekter
 - insert link
 
-Alle har tillatelse til å anvende og dele kildekoden i dette prosjektet fritt. 
+Alle har tillatelse til å anvende og dele kildekoden i dette prosjektet fritt. Inkludert i kommersielle sammenhenger.  https://mit-license.org/ 
