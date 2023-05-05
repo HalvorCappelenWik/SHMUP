@@ -43,7 +43,7 @@ public class AboutScreen extends UiScreen{
 		table.row();
 		
 		Image arrowKeysImage = new Image(new Texture(AssetManager.file("direction_keys.png")));
-		table.add(arrowKeysImage).size(100,100);
+		table.add(arrowKeysImage).size(arrowKeysImage.getWidth()*3,arrowKeysImage.getHeight()*3);
 		
 		table.row();
 		
