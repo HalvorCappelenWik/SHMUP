@@ -52,6 +52,6 @@ Online leaderboard hosting
 - App42 http://api.shephertz.com/
 
 Musikk og lydeffekter
-- insert link
+- Soundeffects are © by imphenzi
 
 Alle har tillatelse til å anvende og dele kildekoden i dette prosjektet fritt. Inkludert i kommersielle sammenhenger.  https://mit-license.org/ 
