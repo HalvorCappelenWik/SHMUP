@@ -11,6 +11,12 @@ public class Zig1 extends EnemyShip {
 	private int _dir = 1;
 	private float _angle = 260f;
 
+	/**
+	 * The constructor for the Zig1 class.
+	 * @param x The x-coordinate the Zig1 plane starts at
+	 * @param y The y-coordinate the Zig1 plane starts at
+	 */
+
 	public Zig1(float x, float y) {
 		super(x, y, AssetManager.sprite("ships/ship_9.png"), MAX_HEALTH);
 		

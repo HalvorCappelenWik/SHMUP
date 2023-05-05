@@ -15,8 +15,8 @@ public class Grunt1 extends EnemyShip {
 
     /**
      * The constructor for the Grunt1 class.
-     * @param x The x-coordinate the Grunt plane starts at
-     * @param y The y-coordinate the Grunt plane starts at
+     * @param x The x-coordinate the Grunt1 plane starts at
+     * @param y The y-coordinate the Grunt1 plane starts at
      */
     public Grunt1(float x, float y) {
         super(x, y, AssetManager.sprite("ships/ship_10.png"), _max_health);

@@ -10,6 +10,7 @@ public class StrafeEnemy extends EnemyShip {
     private float _speed = 130;
     private int _dir = 1;
 
+
     public StrafeEnemy(float x, float y){
         super(x, 
              (float) Math.random() * Game.V_HEIGHT * 0.4f + Game.V_HEIGHT * 0.25f,

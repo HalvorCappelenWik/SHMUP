@@ -24,6 +24,7 @@ public abstract class EnemyShip extends Ship implements Damageable {
 	private int _damageFrames = 0;
 	protected int killPoints = 100;
     protected boolean hasInvincibleIntro = true;
+
 	
     public EnemyShip(float x, float y, Sprite shipSprite, int maxHealth) {
         super(shipSprite, maxHealth);

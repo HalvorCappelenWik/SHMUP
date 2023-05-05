@@ -11,6 +11,8 @@ public class Grunt2 extends EnemyShip {
     private float _speed = 200;
     private int _dir = 1;
 
+
+
     public Grunt2(float x, float y) {
         super(x, y, AssetManager.sprite("ships/ship_8.png"), MAX_HEALTH);
 
