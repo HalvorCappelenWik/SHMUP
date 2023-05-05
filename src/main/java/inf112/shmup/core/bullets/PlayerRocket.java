@@ -23,7 +23,7 @@ public class PlayerRocket extends Rocket {
     }
 
     @Override
-    void onHitEnemy(Damageable enemy) {
+    public void onHitEnemy(Damageable enemy) {
     	if(enemy instanceof PowerUp && !(enemy instanceof FallingRedBomb) && !(enemy instanceof Bomb)) {
 			return;
 		}
@@ -34,7 +34,7 @@ public class PlayerRocket extends Rocket {
     }
 
     @Override
-    void onHitPlayer(Player player) {
+    public void onHitPlayer(Player player) {
         // Nothing
     }
     

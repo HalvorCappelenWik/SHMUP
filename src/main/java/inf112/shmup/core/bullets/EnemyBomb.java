@@ -26,13 +26,13 @@ public class EnemyBomb extends Rocket {
     }
 
     @Override
-    void onHitPlayer(Player player) {
+    public void onHitPlayer(Player player) {
         spawnExplosion(getX(), getY(), _damage);
         remove();
     }
 
     @Override
-    void onHitEnemy(Damageable enemy) {
+    public void onHitEnemy(Damageable enemy) {
         // Nothing
     }
 
