@@ -1,7 +1,6 @@
-# INF112 Project – Navn TBD
+# SHMUP - INF112 Project
 
-Team: 
-- Java Junkies (Gruppe 4) 
+Team: Java Junkies (Gruppe 4) 
 
 Forfattere: 
 - Mats Dyrøy 
@@ -34,15 +33,15 @@ Alternativ 2:
 - Bruk piltastene til å navigere spiller
 - Unngå å bli truffet av skudd fra fiender
 - Treff fiender med egne skudd for å samle poeng
-- Målet med spillet er å samle mest mulig poeng! 
+- Samle PowerUps fra fiender 
+- Målet med spillet er å samle mest mulig poeng, lykke til! 
 
+- Tips: Fang en "Ship-upgrade" for å utvikle skipet ditt! 
 
 ## Kjente feil
-* Det hender at teksten på "Play"-knappen i menyen blir borte når man prøver å kjøre spillet i full skjerm.
-* Spill kan krasje når spiller dør
 * Pipeline fungerer ikke
 
-## Credits
+## Credits og lisenser
 Applikasjonsrammeverk 
 - LibGDX https://libgdx.com
 
@@ -52,4 +51,7 @@ Game assets
 Online leaderboard hosting
 - App42 http://api.shephertz.com/
 
+Musikk og lydeffekter
+- insert link
 
+Alle har tillatelse til å anvende og dele kildekoden i dette prosjektet fritt. 
