@@ -11,7 +11,11 @@ public class Grunt2 extends EnemyShip {
     private float _speed = 200;
     private int _dir = 1;
 
-
+    /**
+     * The constructor for the Grunt2 class.
+     * @param x The x-coordinate the Grunt2 plane starts at
+     * @param y The y-coordinate the Grunt2 plane starts at
+     */
 
     public Grunt2(float x, float y) {
         super(x, y, AssetManager.sprite("ships/ship_8.png"), MAX_HEALTH);
