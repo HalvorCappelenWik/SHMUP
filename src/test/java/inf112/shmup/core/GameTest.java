@@ -7,14 +7,11 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import inf112.shmup.core.ui.*;																				
 
 public class GameTest {
     private Game game;
@@ -34,6 +31,7 @@ public class GameTest {
         viewport = mock(FitViewport.class);
 
         // Create the Game object
+        Game.TEST_MODE = true;
         game = spy(new Game());
 
         // Set the mock objects as dependencies of the Game object

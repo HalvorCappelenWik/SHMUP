@@ -59,7 +59,8 @@ public class Player extends Actor {
 		_ship = ship;
 		_ship.setPosition(x, y, Align.center);
 		_ship.setRotation(0f);
-		getStage().addActor(_ship);
+		if (getStage() != null)
+			getStage().addActor(_ship);
 		System.out.println("Changed ship: " + _ship.getClass().getName());
 	}
 

@@ -6,6 +6,8 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
+import inf112.shmup.core.Game;
+
 public class AssetManager {
 
     /**
@@ -15,7 +17,15 @@ public class AssetManager {
      */
     public static Sprite sprite(String name)
     {
-        return new Sprite(new Texture(file(name)));
+        if (Game.TEST_MODE)
+            return null;
+        return new Sprite(texture(name));
+    }
+
+    public static Texture texture(String name) {
+        if (Game.TEST_MODE)
+            return null;
+        return new Texture(file(name));
     }
 
     /**
@@ -35,5 +45,4 @@ public class AssetManager {
     public static FileHandle file(String name) {
         return new FileHandle("src/assets/" + name);
     }
-
 }

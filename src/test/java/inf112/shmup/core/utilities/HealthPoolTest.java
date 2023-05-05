@@ -3,9 +3,11 @@ package inf112.shmup.core.utilities;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import inf112.shmup.core.GameTestBase;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class HealthPoolTest {
+public class HealthPoolTest extends GameTestBase {
     private HealthPool healthPool;
 
     @BeforeEach
