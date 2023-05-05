@@ -45,6 +45,25 @@ public class Explosion extends Actor {
         DrawShape.circle(batch, Color.RED, getX(), getY(), currentRadius);
     }
 
+    public void tryDamage(Damageable damageable) {
+        if (_damaged.contains(damageable))
+            return;
+
+        damageable.takeDamage(_damage);
+        _damaged.add(damageable);
+    }
+    
+    public void tryDamage(Player player) {
+    	if (playerDamaged)
+            return;
+    	
+    	if (!_canKillPlayer)
+            return;
+
+        player.getShip().takeDamage(_damage);
+        playerDamaged = true;
+    }
+
     private void damageNewObjectsWithinRadius() {
 		Circle blastArea = new Circle(getX(), getY(), currentRadius);
 
@@ -61,26 +80,17 @@ public class Explosion extends Actor {
     }
 
     private void tryDamage(Damageable damageable, Circle blastArea) {
-        if (_damaged.contains(damageable))
-            return;
-
         if (!Intersector.overlaps(blastArea, damageable.getBounds()))
             return;
-
-        damageable.takeDamage(_damage);
-        _damaged.add(damageable);
+            
+        tryDamage(damageable);
     }
     
-    private void tryDamage(Player damageable, Circle blastArea) {
-    	if (playerDamaged) return;
-    	
-    	if (!_canKillPlayer) return;
-
-        if (!Intersector.overlaps(blastArea, damageable.getShip().getCollisionBox()))
+    private void tryDamage(Player player, Circle blastArea) {
+        if (!Intersector.overlaps(blastArea, player.getShip().getCollisionBox()))
             return;
-
-        damageable.getShip().takeDamage(_damage);
-        playerDamaged = true;
+        
+        tryDamage(player);
     }
 
 }
