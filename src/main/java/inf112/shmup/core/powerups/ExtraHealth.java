@@ -6,7 +6,7 @@ import inf112.shmup.core.utilities.AssetManager;
 public class ExtraHealth extends PowerUp {
 
     ExtraHealth(float x, float y) {
-        super(x, y, AssetManager.sprite("heart.png"));
+        super(x, y, AssetManager.sprite("items/heart.png"));
         sprite.setSize(13, 13);
     }
 
