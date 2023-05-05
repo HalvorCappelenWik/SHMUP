@@ -15,6 +15,12 @@ public class ShipUpgrade extends PowerUp {
 
     private final String _type;
 
+    /**
+     * Constructor for the ShipUpgrade class.
+     * @param x The x-coordinate the upgrade should spawn at
+     * @param y The y-coordinate the upgrade should spawn at
+     * @param type The name of the upgrade type
+     */
     public ShipUpgrade(float x, float y, String type) {
         super(x, y, AssetManager.sprite("items/powerup_" + type + ".png"));
         _type = type;
