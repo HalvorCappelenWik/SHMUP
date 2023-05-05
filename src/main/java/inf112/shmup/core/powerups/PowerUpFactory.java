@@ -15,6 +15,9 @@ public class PowerUpFactory extends Actor {
 	private static final Map<String, BiFunction<Float, Float, PowerUp>> _creators = new HashMap<>();
 	private static final Map<String, Double> _weights = new HashMap<>();
 
+	/**
+	 * Constructor for the PowerUpFactory class.
+	 */
 	public PowerUpFactory() {
 		_instance = this;
 		registerPowerUp("bomb", 4, (x,y) -> new Bomb(x, y));
@@ -28,6 +31,12 @@ public class PowerUpFactory extends Actor {
 		registerPowerUp("nuke", 1, (x,y) -> new AtomBomb(x,y));
 	}
 
+	/**
+	 * Register a powerup to the factory
+	 * @param id The id of the powerup
+	 * @param weight The weight of the powerup
+	 * @param create The powerup to create
+	 */
 	public static void registerPowerUp(String id, float weight, BiFunction<Float, Float, PowerUp> create) {
 		System.out.println("PowerUp registered: " + id + "@" + weight);
 
@@ -35,6 +44,11 @@ public class PowerUpFactory extends Actor {
 		_weights.put(id, (double)weight);
 	}
 
+	/**
+	 * Spawns the powerup.
+	 * @param x The x-coordinate to spawn the powerup at
+	 * @param y The y-coordinate to spawn the powerup at
+	 */
 	public static void spawnPowerUp(float x, float y) {
 		spawnPowerUp(x, y, _creators.keySet());
 	}

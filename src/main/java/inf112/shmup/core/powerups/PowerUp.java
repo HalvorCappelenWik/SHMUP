@@ -10,6 +10,12 @@ import inf112.shmup.core.utilities.SpriteActor;
 
 public abstract class PowerUp extends SpriteActor implements Damageable {
 
+	/**
+	 * Constructor for the PowerUp class.
+	 * @param x The x-coordinate to spawn the powerup at
+	 * @param y The y-coordinate to spawn the powerup at
+	 * @param sprite The sprite of the powerup
+	 */
 	protected PowerUp(float x, float y, Sprite sprite) {
 		super(sprite);
 		setPosition(x, y);
@@ -36,6 +42,7 @@ public abstract class PowerUp extends SpriteActor implements Damageable {
 		sprite.setY(getY(Align.center) - sprite.getHeight()/2);
 	}
 
+	/** Returns true if the powerup collides with the player, false otherwise */
 	protected boolean collidesWithPlayer() {
 		Player player = Player.getInstance();
 		if (player == null) return false;
