@@ -22,7 +22,7 @@ public class PlayerHealth extends Actor {
 	float startY = 50;
 
 	/**
-	 *
+	 * Constructor for the PlayerHealth class
 	 */
 	public PlayerHealth() {
 		spriteA = AssetManager.sprite("items/heart.png");
