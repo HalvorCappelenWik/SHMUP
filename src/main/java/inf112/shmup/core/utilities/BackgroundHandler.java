@@ -20,9 +20,9 @@ public class BackgroundHandler {
 	Sprite bg;
 
     /**
-     *
-     * @param texture_file
-     * @param viewport
+     * Constructor for the BackgroundHandler class. Contains the code to render a scrolling background
+     * @param texture_file path to the background image to be used. Must be at least the width of the game screen / background scale 
+     * @param viewport to be used when rendering the background. 
      */
     public BackgroundHandler(String texture_file, Viewport viewport){
         bg = AssetManager.sprite(texture_file);
@@ -36,8 +36,8 @@ public class BackgroundHandler {
     }
 
     /**
-     *
-     * @param delta
+     * Render code to be called when you want the background rendered. 
+     * @param delta time since last frame
      */
     public void render(float delta) {
         
@@ -63,8 +63,8 @@ public class BackgroundHandler {
     }
 
     /**
-     *
-     * @param scale
+     * Sets the scale of the background image
+     * @param scale 
      */
     public void setScale(float scale) {
     	this.bgScale = scale;
@@ -74,8 +74,8 @@ public class BackgroundHandler {
     }
 
     /**
-     *
-     * @return
+     * Gets the scale of the background image
+     * @return scale in float. Default is 2
      */
     public float getScale() {
     	return bgScale;
