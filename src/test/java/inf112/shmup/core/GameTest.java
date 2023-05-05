@@ -21,6 +21,9 @@ public class GameTest {
     private OrthographicCamera camera;
     private Viewport viewport;
 
+    /**
+     * Setup method for mocking ligdx
+     */
     @BeforeEach
     public void setUp() {
         // Create mock objects for dependencies
@@ -42,6 +45,9 @@ public class GameTest {
         game.viewport = viewport;
     }
 
+    /**
+     * Tests that the viewport updates when resizing
+     */
     @Test
     public void testResizeViewport() {
         // Call the resizeViewport() method on the game object with mock arguments
@@ -51,6 +57,9 @@ public class GameTest {
         verify(viewport).update(100, 200);
     }
 
+    /**
+     * Tests that spritebatch and screen is disposed of when the game.dispose() is called
+     */
     @Test
     public void testDispose() {
         // Create a mock Screen object

@@ -11,6 +11,10 @@ import inf112.shmup.core.GameTestBase;
 import inf112.shmup.core.ships.Ship;
 
 public class EnemyShipTests extends GameTestBase {
+	
+	/**
+	 * Tests that starting direction of enemies is down (-180 degrees)
+	 */
     @Test
     public void all_enemies_should_start_pointing_downwards() {
         List<EnemyShip> enemies = List.of(new Bomber1(0, 0), new Grunt1(0, 0), new Grunt2(0, 0), new StrafeEnemy(0, 0));
@@ -20,6 +24,9 @@ public class EnemyShipTests extends GameTestBase {
         }
     }
 
+    /**
+     * Tests that an enemy of type grunt1 has more health than grun2
+     */
     @Test
     public void grunt_1_should_have_more_health_than_grunt2() {
         Ship grunt1 = new Grunt1(0, 0);
@@ -28,6 +35,9 @@ public class EnemyShipTests extends GameTestBase {
         assertTrue(grunt2.getMaxHealth() > grunt1.getMaxHealth());
     }
 
+    /**
+     * Tests that a zig enemy is at a slight angle
+     */
     @Test
     public void zig_should_be_angled() {
         Ship zig = new Zig1(0, 0);

@@ -10,6 +10,10 @@ import inf112.shmup.core.enemies.EnemyShip;
 import inf112.shmup.core.enemies.Grunt2;
 
 public class RocketTest extends GameTestBase {
+	
+	/**
+	 * Tests that player rockes damage enemies
+	 */
     @Test
     public void player_rocket_should_damage_enemy()
     {
@@ -22,6 +26,9 @@ public class RocketTest extends GameTestBase {
         assertTrue(enemy.getHealth() < enemy.getMaxHealth());
     }
 
+    /**
+     * Tests that a player rocket only do one damage to enemies, as the explosion does the damage
+     */
     @Test
     public void player_rocket_should_damage_enemy_by_1_regardless_of_rocket_damage()
     {

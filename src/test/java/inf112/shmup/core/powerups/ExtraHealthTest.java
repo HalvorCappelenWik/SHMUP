@@ -10,6 +10,10 @@ import inf112.shmup.core.ships.Ship;
 import inf112.shmup.core.ships.Tank3;
 
 public class ExtraHealthTest extends GameTestBase {
+	
+	/**
+	 * Tests that health poweup heals for 2 healthpoints
+	 */
     @Test
     public void should_health_2_health() {
         Ship player = new Tank3();
@@ -23,6 +27,9 @@ public class ExtraHealthTest extends GameTestBase {
         assertEquals(9 - 3 + 2, player.getHealth());
     }
     
+    /**
+     * Tests that a health powerup does not make player health larger than max
+     */
     @Test
     public void should_not_exceed_max_health() {
         Ship player = new Tank3();

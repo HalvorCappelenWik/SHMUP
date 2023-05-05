@@ -41,6 +41,9 @@ public class AudioPlayerTest {
     }
 
 
+    /**
+     * Tests that AudioPlayer.playEffect plays the effect
+     */
     @Test
     public void playbackTest(){
         assert(AudioPlayer.playEffect("powerup") != -1);

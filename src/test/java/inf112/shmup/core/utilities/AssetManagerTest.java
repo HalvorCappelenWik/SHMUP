@@ -9,6 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class AssetManagerTest extends GameTestBase {
 
+	/**
+	 * Tests that a sound is not null after using AssetManager
+	 */
     @Test
     public void testSoundLoading() {
         // Load a sound using AssetManager
@@ -18,6 +21,9 @@ public class AssetManagerTest extends GameTestBase {
         assertNotNull(sound);
     }
 
+    /**
+     * Tests that a filehandle is not null after using AssetManager 
+     */
     @Test
     public void testFileHandling() {
         // Get a file handle using AssetManager

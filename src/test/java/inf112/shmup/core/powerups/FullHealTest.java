@@ -10,6 +10,10 @@ import inf112.shmup.core.ships.Ship;
 import inf112.shmup.core.ships.Tank3;
 
 public class FullHealTest extends GameTestBase {
+	
+	/**
+	 * Tests that a fullheal poweup, when activates, fully heals the player
+	 */
     @Test
     public void should_full_heal_when_damaged() {
         Ship player = new Tank3();
@@ -23,6 +27,10 @@ public class FullHealTest extends GameTestBase {
         assertEquals(9, player.getHealth());
     }
     
+    
+    /**
+     * Tests that player is not healed when at full health
+     */
     @Test
     public void should_not_heal_when_not_damaged() {
         Ship player = new Tank3();

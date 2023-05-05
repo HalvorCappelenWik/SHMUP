@@ -21,6 +21,9 @@ public class GameTestBase {
         return _game;
     }
 
+    /**
+     * Setup for mocking libgdx
+     */
     @BeforeEach
     public void setupGame() {
         // Mock GDX
