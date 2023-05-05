@@ -14,7 +14,7 @@ import inf112.shmup.core.utilities.AudioPlayer;
 public class OptionsScreen extends UiScreen{
 
 	/**
-	 *
+	 * Constructor for the OptionsScreen class
 	 * @param game
 	 */
 	public OptionsScreen(final Game game) {
