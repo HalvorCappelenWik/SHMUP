@@ -8,32 +8,32 @@ public class ScoreManager {
 	private static float multiplier = 1;
 	
 	/**
-	 * Add to the score, is multiplied with multiplier before adding to the score
-	 * @param score  the score points to be added
+	 * Add to the score, is multiplied with multiplier before adding to the score.
+	 * @param score The score points to be added
 	 */
 	public static void addScore(int scoreAdd) {
-		score += scoreAdd*multiplier;
+		score += scoreAdd * multiplier;
 	}
 	
 	/**
-	 * Get the current total score
-	 * @return total score
+	 * Get the current total score.
+	 * @return the total score
 	 */
 	public static int getScore() {
 		return score; 
 	}
 	
 	/**
-	 * Set the score multiplier
-	 * @param mult  the new multiplier
+	 * Set the score multiplier.
+	 * @param mult The new multiplier
 	 */
 	public static void setMultiplier(float mult) {
 		multiplier = mult;
 	}
 	
 	/**
-	 * Get the current score multiplier
-	 * @return multiplier
+	 * Get the current score multiplier.
+	 * @return the multiplier
 	 */
 	public static float getMultiplier() {
 		return multiplier;

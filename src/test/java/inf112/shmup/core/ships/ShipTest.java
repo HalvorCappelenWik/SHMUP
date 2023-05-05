@@ -1,13 +1,12 @@
 package inf112.shmup.core.ships;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import inf112.shmup.core.GameTestBase;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
-
-import inf112.shmup.core.GameTestBase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ShipTest extends GameTestBase {
     @Test
@@ -107,4 +106,5 @@ public class ShipTest extends GameTestBase {
         for (Ship other : others)
             assertTrue(tank.getMaxHealth() > other.getMaxHealth());
     }
+
 }

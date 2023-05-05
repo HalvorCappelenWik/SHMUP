@@ -12,6 +12,9 @@ public class WaveFactory {
 	private static String[] _wave = null;
 	private static int _index = -1;
 
+	/**
+	 * Spawns the next wave.
+	 */
 	public static void spawnNextWave() {
 		loadNextWave();
 
@@ -26,6 +29,10 @@ public class WaveFactory {
 		}
 	}
 
+	/**
+	 * Fetches the current wave.
+	 * @return the number of the current wave
+	 */
 	public static int getCurrentWave() {
 		return _index;
 	}
