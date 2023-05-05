@@ -11,7 +11,7 @@ import inf112.shmup.core.utilities.ScoreManager;
 public class GameOverScreen extends UiScreen{
 	
 	/**
-	 * Constructor for the GameOverScreen class
+	 * Constructor for the GameOverScreen class.
 	 * @param game The game being played
 	 */
 	public GameOverScreen(final Game game) {

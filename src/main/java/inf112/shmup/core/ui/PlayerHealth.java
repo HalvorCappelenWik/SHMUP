@@ -1,12 +1,8 @@
 package inf112.shmup.core.ui;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-
-import inf112.shmup.core.Game;
 import inf112.shmup.core.Player;
 import inf112.shmup.core.utilities.AssetManager;
 
@@ -22,7 +18,7 @@ public class PlayerHealth extends Actor {
 	float startY = 50;
 
 	/**
-	 * Constructor for the PlayerHealth class
+	 * Constructor for the PlayerHealth class.
 	 */
 	public PlayerHealth() {
 		spriteA = AssetManager.sprite("items/heart.png");
@@ -33,7 +29,6 @@ public class PlayerHealth extends Actor {
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		//super.draw(batch, parentAlpha);
 
 		Player player = Player.getInstance();
 	

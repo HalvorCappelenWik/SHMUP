@@ -16,7 +16,7 @@ public class SplashScreen extends UiScreen {
 	private final Image splashImage;
 
 	/**
-	 * Constructor for the SplashScreen class
+	 * Constructor for the SplashScreen class.
 	 * @param game The game being played
 	 */
 	public SplashScreen(final Game game) {

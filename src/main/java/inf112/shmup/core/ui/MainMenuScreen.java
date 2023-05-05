@@ -23,7 +23,7 @@ public class MainMenuScreen extends UiScreen {
 	private float zoomSpeed = 1f;
 
 	/**
-	 * Constructor for the MainMenuScreen class
+	 * Constructor for the MainMenuScreen class.
 	 * @param game The game being played
 	 */
 	public MainMenuScreen(final Game game) {

@@ -12,9 +12,7 @@ public class GameScore extends Actor {
 	BitmapFont font = new BitmapFont();
 
 	@Override
-	public void act(float delta) {
-		// GameScore.addScore(1);
-	}
+	public void act(float delta) {}
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
