@@ -31,6 +31,9 @@ public class Game extends com.badlogic.gdx.Game {
 	
 	@Override
 	public void create() {
+		if (TEST_MODE)
+			return;
+
 		camera = new OrthographicCamera(V_WIDTH, V_HEIGHT);
 		camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
 
