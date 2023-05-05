@@ -16,7 +16,7 @@ public class PowerUpFactory extends Actor {
 	private static final Map<String, Double> _weights = new HashMap<>();
 
 	/**
-	 * Constructor for the PowerUpFactory class.
+	 * Create a new powerUpFactory
 	 */
 	public PowerUpFactory() {
 		_instance = this;
@@ -53,6 +53,12 @@ public class PowerUpFactory extends Actor {
 		spawnPowerUp(x, y, _creators.keySet());
 	}
 
+	/**
+	 * Spawns a powerup with the options given, based on the weights for the powerups
+	 * @param x  x position to spawn powerup on
+	 * @param y  y position to spawn powerup on
+	 * @param options  A Collection of strings corresponding to powerups
+	 */
 	public static void spawnPowerUp(float x, float y, Collection<String> options) {
 		double totalWeight = options.stream().mapToDouble(PowerUpFactory::getWeight).sum();
 		double randomWeight = _random.nextDouble() * totalWeight;
@@ -67,6 +73,12 @@ public class PowerUpFactory extends Actor {
 		}
 	}
 
+	/**
+	 * Spawns a powerup with a given string id
+	 * @param x  x position to spawn powerup
+	 * @param y  y position to spawn powerup
+	 * @param id  the string id, representing powerup type
+	 */
 	public static void spawnPowerUp(float x, float y, String id) {
 		if (_creators.containsKey(id)) {
 			PowerUp powerUp = _creators.get(id).apply(x, y);
@@ -78,6 +90,11 @@ public class PowerUpFactory extends Actor {
 		}
 	}
 
+	/**
+	 * Returns true only x % of the time where x is yesProbability * 100
+	 * @param yesProbability  a probability between 0 and 1
+	 * @return  true if a random aligns with probability
+	 */
 	public static boolean shouldSpawnPowerUp(float yesProbability) {
 		if (yesProbability >= 1)
 			return true;
