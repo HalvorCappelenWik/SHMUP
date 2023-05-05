@@ -25,6 +25,12 @@ public class ScoreManagerTest {
 		ScoreManager.addScore(100);
 		assertEquals(200, ScoreManager.getScore());
 	}
+
+	@Test
+	public void testAddZeroScore() {
+		ScoreManager.addScore(0);
+		assertEquals(0, ScoreManager.getScore());
+	}
 	
 	@Test
 	public void testAddNegativeScore() {
