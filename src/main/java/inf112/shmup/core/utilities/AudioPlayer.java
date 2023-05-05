@@ -14,7 +14,7 @@ public class AudioPlayer {
      * Play sound effect.
      * @param name Name of sound effect.
      */
-    public static void playEffect(String name) {
+    public static long playEffect(String name) {
 
         Sound sound = _sounds.get(name);
 
@@ -23,7 +23,7 @@ public class AudioPlayer {
             _sounds.put(name, sound);
         }
 
-        sound.play(effectVolume);
+        return sound.play(effectVolume);
     }
 
 }
