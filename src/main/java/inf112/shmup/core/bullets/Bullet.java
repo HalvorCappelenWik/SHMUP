@@ -90,12 +90,11 @@ public abstract class Bullet extends SpriteActor {
 	 * Code to be executed when colliding with a player
 	 * @param player The player instance collided with
 	 */
-	abstract void onHitPlayer(Player player);
+	public abstract void onHitPlayer(Player player);
 
 	/**
 	 * Code to be executed when colliding with an enemy
 	 * @param enemy The enemy instance collided with
 	 */
-	abstract void onHitEnemy(Damageable enemy);
-
+	public abstract void onHitEnemy(Damageable enemy);
 }

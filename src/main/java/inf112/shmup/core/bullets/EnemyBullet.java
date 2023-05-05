@@ -20,13 +20,13 @@ public class EnemyBullet extends Bullet {
     }
     
     @Override
-    protected void onHitPlayer(Player player) {
+    public void onHitPlayer(Player player) {
         player.getShip().takeDamage(_damage);
         remove();
     }
 
     @Override
-    void onHitEnemy(Damageable enemy) {
+    public void onHitEnemy(Damageable enemy) {
         // Nothing
     }
 

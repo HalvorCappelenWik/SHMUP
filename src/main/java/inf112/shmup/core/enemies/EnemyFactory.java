@@ -41,15 +41,21 @@ public class EnemyFactory extends Actor {
         if (id == null)
             return null;
 
-        if (_creators.containsKey(id)) {
-            EnemyShip enemy = _creators.get(id).apply(x, y);
-            _instance.getStage().addActor(enemy);
-            return enemy;
+        if (_instance == null || _instance.getStage() == null)
+        {
+            System.out.println("No enemy factory instance!");
+            return null;
         }
-        else {
+
+        if (!_creators.containsKey(id))
+        {
             System.out.println("Enemy unknown: " + id);
             return null;
         }
+        
+        EnemyShip enemy = _creators.get(id).apply(x, y);
+        _instance.getStage().addActor(enemy);
+        return enemy;
     }
 
 }
