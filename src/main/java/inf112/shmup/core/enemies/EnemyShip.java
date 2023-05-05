@@ -17,7 +17,7 @@ import inf112.shmup.core.utilities.ScoreManager;
 
 public abstract class EnemyShip extends Ship implements Damageable {
 
-    private static final float _item_drop_probability = 0.8f; // er dette riktig?
+    private static final float ITEM_DROP_PROBABILITY = 0.8f;
 	
 	private final Color DAMAGE_COLOR = Color.RED;
 	private final int DAMAGE_FRAMES = 3;
@@ -69,7 +69,7 @@ public abstract class EnemyShip extends Ship implements Damageable {
     @Override
     protected void onDead() {
         AudioPlayer.playEffect("enemy_killed");
-        if (PowerUpFactory.shouldSpawnPowerUp(0.8f)) {
+        if (PowerUpFactory.shouldSpawnPowerUp(ITEM_DROP_PROBABILITY)) {
             PowerUpFactory.spawnPowerUp(getX(), getY());
         }
     }

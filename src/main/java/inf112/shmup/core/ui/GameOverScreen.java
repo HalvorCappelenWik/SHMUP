@@ -1,11 +1,8 @@
 package inf112.shmup.core.ui;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import inf112.shmup.core.Game;
@@ -15,13 +12,6 @@ public class GameOverScreen extends UiScreen{
 	
 	public GameOverScreen(final Game game) {
 		super(game);
-	}
-
-	private void addLabel(String text, float y) {
-		Label label = new Label(text, new LabelStyle(game.font, Color.BLACK));
-		label.setX(Gdx.graphics.getWidth() * 0.5f - label.getWidth() * 0.5f);
-		label.setY(y);
-		stage.addActor(label);
 	}
 
 	@Override

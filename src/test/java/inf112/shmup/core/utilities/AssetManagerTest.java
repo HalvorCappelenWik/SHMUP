@@ -15,8 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 
 public class AssetManagerTest {
-	private HeadlessApplication app;
-
     @BeforeAll
     public static void setUp() {
         // Initialize LibGDX with headless backend
@@ -27,7 +25,7 @@ public class AssetManagerTest {
     @BeforeEach
     void setUpBeforeEach() {
         HeadlessApplicationConfiguration config = new HeadlessApplicationConfiguration();
-        app = new HeadlessApplication(new Game(), config);
+        new HeadlessApplication(new Game(), config);
     }
 
     @Test
