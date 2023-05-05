@@ -17,6 +17,10 @@ public abstract class SpriteActor extends Actor {
     private float _collisionScaleX;
     private float _collisionScaleY;
 
+    /**
+     *
+     * @param sprite
+     */
     protected SpriteActor(Sprite sprite) {
         this.sprite = sprite;
         if (this.sprite != null)
@@ -32,6 +36,11 @@ public abstract class SpriteActor extends Actor {
         this.setCollisionScale(scaleXY, scaleXY);
     }
 
+    /**
+     *
+     * @param scaleX
+     * @param scaleY
+     */
     public void setCollisionScale(float scaleX, float scaleY) {
         this._collisionScaleX = scaleX;
         this._collisionScaleY = scaleY;
@@ -85,14 +94,25 @@ public abstract class SpriteActor extends Actor {
             sprite.setRotation(degrees);
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isOnScreen() {
         return SCREEN_BOUNDS.overlaps(getCollisionBox());
     }
 
+    /**
+     *
+     */
     public void clampToScreen() {
         clampToBounds(SCREEN_BOUNDS);
     }
 
+    /**
+     *
+     * @param bounds
+     */
     public void clampToBounds(Rectangle bounds) {
         if (getX() < bounds.x)
             setX(bounds.x);
