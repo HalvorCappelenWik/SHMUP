@@ -12,7 +12,7 @@ public class GameOverScreen extends UiScreen{
 	
 	/**
 	 * Constructor for the GameOverScreen class
-	 * @param game
+	 * @param game The game being played
 	 */
 	public GameOverScreen(final Game game) {
 		super(game);
