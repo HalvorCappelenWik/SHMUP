@@ -11,7 +11,11 @@ import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
 
 public class AboutScreen extends UiScreen{
-	
+
+	/**
+	 * Constructor for the AboutScreen class
+	 * @param game The game being played
+	 */
 	public AboutScreen(Game game) {
 		super(game);
 	}

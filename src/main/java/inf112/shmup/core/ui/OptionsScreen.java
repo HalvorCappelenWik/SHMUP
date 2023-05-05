@@ -15,7 +15,7 @@ public class OptionsScreen extends UiScreen{
 
 	/**
 	 * Constructor for the OptionsScreen class
-	 * @param game
+	 * @param game The game being played
 	 */
 	public OptionsScreen(final Game game) {
 		super(game);

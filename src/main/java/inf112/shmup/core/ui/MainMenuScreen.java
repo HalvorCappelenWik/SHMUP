@@ -24,7 +24,7 @@ public class MainMenuScreen extends UiScreen {
 
 	/**
 	 * Constructor for the MainMenuScreen class
-	 * @param game
+	 * @param game The game being played
 	 */
 	public MainMenuScreen(final Game game) {
 		super(game);

@@ -17,7 +17,7 @@ public abstract class UiScreen implements Screen {
 
 	/**
 	 * Constructor for the UiScreen class
-	 * @param game
+	 * @param game The game being played
 	 */
 	public UiScreen(final Game game) {
 		this.game = game;
