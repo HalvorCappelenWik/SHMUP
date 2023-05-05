@@ -14,6 +14,11 @@ public class FallingRedBomb extends PowerUp {
 	
 	private int health = 5;
 
+	/**
+	 * Constructor for the FallingRedBomb class.
+	 * @param x The x-coordinate the falling red bomb should spawn at
+	 * @param y The y-coordinate the falling red bomb should spawn at
+	 */
 	public FallingRedBomb(float x, float y) {
 		super(x, y, AssetManager.sprite("items/bomb_1.png"));
 		if (sprite != null)
@@ -28,6 +33,7 @@ public class FallingRedBomb extends PowerUp {
 		if(collidesWithPlayer()) takeDamage(health);
 	}
 
+	/** Returns true if the bomb is "dead", false otherwise. */
 	public boolean isDead() {
 		return health <= 0;
 	}

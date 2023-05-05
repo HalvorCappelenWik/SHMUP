@@ -5,6 +5,11 @@ import inf112.shmup.core.utilities.AssetManager;
 
 public class ExtraHealth extends PowerUp {
 
+    /**
+     * Constructor for the ExtraHealth class.
+     * @param x The x-coordinate the extra health should spawn at
+     * @param y The y-coordinate the extra health should spawn at
+     */
     ExtraHealth(float x, float y) {
         super(x, y, AssetManager.sprite("items/heart.png"));
         if (sprite != null)

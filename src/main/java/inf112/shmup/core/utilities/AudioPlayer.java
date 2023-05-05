@@ -12,7 +12,7 @@ public class AudioPlayer {
 
     /**
      * Play sound effect.
-     * @param name Name of sound effect.
+     * @param name Name of sound effect
      */
     public static long playEffect(String name) {
 
