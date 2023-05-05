@@ -16,7 +16,6 @@ public class Zig1 extends EnemyShip {
 	 * @param x The x-coordinate the Zig1 plane starts at
 	 * @param y The y-coordinate the Zig1 plane starts at
 	 */
-
 	public Zig1(float x, float y) {
 		super(x, y, AssetManager.sprite("ships/ship_9.png"), MAX_HEALTH);
 		

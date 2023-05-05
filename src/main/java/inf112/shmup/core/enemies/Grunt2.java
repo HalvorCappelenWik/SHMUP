@@ -16,7 +16,6 @@ public class Grunt2 extends EnemyShip {
      * @param x The x-coordinate the Grunt2 plane starts at
      * @param y The y-coordinate the Grunt2 plane starts at
      */
-
     public Grunt2(float x, float y) {
         super(x, y, AssetManager.sprite("ships/ship_8.png"), MAX_HEALTH);
 
