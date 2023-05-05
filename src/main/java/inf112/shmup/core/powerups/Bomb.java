@@ -6,7 +6,12 @@ public class Bomb extends PowerUp {
 	
 	private final float blastRadius = 100f;
 	private final int blastDamage = 3;
-	
+
+	/**
+	 * Constructor for the Bomb class.
+	 * @param x The x-coordinate the bomb should spawn on
+	 * @param y The y-coordinate the bomb should spawn on
+	 */
 	Bomb(float x, float y) {
 		super(x, y, AssetManager.sprite("items/bomb_1.png"));
 	}

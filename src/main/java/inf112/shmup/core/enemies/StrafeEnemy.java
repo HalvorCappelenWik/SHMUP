@@ -11,9 +11,9 @@ public class StrafeEnemy extends EnemyShip {
     private int _dir = 1;
 
     /**
-     * The constructor for the StafeEnemy class.
-     * @param x The x-coordinate the StafeEnemy plane starts at
-     * @param y The y-coordinate the StafeEnemy plane starts at
+     * The constructor for the StrafeEnemy class.
+     * @param x The x-coordinate the StrafeEnemy plane starts at
+     * @param y The y-coordinate the StrafeEnemy plane starts at
      */
     public StrafeEnemy(float x, float y){
         super(x, 
