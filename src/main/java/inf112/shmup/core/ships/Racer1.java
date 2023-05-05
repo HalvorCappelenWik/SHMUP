@@ -5,20 +5,22 @@ import inf112.shmup.core.utilities.AssetManager;
 
 public class Racer1 extends Ship {
 
-    private static final int MAX_HEALTH = 3;
-    private static final float BULLET_COOLDOWN = 0.35f;
-    private static final int BULLET_DAMAGE = 1;
-    private static final float SHIP_SPEED = 450f;
+    private static final int _max_health = 3;
+    private static final float _bullet_cooldown = 0.35f;
+    private static final int _bullet_damage = 1;
+    private static final float _ship_speed = 450f;
 
-
+    /**
+     * Constructor for the Racer1 class.
+     */
     public Racer1() {
-        super(AssetManager.sprite("ships/ship_green1.png"), MAX_HEALTH);
+        super(AssetManager.sprite("ships/ship_green1.png"), _max_health);
 
-        addRifle(BULLET_COOLDOWN, () -> new PlayerBullet(BULLET_DAMAGE))
+        addRifle(_bullet_cooldown, () -> new PlayerBullet(_bullet_damage))
             .useSound("shoot_1");
             
-        setSpeedX(SHIP_SPEED);
-        setSpeedY(SHIP_SPEED);
+        setSpeedX(_ship_speed);
+        setSpeedY(_ship_speed);
     }
 
     @Override

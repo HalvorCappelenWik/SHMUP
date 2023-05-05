@@ -7,6 +7,7 @@ import inf112.shmup.core.utilities.AssetManager;
 public class Zig1 extends EnemyShip {
 
 	private static final int MAX_HEALTH = 8;
+
 	private int _dir = 1;
 	private float _angle = 260f;
 

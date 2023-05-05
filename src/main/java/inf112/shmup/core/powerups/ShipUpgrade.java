@@ -7,6 +7,7 @@ import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.AudioPlayer;
 
 public class ShipUpgrade extends PowerUp {
+
     public static final String GUNSHIP_TYPE = "blue";
     public static final String TANK_TYPE = "yellow";
     public static final String RACER_TYPE = "green";
@@ -55,7 +56,7 @@ public class ShipUpgrade extends PowerUp {
             setShip(new Gunship3());
         }
         else {
-            // The player had another ship-type.
+            // The player had another ship-type
             setShip(new Gunship1());
         }
     }
@@ -120,5 +121,6 @@ public class ShipUpgrade extends PowerUp {
     }
 
 	@Override
-	public void takeDamage(int damage) { }
+	public void takeDamage(int damage) {}
+
 }

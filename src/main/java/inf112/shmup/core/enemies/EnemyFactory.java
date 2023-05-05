@@ -20,11 +20,23 @@ public class EnemyFactory extends Actor {
 
     private static final HashMap<String, BiFunction<Float, Float, EnemyShip>> _creators = new HashMap<>();
 
+    /**
+     *
+     * @param id
+     * @param create
+     */
     public static void registerEnemy(String id, BiFunction<Float, Float, EnemyShip> create) {
         _creators.put(id, create);
         System.out.println("Enemy registered: " + id);
     }
 
+    /**
+     * 
+     * @param x
+     * @param y
+     * @param id The ID of the enemy ship
+     * @return an enemy ship at
+     */
     public static EnemyShip spawnEnemy(float x, float y, String id) {
         if (id == null)
             return null;

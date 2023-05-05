@@ -12,6 +12,8 @@ import java.util.List;
 
 public class AtomBomb extends PowerUp {
 
+    private static final int EXPLOSION_RADIUS = 500;
+
     public AtomBomb(float x, float y) {
         super(x, y, AssetManager.sprite("items/nuke.png"));
         sprite.setSize(20, 20);
@@ -19,11 +21,9 @@ public class AtomBomb extends PowerUp {
 
     @Override
     public void activate() {
-    	
-    	Explosion explosion = new Explosion(getX(), getY(), 500, 0, false);
+    	Explosion explosion = new Explosion(getX(), getY(), EXPLOSION_RADIUS, 0, false);
         getStage().addActor(explosion);
         List<Actor> damageable = new ArrayList<Actor>();
-
 
         for (Actor actor : getStage().getActors()) {
             if (actor instanceof Damageable) {

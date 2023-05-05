@@ -15,6 +15,10 @@ public class SplashScreen extends UiScreen {
 
 	private final Image splashImage;
 
+	/**
+	 *
+	 * @param game
+	 */
 	public SplashScreen(final Game game) {
 		super(game);
 

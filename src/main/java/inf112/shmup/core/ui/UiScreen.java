@@ -9,11 +9,16 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
 
-public abstract class UiScreen implements Screen{
+public abstract class UiScreen implements Screen {
+
 	protected Game game;
 	protected Stage stage;
 	protected Skin skin;
-	
+
+	/**
+	 *
+	 * @param game
+	 */
 	public UiScreen(final Game game) {
 		this.game = game;
 		this.stage = new Stage(game.getViewport());

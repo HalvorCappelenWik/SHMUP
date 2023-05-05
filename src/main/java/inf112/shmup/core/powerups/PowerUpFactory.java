@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.function.BiFunction;
 
 public class PowerUpFactory extends Actor {
+
 	private static PowerUpFactory _instance;
 	private static final Random _random = new Random();
 	private static final Map<String, BiFunction<Float, Float, PowerUp>> _creators = new HashMap<>();
@@ -76,4 +77,5 @@ public class PowerUpFactory extends Actor {
 	private static double getWeight(String name) {
 		return _weights.getOrDefault(name, 0.0);
 	}
+
 }

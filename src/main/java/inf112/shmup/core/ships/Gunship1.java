@@ -6,14 +6,17 @@ import inf112.shmup.core.utilities.AudioPlayer;
 
 public class Gunship1 extends Ship {
 
-    private static final int MAX_HEALTH = 3;
-    private static final float BULLET_COOLDOWN = 0.65f;
-    private static final int BULLET_DAMAGE = 1;
-    
-    public Gunship1() {
-        super(AssetManager.sprite("ships/ship_blue1.png"), MAX_HEALTH);
+    private static final int _max_health = 3;
+    private static final float _bullet_cooldown = 0.65f;
+    private static final int _bullet_damage = 1;
 
-        addRifle(BULLET_COOLDOWN, () -> new PlayerBullet(BULLET_DAMAGE))
+    /**
+     * Constructor for the Gunship1 class.
+     */
+    public Gunship1() {
+        super(AssetManager.sprite("ships/ship_blue1.png"), _max_health);
+
+        addRifle(_bullet_cooldown, () -> new PlayerBullet(_bullet_damage))
             .useSound("shoot_1");
     }
 

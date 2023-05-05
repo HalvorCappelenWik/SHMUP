@@ -53,27 +53,19 @@ public class GameScreen implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(.25f, .25f, .25f, 1f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-		//draw background rectangle using shapeRenderer
-		//game.shape.setProjectionMatrix(game.camera.combined);
-		//game.shape.begin(ShapeType.Filled);
-		//game.shape.setColor(Color.LIGHT_GRAY);
-		//game.shape.rect(0, 0, Game.V_WIDTH, Game.V_WIDTH);
-		//game.shape.end();
-
 		
 		// Check if player is killed
-		if(player.getShip().isDead()) {
+		if (player.getShip().isDead()) {
 			game.setScreen(new GameOverScreen(game));
 		}
 		
 		// If no enemies then spawn next wave
-		if(getEnemiesInStage().isEmpty()) {
+		if (getEnemiesInStage().isEmpty()) {
 			WaveFactory.spawnNextWave();
 		}
 
 		// Render background
-		if(backgroundEnabled){
+		if (backgroundEnabled) {
 			background.render(delta);
 		}
 
@@ -92,7 +84,7 @@ public class GameScreen implements Screen {
 		stage.dispose();
 	}
 
-	// --------- other methods ----------
+	// --------- Other methods ----------
 
 	/**
 	 * Makes a list of all (not killed) enemies currently in the stage

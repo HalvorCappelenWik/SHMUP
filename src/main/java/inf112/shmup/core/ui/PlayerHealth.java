@@ -10,7 +10,10 @@ import inf112.shmup.core.utilities.AssetManager;
 public class PlayerHealth extends Actor {
 
 	Sprite sprite;
-	
+
+	/**
+	 *
+	 */
 	public PlayerHealth() {
 		sprite = AssetManager.sprite("heart.png");
 	}

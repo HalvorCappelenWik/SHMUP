@@ -12,6 +12,11 @@ public abstract class Bullet extends SpriteActor {
 
 	private final float _speed;
 
+	/**
+	 * Constructor for the Bullet class.
+	 * @param speed The speed of the bullet
+	 * @param bulletSprite The sprite of the bullet
+	 */
 	public Bullet(float speed, String bulletSprite) {
 		super(AssetManager.sprite("bullets/" + bulletSprite));
 		_speed = speed;
@@ -40,6 +45,10 @@ public abstract class Bullet extends SpriteActor {
 		}
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	protected Player hasHitPlayer(){
 		Player player = Player.getInstance();
         if (player == null) return null;
@@ -47,11 +56,15 @@ public abstract class Bullet extends SpriteActor {
         if (sprite.getBoundingRectangle().overlaps(player.getShip().getCollisionBox())) {
             return player;
         }
-		else{
+		else {
 			return null;
 		}
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	protected Damageable hasHitEnemy(){
 		
 		Rectangle bounds = sprite.getBoundingRectangle();

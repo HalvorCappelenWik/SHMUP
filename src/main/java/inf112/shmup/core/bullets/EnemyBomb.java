@@ -7,6 +7,10 @@ public class EnemyBomb extends Rocket {
 
     private static final int _damage = 3;
 
+    /**
+     * Constructor for the EnemyBomb class.
+     * @param speed The movement speed of the bomb
+     */
     public EnemyBomb(float speed) {
         super(speed, "missile_a.png");
         _radius = 60;

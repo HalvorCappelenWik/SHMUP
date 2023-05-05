@@ -16,6 +16,8 @@ import inf112.shmup.core.utilities.Damageable;
 import inf112.shmup.core.utilities.ScoreManager;
 
 public abstract class EnemyShip extends Ship implements Damageable {
+
+    private static final float _item_drop_probability = 0.8f; // er dette riktig?
 	
 	private final Color DAMAGE_COLOR = Color.RED;
 	private final int DAMAGE_FRAMES = 3;

@@ -5,14 +5,17 @@ import inf112.shmup.core.bullets.PlayerRocket;
 
 public class Rocketeer1 extends Ship {
 
-    private static final int MAX_HEALTH = 4;
-    private static final float ROCKET_COOLDOWN = 0.7f;
-    private static final int ROCKET_DAMAGE = 2;
+    private static final int _max_health = 4;
+    private static final float _rocket_cooldown = 0.7f;
+    private static final int _rocket_damage = 2;
 
+    /**
+     * Constructor for the Rocketeer1 class.
+     */
     public Rocketeer1() {
-        super(AssetManager.sprite("ships/ship_red1.png"), MAX_HEALTH);
+        super(AssetManager.sprite("ships/ship_red1.png"), _max_health);
 
-        addRifle(ROCKET_COOLDOWN, () -> new PlayerRocket(ROCKET_DAMAGE))
+        addRifle(_rocket_cooldown, () -> new PlayerRocket(_rocket_damage))
             .useSound("shoot_1");
     }
 

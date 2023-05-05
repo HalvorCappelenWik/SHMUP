@@ -5,10 +5,16 @@ import inf112.shmup.core.utilities.Damageable;
 
 public class EnemyBullet extends Bullet {
 
+    private static final int _bullet_speed = 500;
+
     private final int _damage;
 
+    /**
+     * Constructor for the EnemyBullet class.
+     * @param damage The amount of damage the bullet deals
+     */
     public EnemyBullet(int damage) {
-        super(500, "bullet_e.png");
+        super(_bullet_speed, "bullet_e.png");
         setCollisionScale(0.5f, 0.7f);
         _damage = damage;
     }
@@ -21,7 +27,7 @@ public class EnemyBullet extends Bullet {
 
     @Override
     void onHitEnemy(Damageable enemy) {
-        //nothing
+        // Nothing
     }
 
 }

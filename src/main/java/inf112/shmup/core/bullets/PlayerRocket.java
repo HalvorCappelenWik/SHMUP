@@ -8,12 +8,16 @@ import inf112.shmup.core.utilities.Damageable;
 
 public class PlayerRocket extends Rocket {
 
-    private static final int ROCKET_SPEED = 400;
+    private static final int _rocket_speed = 400;
 
     private int _damage;
 
+    /**
+     * Constructor for the PlayerRocket class.
+     * @param damage The amount of damage a rocket deals
+     */
     public PlayerRocket(int damage){
-        super(ROCKET_SPEED, "missile_a.png");
+        super(_rocket_speed, "missile_a.png");
         _damage = damage;
         _radius = 100;
     }

@@ -28,6 +28,12 @@ public class Rifle extends Actor {
     private float _timeSinceLastBurst;
     private int _remainingBurst;
 
+    /**
+     * Constructor for the Rifle class.
+     * @param origin
+     * @param cooldown
+     * @param bulletSupplier
+     */
     public Rifle(Actor origin, float cooldown, Supplier<Bullet> bulletSupplier) {
         _bulletSupplier = bulletSupplier;
         _shootCooldown = cooldown;
@@ -39,32 +45,61 @@ public class Rifle extends Actor {
         _autoShoot = true;
     }
 
+    /**
+     * Adds burst to the rifle.
+     * @param bulletsPerBurst The amount of bullets per burst
+     * @param cooldown The cooldown between each burst
+     * @return
+     */
     public Rifle useBurst(int bulletsPerBurst, float cooldown) {
         _bulletsPerBurst = bulletsPerBurst;
         _burstCooldown = cooldown;
         return this;
     }
 
+    /**
+     * Change the angle of the rifle shot
+     * @param angles
+     * @return
+     */
     public Rifle useAngles(float ...angles) {
         _angles = angles;
         return this;
     }
 
+    /**
+     *
+     * @param shootAutomatically
+     * @return
+     */
     public Rifle setAutoShoot(boolean shootAutomatically) {
         _autoShoot = shootAutomatically;
         return this;
     }
 
+    /**
+     * Add sound to the rifle.
+     * @param sound The sound that being played
+     * @return
+     */
     public Rifle useSound(String sound) {
         _sound = sound;
         return this;
     }
 
+    /**
+     *
+     * @param offset
+     * @return
+     */
     public Rifle useOffset(float offset) {
         _offset = offset;
         return this;
     }
-    
+
+    /**
+     *
+     */
     public void shoot() {
         if (_timeSinceLastShot < _shootCooldown)
             return;

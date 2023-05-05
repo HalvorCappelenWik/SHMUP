@@ -8,12 +8,16 @@ import inf112.shmup.core.utilities.Damageable;
 
 public class PlayerBullet extends Bullet {
 
-	private static final int BULLET_SPEED = 2000;
+	private static final int _bullet_speed = 2000;
 
 	private final int _damage;
 
+	/**
+	 * Constructor for the PlayerBullet class.
+	 * @param damage The damage the player bullet should deal
+	 */
     public PlayerBullet(int damage) {
-		super(BULLET_SPEED, "bullet_a.png");
+		super(_bullet_speed, "bullet_a.png");
 		_damage = damage;
     }
 

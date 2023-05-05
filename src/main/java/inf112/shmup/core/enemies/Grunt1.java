@@ -6,16 +6,22 @@ import inf112.shmup.core.utilities.AssetManager;
 
 public class Grunt1 extends EnemyShip {
 
-    private static final int MAX_HEALTH = 2;
-    private static final int BULLET_DAMAGE = 1;
+    private static final int _max_health = 2;
+    private static final float _bullet_cooldown = 1f;
+    private static final int _bullet_damage = 1;
 
     private float _speed = 100;
     private int _dir = 1;
 
+    /**
+     * The constructor for the Grunt1 class.
+     * @param x The x-coordinate the Grunt plane starts at
+     * @param y The y-coordinate the Grunt plane starts at
+     */
     public Grunt1(float x, float y) {
-        super(x, y, AssetManager.sprite("ships/ship_10.png"), MAX_HEALTH);
+        super(x, y, AssetManager.sprite("ships/ship_10.png"), _max_health);
 
-        addRifle(1f, () -> new EnemyBullet(BULLET_DAMAGE))
+        addRifle(_bullet_cooldown, () -> new EnemyBullet(_bullet_damage))
             .useSound("shoot_2");
         
         this.killPoints = 50;

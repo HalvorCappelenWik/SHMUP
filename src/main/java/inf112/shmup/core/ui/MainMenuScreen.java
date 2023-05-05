@@ -14,7 +14,7 @@ import inf112.shmup.core.Game;
 import inf112.shmup.core.utilities.AssetManager;
 import inf112.shmup.core.utilities.BackgroundHandler;
 
-public class MainMenuScreen extends UiScreen{
+public class MainMenuScreen extends UiScreen {
 	
 	private BackgroundHandler background;
 	public static Color defaultColor = Color.GREEN;
@@ -22,6 +22,10 @@ public class MainMenuScreen extends UiScreen{
 	private boolean isZoomed = false;
 	private float zoomSpeed = 1f;
 
+	/**
+	 *
+	 * @param game
+	 */
 	public MainMenuScreen(final Game game) {
 		super(game);
 		

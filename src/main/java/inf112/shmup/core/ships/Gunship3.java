@@ -5,17 +5,20 @@ import inf112.shmup.core.utilities.AssetManager;
 
 public class Gunship3 extends Ship {
 
-    private static final int MAX_HEALTH = 4;
-    private static final float BULLET_COOLDOWN = 0.5f;
-    private static final int BULLET_DAMAGE = 1;
-    private static final float BULLET_ANGLE = 12f;
+    private static final int _max_health = 4;
+    private static final float _bullet_cooldown = 0.5f;
+    private static final int _bullet_damage = 1;
+    private static final float _bullet_angle = 12f;
 
+    /**
+     * Constructor for the Gunship3 class.
+     */
     public Gunship3() {
-        super(AssetManager.sprite("ships/ship_blue3.png"), MAX_HEALTH);
+        super(AssetManager.sprite("ships/ship_blue3.png"), _max_health);
 
-        addRifle(BULLET_COOLDOWN, () -> new PlayerBullet(BULLET_DAMAGE))
+        addRifle(_bullet_cooldown, () -> new PlayerBullet(_bullet_damage))
             .useSound("shoot_1")
-            .useAngles(-BULLET_ANGLE, 0f, BULLET_ANGLE);
+            .useAngles(-_bullet_angle, 0f, _bullet_angle);
     }
 
     @Override

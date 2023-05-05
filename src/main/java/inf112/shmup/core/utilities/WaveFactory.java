@@ -6,6 +6,7 @@ import inf112.shmup.core.Game;
 import inf112.shmup.core.enemies.EnemyFactory;
 
 public class WaveFactory {
+
 	private static final JsonValue _waves = Game.CONFIG.get("waves");
 	private static final JsonValue _endgameWaves = Game.CONFIG.get("endgameWaves");
 	private static String[] _wave = null;

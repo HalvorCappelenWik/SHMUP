@@ -41,7 +41,8 @@ public class GameOverScreen extends UiScreen{
 		
 		table.row();
 		
-		/*Label saveLabel = new Label("WISH TO SAVE YOUR SCORE?", skin);
+		/* KNYTTET TIL SCORE - IKKE SLETT
+		Label saveLabel = new Label("WISH TO SAVE YOUR SCORE?", skin);
 		table.add(saveLabel);
 		
 		table.row();
@@ -61,7 +62,8 @@ public class GameOverScreen extends UiScreen{
 		
 		table.add(yesButton);
 		
-		table.row();*/
+		table.row();
+		*/
 		
 		TextButton backToMainMenuButton = new TextButton("MAIN MENU", skin);
 		backToMainMenuButton.addListener(new InputListener() {
