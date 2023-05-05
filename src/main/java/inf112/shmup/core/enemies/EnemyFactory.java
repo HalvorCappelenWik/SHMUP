@@ -9,6 +9,9 @@ public class EnemyFactory extends Actor {
 
     private static EnemyFactory _instance;
 
+    /**
+     * Constructor for the EnemyFactory class.
+     */
     public EnemyFactory() {
         _instance = this;
         registerEnemy("grunt1", (x, y) -> new Grunt1(x, y));
@@ -21,9 +24,9 @@ public class EnemyFactory extends Actor {
     private static final HashMap<String, BiFunction<Float, Float, EnemyShip>> _creators = new HashMap<>();
 
     /**
-     *
-     * @param id
-     * @param create
+     * Registering enemy ship at the factory.
+     * @param id The id of the new enemy ship
+     * @param create The type of enemy ship to create
      */
     public static void registerEnemy(String id, BiFunction<Float, Float, EnemyShip> create) {
         _creators.put(id, create);
@@ -31,11 +34,11 @@ public class EnemyFactory extends Actor {
     }
 
     /**
-     * 
-     * @param x
-     * @param y
+     * Spawns an enemy ship at given coordinates.
+     * @param x The x-coordinate the enemy ship should spawn at
+     * @param y The y-coordinate the enemy ship should spawn at
      * @param id The ID of the enemy ship
-     * @return an enemy ship at
+     * @return an enemy ship at given coordinates
      */
     public static EnemyShip spawnEnemy(float x, float y, String id) {
         if (id == null)

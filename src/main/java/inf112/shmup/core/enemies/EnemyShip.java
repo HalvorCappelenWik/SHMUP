@@ -32,7 +32,6 @@ public abstract class EnemyShip extends Ship implements Damageable {
      * @param shipSprite The sprite of the enemy ship
      * @param maxHealth Max health of the enemy ship
      */
-	
     public EnemyShip(float x, float y, Sprite shipSprite, int maxHealth) {
         super(shipSprite, maxHealth);
         setCollisionScale(0.8f);

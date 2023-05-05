@@ -15,7 +15,6 @@ public class StrafeEnemy extends EnemyShip {
      * @param x The x-coordinate the StafeEnemy plane starts at
      * @param y The y-coordinate the StafeEnemy plane starts at
      */
-
     public StrafeEnemy(float x, float y){
         super(x, 
              (float) Math.random() * Game.V_HEIGHT * 0.4f + Game.V_HEIGHT * 0.25f,
