@@ -1,9 +1,5 @@
 package inf112.shmup.core.ui;
 
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.alpha;
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.fadeIn;
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -11,8 +7,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-
 import inf112.shmup.core.Game;
+
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
 public class SplashScreen extends UiScreen{
 
@@ -51,7 +48,7 @@ public class SplashScreen extends UiScreen{
 		//draw background rectangle using shapeRenderer
 		game.shape.setProjectionMatrix(game.camera.combined);
 		game.shape.begin(ShapeRenderer.ShapeType.Filled);
-		game.shape.setColor(Color.LIGHT_GRAY);
+		game.shape.setColor(Color.WHITE);
 		game.shape.rect(0, 0, Game.V_WIDTH, Game.V_WIDTH);
 		game.shape.end();
 
