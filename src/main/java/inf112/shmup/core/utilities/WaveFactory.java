@@ -13,7 +13,8 @@ public class WaveFactory {
 	private static int _index = -1;
 
 	/**
-	 * Spawns the next wave.
+	 * Loads and spawns the next wave.
+	 * Waves are loaded from Game.CONFIG.get()
 	 */
 	public static void spawnNextWave() {
 		loadNextWave();
@@ -37,6 +38,9 @@ public class WaveFactory {
 		return _index;
 	}
 
+	/**
+	 * Resets the wave count
+	 */
 	public static void reset() {
 		_index = -1;
 	}

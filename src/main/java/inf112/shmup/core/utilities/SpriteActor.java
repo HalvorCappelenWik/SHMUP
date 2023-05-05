@@ -18,7 +18,7 @@ public abstract class SpriteActor extends Actor {
     private float _collisionScaleY;
 
     /**
-     *
+     * Create a new SpriteActor
      * @param sprite
      */
     protected SpriteActor(Sprite sprite) {
@@ -37,20 +37,30 @@ public abstract class SpriteActor extends Actor {
     }
 
     /**
-     *
-     * @param scaleX
-     * @param scaleY
+     * Set hitbox scale relative to sprite border
+     * @param scaleX  scale of collision for x
+     * @param scaleY  scale of collision for y
      */
     public void setCollisionScale(float scaleX, float scaleY) {
         this._collisionScaleX = scaleX;
         this._collisionScaleY = scaleY;
     }
 
+    /**
+     * Sets scale of sprite of x and y to param
+     * @param scaleXY  the scale to set x and y
+     */
     @Override
     public void setScale(float scaleXY) {
         this.setScale(scaleXY, scaleXY);
     }
 
+    /**
+     * Sets the scale of sprite for x and y seperate, scales are normalized
+     * 
+     * @param scaleX  The scale to set x
+     * @param scaleY  The scale to set y
+     */
     @Override
     public void setScale(float scaleX, float scaleY) {
         scaleX *= SCALE_NORMALIZING;
@@ -65,6 +75,10 @@ public abstract class SpriteActor extends Actor {
             this.sprite.getWidth() * scaleX, this.sprite.getHeight() * scaleY);
     }
 
+    /**
+     * Method that is called when an actors position is changed
+     * Updates the position of the sprite
+     */
 	@Override
     protected void positionChanged() {
         if (this.sprite == null)
@@ -75,6 +89,7 @@ public abstract class SpriteActor extends Actor {
 		sprite.setY(getY(Align.center) - sprite.getHeight() / 2);
         super.positionChanged();
     }
+
 
     @Override
 	public void draw(Batch batch, float parentAlpha) {
@@ -87,6 +102,10 @@ public abstract class SpriteActor extends Actor {
             DrawShape.rectangle(batch, Color.BLUE, getCollisionBox());
 	}
 
+    /**
+     * Sets the rotation of the sprite to the given degrees, 0 is upwards
+     * @param degrees  amount of degrees to rotate
+     */
     @Override 
     public void setRotation(float degrees) {
         super.setRotation(-degrees);
@@ -95,7 +114,7 @@ public abstract class SpriteActor extends Actor {
     }
 
     /**
-     *
+     * returns if actor is within screen bounds
      * @return
      */
     public boolean isOnScreen() {
@@ -103,15 +122,15 @@ public abstract class SpriteActor extends Actor {
     }
 
     /**
-     *
+     * Clamps the actor to the screen bounds
      */
     public void clampToScreen() {
         clampToBounds(SCREEN_BOUNDS);
     }
 
     /**
-     *
-     * @param bounds
+     * Clams actor position to the bounds given
+     * @param bounds  bound to clamp actor to
      */
     public void clampToBounds(Rectangle bounds) {
         if (getX() < bounds.x)
