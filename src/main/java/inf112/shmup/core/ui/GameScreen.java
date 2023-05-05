@@ -27,6 +27,11 @@ public class GameScreen implements Screen {
 	Boolean backgroundEnabled = true;
 	BackgroundHandler background;
 	
+
+	/**
+	 * Constructor for the GameeScreen class
+	 * @param game
+	 */
 	public GameScreen(Game game) {
 		this.game = game;
 		this.stage = new Stage(game.getViewport());
