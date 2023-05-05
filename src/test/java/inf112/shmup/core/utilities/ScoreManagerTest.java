@@ -3,9 +3,11 @@ package inf112.shmup.core.utilities;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import inf112.shmup.core.GameTestBase;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ScoreManagerTest {
+public class ScoreManagerTest extends GameTestBase {
 	
 	@BeforeEach
 	public void setUp() {

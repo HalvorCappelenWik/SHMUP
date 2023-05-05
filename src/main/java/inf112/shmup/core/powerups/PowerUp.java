@@ -13,7 +13,8 @@ public abstract class PowerUp extends SpriteActor implements Damageable {
 	protected PowerUp(float x, float y, Sprite sprite) {
 		super(sprite);
 		setPosition(x, y);
-		sprite.setPosition(x, y);
+		if (sprite != null)
+			sprite.setPosition(x, y);
 	}
 
 	@Override
@@ -28,6 +29,9 @@ public abstract class PowerUp extends SpriteActor implements Damageable {
 	protected void positionChanged() {
 		// TODO Auto-generated method stub
 		super.positionChanged();
+		if (sprite == null)
+			return;
+			
 		sprite.setX(getX(Align.center) - sprite.getWidth()/2);
 		sprite.setY(getY(Align.center) - sprite.getHeight()/2);
 	}

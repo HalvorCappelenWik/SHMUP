@@ -31,6 +31,7 @@ public class GameTest {
         viewport = mock(FitViewport.class);
 
         // Create the Game object
+        Game.TEST_MODE = true;
         game = spy(new Game());
 
         // Set the mock objects as dependencies of the Game object

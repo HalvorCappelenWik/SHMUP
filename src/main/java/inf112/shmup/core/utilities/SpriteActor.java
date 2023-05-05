@@ -19,7 +19,8 @@ public abstract class SpriteActor extends Actor {
 
     protected SpriteActor(Sprite sprite) {
         this.sprite = sprite;
-		this.sprite.setOriginCenter();
+        if (this.sprite != null)
+		    this.sprite.setOriginCenter();
 
         this.setScale(_collisionScaleX, _collisionScaleY);
 
@@ -46,6 +47,9 @@ public abstract class SpriteActor extends Actor {
         scaleX *= SCALE_NORMALIZING;
         scaleY *= SCALE_NORMALIZING;
 
+        if (this.sprite == null)
+            return;
+
 		this.sprite.setScale(scaleX, scaleY);
         setBounds(
             getX(), getY(), 
@@ -54,6 +58,9 @@ public abstract class SpriteActor extends Actor {
 
 	@Override
     protected void positionChanged() {
+        if (this.sprite == null)
+            return;
+
 		// If you override this method, without the code below. The sprite may not be rendered correctly
         sprite.setX(getX(Align.center) - sprite.getWidth() / 2);
 		sprite.setY(getY(Align.center) - sprite.getHeight() / 2);
@@ -63,7 +70,9 @@ public abstract class SpriteActor extends Actor {
     @Override
 	public void draw(Batch batch, float parentAlpha) {
 		positionChanged();
-		sprite.draw(batch);
+
+        if (sprite != null)
+		    sprite.draw(batch);
 
         if (Game.DEBUG_ENABLED)
             DrawShape.rectangle(batch, Color.BLUE, getCollisionBox());
@@ -72,11 +81,12 @@ public abstract class SpriteActor extends Actor {
     @Override 
     public void setRotation(float degrees) {
         super.setRotation(-degrees);
-        sprite.setRotation(degrees);
+        if (sprite != null)
+            sprite.setRotation(degrees);
     }
 
     public boolean isOnScreen() {
-        return SCREEN_BOUNDS.overlaps(sprite.getBoundingRectangle());
+        return SCREEN_BOUNDS.overlaps(getCollisionBox());
     }
 
     public void clampToScreen() {
@@ -99,6 +109,9 @@ public abstract class SpriteActor extends Actor {
      * Gets the bounding rectangle used for collisions.
      */
     public Rectangle getCollisionBox() {
+
+        if (sprite == null)
+            return new Rectangle(getX(), getY(), 10, 10);
 
         Rectangle spriteBox = sprite.getBoundingRectangle();
 
