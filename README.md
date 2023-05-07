@@ -49,6 +49,6 @@ Game assets
 - Kenny https://kenney.nl/assets/pixel-shmup 
 
 Musikk og lydeffekter
-- Soundeffects are © by imphenzi
+- Rettigheter til lydeffekter er kjøpt © by imphenzi
 
 Alle har tillatelse til å anvende og dele kildekoden i dette prosjektet fritt. Inkludert i kommersielle sammenhenger.  https://mit-license.org/ 
