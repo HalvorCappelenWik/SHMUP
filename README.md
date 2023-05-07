@@ -48,9 +48,6 @@ Applikasjonsrammeverk
 Game assets
 - Kenny https://kenney.nl/assets/pixel-shmup 
 
-Online leaderboard hosting
-- App42 http://api.shephertz.com/
-
 Musikk og lydeffekter
 - Soundeffects are © by imphenzi
 
