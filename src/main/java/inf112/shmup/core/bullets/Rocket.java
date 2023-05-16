@@ -21,8 +21,8 @@ public abstract class Rocket extends Bullet {
      * @param y The desired y-coordinate of the explosion
      * @param damage The damage that the explosion should deal
      */
-    protected void spawnExplosion(float x, float y, int damage){
-        Explosion explosion =  new Explosion(x, y, _radius, damage, false);
+    protected void spawnExplosion(float x, float y, int damage, boolean canKillPlayer){
+        Explosion explosion =  new Explosion(x, y, _radius, damage, canKillPlayer);
 
         if (getStage() != null)
             getStage().addActor(explosion);

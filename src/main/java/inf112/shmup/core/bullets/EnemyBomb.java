@@ -27,7 +27,7 @@ public class EnemyBomb extends Rocket {
 
     @Override
     public void onHitPlayer(Player player) {
-        spawnExplosion(getX(), getY(), _damage);
+        spawnExplosion(getX(), getY(), _damage,true);
         remove();
     }
 

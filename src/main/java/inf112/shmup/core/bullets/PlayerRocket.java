@@ -28,7 +28,7 @@ public class PlayerRocket extends Rocket {
 			return;
 		}
         enemy.takeDamage(1);
-        spawnExplosion(getX(), getY(), _damage);
+        spawnExplosion(getX(), getY(), _damage, false);
 
         remove();
     }
